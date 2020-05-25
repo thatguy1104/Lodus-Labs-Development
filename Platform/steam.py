@@ -6,7 +6,7 @@ import os
 
 class SteamList():
     def __init__(self, APIkey):
-        self.filename = "/Users/albert.ov11/Desktop/PROJECT/DATA(csv)/steam.csv"
+        self.filename = "./DATA(csv)/steam.csv"
         self.baseURL = 'https://api.steampowered.com/ISteamUserStats/GetNumberOfCurrentPlayers/v1/'
         self.APIkey = APIkey
 
@@ -35,6 +35,3 @@ class SteamList():
             count = self.getSteamStatsForAGame(appID[i])
             print("NAME : {0}, DEV: {1}, COUNT: {2}".format(name[i], developer[i], count))
 
-
-steam = SteamList('2C2C2E0FEBFD8D32F9346602D47C83BA')
-steam.run()

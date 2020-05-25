@@ -4,7 +4,7 @@ from csv import reader
 
 class GameCorporations:
     def __init__(self):
-        self.file = 'data.csv'
+        self.file = './DATA(csv)/data.csv'
 
     def getCorporationNames(self):
         names = []
@@ -62,12 +62,9 @@ class GameCorporations:
                 'games' : "None yet"
                 })
 
-        with open('corp_info.json', 'w') as outfile:
+        with open('./DATA(json)/corp_info.json', 'w') as outfile:
              json.dump(data, outfile)
 
-    def run(self):
+    def writeCorpNames(self):
         names, city, country, games = self.getCorporationNames()
         self.writeToJSON(names, city, country, games)
-
-corp = GameCorporations()
-corp.run()
