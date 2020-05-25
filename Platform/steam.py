@@ -1,29 +1,40 @@
+from csv import reader
 import requests
 import json
 import os
+# good sourse: https://store.steampowered.com/stats/
 
 class SteamList():
     def __init__(self, APIkey):
-        self.filename = "corp_info.json"
-        self.baseURL = ' http://api.steampowered.com/ISteamUserStats/GetGlobalStatsForGame/v0001/?'
-        self.parameter = {'appid': APIkey, 'name[0]': 'Minecraft'}
+        self.filename = "/Users/albert.ov11/Desktop/PROJECT/DATA(csv)/steam.csv"
+        self.baseURL = 'https://api.steampowered.com/ISteamUserStats/GetNumberOfCurrentPlayers/v1/'
+        self.APIkey = APIkey
 
-    def readCorpInfo(self):
-        companies = []
-        with open(self.filename) as json_file:
-            data = json.load(json_file)
-            for p in data['company']:
-                companies.append(p)
-        return companies
-    
-    def getSteamStats(self, companies):
-        game_name = "Valve"
-        response = requests.get(self.baseURL, params=self.parameter)
-        print(response)
+    def getSteamStatsForAGame(self, appID):
+        header = {"Client-ID": self.APIkey}
+        game_players_url = 'https://api.steampowered.com/ISteamUserStats/GetNumberOfCurrentPlayers/v1/?format=json&appid=' + appID
+        game_players = requests.get(game_players_url, headers=header).json()['response']['player_count']
+        return game_players
+
+    def readAPPID(self):
+        name = []
+        appID = []
+        developer = []
+
+        with open(self.filename, newline='') as csvfile:
+            csv_reader = reader(csvfile)
+            for row in csv_reader:
+                name.append(row[1])
+                appID.append(row[0])
+                developer.append(row[4])
+        return name, appID, developer
 
     def run(self):
-        companies = self.readCorpInfo()
-        self.getSteamStats(companies)
+        name, appID, developer = self.readAPPID()
+        for i in range(10):
+            count = self.getSteamStatsForAGame(appID[i])
+            print("NAME : {0}, DEV: {1}, COUNT: {2}".format(name[i], developer[i], count))
+
 
 steam = SteamList('2C2C2E0FEBFD8D32F9346602D47C83BA')
 steam.run()
