@@ -1,5 +1,7 @@
 from Platform.steam import *
+from Platform.steamBandwidth import *
 from Scrapers.corp1 import *
+from Scrapers.finance import *
 
 """ INITIALISE THE JSON FILES (RUN ONLY ONCE, UNLESS CHANGES ARE MADE) """
 
@@ -8,8 +10,14 @@ from Scrapers.corp1 import *
 # corp.writeCorpNames()
 
 # Get the NAME, DEVELOPER, CURRENT_PLAYERS
-# steam = SteamList('2C2C2E0FEBFD8D32F9346602D47C83BA')
-# steam.writeToJSON()
+# steam_general = SteamList('2C2C2E0FEBFD8D32F9346602D47C83BA')
+# steam_general.writeToJSON()
+
+# steam_bandwidth = SteamBandwidth(16) # 16 = is the weird number at the end of the request link
+# steam_bandwidth.writeBandwidthSteam()
+
+
+
 
 """ CONTROL FLOW CLASSES """
 
