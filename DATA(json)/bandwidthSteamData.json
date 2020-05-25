@@ -1,1 +1,1114 @@
-{"USA": {"totalbytes": 88597039208277066, "avgmbps": 56001604.013625}, "USA-NC": {"totalbytes": 2518626432631519, "avgmbps": 56472520.094073}, "CHL": {"totalbytes": 2220324605838762, "avgmbps": 35714473.584701}, "USA-OK": {"totalbytes": 923013656055827, "avgmbps": 42943226.104281}, "USA-KY": {"totalbytes": 1033218266013112, "avgmbps": 48584186.254145}, "PRI": {"totalbytes": 199481011813481, "avgmbps": 27886303.500081}, "USA-TN": {"totalbytes": 1535266799758430, "avgmbps": 52008927.233579}, "MNP": {"totalbytes": 3064702960340, "avgmbps": 17136752.196213}, "MKD": {"totalbytes": 98465979283308, "avgmbps": 19322634.527147}, "ABW": {"totalbytes": 6501080654870, "avgmbps": 36106086.476238}, "USA-UT": {"totalbytes": 1092159136564566, "avgmbps": 57810095.775413}, "USA-CO": {"totalbytes": 2044169025638341, "avgmbps": 49480879.310914}, "FJI": {"totalbytes": 1908762746833, "avgmbps": 9717681.5110788}, "USA-SD": {"totalbytes": 196465885556634, "avgmbps": 50542414.208525}, "AUS": {"totalbytes": 7646519197167415, "avgmbps": 26750501.355541}, "LCA": {"totalbytes": 3400336619971, "avgmbps": 21474436.068853}, "ITA": {"totalbytes": 3235842250589005, "avgmbps": 24809568.344148}, "USA-NH": {"totalbytes": 507812779913104, "avgmbps": 61221103.107739}, "NFK": {"totalbytes": 92450410292, "avgmbps": 9503891.1149407}, "UGA": {"totalbytes": 1559227033968, "avgmbps": 6216474.2160003}, "KWT": {"totalbytes": 359295604220311, "avgmbps": 25751984.948269}, "SUR": {"totalbytes": 4056598392368, "avgmbps": 6459435.7876462}, "AND": {"totalbytes": 12796085070072, "avgmbps": 69286660.741148}, "THA": {"totalbytes": 7566883803363843, "avgmbps": 79106107.306897}, "CIV": {"totalbytes": 4939239565325, "avgmbps": 7893518.8023815}, "GGY": {"totalbytes": 21010577042655, "avgmbps": 18725040.319221}, "GLP": {"totalbytes": 9490768564640, "avgmbps": 6444252.7516531}, "BHS": {"totalbytes": 12542502393711, "avgmbps": 20639675.1997}, "DEU": {"totalbytes": 23029125915933540, "avgmbps": 40013858.987938}, "USA-MA": {"totalbytes": 2023460339773685, "avgmbps": 70012399.591992}, "SGP": {"totalbytes": 1792539978384566, "avgmbps": 79637444.850682}, "BHR": {"totalbytes": 65048779130930, "avgmbps": 17639920.522996}, "USA-WI": {"totalbytes": 1536863097595686, "avgmbps": 52164384.212155}, "MLT": {"totalbytes": 88878961070132, "avgmbps": 53497687.193998}, "GRC": {"totalbytes": 862250478723046, "avgmbps": 15786621.185359}, "TKM": {"totalbytes": 3833149199920, "avgmbps": 1270337.4719399}, "USA-AK": {"totalbytes": 256649070450015, "avgmbps": 37998883.718672}, "DJI": {"totalbytes": 1708784670929, "avgmbps": 3373655.577051}, "COK": {"totalbytes": 25912359365, "avgmbps": 5606612.4806471}, "GIB": {"totalbytes": 8130692217175, "avgmbps": 69132821.325797}, "BEN": {"totalbytes": 563133280946, "avgmbps": 1895634.8233215}, "BMU": {"totalbytes": 6953611115677, "avgmbps": 41277018.909263}, "SRB": {"totalbytes": 533321263876265, "avgmbps": 27756489.599955}, "KEN": {"totalbytes": 19988655964802, "avgmbps": 8834559.7035384}, "PSE": {"totalbytes": 27333342614925, "avgmbps": 8854984.2422194}, "NIC": {"totalbytes": 15842201259030, "avgmbps": 9286661.0918108}, "BTN": {"totalbytes": 798964931963, "avgmbps": 5596738.2883701}, "NRU": {"totalbytes": 20513580588, "avgmbps": 1934412.4259083}, "USA-MI": {"totalbytes": 2719174268537488, "avgmbps": 51817439.850804}, "SAU": {"totalbytes": 1167458262479073, "avgmbps": 24595279.683465}, "YEM": {"totalbytes": 366220753163, "avgmbps": 1392098.692667}, "LAO": {"totalbytes": 24754609671487, "avgmbps": 7044874.0325247}, "CUW": {"totalbytes": 5111055237097, "avgmbps": 17902058.401414}, "USA-IN": {"totalbytes": 1648598077803439, "avgmbps": 52612842.996395}, "PYF": {"totalbytes": 7096351009539, "avgmbps": 7258539.5662056}, "USA-AR": {"totalbytes": 566262377383644, "avgmbps": 36338394.259732}, "PNG": {"totalbytes": 503951742298, "avgmbps": 3637134.2362856}, "BLR": {"totalbytes": 1250261969392946, "avgmbps": 22406735.39422}, "USA-MD": {"totalbytes": 1582150345526582, "avgmbps": 60454425.858652}, "USA-WV": {"totalbytes": 386201495405982, "avgmbps": 41117439.888004}, "IOT": {"totalbytes": 207406048652, "avgmbps": 1591138.1021656}, "AGO": {"totalbytes": 5508714516562, "avgmbps": 4176515.4712372}, "TZA": {"totalbytes": 2452889023217, "avgmbps": 7223524.7969483}, "USA-CT": {"totalbytes": 921066683642499, "avgmbps": 59292694.249219}, "URY": {"totalbytes": 351683181383075, "avgmbps": 24804458.317787}, "BIH": {"totalbytes": 159071172162684, "avgmbps": 16607684.461673}, "AFG": {"totalbytes": 15351370734815, "avgmbps": 4941264.4565428}, "CYM": {"totalbytes": 7822779639244, "avgmbps": 22969268.156198}, "NAM": {"totalbytes": 10495015366280, "avgmbps": 4512793.5549345}, "FRO": {"totalbytes": 23080549509240, "avgmbps": 26983697.087487}, "JEY": {"totalbytes": 33494585700692, "avgmbps": 72410412.364998}, "SXM": {"totalbytes": 1330789935646, "avgmbps": 5926722.3113623}, "TCD": {"totalbytes": 115700851662, "avgmbps": 989140.91367664}, "CHN": {"totalbytes": 95003056941617600, "avgmbps": 57187951.383595}, "GTM": {"totalbytes": 69715208954453, "avgmbps": 8140324.0723723}, "GMB": {"totalbytes": 294398635635, "avgmbps": 2894752.1391985}, "USA-MN": {"totalbytes": 1583889275127705, "avgmbps": 52722924.848024}, "DOM": {"totalbytes": 99979908226709, "avgmbps": 11254852.555453}, "PRY": {"totalbytes": 82765126396749, "avgmbps": 20723790.699764}, "KHM": {"totalbytes": 60025650182623, "avgmbps": 12952461.330104}, "SMR": {"totalbytes": 3293783970266, "avgmbps": 40649124.974057}, "BOL": {"totalbytes": 140252665959878, "avgmbps": 12319314.215543}, "MYS": {"totalbytes": 2100066623826459, "avgmbps": 29885722.572723}, "CZE": {"totalbytes": 2953410930171400, "avgmbps": 30423231.853534}, "USA-PA": {"totalbytes": 3215275787986934, "avgmbps": 57352409.250411}, "SPM": {"totalbytes": 2208589279582, "avgmbps": 43995363.306927}, "USA-RI": {"totalbytes": 297491277917831, "avgmbps": 80710626.566155}, "HKG": {"totalbytes": 2058788527336796, "avgmbps": 56522948.596466}, "LSO": {"totalbytes": 649476982043, "avgmbps": 12291015.788758}, "MNE": {"totalbytes": 32122011904305, "avgmbps": 32965920.876192}, "USA-DC": {"totalbytes": 303613306425681, "avgmbps": 70698444.564466}, "FLK": {"totalbytes": 325143982324, "avgmbps": 1712280.4118036}, "VUT": {"totalbytes": 176396354537, "avgmbps": 2002859.3776896}, "ATG": {"totalbytes": 1253640406857, "avgmbps": 8467832.8212547}, "IND": {"totalbytes": 1567493469233514, "avgmbps": 18730453.485133}, "AIA": {"totalbytes": 1240756022270, "avgmbps": 9664557.4160739}, "USA-OR": {"totalbytes": 1644126795224348, "avgmbps": 53189231.634499}, "IRL": {"totalbytes": 907164384042591, "avgmbps": 36674587.533364}, "ALB": {"totalbytes": 47986629019803, "avgmbps": 25184273.020275}, "KAZ": {"totalbytes": 1022347399740289, "avgmbps": 17094072.531567}, "SWZ": {"totalbytes": 273189822058, "avgmbps": 1791841.1208118}, "MRT": {"totalbytes": 418298098739, "avgmbps": 2453697.9196024}, "GBR": {"totalbytes": 18145164249638393, "avgmbps": 36432200.986325}, "LUX": {"totalbytes": 134611627991110, "avgmbps": 54209697.67889}, "OMN": {"totalbytes": 51848047125854, "avgmbps": 16305058.119343}, "UZB": {"totalbytes": 73702248727781, "avgmbps": 8103202.7503597}, "JOR": {"totalbytes": 124425658036881, "avgmbps": 21312585.776}, "BGD": {"totalbytes": 182066928622028, "avgmbps": 12630730.394644}, "SYC": {"totalbytes": 638840727551, "avgmbps": 2773158.6115984}, "MDG": {"totalbytes": 5558659897792, "avgmbps": 10276101.24218}, "MNG": {"totalbytes": 94756233241377, "avgmbps": 18348997.777717}, "EGY": {"totalbytes": 185841156995008, "avgmbps": 9634729.7090883}, "DMA": {"totalbytes": 1126310747103, "avgmbps": 16567081.566525}, "COG": {"totalbytes": 551318339929, "avgmbps": 4247086.970648}, "USA-GA": {"totalbytes": 2408640791542289, "avgmbps": 52663426.531017}, "CHE": {"totalbytes": 1762520381339876, "avgmbps": 63876541.015129}, "GUF": {"totalbytes": 8411369071227, "avgmbps": 8864570.8831699}, "USA-ID": {"totalbytes": 495459259507653, "avgmbps": 35435406.386481}, "PLW": {"totalbytes": 292584528568, "avgmbps": 10137401.973999}, "SOM": {"totalbytes": 599687851250, "avgmbps": 4337472.4036241}, "WSM": {"totalbytes": 58710053785, "avgmbps": 6902704.9032997}, "REU": {"totalbytes": 82755420460780, "avgmbps": 24732577.230742}, "PAN": {"totalbytes": 94938575191367, "avgmbps": 33597413.122585}, "PRT": {"totalbytes": 2090616575793110, "avgmbps": 49417218.248878}, "ZAF": {"totalbytes": 1062204851130855, "avgmbps": 14189075.281176}, "BRA": {"totalbytes": 16134212152374579, "avgmbps": 30293991.931028}, "TGO": {"totalbytes": 1272139407660, "avgmbps": 6079446.5651973}, "MUS": {"totalbytes": 17798666043886, "avgmbps": 12216229.757317}, "TUN": {"totalbytes": 74662006053892, "avgmbps": 5543401.9390184}, "USA-AL": {"totalbytes": 945278528385524, "avgmbps": 45992404.22666}, "MYT": {"totalbytes": 1874777860880, "avgmbps": 7202687.4977335}, "PHL": {"totalbytes": 2069601119968409, "avgmbps": 15981502.856819}, "USA-SC": {"totalbytes": 1009457020846563, "avgmbps": 53884175.115628}, "LVA": {"totalbytes": 433232574557441, "avgmbps": 41627859.096192}, "NLD": {"totalbytes": 4259347443246544, "avgmbps": 71979656.651389}, "USA-NM": {"totalbytes": 447356706951460, "avgmbps": 38292237.657332}, "MAF": {"totalbytes": 1604683616755, "avgmbps": 9683225.3078323}, "NZL": {"totalbytes": 1201872015137289, "avgmbps": 36647585.796592}, "HTI": {"totalbytes": 643816125817, "avgmbps": 4771949.5275163}, "USA-DE": {"totalbytes": 240756637975472, "avgmbps": 68203694.564311}, "FIN": {"totalbytes": 2340238514891367, "avgmbps": 43287702.68331}, "LIE": {"totalbytes": 7669523000938, "avgmbps": 52581323.635652}, "STP": {"totalbytes": 83638742044, "avgmbps": 8102792.2689437}, "LBN": {"totalbytes": 89472907658982, "avgmbps": 5524201.2528775}, "NER": {"totalbytes": 473611913453, "avgmbps": 3773707.4970476}, "VEN": {"totalbytes": 64472251938202, "avgmbps": 1842495.0260806}, "GRD": {"totalbytes": 2532329248343, "avgmbps": 23403960.051211}, "USA-CA": {"totalbytes": 12047411991436643, "avgmbps": 63123218.06875}, "BDI": {"totalbytes": 237138081864, "avgmbps": 7160456.1407811}, "UKR": {"totalbytes": 4740680111222402, "avgmbps": 32908737.797478}, "USA-ME": {"totalbytes": 364861487088726, "avgmbps": 37754281.088963}, "SVN": {"totalbytes": 318341495929993, "avgmbps": 32360166.498712}, "BFA": {"totalbytes": 512149242376, "avgmbps": 3176652.2700941}, "ESP": {"totalbytes": 5867302390560293, "avgmbps": 62485063.535772}, "GNQ": {"totalbytes": 300863973244, "avgmbps": 3456048.632315}, "TTO": {"totalbytes": 46829727983159, "avgmbps": 29058119.698575}, "PAK": {"totalbytes": 196428839608184, "avgmbps": 6234390.9102696}, "RUS": {"totalbytes": 31919372926189249, "avgmbps": 32226027.575533}, "ARE": {"totalbytes": 721794741086622, "avgmbps": 39560569.027282}, "MHL": {"totalbytes": 69746940884, "avgmbps": 10509359.342901}, "NOR": {"totalbytes": 2374984081707794, "avgmbps": 64546172.361295}, "SLE": {"totalbytes": 260197675644, "avgmbps": 4935158.9460577}, "KOR": {"totalbytes": 15825658912628745, "avgmbps": 75760004.804731}, "MCO": {"totalbytes": 4716684465923, "avgmbps": 79821801.137475}, "USA-TX": {"totalbytes": 7274642536643657, "avgmbps": 57309354.281522}, "CPV": {"totalbytes": 1475691466506, "avgmbps": 9432344.1909891}, "GUM": {"totalbytes": 33769663179347, "avgmbps": 16115568.48013}, "COD": {"totalbytes": 1254687128970, "avgmbps": 3439567.0627025}, "CMR": {"totalbytes": 1566349486092, "avgmbps": 3600276.4433996}, "BWA": {"totalbytes": 2753116300990, "avgmbps": 2757087.7508645}, "USA-NE": {"totalbytes": 450721629605189, "avgmbps": 55770395.853291}, "NCL": {"totalbytes": 14761103467327, "avgmbps": 10695664.825858}, "CYP": {"totalbytes": 83229102548233, "avgmbps": 20456089.968029}, "TMP": {"totalbytes": 301612367265, "avgmbps": 2497218.6670655}, "USA-KS": {"totalbytes": 748488573045322, "avgmbps": 48513289.552632}, "USA-FL": {"totalbytes": 5113973906863214, "avgmbps": 56167057.618938}, "AZE": {"totalbytes": 76141091670108, "avgmbps": 10160728.671402}, "IRQ": {"totalbytes": 117032256665191, "avgmbps": 3303626.465679}, "PER": {"totalbytes": 1027462500546121, "avgmbps": 12973303.087944}, "USA-MO": {"totalbytes": 1716454717987565, "avgmbps": 53095757.597975}, "ARM": {"totalbytes": 45016280597573, "avgmbps": 19446187.671477}, "SSD": {"totalbytes": 75631591869, "avgmbps": 1071266.0215672}, "ISR": {"totalbytes": 940948999037543, "avgmbps": 37814060.998208}, "HRV": {"totalbytes": 397224784134113, "avgmbps": 21105836.716954}, "USA-IL": {"totalbytes": 3370809354581407, "avgmbps": 57597737.78617}, "FSM": {"totalbytes": 138025386145, "avgmbps": 1936408.7416994}, "MAR": {"totalbytes": 124356246935183, "avgmbps": 8551411.488817}, "MLI": {"totalbytes": 358394757394, "avgmbps": 3940126.2634019}, "MWI": {"totalbytes": 328675769176, "avgmbps": 3541433.2011665}, "USA-WY": {"totalbytes": 153949760604190, "avgmbps": 35602667.563037}, "USA-ND": {"totalbytes": 248788049067813, "avgmbps": 64525331.901529}, "GHA": {"totalbytes": 6756852513803, "avgmbps": 8740141.1721321}, "VIR": {"totalbytes": 3783617528692, "avgmbps": 16931997.795915}, "JPN": {"totalbytes": 6840617542703125, "avgmbps": 73020361.557926}, "EST": {"totalbytes": 465080528306010, "avgmbps": 37039839.208741}, "USA-NY": {"totalbytes": 4859859655560670, "avgmbps": 62960426.705342}, "ARG": {"totalbytes": 3907197371091214, "avgmbps": 17164890.099483}, "DNK": {"totalbytes": 2605993528983548, "avgmbps": 63921965.504312}, "VGB": {"totalbytes": 1401152698769, "avgmbps": 19716227.8187}, "CAN": {"totalbytes": 12336122161528450, "avgmbps": 53584963.121585}, "VNM": {"totalbytes": 1971830569100449, "avgmbps": 43368557.749687}, "AUT": {"totalbytes": 1945404563276925, "avgmbps": 31010873.407303}, "SLB": {"totalbytes": 92680158663, "avgmbps": 2621180.203813}, "USA-HI": {"totalbytes": 391187169739150, "avgmbps": 70988614.856958}, "SVK": {"totalbytes": 911813536441021, "avgmbps": 31730612.789785}, "HUN": {"totalbytes": 1974909248140728, "avgmbps": 53254771.935162}, "ATA": {"totalbytes": 11595422878, "avgmbps": 79464312.384261}, "ECU": {"totalbytes": 233229757303582, "avgmbps": 11925166.814436}, "GAB": {"totalbytes": 1868568380853, "avgmbps": 8346435.9453519}, "USA-AZ": {"totalbytes": 2290009683920809, "avgmbps": 57535526.296448}, "TUR": {"totalbytes": 7646568476936381, "avgmbps": 14831801.968679}, "BLM": {"totalbytes": 41072043, "avgmbps": 5142920.5041722}, "KGZ": {"totalbytes": 67966017049095, "avgmbps": 12923686.028536}, "KNA": {"totalbytes": 820804854127, "avgmbps": 14671442.762104}, "COM": {"totalbytes": 2854458407, "avgmbps": 2074377.2914534}, "BRB": {"totalbytes": 16647856413424, "avgmbps": 39282059.044065}, "BEL": {"totalbytes": 2180895952140489, "avgmbps": 55732536.241237}, "ETH": {"totalbytes": 2976234993388, "avgmbps": 3386610.8126656}, "MOZ": {"totalbytes": 3103358830055, "avgmbps": 4152736.0929561}, "COL": {"totalbytes": 832594387961722, "avgmbps": 14484820.521292}, "GIN": {"totalbytes": 285513046870, "avgmbps": 3862646.8454595}, "GNB": {"totalbytes": 24419734626, "avgmbps": 4125719.5165122}, "ZMB": {"totalbytes": 2429356480379, "avgmbps": 3954275.3010178}, "BES": {"totalbytes": 567444609163, "avgmbps": 13085205.962504}, "MDA": {"totalbytes": 210403946650640, "avgmbps": 31123117.443729}, "MAC": {"totalbytes": 136082902636469, "avgmbps": 53738928.247705}, "USA-NJ": {"totalbytes": 2637050950330782, "avgmbps": 73559245.738058}, "MDV": {"totalbytes": 5684262014980, "avgmbps": 3561614.7317885}, "IDN": {"totalbytes": 2118867348836390, "avgmbps": 10205216.574185}, "USA-MT": {"totalbytes": 253761150269588, "avgmbps": 36174056.482116}, "SLV": {"totalbytes": 41124758779901, "avgmbps": 8228778.9308784}, "VAT": {"totalbytes": 51385587748, "avgmbps": 18663079.345334}, "USA-IA": {"totalbytes": 675109556462559, "avgmbps": 46378231.852108}, "LBY": {"totalbytes": 8603538053065, "avgmbps": 6060703.6645285}, "NGA": {"totalbytes": 10989173392098, "avgmbps": 3745040.2648621}, "LBR": {"totalbytes": 392108195080, "avgmbps": 6075760.2577364}, "NPL": {"totalbytes": 44215880309474, "avgmbps": 12763966.849106}, "USA-LA": {"totalbytes": 976404997210038, "avgmbps": 42355272.269104}, "IMN": {"totalbytes": 27613237944960, "avgmbps": 21698345.6619}, "QAT": {"totalbytes": 189111918855016, "avgmbps": 45575371.265597}, "ALA": {"totalbytes": 11983413920012, "avgmbps": 63534819.125403}, "HND": {"totalbytes": 36069588993601, "avgmbps": 9467683.7878202}, "VCT": {"totalbytes": 2156360416768, "avgmbps": 37872960.508598}, "FRA": {"totalbytes": 11061670667115280, "avgmbps": 28573364.240066}, "WLF": {"totalbytes": 16583605847, "avgmbps": 532381.34469871}, "USA-NV": {"totalbytes": 1047443703362093, "avgmbps": 64651397.591683}, "RWA": {"totalbytes": 600058311680, "avgmbps": 4682444.1069372}, "ISL": {"totalbytes": 173082486146297, "avgmbps": 76948939.020176}, "SEN": {"totalbytes": 6395073335434, "avgmbps": 6359367.2454923}, "JAM": {"totalbytes": 26425735091584, "avgmbps": 17490987.062268}, "SWE": {"totalbytes": 4389873183400760, "avgmbps": 76440236.397111}, "USA-VT": {"totalbytes": 155425002995548, "avgmbps": 43506939.871887}, "MTQ": {"totalbytes": 11637365501969, "avgmbps": 9276043.7454822}, "MEX": {"totalbytes": 2471778243855472, "avgmbps": 19254532.348785}, "GEO": {"totalbytes": 174307054686774, "avgmbps": 19246008.942367}, "TWN": {"totalbytes": 3868153741580567, "avgmbps": 40752218.844157}, "CAF": {"totalbytes": 52749237870, "avgmbps": 1916519.5225433}, "GRL": {"totalbytes": 8316858130070, "avgmbps": 17941637.891513}, "ZWE": {"totalbytes": 2807410749224, "avgmbps": 6700550.6153822}, "LKA": {"totalbytes": 27662234444977, "avgmbps": 12997110.116187}, "BGR": {"totalbytes": 558705213510641, "avgmbps": 39967303.312178}, "BRN": {"totalbytes": 42753855567507, "avgmbps": 12860557.813927}, "KIR": {"totalbytes": 6091020435, "avgmbps": 1441020.1631776}, "LTU": {"totalbytes": 658808697592080, "avgmbps": 45101204.632234}, "USA-VA": {"totalbytes": 2501288774268868, "avgmbps": 65787031.707033}, "TJK": {"totalbytes": 3958592877632, "avgmbps": 2191583.5733459}, "GUY": {"totalbytes": 4399874941442, "avgmbps": 9464070.7458403}, "TCA": {"totalbytes": 1147866885126, "avgmbps": 9834969.7295526}, "ERI": {"totalbytes": 35323088, "avgmbps": 274231.48174581}, "ROU": {"totalbytes": 2425501793013387, "avgmbps": 58831853.158883}, "DZA": {"totalbytes": 94913664779819, "avgmbps": 2215101.18672}, "CRI": {"totalbytes": 233182110943961, "avgmbps": 17576852.815908}, "BLZ": {"totalbytes": 5340454033156, "avgmbps": 20568234.885139}, "POL": {"totalbytes": 7758645182124079, "avgmbps": 29393896.87134}, "USA-MS": {"totalbytes": 370104183987300, "avgmbps": 34594868.651838}, "USA-WA": {"totalbytes": 3799433005589037, "avgmbps": 51495898.680364}, "TON": {"totalbytes": 36937370923, "avgmbps": 11061959.512824}, "USA-OH": {"totalbytes": 3067262317549668, "avgmbps": 51553867.073379}}
+{
+    "USA": {
+        "totalbytes": 88597039208277066,
+        "avgmbps": 56001604.013625
+    },
+    "USA-NC": {
+        "totalbytes": 2518626432631519,
+        "avgmbps": 56472520.094073
+    },
+    "CHL": {
+        "totalbytes": 2220324605838762,
+        "avgmbps": 35714473.584701
+    },
+    "USA-OK": {
+        "totalbytes": 923013656055827,
+        "avgmbps": 42943226.104281
+    },
+    "USA-KY": {
+        "totalbytes": 1033218266013112,
+        "avgmbps": 48584186.254145
+    },
+    "PRI": {
+        "totalbytes": 199481011813481,
+        "avgmbps": 27886303.500081
+    },
+    "USA-TN": {
+        "totalbytes": 1535266799758430,
+        "avgmbps": 52008927.233579
+    },
+    "MNP": {
+        "totalbytes": 3064702960340,
+        "avgmbps": 17136752.196213
+    },
+    "MKD": {
+        "totalbytes": 98465979283308,
+        "avgmbps": 19322634.527147
+    },
+    "ABW": {
+        "totalbytes": 6501080654870,
+        "avgmbps": 36106086.476238
+    },
+    "USA-UT": {
+        "totalbytes": 1092159136564566,
+        "avgmbps": 57810095.775413
+    },
+    "USA-CO": {
+        "totalbytes": 2044169025638341,
+        "avgmbps": 49480879.310914
+    },
+    "FJI": {
+        "totalbytes": 1908762746833,
+        "avgmbps": 9717681.5110788
+    },
+    "USA-SD": {
+        "totalbytes": 196465885556634,
+        "avgmbps": 50542414.208525
+    },
+    "AUS": {
+        "totalbytes": 7646519197167415,
+        "avgmbps": 26750501.355541
+    },
+    "LCA": {
+        "totalbytes": 3400336619971,
+        "avgmbps": 21474436.068853
+    },
+    "ITA": {
+        "totalbytes": 3235842250589005,
+        "avgmbps": 24809568.344148
+    },
+    "USA-NH": {
+        "totalbytes": 507812779913104,
+        "avgmbps": 61221103.107739
+    },
+    "NFK": {
+        "totalbytes": 92450410292,
+        "avgmbps": 9503891.1149407
+    },
+    "UGA": {
+        "totalbytes": 1559227033968,
+        "avgmbps": 6216474.2160003
+    },
+    "KWT": {
+        "totalbytes": 359295604220311,
+        "avgmbps": 25751984.948269
+    },
+    "SUR": {
+        "totalbytes": 4056598392368,
+        "avgmbps": 6459435.7876462
+    },
+    "AND": {
+        "totalbytes": 12796085070072,
+        "avgmbps": 69286660.741148
+    },
+    "THA": {
+        "totalbytes": 7566883803363843,
+        "avgmbps": 79106107.306897
+    },
+    "CIV": {
+        "totalbytes": 4939239565325,
+        "avgmbps": 7893518.8023815
+    },
+    "GGY": {
+        "totalbytes": 21010577042655,
+        "avgmbps": 18725040.319221
+    },
+    "GLP": {
+        "totalbytes": 9490768564640,
+        "avgmbps": 6444252.7516531
+    },
+    "BHS": {
+        "totalbytes": 12542502393711,
+        "avgmbps": 20639675.1997
+    },
+    "DEU": {
+        "totalbytes": 23029125915933540,
+        "avgmbps": 40013858.987938
+    },
+    "USA-MA": {
+        "totalbytes": 2023460339773685,
+        "avgmbps": 70012399.591992
+    },
+    "SGP": {
+        "totalbytes": 1792539978384566,
+        "avgmbps": 79637444.850682
+    },
+    "BHR": {
+        "totalbytes": 65048779130930,
+        "avgmbps": 17639920.522996
+    },
+    "USA-WI": {
+        "totalbytes": 1536863097595686,
+        "avgmbps": 52164384.212155
+    },
+    "MLT": {
+        "totalbytes": 88878961070132,
+        "avgmbps": 53497687.193998
+    },
+    "GRC": {
+        "totalbytes": 862250478723046,
+        "avgmbps": 15786621.185359
+    },
+    "TKM": {
+        "totalbytes": 3833149199920,
+        "avgmbps": 1270337.4719399
+    },
+    "USA-AK": {
+        "totalbytes": 256649070450015,
+        "avgmbps": 37998883.718672
+    },
+    "DJI": {
+        "totalbytes": 1708784670929,
+        "avgmbps": 3373655.577051
+    },
+    "COK": {
+        "totalbytes": 25912359365,
+        "avgmbps": 5606612.4806471
+    },
+    "GIB": {
+        "totalbytes": 8130692217175,
+        "avgmbps": 69132821.325797
+    },
+    "BEN": {
+        "totalbytes": 563133280946,
+        "avgmbps": 1895634.8233215
+    },
+    "BMU": {
+        "totalbytes": 6953611115677,
+        "avgmbps": 41277018.909263
+    },
+    "SRB": {
+        "totalbytes": 533321263876265,
+        "avgmbps": 27756489.599955
+    },
+    "KEN": {
+        "totalbytes": 19988655964802,
+        "avgmbps": 8834559.7035384
+    },
+    "PSE": {
+        "totalbytes": 27333342614925,
+        "avgmbps": 8854984.2422194
+    },
+    "NIC": {
+        "totalbytes": 15842201259030,
+        "avgmbps": 9286661.0918108
+    },
+    "BTN": {
+        "totalbytes": 798964931963,
+        "avgmbps": 5596738.2883701
+    },
+    "NRU": {
+        "totalbytes": 20513580588,
+        "avgmbps": 1934412.4259083
+    },
+    "USA-MI": {
+        "totalbytes": 2719174268537488,
+        "avgmbps": 51817439.850804
+    },
+    "SAU": {
+        "totalbytes": 1167458262479073,
+        "avgmbps": 24595279.683465
+    },
+    "YEM": {
+        "totalbytes": 366220753163,
+        "avgmbps": 1392098.692667
+    },
+    "LAO": {
+        "totalbytes": 24754609671487,
+        "avgmbps": 7044874.0325247
+    },
+    "CUW": {
+        "totalbytes": 5111055237097,
+        "avgmbps": 17902058.401414
+    },
+    "USA-IN": {
+        "totalbytes": 1648598077803439,
+        "avgmbps": 52612842.996395
+    },
+    "PYF": {
+        "totalbytes": 7096351009539,
+        "avgmbps": 7258539.5662056
+    },
+    "USA-AR": {
+        "totalbytes": 566262377383644,
+        "avgmbps": 36338394.259732
+    },
+    "PNG": {
+        "totalbytes": 503951742298,
+        "avgmbps": 3637134.2362856
+    },
+    "BLR": {
+        "totalbytes": 1250261969392946,
+        "avgmbps": 22406735.39422
+    },
+    "USA-MD": {
+        "totalbytes": 1582150345526582,
+        "avgmbps": 60454425.858652
+    },
+    "USA-WV": {
+        "totalbytes": 386201495405982,
+        "avgmbps": 41117439.888004
+    },
+    "IOT": {
+        "totalbytes": 207406048652,
+        "avgmbps": 1591138.1021656
+    },
+    "AGO": {
+        "totalbytes": 5508714516562,
+        "avgmbps": 4176515.4712372
+    },
+    "TZA": {
+        "totalbytes": 2452889023217,
+        "avgmbps": 7223524.7969483
+    },
+    "USA-CT": {
+        "totalbytes": 921066683642499,
+        "avgmbps": 59292694.249219
+    },
+    "URY": {
+        "totalbytes": 351683181383075,
+        "avgmbps": 24804458.317787
+    },
+    "BIH": {
+        "totalbytes": 159071172162684,
+        "avgmbps": 16607684.461673
+    },
+    "AFG": {
+        "totalbytes": 15351370734815,
+        "avgmbps": 4941264.4565428
+    },
+    "CYM": {
+        "totalbytes": 7822779639244,
+        "avgmbps": 22969268.156198
+    },
+    "NAM": {
+        "totalbytes": 10495015366280,
+        "avgmbps": 4512793.5549345
+    },
+    "FRO": {
+        "totalbytes": 23080549509240,
+        "avgmbps": 26983697.087487
+    },
+    "JEY": {
+        "totalbytes": 33494585700692,
+        "avgmbps": 72410412.364998
+    },
+    "SXM": {
+        "totalbytes": 1330789935646,
+        "avgmbps": 5926722.3113623
+    },
+    "TCD": {
+        "totalbytes": 115700851662,
+        "avgmbps": 989140.91367664
+    },
+    "CHN": {
+        "totalbytes": 95003056941617600,
+        "avgmbps": 57187951.383595
+    },
+    "GTM": {
+        "totalbytes": 69715208954453,
+        "avgmbps": 8140324.0723723
+    },
+    "GMB": {
+        "totalbytes": 294398635635,
+        "avgmbps": 2894752.1391985
+    },
+    "USA-MN": {
+        "totalbytes": 1583889275127705,
+        "avgmbps": 52722924.848024
+    },
+    "DOM": {
+        "totalbytes": 99979908226709,
+        "avgmbps": 11254852.555453
+    },
+    "PRY": {
+        "totalbytes": 82765126396749,
+        "avgmbps": 20723790.699764
+    },
+    "KHM": {
+        "totalbytes": 60025650182623,
+        "avgmbps": 12952461.330104
+    },
+    "SMR": {
+        "totalbytes": 3293783970266,
+        "avgmbps": 40649124.974057
+    },
+    "BOL": {
+        "totalbytes": 140252665959878,
+        "avgmbps": 12319314.215543
+    },
+    "MYS": {
+        "totalbytes": 2100066623826459,
+        "avgmbps": 29885722.572723
+    },
+    "CZE": {
+        "totalbytes": 2953410930171400,
+        "avgmbps": 30423231.853534
+    },
+    "USA-PA": {
+        "totalbytes": 3215275787986934,
+        "avgmbps": 57352409.250411
+    },
+    "SPM": {
+        "totalbytes": 2208589279582,
+        "avgmbps": 43995363.306927
+    },
+    "USA-RI": {
+        "totalbytes": 297491277917831,
+        "avgmbps": 80710626.566155
+    },
+    "HKG": {
+        "totalbytes": 2058788527336796,
+        "avgmbps": 56522948.596466
+    },
+    "LSO": {
+        "totalbytes": 649476982043,
+        "avgmbps": 12291015.788758
+    },
+    "MNE": {
+        "totalbytes": 32122011904305,
+        "avgmbps": 32965920.876192
+    },
+    "USA-DC": {
+        "totalbytes": 303613306425681,
+        "avgmbps": 70698444.564466
+    },
+    "FLK": {
+        "totalbytes": 325143982324,
+        "avgmbps": 1712280.4118036
+    },
+    "VUT": {
+        "totalbytes": 176396354537,
+        "avgmbps": 2002859.3776896
+    },
+    "ATG": {
+        "totalbytes": 1253640406857,
+        "avgmbps": 8467832.8212547
+    },
+    "IND": {
+        "totalbytes": 1567493469233514,
+        "avgmbps": 18730453.485133
+    },
+    "AIA": {
+        "totalbytes": 1240756022270,
+        "avgmbps": 9664557.4160739
+    },
+    "USA-OR": {
+        "totalbytes": 1644126795224348,
+        "avgmbps": 53189231.634499
+    },
+    "IRL": {
+        "totalbytes": 907164384042591,
+        "avgmbps": 36674587.533364
+    },
+    "ALB": {
+        "totalbytes": 47986629019803,
+        "avgmbps": 25184273.020275
+    },
+    "KAZ": {
+        "totalbytes": 1022347399740289,
+        "avgmbps": 17094072.531567
+    },
+    "SWZ": {
+        "totalbytes": 273189822058,
+        "avgmbps": 1791841.1208118
+    },
+    "MRT": {
+        "totalbytes": 418298098739,
+        "avgmbps": 2453697.9196024
+    },
+    "GBR": {
+        "totalbytes": 18145164249638393,
+        "avgmbps": 36432200.986325
+    },
+    "LUX": {
+        "totalbytes": 134611627991110,
+        "avgmbps": 54209697.67889
+    },
+    "OMN": {
+        "totalbytes": 51848047125854,
+        "avgmbps": 16305058.119343
+    },
+    "UZB": {
+        "totalbytes": 73702248727781,
+        "avgmbps": 8103202.7503597
+    },
+    "JOR": {
+        "totalbytes": 124425658036881,
+        "avgmbps": 21312585.776
+    },
+    "BGD": {
+        "totalbytes": 182066928622028,
+        "avgmbps": 12630730.394644
+    },
+    "SYC": {
+        "totalbytes": 638840727551,
+        "avgmbps": 2773158.6115984
+    },
+    "MDG": {
+        "totalbytes": 5558659897792,
+        "avgmbps": 10276101.24218
+    },
+    "MNG": {
+        "totalbytes": 94756233241377,
+        "avgmbps": 18348997.777717
+    },
+    "EGY": {
+        "totalbytes": 185841156995008,
+        "avgmbps": 9634729.7090883
+    },
+    "DMA": {
+        "totalbytes": 1126310747103,
+        "avgmbps": 16567081.566525
+    },
+    "COG": {
+        "totalbytes": 551318339929,
+        "avgmbps": 4247086.970648
+    },
+    "USA-GA": {
+        "totalbytes": 2408640791542289,
+        "avgmbps": 52663426.531017
+    },
+    "CHE": {
+        "totalbytes": 1762520381339876,
+        "avgmbps": 63876541.015129
+    },
+    "GUF": {
+        "totalbytes": 8411369071227,
+        "avgmbps": 8864570.8831699
+    },
+    "USA-ID": {
+        "totalbytes": 495459259507653,
+        "avgmbps": 35435406.386481
+    },
+    "PLW": {
+        "totalbytes": 292584528568,
+        "avgmbps": 10137401.973999
+    },
+    "SOM": {
+        "totalbytes": 599687851250,
+        "avgmbps": 4337472.4036241
+    },
+    "WSM": {
+        "totalbytes": 58710053785,
+        "avgmbps": 6902704.9032997
+    },
+    "REU": {
+        "totalbytes": 82755420460780,
+        "avgmbps": 24732577.230742
+    },
+    "PAN": {
+        "totalbytes": 94938575191367,
+        "avgmbps": 33597413.122585
+    },
+    "PRT": {
+        "totalbytes": 2090616575793110,
+        "avgmbps": 49417218.248878
+    },
+    "ZAF": {
+        "totalbytes": 1062204851130855,
+        "avgmbps": 14189075.281176
+    },
+    "BRA": {
+        "totalbytes": 16134212152374579,
+        "avgmbps": 30293991.931028
+    },
+    "TGO": {
+        "totalbytes": 1272139407660,
+        "avgmbps": 6079446.5651973
+    },
+    "MUS": {
+        "totalbytes": 17798666043886,
+        "avgmbps": 12216229.757317
+    },
+    "TUN": {
+        "totalbytes": 74662006053892,
+        "avgmbps": 5543401.9390184
+    },
+    "USA-AL": {
+        "totalbytes": 945278528385524,
+        "avgmbps": 45992404.22666
+    },
+    "MYT": {
+        "totalbytes": 1874777860880,
+        "avgmbps": 7202687.4977335
+    },
+    "PHL": {
+        "totalbytes": 2069601119968409,
+        "avgmbps": 15981502.856819
+    },
+    "USA-SC": {
+        "totalbytes": 1009457020846563,
+        "avgmbps": 53884175.115628
+    },
+    "LVA": {
+        "totalbytes": 433232574557441,
+        "avgmbps": 41627859.096192
+    },
+    "NLD": {
+        "totalbytes": 4259347443246544,
+        "avgmbps": 71979656.651389
+    },
+    "USA-NM": {
+        "totalbytes": 447356706951460,
+        "avgmbps": 38292237.657332
+    },
+    "MAF": {
+        "totalbytes": 1604683616755,
+        "avgmbps": 9683225.3078323
+    },
+    "NZL": {
+        "totalbytes": 1201872015137289,
+        "avgmbps": 36647585.796592
+    },
+    "HTI": {
+        "totalbytes": 643816125817,
+        "avgmbps": 4771949.5275163
+    },
+    "USA-DE": {
+        "totalbytes": 240756637975472,
+        "avgmbps": 68203694.564311
+    },
+    "FIN": {
+        "totalbytes": 2340238514891367,
+        "avgmbps": 43287702.68331
+    },
+    "LIE": {
+        "totalbytes": 7669523000938,
+        "avgmbps": 52581323.635652
+    },
+    "STP": {
+        "totalbytes": 83638742044,
+        "avgmbps": 8102792.2689437
+    },
+    "LBN": {
+        "totalbytes": 89472907658982,
+        "avgmbps": 5524201.2528775
+    },
+    "NER": {
+        "totalbytes": 473611913453,
+        "avgmbps": 3773707.4970476
+    },
+    "VEN": {
+        "totalbytes": 64472251938202,
+        "avgmbps": 1842495.0260806
+    },
+    "GRD": {
+        "totalbytes": 2532329248343,
+        "avgmbps": 23403960.051211
+    },
+    "USA-CA": {
+        "totalbytes": 12047411991436643,
+        "avgmbps": 63123218.06875
+    },
+    "BDI": {
+        "totalbytes": 237138081864,
+        "avgmbps": 7160456.1407811
+    },
+    "UKR": {
+        "totalbytes": 4740680111222402,
+        "avgmbps": 32908737.797478
+    },
+    "USA-ME": {
+        "totalbytes": 364861487088726,
+        "avgmbps": 37754281.088963
+    },
+    "SVN": {
+        "totalbytes": 318341495929993,
+        "avgmbps": 32360166.498712
+    },
+    "BFA": {
+        "totalbytes": 512149242376,
+        "avgmbps": 3176652.2700941
+    },
+    "ESP": {
+        "totalbytes": 5867302390560293,
+        "avgmbps": 62485063.535772
+    },
+    "GNQ": {
+        "totalbytes": 300863973244,
+        "avgmbps": 3456048.632315
+    },
+    "TTO": {
+        "totalbytes": 46829727983159,
+        "avgmbps": 29058119.698575
+    },
+    "PAK": {
+        "totalbytes": 196428839608184,
+        "avgmbps": 6234390.9102696
+    },
+    "RUS": {
+        "totalbytes": 31919372926189249,
+        "avgmbps": 32226027.575533
+    },
+    "ARE": {
+        "totalbytes": 721794741086622,
+        "avgmbps": 39560569.027282
+    },
+    "MHL": {
+        "totalbytes": 69746940884,
+        "avgmbps": 10509359.342901
+    },
+    "NOR": {
+        "totalbytes": 2374984081707794,
+        "avgmbps": 64546172.361295
+    },
+    "SLE": {
+        "totalbytes": 260197675644,
+        "avgmbps": 4935158.9460577
+    },
+    "KOR": {
+        "totalbytes": 15825658912628745,
+        "avgmbps": 75760004.804731
+    },
+    "MCO": {
+        "totalbytes": 4716684465923,
+        "avgmbps": 79821801.137475
+    },
+    "USA-TX": {
+        "totalbytes": 7274642536643657,
+        "avgmbps": 57309354.281522
+    },
+    "CPV": {
+        "totalbytes": 1475691466506,
+        "avgmbps": 9432344.1909891
+    },
+    "GUM": {
+        "totalbytes": 33769663179347,
+        "avgmbps": 16115568.48013
+    },
+    "COD": {
+        "totalbytes": 1254687128970,
+        "avgmbps": 3439567.0627025
+    },
+    "CMR": {
+        "totalbytes": 1566349486092,
+        "avgmbps": 3600276.4433996
+    },
+    "BWA": {
+        "totalbytes": 2753116300990,
+        "avgmbps": 2757087.7508645
+    },
+    "USA-NE": {
+        "totalbytes": 450721629605189,
+        "avgmbps": 55770395.853291
+    },
+    "NCL": {
+        "totalbytes": 14761103467327,
+        "avgmbps": 10695664.825858
+    },
+    "CYP": {
+        "totalbytes": 83229102548233,
+        "avgmbps": 20456089.968029
+    },
+    "TMP": {
+        "totalbytes": 301612367265,
+        "avgmbps": 2497218.6670655
+    },
+    "USA-KS": {
+        "totalbytes": 748488573045322,
+        "avgmbps": 48513289.552632
+    },
+    "USA-FL": {
+        "totalbytes": 5113973906863214,
+        "avgmbps": 56167057.618938
+    },
+    "AZE": {
+        "totalbytes": 76141091670108,
+        "avgmbps": 10160728.671402
+    },
+    "IRQ": {
+        "totalbytes": 117032256665191,
+        "avgmbps": 3303626.465679
+    },
+    "PER": {
+        "totalbytes": 1027462500546121,
+        "avgmbps": 12973303.087944
+    },
+    "USA-MO": {
+        "totalbytes": 1716454717987565,
+        "avgmbps": 53095757.597975
+    },
+    "ARM": {
+        "totalbytes": 45016280597573,
+        "avgmbps": 19446187.671477
+    },
+    "SSD": {
+        "totalbytes": 75631591869,
+        "avgmbps": 1071266.0215672
+    },
+    "ISR": {
+        "totalbytes": 940948999037543,
+        "avgmbps": 37814060.998208
+    },
+    "HRV": {
+        "totalbytes": 397224784134113,
+        "avgmbps": 21105836.716954
+    },
+    "USA-IL": {
+        "totalbytes": 3370809354581407,
+        "avgmbps": 57597737.78617
+    },
+    "FSM": {
+        "totalbytes": 138025386145,
+        "avgmbps": 1936408.7416994
+    },
+    "MAR": {
+        "totalbytes": 124356246935183,
+        "avgmbps": 8551411.488817
+    },
+    "MLI": {
+        "totalbytes": 358394757394,
+        "avgmbps": 3940126.2634019
+    },
+    "MWI": {
+        "totalbytes": 328675769176,
+        "avgmbps": 3541433.2011665
+    },
+    "USA-WY": {
+        "totalbytes": 153949760604190,
+        "avgmbps": 35602667.563037
+    },
+    "USA-ND": {
+        "totalbytes": 248788049067813,
+        "avgmbps": 64525331.901529
+    },
+    "GHA": {
+        "totalbytes": 6756852513803,
+        "avgmbps": 8740141.1721321
+    },
+    "VIR": {
+        "totalbytes": 3783617528692,
+        "avgmbps": 16931997.795915
+    },
+    "JPN": {
+        "totalbytes": 6840617542703125,
+        "avgmbps": 73020361.557926
+    },
+    "EST": {
+        "totalbytes": 465080528306010,
+        "avgmbps": 37039839.208741
+    },
+    "USA-NY": {
+        "totalbytes": 4859859655560670,
+        "avgmbps": 62960426.705342
+    },
+    "ARG": {
+        "totalbytes": 3907197371091214,
+        "avgmbps": 17164890.099483
+    },
+    "DNK": {
+        "totalbytes": 2605993528983548,
+        "avgmbps": 63921965.504312
+    },
+    "VGB": {
+        "totalbytes": 1401152698769,
+        "avgmbps": 19716227.8187
+    },
+    "CAN": {
+        "totalbytes": 12336122161528450,
+        "avgmbps": 53584963.121585
+    },
+    "VNM": {
+        "totalbytes": 1971830569100449,
+        "avgmbps": 43368557.749687
+    },
+    "AUT": {
+        "totalbytes": 1945404563276925,
+        "avgmbps": 31010873.407303
+    },
+    "SLB": {
+        "totalbytes": 92680158663,
+        "avgmbps": 2621180.203813
+    },
+    "USA-HI": {
+        "totalbytes": 391187169739150,
+        "avgmbps": 70988614.856958
+    },
+    "SVK": {
+        "totalbytes": 911813536441021,
+        "avgmbps": 31730612.789785
+    },
+    "HUN": {
+        "totalbytes": 1974909248140728,
+        "avgmbps": 53254771.935162
+    },
+    "ATA": {
+        "totalbytes": 11595422878,
+        "avgmbps": 79464312.384261
+    },
+    "ECU": {
+        "totalbytes": 233229757303582,
+        "avgmbps": 11925166.814436
+    },
+    "GAB": {
+        "totalbytes": 1868568380853,
+        "avgmbps": 8346435.9453519
+    },
+    "USA-AZ": {
+        "totalbytes": 2290009683920809,
+        "avgmbps": 57535526.296448
+    },
+    "TUR": {
+        "totalbytes": 7646568476936381,
+        "avgmbps": 14831801.968679
+    },
+    "BLM": {
+        "totalbytes": 41072043,
+        "avgmbps": 5142920.5041722
+    },
+    "KGZ": {
+        "totalbytes": 67966017049095,
+        "avgmbps": 12923686.028536
+    },
+    "KNA": {
+        "totalbytes": 820804854127,
+        "avgmbps": 14671442.762104
+    },
+    "COM": {
+        "totalbytes": 2854458407,
+        "avgmbps": 2074377.2914534
+    },
+    "BRB": {
+        "totalbytes": 16647856413424,
+        "avgmbps": 39282059.044065
+    },
+    "BEL": {
+        "totalbytes": 2180895952140489,
+        "avgmbps": 55732536.241237
+    },
+    "ETH": {
+        "totalbytes": 2976234993388,
+        "avgmbps": 3386610.8126656
+    },
+    "MOZ": {
+        "totalbytes": 3103358830055,
+        "avgmbps": 4152736.0929561
+    },
+    "COL": {
+        "totalbytes": 832594387961722,
+        "avgmbps": 14484820.521292
+    },
+    "GIN": {
+        "totalbytes": 285513046870,
+        "avgmbps": 3862646.8454595
+    },
+    "GNB": {
+        "totalbytes": 24419734626,
+        "avgmbps": 4125719.5165122
+    },
+    "ZMB": {
+        "totalbytes": 2429356480379,
+        "avgmbps": 3954275.3010178
+    },
+    "BES": {
+        "totalbytes": 567444609163,
+        "avgmbps": 13085205.962504
+    },
+    "MDA": {
+        "totalbytes": 210403946650640,
+        "avgmbps": 31123117.443729
+    },
+    "MAC": {
+        "totalbytes": 136082902636469,
+        "avgmbps": 53738928.247705
+    },
+    "USA-NJ": {
+        "totalbytes": 2637050950330782,
+        "avgmbps": 73559245.738058
+    },
+    "MDV": {
+        "totalbytes": 5684262014980,
+        "avgmbps": 3561614.7317885
+    },
+    "IDN": {
+        "totalbytes": 2118867348836390,
+        "avgmbps": 10205216.574185
+    },
+    "USA-MT": {
+        "totalbytes": 253761150269588,
+        "avgmbps": 36174056.482116
+    },
+    "SLV": {
+        "totalbytes": 41124758779901,
+        "avgmbps": 8228778.9308784
+    },
+    "VAT": {
+        "totalbytes": 51385587748,
+        "avgmbps": 18663079.345334
+    },
+    "USA-IA": {
+        "totalbytes": 675109556462559,
+        "avgmbps": 46378231.852108
+    },
+    "LBY": {
+        "totalbytes": 8603538053065,
+        "avgmbps": 6060703.6645285
+    },
+    "NGA": {
+        "totalbytes": 10989173392098,
+        "avgmbps": 3745040.2648621
+    },
+    "LBR": {
+        "totalbytes": 392108195080,
+        "avgmbps": 6075760.2577364
+    },
+    "NPL": {
+        "totalbytes": 44215880309474,
+        "avgmbps": 12763966.849106
+    },
+    "USA-LA": {
+        "totalbytes": 976404997210038,
+        "avgmbps": 42355272.269104
+    },
+    "IMN": {
+        "totalbytes": 27613237944960,
+        "avgmbps": 21698345.6619
+    },
+    "QAT": {
+        "totalbytes": 189111918855016,
+        "avgmbps": 45575371.265597
+    },
+    "ALA": {
+        "totalbytes": 11983413920012,
+        "avgmbps": 63534819.125403
+    },
+    "HND": {
+        "totalbytes": 36069588993601,
+        "avgmbps": 9467683.7878202
+    },
+    "VCT": {
+        "totalbytes": 2156360416768,
+        "avgmbps": 37872960.508598
+    },
+    "FRA": {
+        "totalbytes": 11061670667115280,
+        "avgmbps": 28573364.240066
+    },
+    "WLF": {
+        "totalbytes": 16583605847,
+        "avgmbps": 532381.34469871
+    },
+    "USA-NV": {
+        "totalbytes": 1047443703362093,
+        "avgmbps": 64651397.591683
+    },
+    "RWA": {
+        "totalbytes": 600058311680,
+        "avgmbps": 4682444.1069372
+    },
+    "ISL": {
+        "totalbytes": 173082486146297,
+        "avgmbps": 76948939.020176
+    },
+    "SEN": {
+        "totalbytes": 6395073335434,
+        "avgmbps": 6359367.2454923
+    },
+    "JAM": {
+        "totalbytes": 26425735091584,
+        "avgmbps": 17490987.062268
+    },
+    "SWE": {
+        "totalbytes": 4389873183400760,
+        "avgmbps": 76440236.397111
+    },
+    "USA-VT": {
+        "totalbytes": 155425002995548,
+        "avgmbps": 43506939.871887
+    },
+    "MTQ": {
+        "totalbytes": 11637365501969,
+        "avgmbps": 9276043.7454822
+    },
+    "MEX": {
+        "totalbytes": 2471778243855472,
+        "avgmbps": 19254532.348785
+    },
+    "GEO": {
+        "totalbytes": 174307054686774,
+        "avgmbps": 19246008.942367
+    },
+    "TWN": {
+        "totalbytes": 3868153741580567,
+        "avgmbps": 40752218.844157
+    },
+    "CAF": {
+        "totalbytes": 52749237870,
+        "avgmbps": 1916519.5225433
+    },
+    "GRL": {
+        "totalbytes": 8316858130070,
+        "avgmbps": 17941637.891513
+    },
+    "ZWE": {
+        "totalbytes": 2807410749224,
+        "avgmbps": 6700550.6153822
+    },
+    "LKA": {
+        "totalbytes": 27662234444977,
+        "avgmbps": 12997110.116187
+    },
+    "BGR": {
+        "totalbytes": 558705213510641,
+        "avgmbps": 39967303.312178
+    },
+    "BRN": {
+        "totalbytes": 42753855567507,
+        "avgmbps": 12860557.813927
+    },
+    "KIR": {
+        "totalbytes": 6091020435,
+        "avgmbps": 1441020.1631776
+    },
+    "LTU": {
+        "totalbytes": 658808697592080,
+        "avgmbps": 45101204.632234
+    },
+    "USA-VA": {
+        "totalbytes": 2501288774268868,
+        "avgmbps": 65787031.707033
+    },
+    "TJK": {
+        "totalbytes": 3958592877632,
+        "avgmbps": 2191583.5733459
+    },
+    "GUY": {
+        "totalbytes": 4399874941442,
+        "avgmbps": 9464070.7458403
+    },
+    "TCA": {
+        "totalbytes": 1147866885126,
+        "avgmbps": 9834969.7295526
+    },
+    "ERI": {
+        "totalbytes": 35323088,
+        "avgmbps": 274231.48174581
+    },
+    "ROU": {
+        "totalbytes": 2425501793013387,
+        "avgmbps": 58831853.158883
+    },
+    "DZA": {
+        "totalbytes": 94913664779819,
+        "avgmbps": 2215101.18672
+    },
+    "CRI": {
+        "totalbytes": 233182110943961,
+        "avgmbps": 17576852.815908
+    },
+    "BLZ": {
+        "totalbytes": 5340454033156,
+        "avgmbps": 20568234.885139
+    },
+    "POL": {
+        "totalbytes": 7758645182124079,
+        "avgmbps": 29393896.87134
+    },
+    "USA-MS": {
+        "totalbytes": 370104183987300,
+        "avgmbps": 34594868.651838
+    },
+    "USA-WA": {
+        "totalbytes": 3799433005589037,
+        "avgmbps": 51495898.680364
+    },
+    "TON": {
+        "totalbytes": 36937370923,
+        "avgmbps": 11061959.512824
+    },
+    "USA-OH": {
+        "totalbytes": 3067262317549668,
+        "avgmbps": 51553867.073379
+    }
+}
