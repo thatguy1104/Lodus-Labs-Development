@@ -10,6 +10,7 @@ class GameCorporations:
         names = []
         city = []
         country = []
+        all_games = []
         list_inactive = ["Danger Close Games",
                          "Day 1 Studios", "Deadline Games", "Dhruva Interactive", "Digital Reality", "Disney Interactive Studios", "Dynamix",
                          "The Dovetail Group", "EA Black Box", "Eat Sleep Play", "Elemental Games", "Ensemble Studios", "Epicenter Studios",
@@ -36,6 +37,7 @@ class GameCorporations:
                          "UEP Systems", "Ultimate Play the Game", "United Front Games", "United Game Artists", "Universomo", "Venan Entertainment", 
                          "Vigil Games", "Visceral Games", "Wargaming Seattle", "Westone Bit Entertainment", "Westwood Studios", "Wideload Games",
                          "World Forge", "Zipper Interactive", "Zombie Studios", "ZootFly"]
+        
         with open(self.file, newline='') as csvfile:
             csv_reader = reader(csvfile)
             for row in csv_reader:
@@ -46,9 +48,9 @@ class GameCorporations:
                     city.append(row[1])
                     # Get the country
                     country.append(row[3])
-        return names, city, country
+        return names, city, country, all_games
 
-    def writeToJSON(self, names, city, country):
+    def writeToJSON(self, names, city, country, games):
         data = {}
         data['company'] = []
 
@@ -56,15 +58,16 @@ class GameCorporations:
             data['company'].append({
                 'name' : names[i],
                 'city' : city[i],
-                'country' : country[i]
+                'country' : country[i],
+                'games' : "None yet"
                 })
 
         with open('corp_info.json', 'w') as outfile:
              json.dump(data, outfile)
 
     def run(self):
-        names, city, country = self.getCorporationNames()
-        self.writeToJSON(names, city, country)
+        names, city, country, games = self.getCorporationNames()
+        self.writeToJSON(names, city, country, games)
 
 corp = GameCorporations()
 corp.run()
