@@ -1,6 +1,6 @@
 from Platform.steam import *
 from Platform.steamBandwidth import *
-from Scrapers.corp1 import *
+from Scrapers.corpNamesList import *
 from Scrapers.finance import *
 
 """ INITIALISE THE JSON FILES (RUN ONLY ONCE, UNLESS CHANGES ARE MADE) """

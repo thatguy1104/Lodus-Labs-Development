@@ -2,16 +2,17 @@ from csv import reader
 import requests
 import json
 import os
-# good sourse: https://store.steampowered.com/stats/
 
 class SteamList():
     def __init__(self, APIkey):
+        # Relative file paths
         self.filenameREAD = "./DATA(csv)/steam.csv"
         self.filenameWRITE = "./DATA(json)/processedSteamData.json"
         self.baseURL = 'https://api.steampowered.com/ISteamUserStats/GetNumberOfCurrentPlayers/v1/'
         self.APIkey = APIkey
 
     def getSteamStatsForAGame(self, appID):
+        # Only gets the live_player count for a particular game (of appID)
         header = {"Client-ID": self.APIkey}
         game_players_url = 'https://api.steampowered.com/ISteamUserStats/GetNumberOfCurrentPlayers/v1/?format=json&appid=' + appID
         game_players = requests.get(game_players_url, headers=header).json()['response']['player_count']
@@ -24,6 +25,8 @@ class SteamList():
         pos_rating = []
         neg_rating = []
         average_play_time = []
+
+        # READ the data, isolate necessary information
         with open(self.filenameREAD, newline='') as csvfile:
             csv_reader = reader(csvfile)
             for row in csv_reader:
@@ -33,12 +36,12 @@ class SteamList():
                 pos_rating.append(row[12])
                 neg_rating.append(row[13])
                 average_play_time.append(row[14])
+
         return name, appID, developer, pos_rating, neg_rating, average_play_time
 
     def writeToJSON(self):
         data = {}
         data['games'] = []
-
         name, appID, developer, pos_rating, neg_rating, average_play_time = self.readAPPID()
 
         for i in range(1, len(name) - 1):
@@ -52,6 +55,7 @@ class SteamList():
                 'negative_ratings'  : neg_rating[i],
                 'average_play_time' : average_play_time[i]
             })
+
         with open(self.filenameWRITE, 'w') as outfile:
             json.dump(data, outfile)
 

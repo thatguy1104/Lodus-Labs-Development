@@ -4,6 +4,7 @@ from csv import reader
 
 class GameCorporations:
     def __init__(self):
+        # Relative file apth
         self.file = './DATA(csv)/data.csv'
 
     def getCorporationNames(self):
@@ -11,6 +12,8 @@ class GameCorporations:
         city = []
         country = []
         all_games = []
+
+        # Inactive corporations to be excluded
         list_inactive = ["Danger Close Games",
                          "Day 1 Studios", "Deadline Games", "Dhruva Interactive", "Digital Reality", "Disney Interactive Studios", "Dynamix",
                          "The Dovetail Group", "EA Black Box", "Eat Sleep Play", "Elemental Games", "Ensemble Studios", "Epicenter Studios",
@@ -42,11 +45,11 @@ class GameCorporations:
             csv_reader = reader(csvfile)
             for row in csv_reader:
                 if row[0] not in list_inactive:
-                    # Get the corporation names, first element of the csv_reader row
+                    # Get the corporation names
                     names.append(row[0])
-                    # Get the city
+                    # Get the city name
                     city.append(row[1])
-                    # Get the country
+                    # Get the country name
                     country.append(row[3])
         return names, city, country, all_games
 
