@@ -21,11 +21,6 @@
             "country": "Japan"
         },
         {
-            "name": "2K Czech",
-            "city": "Brno",
-            "country": "Czech Republic"
-        },
-        {
             "name": "2K Games",
             "city": "Novato",
             "country": "United States"
@@ -38,11 +33,6 @@
         {
             "name": "343 Industries",
             "city": "Redmond",
-            "country": "United States"
-        },
-        {
-            "name": "38 Studios",
-            "city": "Providence",
             "country": "United States"
         },
         {
@@ -66,34 +56,9 @@
             "country": "United States"
         },
         {
-            "name": "989 Studios",
-            "city": "Foster City",
-            "country": "United States"
-        },
-        {
-            "name": "Acclaim Entertainment",
-            "city": "Glen Cove",
-            "country": "United States"
-        },
-        {
-            "name": "Acclaim Studios Austin",
-            "city": "Santa Clara",
-            "country": "United States"
-        },
-        {
-            "name": "Accolade",
-            "city": "San Jose",
-            "country": "United States"
-        },
-        {
             "name": "Access Games",
             "city": "Osaka",
             "country": "Japan"
-        },
-        {
-            "name": "Access Software",
-            "city": "Salt Lake City",
-            "country": "United States"
         },
         {
             "name": "ACE Team",
@@ -101,19 +66,9 @@
             "country": "Chile"
         },
         {
-            "name": "Aces Studio",
-            "city": "Redmond",
-            "country": "United States"
-        },
-        {
             "name": "Acquire",
             "city": "Chiyoda, Tokyo",
             "country": "Japan"
-        },
-        {
-            "name": "Action Forms",
-            "city": "Kiev",
-            "country": "Ukraine"
         },
         {
             "name": "Active Gaming Media",
@@ -126,23 +81,8 @@
             "country": "United States"
         },
         {
-            "name": "Adventure Soft",
-            "city": "Birmingham",
-            "country": "United Kingdom"
-        },
-        {
-            "name": "Akella",
-            "city": "Moscow",
-            "country": "Russia"
-        },
-        {
             "name": "Alfa System",
             "city": "Kumamoto City",
-            "country": "Japan"
-        },
-        {
-            "name": "AlphaDream",
-            "city": "Tokyo",
             "country": "Japan"
         },
         {
@@ -157,11 +97,6 @@
         },
         {
             "name": "Ambrella",
-            "city": "Tokyo",
-            "country": "Japan"
-        },
-        {
-            "name": "Amusement Vision",
             "city": "Tokyo",
             "country": "Japan"
         },
@@ -181,16 +116,6 @@
             "country": "France"
         },
         {
-            "name": "Appy Entertainment",
-            "city": "Carlsbad",
-            "country": "United States"
-        },
-        {
-            "name": "AQ Interactive",
-            "city": "Tokyo",
-            "country": "Japan"
-        },
-        {
             "name": "Arc System Works",
             "city": "Yokohama",
             "country": "Japan"
@@ -203,11 +128,6 @@
         {
             "name": "Arkane Studios",
             "city": "Lyon",
-            "country": "France"
-        },
-        {
-            "name": "Arkedo Studio",
-            "city": "Paris",
             "country": "France"
         },
         {
@@ -236,24 +156,9 @@
             "country": "Japan"
         },
         {
-            "name": "Artificial Studios",
-            "city": "Gainesville",
-            "country": "United States"
-        },
-        {
-            "name": "Artoon",
-            "city": "Yokohama",
-            "country": "Japan"
-        },
-        {
             "name": "Arzest",
             "city": "Yokohama",
             "country": "Japan"
-        },
-        {
-            "name": "Ascaron",
-            "city": "G\u00fctersloh",
-            "country": "Germany"
         },
         {
             "name": "Asobo Studio",
@@ -261,24 +166,9 @@
             "country": "France"
         },
         {
-            "name": "Atari Interactive (formerly Hasbro Interactive)",
-            "city": "Pawtucket",
-            "country": "United States"
-        },
-        {
             "name": "Atlus",
             "city": "Tokyo",
             "country": "Japan"
-        },
-        {
-            "name": "Atomic Planet Entertainment",
-            "city": "Middlesbrough",
-            "country": "United Kingdom"
-        },
-        {
-            "name": "Attic Entertainment Software",
-            "city": "Albstadt",
-            "country": "Germany"
         },
         {
             "name": "Avalanche Studios Group",
@@ -286,18 +176,8 @@
             "country": "Sweden"
         },
         {
-            "name": "Aventurine SA",
-            "city": "Athens",
-            "country": "Greece"
-        },
-        {
             "name": "Babaroga",
             "city": "Chicago",
-            "country": "United States"
-        },
-        {
-            "name": "Backflip Studios",
-            "city": "Boulder",
             "country": "United States"
         },
         {
@@ -326,11 +206,6 @@
             "country": "Canada"
         },
         {
-            "name": "Behaviour Santiago",
-            "city": "Santiago de Chile",
-            "country": "Chile"
-        },
-        {
             "name": "Bethesda Game Studios",
             "city": "Rockville",
             "country": "United States"
@@ -351,24 +226,9 @@
             "country": "Canada"
         },
         {
-            "name": "The Bitmap Brothers",
-            "city": "London",
-            "country": "United Kingdom"
-        },
-        {
             "name": "Best Way",
             "city": "Luhansk",
             "country": "Ukraine"
-        },
-        {
-            "name": "Bits Studios",
-            "city": "London",
-            "country": "United Kingdom"
-        },
-        {
-            "name": "Bizarre Creations",
-            "city": "Liverpool",
-            "country": "United Kingdom"
         },
         {
             "name": "Black Forest Games",
@@ -376,24 +236,9 @@
             "country": "Germany"
         },
         {
-            "name": "Black Isle Studios",
-            "city": "Orange County",
-            "country": "United States"
-        },
-        {
-            "name": "Black Rock Studio",
-            "city": "Brighton",
-            "country": "United Kingdom"
-        },
-        {
             "name": "Black Wing Foundation",
             "city": "Dnipro",
             "country": "Ukraine"
-        },
-        {
-            "name": "Blitz Games Studios",
-            "city": "Leamington Spa",
-            "country": "United Kingdom"
         },
         {
             "name": "Blizzard Entertainment",
@@ -411,16 +256,6 @@
             "country": "South Korea"
         },
         {
-            "name": "Blue Fang Games",
-            "city": "Waltham",
-            "country": "United States"
-        },
-        {
-            "name": "Blue Tongue Entertainment",
-            "city": "Melbourne",
-            "country": "Australia"
-        },
-        {
             "name": "Bluehole",
             "city": "Seongnam",
             "country": "South Korea"
@@ -436,29 +271,14 @@
             "country": "United States"
         },
         {
-            "name": "Boss Key Productions",
-            "city": "Raleigh",
-            "country": "United States"
-        },
-        {
             "name": "BreakAway Games",
             "city": "Hunt Valley",
-            "country": "United States"
-        },
-        {
-            "name": "Br\u00f8derbund",
-            "city": "Eugene",
             "country": "United States"
         },
         {
             "name": "Bugbear Entertainment",
             "city": "Helsinki",
             "country": "Finland"
-        },
-        {
-            "name": "Bullfrog Productions",
-            "city": "Guildford",
-            "country": "United Kingdom"
         },
         {
             "name": "Bungie",
@@ -476,33 +296,13 @@
             "country": "Japan"
         },
         {
-            "name": "Capcom Vancouver",
-            "city": "Burnaby",
-            "country": "Canada"
-        },
-        {
-            "name": "Carbine Studios",
-            "city": "Aliso Viejo",
-            "country": "United States"
-        },
-        {
             "name": "Cattle Call",
             "city": "Tokyo",
             "country": "Japan"
         },
         {
-            "name": "Cauldron",
-            "city": "Bratislava",
-            "country": "Slovakia"
-        },
-        {
             "name": "Cave",
             "city": "Shinjuku, Tokyo",
-            "country": "Japan"
-        },
-        {
-            "name": "Cavia",
-            "city": "Tokyo",
             "country": "Japan"
         },
         {
@@ -526,39 +326,14 @@
             "country": "United States"
         },
         {
-            "name": "Chunsoft",
-            "city": "Shinjuku, Tokyo",
-            "country": "Japan"
-        },
-        {
-            "name": "Cing",
-            "city": "Fukuoka",
-            "country": "Japan"
-        },
-        {
             "name": "Clap Hanz",
             "city": "Yokohama",
-            "country": "Japan"
-        },
-        {
-            "name": "Climax Entertainment",
-            "city": "Tokyo",
             "country": "Japan"
         },
         {
             "name": "Climax Studios",
             "city": "Portsmouth",
             "country": "United Kingdom"
-        },
-        {
-            "name": "Clover Studio",
-            "city": "Osaka",
-            "country": "Japan"
-        },
-        {
-            "name": "Coded Illusions",
-            "city": "Rotterdam",
-            "country": "Netherlands"
         },
         {
             "name": "Codemasters",
@@ -569,16 +344,6 @@
             "name": "Coffee Stain Studios",
             "city": "Sk\u00f6vde",
             "country": "Sweden"
-        },
-        {
-            "name": "Cohort Studios",
-            "city": "Cardiff",
-            "country": "United Kingdom"
-        },
-        {
-            "name": "Coktel Vision",
-            "city": "Paris",
-            "country": "France"
         },
         {
             "name": "Colossal Order",
@@ -596,19 +361,9 @@
             "country": "Canada"
         },
         {
-            "name": "Core Design",
-            "city": "Derby",
-            "country": "United Kingdom"
-        },
-        {
             "name": "Crafts & Meister",
             "city": "Osaka",
             "country": "Japan"
-        },
-        {
-            "name": "Crawfish Interactive",
-            "city": "Croydon",
-            "country": "United Kingdom"
         },
         {
             "name": "Creat Studios",
@@ -636,17 +391,7 @@
             "country": "Croatia"
         },
         {
-            "name": "Cryo Interactive",
-            "city": "Paris",
-            "country": "France"
-        },
-        {
             "name": "Culture Brain Excel",
-            "city": "Tokyo",
-            "country": "Japan"
-        },
-        {
-            "name": "Crea-Tech",
             "city": "Tokyo",
             "country": "Japan"
         },
@@ -664,11 +409,6 @@
             "name": "Crytek",
             "city": "Frankfurt",
             "country": "Germany"
-        },
-        {
-            "name": "Crytek UK",
-            "city": "Nottingham",
-            "country": "United Kingdom"
         },
         {
             "name": "Cyan Worlds",
@@ -711,24 +451,9 @@
             "country": "United Kingdom"
         },
         {
-            "name": "Danger Close Games",
-            "city": "Los Angeles",
-            "country": "United States"
-        },
-        {
-            "name": "Day 1 Studios",
-            "city": "Chicago",
-            "country": "United States"
-        },
-        {
             "name": "Daybreak Game Company",
             "city": "San Diego",
             "country": "United States"
-        },
-        {
-            "name": "Deadline Games",
-            "city": "Copenhagen",
-            "country": "Denmark"
         },
         {
             "name": "Deck13",
@@ -756,11 +481,6 @@
             "country": "South Korea"
         },
         {
-            "name": "Dhruva Interactive",
-            "city": "Bangalore",
-            "country": "India"
-        },
-        {
             "name": "Die Gute Fabrik",
             "city": "Copenhagen",
             "country": "Denmark"
@@ -781,19 +501,9 @@
             "country": "Germany"
         },
         {
-            "name": "Digital Reality",
-            "city": "Budapest",
-            "country": "Hungary"
-        },
-        {
             "name": "Dimps",
             "city": "Osaka",
             "country": "Japan"
-        },
-        {
-            "name": "Disney Interactive Studios",
-            "city": "Glendale",
-            "country": "United States"
         },
         {
             "name": "Dontnod Entertainment",
@@ -811,24 +521,9 @@
             "country": "United States"
         },
         {
-            "name": "Dynamix",
-            "city": "Eugene",
-            "country": "United States"
-        },
-        {
             "name": "Dovetail Games",
             "city": "Chatham",
             "country": "United Kingdom"
-        },
-        {
-            "name": "The Dovetail Group",
-            "city": "",
-            "country": "United States"
-        },
-        {
-            "name": "EA Black Box",
-            "city": "British Columbia",
-            "country": "Canada"
         },
         {
             "name": "EA Digital Illusions CE (EA DICE)",
@@ -839,11 +534,6 @@
             "name": "EA Vancouver (formerly Distinctive Software)",
             "city": "Burnaby",
             "country": "Canada"
-        },
-        {
-            "name": "Eat Sleep Play",
-            "city": "Salt Lake City",
-            "country": "United States"
         },
         {
             "name": "Egosoft",
@@ -866,19 +556,9 @@
             "country": "United States"
         },
         {
-            "name": "Elemental Games",
-            "city": "Vladivostok",
-            "country": "Russia"
-        },
-        {
             "name": "Engine Software",
             "city": "Doetinchem",
             "country": "Netherlands"
-        },
-        {
-            "name": "Ensemble Studios",
-            "city": "Dallas",
-            "country": "United States"
         },
         {
             "name": "Epic Games",
@@ -891,44 +571,9 @@
             "country": "Japan"
         },
         {
-            "name": "Epicenter Studios",
-            "city": "Sherman Oaks",
-            "country": "United States"
-        },
-        {
-            "name": "Epyx",
-            "city": "San Francisco",
-            "country": "United States"
-        },
-        {
-            "name": "ESA (formerly Softmax)",
-            "city": "Seoul",
-            "country": "South Korea"
-        },
-        {
-            "name": "\u00c9tranges Libellules",
-            "city": "Lyon",
-            "country": "France"
-        },
-        {
             "name": "Eugen Systems",
             "city": "Paris",
             "country": "France"
-        },
-        {
-            "name": "Eurocom",
-            "city": "Derby",
-            "country": "United Kingdom"
-        },
-        {
-            "name": "Evolution Studios",
-            "city": "Runcorn",
-            "country": "United Kingdom"
-        },
-        {
-            "name": "Examu",
-            "city": "Tokyo",
-            "country": "Japan"
         },
         {
             "name": "Eyedentity Games",
@@ -951,19 +596,9 @@
             "country": "United States"
         },
         {
-            "name": "FASA Studio",
-            "city": "Redmond",
-            "country": "United States"
-        },
-        {
             "name": "Fatshark",
             "city": "Stockholm",
             "country": "Sweden"
-        },
-        {
-            "name": "feelplus",
-            "city": "Tokyo",
-            "country": "Japan"
         },
         {
             "name": "Felistella",
@@ -986,34 +621,9 @@
             "country": "United Kingdom"
         },
         {
-            "name": "First Star Software",
-            "city": "Chappaqua",
-            "country": "United States"
-        },
-        {
-            "name": "Flagship Studios",
-            "city": "San Francisco",
-            "country": "United States"
-        },
-        {
-            "name": "Flight-Plan",
-            "city": "Gifu",
-            "country": "Japan"
-        },
-        {
             "name": "Flying Wild Hog",
             "city": "Warsaw",
             "country": "Poland"
-        },
-        {
-            "name": "Foundation 9 Entertainment",
-            "city": "Emeryville",
-            "country": "United States"
-        },
-        {
-            "name": "Fox Digital Entertainment",
-            "city": "",
-            "country": "United States"
         },
         {
             "name": "FoxNext",
@@ -1046,11 +656,6 @@
             "country": "Finland"
         },
         {
-            "name": "FTL Games",
-            "city": "San Diego",
-            "country": "United States"
-        },
-        {
             "name": "FUN Labs",
             "city": "Bucharest",
             "country": "Romania"
@@ -1064,11 +669,6 @@
             "name": "FuRyu",
             "city": "Tokyo",
             "country": "Japan"
-        },
-        {
-            "name": "Futuremark",
-            "city": "Espoo",
-            "country": "Finland"
         },
         {
             "name": "Gaijin Entertainment",
@@ -1146,16 +746,6 @@
             "country": "South Korea"
         },
         {
-            "name": "Gray Matter Interactive",
-            "city": "Los Angeles",
-            "country": "United States"
-        },
-        {
-            "name": "Gremlin Interactive",
-            "city": "Sheffield",
-            "country": "United Kingdom"
-        },
-        {
             "name": "Grezzo",
             "city": "Shibuya, Tokyo",
             "country": "Japan"
@@ -1174,11 +764,6 @@
             "name": "GSC Game World",
             "city": "Kiev",
             "country": "Ukraine"
-        },
-        {
-            "name": "Guerrilla Cambridge",
-            "city": "Cambridge",
-            "country": "United Kingdom"
         },
         {
             "name": "Guerrilla Games",
@@ -1216,11 +801,6 @@
             "country": "Australia"
         },
         {
-            "name": "Hanaho",
-            "city": "Cerritos",
-            "country": "United States"
-        },
-        {
             "name": "h.a.n.d.",
             "city": "Sapporo",
             "country": "Japan"
@@ -1239,16 +819,6 @@
             "name": "Harmonix Music Systems",
             "city": "Cambridge",
             "country": "United States"
-        },
-        {
-            "name": "Headstrong Games",
-            "city": "London",
-            "country": "United Kingdom"
-        },
-        {
-            "name": "Heartbeat",
-            "city": "Tokyo",
-            "country": "Japan"
         },
         {
             "name": "HB Studios",
@@ -1291,21 +861,6 @@
             "country": "Finland"
         },
         {
-            "name": "Hudson Soft",
-            "city": "Tokyo",
-            "country": "Japan"
-        },
-        {
-            "name": "Human Entertainment",
-            "city": "Tokyo",
-            "country": "Japan"
-        },
-        {
-            "name": "Human Head Studios",
-            "city": "Madison",
-            "country": "United States"
-        },
-        {
             "name": "Humongous Entertainment",
             "city": "Bothell",
             "country": "United States"
@@ -1336,11 +891,6 @@
             "country": "United States"
         },
         {
-            "name": "Imageepoch",
-            "city": "Tokyo",
-            "country": "Japan"
-        },
-        {
             "name": "Image & Form",
             "city": "Gothenburg",
             "country": "Sweden"
@@ -1356,29 +906,9 @@
             "country": "United States"
         },
         {
-            "name": "Infocom",
-            "city": "Cambridge",
-            "country": "United States"
-        },
-        {
-            "name": "Incognito Entertainment",
-            "city": "Salt Lake City",
-            "country": "United States"
-        },
-        {
-            "name": "Incredible Technologies",
-            "city": "Arlington Heights",
-            "country": "United States"
-        },
-        {
             "name": "indieszero",
             "city": "Musashino",
             "country": "Japan"
-        },
-        {
-            "name": "Innerloop Studios",
-            "city": "Oslo",
-            "country": "Norway"
         },
         {
             "name": "Insomniac Games",
@@ -1411,16 +941,6 @@
             "country": "Denmark"
         },
         {
-            "name": "Ion Storm",
-            "city": "Dallas",
-            "country": "United States"
-        },
-        {
-            "name": "Ion Storm Austin",
-            "city": "Austin",
-            "country": "United States"
-        },
-        {
             "name": "Irem",
             "city": "Hakusan",
             "country": "Japan"
@@ -1428,16 +948,6 @@
         {
             "name": "Iron Galaxy Studios",
             "city": "Chicago",
-            "country": "United States"
-        },
-        {
-            "name": "Iron Lore Entertainment",
-            "city": "Maynard",
-            "country": "United States"
-        },
-        {
-            "name": "Irrational Games",
-            "city": "Quincy",
             "country": "United States"
         },
         {
@@ -1456,29 +966,14 @@
             "country": "United Kingdom"
         },
         {
-            "name": "Jaleco",
-            "city": "Tokyo",
-            "country": "Japan"
-        },
-        {
             "name": "Jam City",
             "city": "Los Angeles",
-            "country": "United States"
-        },
-        {
-            "name": "Javaground",
-            "city": "Irvine",
             "country": "United States"
         },
         {
             "name": "Jupiter",
             "city": "Kyoto",
             "country": "Japan"
-        },
-        {
-            "name": "JV Games",
-            "city": "Las Vegas",
-            "country": "United States"
         },
         {
             "name": "Kairosoft",
@@ -1491,19 +986,9 @@
             "country": "Germany"
         },
         {
-            "name": "Kaos Studios",
-            "city": "New York City",
-            "country": "United States"
-        },
-        {
             "name": "Keen Software House",
             "city": "Prague",
             "country": "Czech Republic"
-        },
-        {
-            "name": "Kesmai",
-            "city": "Charlottesville",
-            "country": "United States"
         },
         {
             "name": "Kiloo Games",
@@ -1541,16 +1026,6 @@
             "country": "China"
         },
         {
-            "name": "Krome Studios",
-            "city": "Brisbane",
-            "country": "Australia"
-        },
-        {
-            "name": "Krome Studios Melbourne",
-            "city": "Melbourne",
-            "country": "Australia"
-        },
-        {
             "name": "Kuju Entertainment",
             "city": "Shalford",
             "country": "United Kingdom"
@@ -1559,16 +1034,6 @@
             "name": "Kunos Simulazioni",
             "city": "Rome",
             "country": "Italy"
-        },
-        {
-            "name": "Kush Games",
-            "city": "Camarillo",
-            "country": "United States"
-        },
-        {
-            "name": "Kuma Reality Games",
-            "city": "New York City",
-            "country": "United States"
         },
         {
             "name": "Kylotonn",
@@ -1586,11 +1051,6 @@
             "country": "United States"
         },
         {
-            "name": "Legend Entertainment",
-            "city": "Chantilly",
-            "country": "United States"
-        },
-        {
             "name": "Legendo Entertainment",
             "city": "Gothenburg",
             "country": "Sweden"
@@ -1601,24 +1061,9 @@
             "country": "Japan"
         },
         {
-            "name": "Lift London",
-            "city": "London",
-            "country": "United Kingdom"
-        },
-        {
             "name": "Limbic Entertainment",
             "city": "Langen",
             "country": "Germany"
-        },
-        {
-            "name": "Lionhead Studios",
-            "city": "Guildford",
-            "country": "United Kingdom"
-        },
-        {
-            "name": "Liquid Entertainment",
-            "city": "Pasadena",
-            "country": "United States"
         },
         {
             "name": "Little Green Men Games",
@@ -1641,49 +1086,14 @@
             "country": "United States"
         },
         {
-            "name": "Locomotive Games",
-            "city": "Santa Clara",
-            "country": "United States"
-        },
-        {
-            "name": "Looking Glass Studios",
-            "city": "Cambridge",
-            "country": "United States"
-        },
-        {
-            "name": "LucasArts",
-            "city": "San Francisco",
-            "country": "United States"
-        },
-        {
-            "name": "Luma Arcade",
-            "city": "Johannesburg",
-            "country": "South Africa"
-        },
-        {
-            "name": "Luxoflux",
-            "city": "Santa Monica",
-            "country": "United States"
-        },
-        {
             "name": "MachineGames",
             "city": "Uppsala",
             "country": "Sweden"
         },
         {
-            "name": "Magenta Software",
-            "city": "Liverpool",
-            "country": "United Kingdom"
-        },
-        {
             "name": "MAGES.",
             "city": "Shibuya, Tokyo",
             "country": "Japan"
-        },
-        {
-            "name": "Majesco Entertainment",
-            "city": "Edison",
-            "country": "United States"
         },
         {
             "name": "Marvelous",
@@ -1703,11 +1113,6 @@
         {
             "name": "Maxis",
             "city": "Emeryville",
-            "country": "United States"
-        },
-        {
-            "name": "Mean Hamster Software",
-            "city": "Deer Park",
             "country": "United States"
         },
         {
@@ -1736,16 +1141,6 @@
             "country": "Spain"
         },
         {
-            "name": "Metropolis Software",
-            "city": "Warsaw",
-            "country": "Poland"
-        },
-        {
-            "name": "MicroProse Software",
-            "city": "Hunt Valley",
-            "country": "United States"
-        },
-        {
             "name": "MTO",
             "city": "Yokohama",
             "country": "Japan"
@@ -1754,21 +1149,6 @@
             "name": "Microsoft Casual Games",
             "city": "Redmond",
             "country": "United States"
-        },
-        {
-            "name": "Midway Games",
-            "city": "Chicago",
-            "country": "United States"
-        },
-        {
-            "name": "Midway Studios \u2013 Newcastle",
-            "city": "Gateshead",
-            "country": "United Kingdom"
-        },
-        {
-            "name": "Milestone",
-            "city": "Suginami, Tokyo",
-            "country": "Japan"
         },
         {
             "name": "Milestone srl",
@@ -1782,11 +1162,6 @@
         },
         {
             "name": "Mistwalker",
-            "city": "Tokyo",
-            "country": "Japan"
-        },
-        {
-            "name": "Mitchell Corporation",
             "city": "Tokyo",
             "country": "Japan"
         },
@@ -1816,19 +1191,9 @@
             "country": "United States"
         },
         {
-            "name": "Mythic Entertainment",
-            "city": "Fairfax",
-            "country": "United States"
-        },
-        {
             "name": "Nadeo",
             "city": "Paris",
             "country": "France"
-        },
-        {
-            "name": "Namco Tales Studio",
-            "city": "Tokyo",
-            "country": "Japan"
         },
         {
             "name": "Nanobit",
@@ -1866,16 +1231,6 @@
             "country": "Japan"
         },
         {
-            "name": "NDOORS Corporation",
-            "city": "Seoul",
-            "country": "South Korea"
-        },
-        {
-            "name": "Neko Entertainment",
-            "city": "Montreuil-sous-Bois",
-            "country": "France"
-        },
-        {
             "name": "Neowiz",
             "city": "Seoul",
             "country": "South Korea"
@@ -1883,11 +1238,6 @@
         {
             "name": "Nerve Software",
             "city": "Richardson",
-            "country": "United States"
-        },
-        {
-            "name": "NetDevil",
-            "city": "Louisville",
             "country": "United States"
         },
         {
@@ -1906,24 +1256,9 @@
             "country": "United States"
         },
         {
-            "name": "Neverland",
-            "city": "Tokyo",
-            "country": "Japan"
-        },
-        {
-            "name": "Neversoft",
-            "city": "Woodland Hills",
-            "country": "United States"
-        },
-        {
             "name": "Nevosoft",
             "city": "St. Petersburg",
             "country": "Russia"
-        },
-        {
-            "name": "New World Computing",
-            "city": "Agoura Hills",
-            "country": "United States"
         },
         {
             "name": "NexonNexon Korea",
@@ -1944,11 +1279,6 @@
             "name": "Niantic",
             "city": "San Francisco",
             "country": "United States"
-        },
-        {
-            "name": "Nibris",
-            "city": "Krak\u00f3w",
-            "country": "Poland"
         },
         {
             "name": "Nicalis",
@@ -1996,11 +1326,6 @@
             "country": "Serbia"
         },
         {
-            "name": "NovaLogic",
-            "city": "Agoura Hills",
-            "country": "United States"
-        },
-        {
             "name": "Novarama",
             "city": "Barcelona",
             "country": "Spain"
@@ -2009,11 +1334,6 @@
             "name": "Now Production",
             "city": "Osaka",
             "country": "Japan"
-        },
-        {
-            "name": "n-Space",
-            "city": "Orlando",
-            "country": "United States"
         },
         {
             "name": "Obsidian Entertainment",
@@ -2031,11 +1351,6 @@
             "country": "Japan"
         },
         {
-            "name": "Origin Systems",
-            "city": "Austin",
-            "country": "United States"
-        },
-        {
             "name": "OtherSide Entertainment",
             "city": "Boston",
             "country": "United States"
@@ -2046,24 +1361,9 @@
             "country": "Slovenia"
         },
         {
-            "name": "Outrage Entertainment",
-            "city": "Ann Arbor",
-            "country": "United States"
-        },
-        {
             "name": "Overkill Software",
             "city": "Stockholm",
             "country": "Sweden"
-        },
-        {
-            "name": "Oxygen Studios",
-            "city": "Croydon",
-            "country": "United Kingdom"
-        },
-        {
-            "name": "Page 44 Studios",
-            "city": "San Francisco",
-            "country": "United States"
         },
         {
             "name": "Pangea Software",
@@ -2074,16 +1374,6 @@
             "name": "People Can Fly",
             "city": "Warsaw",
             "country": "Poland"
-        },
-        {
-            "name": "Project Sora",
-            "city": "Tokyo",
-            "country": "Japan"
-        },
-        {
-            "name": "Papaya Studio",
-            "city": "Irvine",
-            "country": "United States"
         },
         {
             "name": "Project Soul",
@@ -2101,24 +1391,9 @@
             "country": "Sweden"
         },
         {
-            "name": "Parallax Software",
-            "city": "Ann Arbor",
-            "country": "United States"
-        },
-        {
-            "name": "Pandemic Studios",
-            "city": "Los Angeles",
-            "country": "United States"
-        },
-        {
             "name": "Pendulo Studios",
             "city": "Madrid",
             "country": "Spain"
-        },
-        {
-            "name": "Penguin Software",
-            "city": "Geneva",
-            "country": "United States"
         },
         {
             "name": "Perfect World",
@@ -2136,11 +1411,6 @@
             "country": "South Korea"
         },
         {
-            "name": "Phenomic Game Development",
-            "city": "Ingelheim am Rhein",
-            "country": "Germany"
-        },
-        {
             "name": "Pipeworks Studios",
             "city": "Eugene",
             "country": "United States"
@@ -2156,34 +1426,9 @@
             "country": "Canada"
         },
         {
-            "name": "Pi Studios",
-            "city": "Houston",
-            "country": "United States"
-        },
-        {
-            "name": "Pivotal Games",
-            "city": "Bath",
-            "country": "United Kingdom"
-        },
-        {
             "name": "Pixel Federation",
             "city": "Bratislava",
             "country": "Slovakia"
-        },
-        {
-            "name": "Playdom",
-            "city": "San Francisco",
-            "country": "United States"
-        },
-        {
-            "name": "Playfish",
-            "city": "London",
-            "country": "United Kingdom"
-        },
-        {
-            "name": "PlayFirst",
-            "city": "San Francisco",
-            "country": "United States"
         },
         {
             "name": "Playground Games",
@@ -2206,11 +1451,6 @@
             "country": "United States"
         },
         {
-            "name": "Press Play",
-            "city": "Copenhagen",
-            "country": "Denmark"
-        },
-        {
             "name": "Psyonix",
             "city": "San Diego",
             "country": "United States"
@@ -2226,11 +1466,6 @@
             "country": "Spain"
         },
         {
-            "name": "Q Entertainment",
-            "city": "Tokyo",
-            "country": "Japan"
-        },
-        {
             "name": "Q-Games",
             "city": "Nakagy\u014d-ku",
             "country": "Japan"
@@ -2239,26 +1474,6 @@
             "name": "Quantic Dream",
             "city": "Paris",
             "country": "France"
-        },
-        {
-            "name": "Quest Corporation",
-            "city": "Tokyo",
-            "country": "Japan"
-        },
-        {
-            "name": "Radical Entertainment",
-            "city": "Vancouver",
-            "country": "Canada"
-        },
-        {
-            "name": "Rage Games",
-            "city": "Liverpool",
-            "country": "United Kingdom"
-        },
-        {
-            "name": "Rainbow Studios",
-            "city": "Phoenix",
-            "country": "United States"
         },
         {
             "name": "Rare",
@@ -2291,11 +1506,6 @@
             "country": "United States"
         },
         {
-            "name": "Realtime Worlds",
-            "city": "Dundee",
-            "country": "United Kingdom"
-        },
-        {
             "name": "Rebellion Developments",
             "city": "Oxford",
             "country": "United Kingdom"
@@ -2318,16 +1528,6 @@
         {
             "name": "Red Storm Entertainment",
             "city": "Cary",
-            "country": "United States"
-        },
-        {
-            "name": "RedTribe (Tribalant)",
-            "city": "Melbourne",
-            "country": "Australia"
-        },
-        {
-            "name": "Reflexive Entertainment",
-            "city": "Lake Forest",
             "country": "United States"
         },
         {
@@ -2401,11 +1601,6 @@
             "country": "United Kingdom"
         },
         {
-            "name": "Runic Games",
-            "city": "Seattle",
-            "country": "United States"
-        },
-        {
             "name": "Running with Scissors",
             "city": "Tucson",
             "country": "United States"
@@ -2416,11 +1611,6 @@
             "country": "United States"
         },
         {
-            "name": "Sand Grain Studios",
-            "city": "Bucharest",
-            "country": "Romania"
-        },
-        {
             "name": "Sandlot",
             "city": "Tokyo",
             "country": "Japan"
@@ -2429,11 +1619,6 @@
             "name": "Sanzaru Games",
             "city": "Foster City",
             "country": "United States"
-        },
-        {
-            "name": "Sir-Tech",
-            "city": "Ogdensburg",
-            "country": "United StatesCanada"
         },
         {
             "name": "Schell Games",
@@ -2461,24 +1646,9 @@
             "country": "Japan"
         },
         {
-            "name": "Sega AM3",
-            "city": "Tokyo",
-            "country": "Japan"
-        },
-        {
             "name": "Sega CS Research and Development No. 2 (Sonic Team)",
             "city": "Tokyo",
             "country": "Japan"
-        },
-        {
-            "name": "Sega Sports R&D",
-            "city": "Tokyo",
-            "country": "Japan"
-        },
-        {
-            "name": "Sensible Software",
-            "city": "Cambridge",
-            "country": "United Kingdom"
         },
         {
             "name": "Shift",
@@ -2516,19 +1686,9 @@
             "country": "United States"
         },
         {
-            "name": "SCE Studio Liverpool",
-            "city": "Liverpool",
-            "country": "United Kingdom"
-        },
-        {
             "name": "SIE Worldwide Studios",
             "city": "Tokyo, Fukuoka, Santa Monica, Los Angeles, San Diego, Bend, Amsterdam, London, Guildford, Cambridge",
             "country": "Japan, United States, Netherlands, United Kingdom"
-        },
-        {
-            "name": "SingleTrac",
-            "city": "Salt Lake City",
-            "country": "United States"
         },
         {
             "name": "Shengqu Games",
@@ -2544,31 +1704,6 @@
             "name": "Shin'en Multimedia",
             "city": "Munich",
             "country": "Germany"
-        },
-        {
-            "name": "Sierra Entertainment",
-            "city": "Oakhurst",
-            "country": "United States"
-        },
-        {
-            "name": "Silicon Knights",
-            "city": "St. Catharines",
-            "country": "Canada"
-        },
-        {
-            "name": "Silicon Studio",
-            "city": "Tokyo",
-            "country": "Japan"
-        },
-        {
-            "name": "Simtex",
-            "city": "Austin",
-            "country": "United States"
-        },
-        {
-            "name": "Slant Six Games",
-            "city": "Vancouver",
-            "country": "Canada"
         },
         {
             "name": "Sledgehammer Games",
@@ -2611,16 +1746,6 @@
             "country": "Turkey"
         },
         {
-            "name": "Snowblind Studios",
-            "city": "Seattle",
-            "country": "United States"
-        },
-        {
-            "name": "Software 2000",
-            "city": "Eutin",
-            "country": "Germany"
-        },
-        {
             "name": "Sony Interactive Entertainment",
             "city": "San Mateo",
             "country": "United States"
@@ -2631,19 +1756,9 @@
             "country": "Japan"
         },
         {
-            "name": "Spellbound Entertainment",
-            "city": "Offenburg",
-            "country": "Germany"
-        },
-        {
             "name": "Spiders",
             "city": "Paris",
             "country": "France"
-        },
-        {
-            "name": "Spike",
-            "city": "Tokyo",
-            "country": "Japan"
         },
         {
             "name": "Spike Chunsoft",
@@ -2661,11 +1776,6 @@
             "country": "United Kingdom"
         },
         {
-            "name": "Sproing Interactive Media",
-            "city": "Vienna",
-            "country": "Austria"
-        },
-        {
             "name": "Square Enix",
             "city": "Shinjuku, Tokyo",
             "country": "Japan"
@@ -2679,11 +1789,6 @@
             "name": "Stainless Games",
             "city": "Newport",
             "country": "United Kingdom"
-        },
-        {
-            "name": "Stainless Steel Studios",
-            "city": "Cambridge",
-            "country": "United States"
         },
         {
             "name": "Starbreeze Studios",
@@ -2701,11 +1806,6 @@
             "country": "Japan"
         },
         {
-            "name": "Strategic Simulations",
-            "city": "Sunnyvale",
-            "country": "United States"
-        },
-        {
             "name": "Stoic Studio",
             "city": "Austin",
             "country": "United States"
@@ -2714,11 +1814,6 @@
             "name": "Strawdog Studios",
             "city": "Derby",
             "country": "United Kingdom"
-        },
-        {
-            "name": "Straylight Studios",
-            "city": "Dunedin",
-            "country": "New Zealand"
         },
         {
             "name": "Streamline Studios",
@@ -2766,21 +1861,6 @@
             "country": "United States"
         },
         {
-            "name": "Swingin' Ape Studios",
-            "city": "Aliso Viejo",
-            "country": "United States"
-        },
-        {
-            "name": "StormRegion",
-            "city": "Budapest",
-            "country": "Hungary"
-        },
-        {
-            "name": "Sunstorm Interactive",
-            "city": "Indianapolis",
-            "country": "United States"
-        },
-        {
             "name": "Syn Sophia",
             "city": "Tokyo",
             "country": "Japan"
@@ -2816,11 +1896,6 @@
             "country": "Japan"
         },
         {
-            "name": "T&E Soft",
-            "city": "Aichi",
-            "country": "Japan"
-        },
-        {
             "name": "Tantrumedia",
             "city": "Wirral",
             "country": "United Kingdom"
@@ -2846,16 +1921,6 @@
             "country": "United Kingdom"
         },
         {
-            "name": "Team Bondi",
-            "city": "Sydney",
-            "country": "Australia"
-        },
-        {
-            "name": "Team Ico",
-            "city": "Tokyo",
-            "country": "Japan"
-        },
-        {
             "name": "Team Ninja",
             "city": "Tokyo",
             "country": "Japan"
@@ -2864,16 +1929,6 @@
             "name": "Techland",
             "city": "Ostr\u00f3w Wielkopolski",
             "country": "Poland"
-        },
-        {
-            "name": "Tecmo",
-            "city": "Tokyo",
-            "country": "Japan"
-        },
-        {
-            "name": "Telltale Games",
-            "city": "San Rafael",
-            "country": "United States"
         },
         {
             "name": "Tencent",
@@ -2889,16 +1944,6 @@
             "name": "Tequila Works",
             "city": "Madrid",
             "country": "Spain"
-        },
-        {
-            "name": "Terminal Reality",
-            "city": "Lewisville",
-            "country": "United States"
-        },
-        {
-            "name": "Tetris Online",
-            "city": "Honolulu",
-            "country": "United States"
         },
         {
             "name": "Teyon",
@@ -2926,11 +1971,6 @@
             "country": "United States"
         },
         {
-            "name": "THQ",
-            "city": "Agoura Hills",
-            "country": "United States"
-        },
-        {
             "name": "THQ Nordic",
             "city": "ViennaKarlstad",
             "country": "AustriaSweden"
@@ -2941,29 +1981,9 @@
             "country": "United Kingdom"
         },
         {
-            "name": "Three Rings Design",
-            "city": "San Francisco",
-            "country": "United States"
-        },
-        {
-            "name": "TimeGate Studios",
-            "city": "Sugar Land",
-            "country": "United States"
-        },
-        {
             "name": "TiMi Studios",
             "city": "Shenzhen",
             "country": "China"
-        },
-        {
-            "name": "Toaplan",
-            "city": "Tokyo",
-            "country": "Japan"
-        },
-        {
-            "name": "ToeJam & Earl Productions",
-            "city": "San Francisco",
-            "country": "United States"
         },
         {
             "name": "Tokyo RPG Factory",
@@ -2974,11 +1994,6 @@
             "name": "TopWare Interactive",
             "city": "Karlsruhe",
             "country": "Germany"
-        },
-        {
-            "name": "Torpex Games",
-            "city": "Bellevue",
-            "country": "United States"
         },
         {
             "name": "Torus Games",
@@ -2994,16 +2009,6 @@
             "name": "Toys for Bob",
             "city": "Novato",
             "country": "United States"
-        },
-        {
-            "name": "Trapdoor",
-            "city": "Montreal",
-            "country": "Canada"
-        },
-        {
-            "name": "Transmission Games",
-            "city": "Melbourne",
-            "country": "Australia"
         },
         {
             "name": "Traveller's Tales",
@@ -3029,11 +2034,6 @@
             "name": "tri-Crescendo",
             "city": "Tokyo",
             "country": "Japan"
-        },
-        {
-            "name": "Trion Worlds",
-            "city": "Redwood City",
-            "country": "United States"
         },
         {
             "name": "Tripwire Interactive",
@@ -3086,34 +2086,9 @@
             "country": "United Kingdom"
         },
         {
-            "name": "UEP Systems",
-            "city": "Tokyo",
-            "country": "Japan"
-        },
-        {
-            "name": "Ultimate Play the Game",
-            "city": "Ashby-de-la-Zouch",
-            "country": "United Kingdom"
-        },
-        {
             "name": "Undead Labs",
             "city": "Seattle",
             "country": "United States"
-        },
-        {
-            "name": "United Front Games",
-            "city": "Vancouver",
-            "country": "Canada"
-        },
-        {
-            "name": "United Game Artists",
-            "city": "Tokyo",
-            "country": "Japan"
-        },
-        {
-            "name": "Universomo",
-            "city": "Tampere",
-            "country": "Finland"
         },
         {
             "name": "Valve",
@@ -3126,18 +2101,8 @@
             "country": "Japan"
         },
         {
-            "name": "Venan Entertainment",
-            "city": "Cromwell",
-            "country": "United States"
-        },
-        {
             "name": "Vicarious Visions",
             "city": "Albany (Menands)",
-            "country": "United States"
-        },
-        {
-            "name": "Vigil Games",
-            "city": "Austin",
             "country": "United States"
         },
         {
@@ -3149,11 +2114,6 @@
             "name": "Virtuos",
             "city": "",
             "country": "Singapore"
-        },
-        {
-            "name": "Visceral Games",
-            "city": "Redwood City",
-            "country": "United States"
         },
         {
             "name": "Visual Concepts",
@@ -3191,11 +2151,6 @@
             "country": "Russia"
         },
         {
-            "name": "Wargaming Seattle",
-            "city": "Redmond, Washington",
-            "country": "United States"
-        },
-        {
             "name": "Warner Bros. Interactive Entertainment",
             "city": "Chicago",
             "country": "United States"
@@ -3221,21 +2176,6 @@
             "country": "South Korea"
         },
         {
-            "name": "Westone Bit Entertainment",
-            "city": "Tokyo",
-            "country": "Japan"
-        },
-        {
-            "name": "Westwood Studios",
-            "city": "Las Vegas",
-            "country": "United States"
-        },
-        {
-            "name": "Wideload Games",
-            "city": "Chicago",
-            "country": "United States"
-        },
-        {
             "name": "Wildfire Studios",
             "city": "Brisbane",
             "country": "Australia"
@@ -3249,11 +2189,6 @@
             "name": "Wolfire Games",
             "city": "Berkeley",
             "country": "United States"
-        },
-        {
-            "name": "World Forge",
-            "city": "Voronezh",
-            "country": "Russia"
         },
         {
             "name": "Xbox Game Studios",
@@ -3279,21 +2214,6 @@
             "name": "ZeniMax Online Studios",
             "city": "Hunt Valley",
             "country": "United States"
-        },
-        {
-            "name": "Zipper Interactive",
-            "city": "Redmond",
-            "country": "United States"
-        },
-        {
-            "name": "Zombie Studios",
-            "city": "Seattle",
-            "country": "United States"
-        },
-        {
-            "name": "ZootFly",
-            "city": "Ljubljana",
-            "country": "Slovenia"
         }
     ]
 }
