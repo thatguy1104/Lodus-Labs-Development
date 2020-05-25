@@ -29,9 +29,12 @@ class SteamList():
                 developer.append(row[4])
         return name, appID, developer
 
-    def run(self):
+    def run(self, count):
         name, appID, developer = self.readAPPID()
-        for i in range(10):
-            count = self.getSteamStatsForAGame(appID[i])
-            print("NAME : {0}, DEV: {1}, COUNT: {2}".format(name[i], developer[i], count))
+        if count <= len(name):
+            for i in range(1, count + 1):
+                count = self.getSteamStatsForAGame(appID[i])
+                print("NAME : {0}, DEV: {1}, COUNT: {2}".format(name[i], developer[i], count))
+        else:
+            raise Exception("Number of games exceeds maximum")
 

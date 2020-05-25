@@ -10,4 +10,4 @@ from Scrapers.corp1 import *
 """ STEAM API """
 # Get the NAME, DEVELOPER, CURRENT_PLAYERS
 steam = SteamList('2C2C2E0FEBFD8D32F9346602D47C83BA')
-steam.run()
+steam.run(10)
