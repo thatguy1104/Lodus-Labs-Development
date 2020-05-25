@@ -14,8 +14,8 @@ from Scrapers.finance import *
 # steam_general.writeToJSON()
 
 # Write AVG Download rate, 
-steam_bandwidth = SteamBandwidth(17) # 16 = is the weird number at the end of the request link
-steam_bandwidth.writeBandwidthSteam()
+# steam_bandwidth = SteamBandwidth(17) # 16 = is the weird number at the end of the request link
+# steam_bandwidth.writeBandwidthSteam()
 
 
 """ CONTROL FLOW CLASSES """
