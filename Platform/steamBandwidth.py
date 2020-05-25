@@ -13,6 +13,7 @@ class SteamBandwidth():
         startidx = self.response.find('(')
         endidx = self.response.find(')')
         bandwidthFile = json.loads(self.response[startidx + 1:endidx])
+        print(bandwidthFile['USA']['totalbytes'])
 
         for name in bandwidthFile:
             if type(bandwidthFile[name]['totalbytes']) == str:
