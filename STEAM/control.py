@@ -21,7 +21,7 @@ class SteamController():
         """ GET NAMES OF GAME DEVELOPERS """
         # self.getDevelopersNames() # NO NEED TO RUN THIS EITHER
         """ GET ALL GAMES DATA """
-        self.getAllGameStats() 
+        # self.getAllGameStats() 
         """ GET ALL DATA PER COUNTRY """
         # self.getBandwidthPerCountry()
 

@@ -49,9 +49,3 @@ user_login = 'ninja'
 query = get_user_streams_query(user_login)
 response = get_response(query)
 print_response(response)
-
-GET https://id.twitch.tv/oauth2/authorize
-    ?client_id=<your client ID>
-    &redirect_uri=<your registered redirect URI>
-    &response_type=<type>
-    &scope=<space-separated list of scopes> 
