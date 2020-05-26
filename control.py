@@ -24,8 +24,8 @@ class SteamController():
         """ GET NAMES OF GAME DEVELOPERS """
         # self.getDevelopersNames()
         """ GET 30K GAME NAMES, IDs, LIVE PLAYER COUNT """
-        # self.getAllgames()
-        """ GET # OF PLAYERS + PEAK PER GAME (FOR TOP 100 PLAYED GAMES)"""
+        # self.getAllgames() # DO NOT RUN THIS. DATA FILE ALREADY FILLED BY UCL REMOTE SERVER COMPUTER
+        """ GET # OF CURRENT PLAYERS + PEAK PER GAME (FOR TOP 100 PLAYED GAMES)"""
         # self.getTop100Games()
         """ GET DOWNLOAD DATA PER COUNTRY """
         self.getBandwidthPerCountry()
