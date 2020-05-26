@@ -2,508 +2,508 @@
     "Concurrent Steam Data": [
         {
             "Game Name": "Counter-Strike: Global Offensive",
-            "Current Players": "999,177",
+            "Current Players": "1,008,964",
             "Peak Today": "1,015,434"
         },
         {
             "Game Name": "Dota 2",
-            "Current Players": "657,442",
+            "Current Players": "678,367",
             "Peak Today": "681,353"
         },
         {
             "Game Name": "PLAYERUNKNOWN'S BATTLEGROUNDS",
-            "Current Players": "531,822",
-            "Peak Today": "543,158"
+            "Current Players": "528,595",
+            "Peak Today": "533,813"
         },
         {
             "Game Name": "Grand Theft Auto V",
-            "Current Players": "215,450",
+            "Current Players": "219,112",
             "Peak Today": "233,596"
         },
         {
             "Game Name": "Terraria",
-            "Current Players": "175,706",
+            "Current Players": "182,345",
             "Peak Today": "262,926"
         },
         {
             "Game Name": "Tom Clancy's Rainbow Six Siege",
-            "Current Players": "104,999",
-            "Peak Today": "105,807"
+            "Current Players": "106,994",
+            "Peak Today": "106,994"
         },
         {
             "Game Name": "Source SDK Base 2007",
-            "Current Players": "90,585",
+            "Current Players": "94,555",
             "Peak Today": "121,357"
         },
         {
             "Game Name": "Football Manager 2020",
-            "Current Players": "78,981",
+            "Current Players": "81,196",
             "Peak Today": "96,619"
         },
         {
-            "Game Name": "Team Fortress 2",
-            "Current Players": "66,380",
-            "Peak Today": "84,103"
-        },
-        {
             "Game Name": "ARK: Survival Evolved",
-            "Current Players": "64,639",
+            "Current Players": "65,789",
             "Peak Today": "70,207"
         },
         {
+            "Game Name": "Team Fortress 2",
+            "Current Players": "63,013",
+            "Peak Today": "84,103"
+        },
+        {
             "Game Name": "Warframe",
-            "Current Players": "60,105",
-            "Peak Today": "64,180"
+            "Current Players": "60,627",
+            "Peak Today": "64,174"
         },
         {
             "Game Name": "Rust",
-            "Current Players": "53,858",
+            "Current Players": "55,591",
             "Peak Today": "74,546"
         },
         {
-            "Game Name": "MONSTER HUNTER: WORLD",
-            "Current Players": "51,297",
-            "Peak Today": "55,862"
-        },
-        {
             "Game Name": "Sid Meier's Civilization VI",
-            "Current Players": "50,653",
+            "Current Players": "52,868",
             "Peak Today": "74,065"
         },
         {
+            "Game Name": "MONSTER HUNTER: WORLD",
+            "Current Players": "52,316",
+            "Peak Today": "55,788"
+        },
+        {
             "Game Name": "Destiny 2",
-            "Current Players": "49,531",
+            "Current Players": "50,947",
             "Peak Today": "57,599"
         },
         {
             "Game Name": "Total War: WARHAMMER II",
-            "Current Players": "46,104",
+            "Current Players": "48,019",
             "Peak Today": "65,016"
         },
         {
             "Game Name": "Wallpaper Engine",
-            "Current Players": "41,514",
-            "Peak Today": "41,514"
+            "Current Players": "42,184",
+            "Peak Today": "42,184"
         },
         {
             "Game Name": "Dead by Daylight",
-            "Current Players": "39,668",
+            "Current Players": "42,122",
             "Peak Today": "42,965"
         },
         {
             "Game Name": "Rocket League",
-            "Current Players": "39,049",
+            "Current Players": "41,134",
             "Peak Today": "75,196"
         },
         {
             "Game Name": "War Thunder",
-            "Current Players": "38,908",
-            "Peak Today": "38,908"
+            "Current Players": "38,918",
+            "Peak Today": "38,978"
         },
         {
             "Game Name": "PAYDAY 2",
-            "Current Players": "35,518",
+            "Current Players": "35,016",
             "Peak Today": "40,749"
         },
         {
             "Game Name": "Garry's Mod",
-            "Current Players": "33,728",
+            "Current Players": "34,717",
             "Peak Today": "42,566"
         },
         {
             "Game Name": "The Witcher 3: Wild Hunt",
-            "Current Players": "32,432",
+            "Current Players": "33,551",
             "Peak Today": "35,987"
         },
         {
             "Game Name": "Euro Truck Simulator 2",
-            "Current Players": "28,585",
+            "Current Players": "29,562",
             "Peak Today": "30,418"
         },
         {
             "Game Name": "NBA 2K20",
-            "Current Players": "27,873",
-            "Peak Today": "28,643"
+            "Current Players": "28,194",
+            "Peak Today": "28,542"
         },
         {
             "Game Name": "Mount & Blade II: Bannerlord",
-            "Current Players": "25,465",
+            "Current Players": "26,409",
             "Peak Today": "30,079"
         },
         {
             "Game Name": "Hearts of Iron IV",
-            "Current Players": "22,000",
+            "Current Players": "22,916",
             "Peak Today": "28,285"
         },
         {
-            "Game Name": "Unturned",
-            "Current Players": "21,625",
-            "Peak Today": "23,277"
-        },
-        {
-            "Game Name": "World of Tanks Blitz",
-            "Current Players": "21,542",
-            "Peak Today": "26,539"
-        },
-        {
             "Game Name": "Sid Meier's Civilization V",
-            "Current Players": "21,501",
+            "Current Players": "22,437",
             "Peak Today": "32,957"
         },
         {
+            "Game Name": "World of Tanks Blitz",
+            "Current Players": "21,819",
+            "Peak Today": "26,539"
+        },
+        {
             "Game Name": "Black Desert Online",
-            "Current Players": "20,671",
+            "Current Players": "21,145",
             "Peak Today": "24,005"
         },
         {
-            "Game Name": "The Elder Scrolls Online",
-            "Current Players": "20,587",
-            "Peak Today": "30,209"
-        },
-        {
             "Game Name": "Red Dead Redemption 2",
-            "Current Players": "20,391",
+            "Current Players": "21,062",
             "Peak Today": "23,587"
         },
         {
+            "Game Name": "Unturned",
+            "Current Players": "20,998",
+            "Peak Today": "23,277"
+        },
+        {
+            "Game Name": "The Elder Scrolls Online",
+            "Current Players": "20,883",
+            "Peak Today": "30,209"
+        },
+        {
             "Game Name": "DayZ",
-            "Current Players": "17,881",
+            "Current Players": "18,425",
             "Peak Today": "28,839"
         },
         {
             "Game Name": "Brawlhalla",
-            "Current Players": "17,678",
+            "Current Players": "18,365",
             "Peak Today": "24,884"
         },
         {
             "Game Name": "Human: Fall Flat",
-            "Current Players": "17,665",
-            "Peak Today": "18,740"
+            "Current Players": "18,103",
+            "Peak Today": "18,352"
         },
         {
             "Game Name": "Stellaris",
-            "Current Players": "17,372",
+            "Current Players": "18,054",
             "Peak Today": "25,289"
         },
         {
             "Game Name": "Stardew Valley",
-            "Current Players": "16,994",
+            "Current Players": "17,548",
             "Peak Today": "22,500"
         },
         {
             "Game Name": "Europa Universalis IV",
-            "Current Players": "16,699",
+            "Current Players": "17,334",
             "Peak Today": "23,430"
         },
         {
             "Game Name": "Counter-Strike",
-            "Current Players": "16,439",
+            "Current Players": "17,042",
             "Peak Today": "24,473"
         },
         {
             "Game Name": "Don't Starve Together",
-            "Current Players": "15,366",
-            "Peak Today": "16,697"
-        },
-        {
-            "Game Name": "Cities: Skylines",
-            "Current Players": "14,943",
-            "Peak Today": "17,585"
-        },
-        {
-            "Game Name": "7 Days to Die",
-            "Current Players": "14,923",
-            "Peak Today": "19,746"
+            "Current Players": "15,965",
+            "Peak Today": "16,617"
         },
         {
             "Game Name": "DARK SOULS\u2122 III",
-            "Current Players": "14,908",
+            "Current Players": "15,507",
             "Peak Today": "16,293"
         },
         {
-            "Game Name": "Farming Simulator 19",
-            "Current Players": "14,597",
-            "Peak Today": "25,139"
-        },
-        {
-            "Game Name": "eFootball PES 2020",
-            "Current Players": "14,516",
-            "Peak Today": "17,915"
-        },
-        {
             "Game Name": "Age of Empires II: Definitive Edition",
-            "Current Players": "14,510",
+            "Current Players": "15,440",
             "Peak Today": "25,967"
         },
         {
-            "Game Name": "World of Warships",
-            "Current Players": "14,368",
-            "Peak Today": "14,830"
+            "Game Name": "Cities: Skylines",
+            "Current Players": "15,388",
+            "Peak Today": "17,585"
+        },
+        {
+            "Game Name": "eFootball PES 2020",
+            "Current Players": "15,365",
+            "Peak Today": "17,915"
+        },
+        {
+            "Game Name": "7 Days to Die",
+            "Current Players": "15,295",
+            "Peak Today": "19,746"
         },
         {
             "Game Name": "The Elder Scrolls V: Skyrim Special Edition",
-            "Current Players": "14,354",
+            "Current Players": "15,241",
             "Peak Today": "22,892"
         },
         {
-            "Game Name": "Spacewar",
-            "Current Players": "14,039",
-            "Peak Today": "16,403"
+            "Game Name": "Farming Simulator 19",
+            "Current Players": "15,211",
+            "Peak Today": "25,139"
         },
         {
             "Game Name": "FINAL FANTASY XIV Online",
-            "Current Players": "13,983",
+            "Current Players": "14,843",
             "Peak Today": "25,217"
         },
         {
+            "Game Name": "World of Warships",
+            "Current Players": "14,561",
+            "Peak Today": "14,586"
+        },
+        {
+            "Game Name": "Spacewar",
+            "Current Players": "14,444",
+            "Peak Today": "16,403"
+        },
+        {
+            "Game Name": "Path of Exile",
+            "Current Players": "14,409",
+            "Peak Today": "21,340"
+        },
+        {
             "Game Name": "Fallout 76",
-            "Current Players": "13,868",
+            "Current Players": "14,332",
             "Peak Today": "17,481"
         },
         {
             "Game Name": "Left 4 Dead 2",
-            "Current Players": "13,773",
+            "Current Players": "14,223",
             "Peak Today": "14,580"
         },
         {
-            "Game Name": "Path of Exile",
-            "Current Players": "13,760",
-            "Peak Today": "21,340"
-        },
-        {
-            "Game Name": "Fallout 4",
-            "Current Players": "13,237",
-            "Peak Today": "20,315"
-        },
-        {
-            "Game Name": "Football Manager 2019",
-            "Current Players": "13,216",
-            "Peak Today": "14,840"
-        },
-        {
-            "Game Name": "RimWorld",
-            "Current Players": "13,199",
-            "Peak Today": "16,589"
-        },
-        {
             "Game Name": "Arma 3",
-            "Current Players": "13,178",
+            "Current Players": "13,923",
             "Peak Today": "22,058"
         },
         {
+            "Game Name": "Fallout 4",
+            "Current Players": "13,921",
+            "Peak Today": "20,315"
+        },
+        {
             "Game Name": "Paladins",
-            "Current Players": "13,047",
+            "Current Players": "13,753",
             "Peak Today": "19,932"
         },
         {
+            "Game Name": "RimWorld",
+            "Current Players": "13,590",
+            "Peak Today": "16,589"
+        },
+        {
+            "Game Name": "Football Manager 2019",
+            "Current Players": "13,584",
+            "Peak Today": "14,840"
+        },
+        {
             "Game Name": "tModLoader",
-            "Current Players": "12,836",
+            "Current Players": "13,257",
             "Peak Today": "16,009"
         },
         {
             "Game Name": "Divinity: Original Sin 2",
-            "Current Players": "12,516",
+            "Current Players": "13,215",
             "Peak Today": "19,503"
         },
         {
             "Game Name": "Conan Exiles",
-            "Current Players": "12,249",
+            "Current Players": "13,001",
             "Peak Today": "19,945"
         },
         {
             "Game Name": "Scrap Mechanic",
-            "Current Players": "12,200",
+            "Current Players": "12,893",
             "Peak Today": "17,480"
         },
         {
-            "Game Name": "Monster Train",
-            "Current Players": "11,605",
-            "Peak Today": "13,455"
-        },
-        {
             "Game Name": "SMITE",
-            "Current Players": "11,425",
+            "Current Players": "12,371",
             "Peak Today": "23,723"
         },
         {
-            "Game Name": "Assassin's Creed Odyssey",
-            "Current Players": "10,794",
-            "Peak Today": "12,958"
+            "Game Name": "Monster Train",
+            "Current Players": "12,238",
+            "Peak Today": "13,455"
         },
         {
             "Game Name": "VRChat",
-            "Current Players": "10,736",
+            "Current Players": "11,366",
             "Peak Today": "12,168"
         },
         {
-            "Game Name": "Yu-Gi-Oh! Duel Links",
-            "Current Players": "10,552",
-            "Peak Today": "11,969"
+            "Game Name": "Assassin's Creed Odyssey",
+            "Current Players": "11,232",
+            "Peak Today": "12,958"
         },
         {
             "Game Name": "Total War: THREE KINGDOMS",
-            "Current Players": "10,520",
+            "Current Players": "10,828",
             "Peak Today": "11,296"
         },
         {
-            "Game Name": "Conqueror's Blade",
-            "Current Players": "9,590",
-            "Peak Today": "9,590"
+            "Game Name": "Yu-Gi-Oh! Duel Links",
+            "Current Players": "10,812",
+            "Peak Today": "11,969"
         },
         {
             "Game Name": "Borderlands 3",
-            "Current Players": "9,560",
+            "Current Players": "10,021",
             "Peak Today": "13,156"
         },
         {
             "Game Name": "Dota Underlords",
-            "Current Players": "9,510",
+            "Current Players": "9,844",
             "Peak Today": "10,182"
         },
         {
             "Game Name": "Crusader Kings II",
-            "Current Players": "8,487",
+            "Current Players": "8,949",
             "Peak Today": "12,870"
         },
         {
+            "Game Name": "Conqueror's Blade",
+            "Current Players": "8,707",
+            "Peak Today": "9,590"
+        },
+        {
             "Game Name": "The Elder Scrolls V: Skyrim",
-            "Current Players": "8,220",
+            "Current Players": "8,554",
             "Peak Today": "12,204"
         },
         {
             "Game Name": "Age of Empires II (2013)",
-            "Current Players": "7,984",
+            "Current Players": "8,445",
             "Peak Today": "14,800"
         },
         {
             "Game Name": "Factorio",
-            "Current Players": "7,897",
+            "Current Players": "8,329",
             "Peak Today": "12,661"
         },
         {
-            "Game Name": "Black Desert",
-            "Current Players": "7,403",
-            "Peak Today": "7,633"
-        },
-        {
             "Game Name": "Last Oasis",
-            "Current Players": "7,166",
+            "Current Players": "7,504",
             "Peak Today": "10,154"
         },
         {
+            "Game Name": "Black Desert",
+            "Current Players": "7,418",
+            "Peak Today": "7,633"
+        },
+        {
             "Game Name": "Elite Dangerous",
-            "Current Players": "7,127",
+            "Current Players": "7,400",
             "Peak Today": "12,894"
         },
         {
             "Game Name": "Total War: SHOGUN 2",
-            "Current Players": "7,077",
+            "Current Players": "7,333",
             "Peak Today": "8,386"
         },
         {
-            "Game Name": "Slay the Spire",
-            "Current Players": "6,879",
-            "Peak Today": "7,292"
-        },
-        {
-            "Game Name": "Deep Rock Galactic",
-            "Current Players": "6,866",
-            "Peak Today": "13,015"
-        },
-        {
-            "Game Name": "Soundpad",
-            "Current Players": "6,866",
-            "Peak Today": "8,342"
-        },
-        {
             "Game Name": "Albion Online",
-            "Current Players": "6,833",
+            "Current Players": "7,159",
             "Peak Today": "9,556"
         },
         {
-            "Game Name": "Shadowverse",
-            "Current Players": "6,820",
-            "Peak Today": "7,084"
+            "Game Name": "Deep Rock Galactic",
+            "Current Players": "7,156",
+            "Peak Today": "13,015"
         },
         {
-            "Game Name": "Russian Fishing 4",
-            "Current Players": "6,732",
-            "Peak Today": "6,880"
+            "Game Name": "Slay the Spire",
+            "Current Players": "7,117",
+            "Peak Today": "7,292"
         },
         {
-            "Game Name": "Dying Light",
-            "Current Players": "6,706",
-            "Peak Today": "6,706"
+            "Game Name": "Soundpad",
+            "Current Players": "7,086",
+            "Peak Today": "8,342"
         },
         {
             "Game Name": "The Binding of Isaac: Rebirth",
-            "Current Players": "6,669",
+            "Current Players": "6,895",
             "Peak Today": "7,321"
         },
         {
-            "Game Name": "NGU IDLE",
-            "Current Players": "6,499",
-            "Peak Today": "7,201"
+            "Game Name": "Shadowverse",
+            "Current Players": "6,868",
+            "Peak Today": "6,944"
+        },
+        {
+            "Game Name": "Dying Light",
+            "Current Players": "6,813",
+            "Peak Today": "6,823"
+        },
+        {
+            "Game Name": "Russian Fishing 4",
+            "Current Players": "6,698",
+            "Peak Today": "6,806"
         },
         {
             "Game Name": "Shop Titans",
-            "Current Players": "6,484",
+            "Current Players": "6,665",
             "Peak Today": "6,839"
         },
         {
             "Game Name": "Halo: The Master Chief Collection",
-            "Current Players": "6,412",
+            "Current Players": "6,660",
             "Peak Today": "13,547"
         },
         {
-            "Game Name": "Oxygen Not Included",
-            "Current Players": "6,310",
-            "Peak Today": "7,046"
+            "Game Name": "NGU IDLE",
+            "Current Players": "6,637",
+            "Peak Today": "7,201"
+        },
+        {
+            "Game Name": "Hunt: Showdown",
+            "Current Players": "6,614",
+            "Peak Today": "10,896"
         },
         {
             "Game Name": "Total War: ROME II - Emperor Edition",
-            "Current Players": "6,261",
+            "Current Players": "6,611",
             "Peak Today": "9,590"
         },
         {
             "Game Name": "Company of Heroes 2",
-            "Current Players": "6,252",
+            "Current Players": "6,454",
             "Peak Today": "8,507"
         },
         {
-            "Game Name": "Hunt: Showdown",
-            "Current Players": "6,210",
-            "Peak Today": "10,896"
+            "Game Name": "Oxygen Not Included",
+            "Current Players": "6,429",
+            "Peak Today": "7,046"
         },
         {
             "Game Name": "Space Engineers",
-            "Current Players": "6,081",
+            "Current Players": "6,371",
             "Peak Today": "10,664"
         },
         {
             "Game Name": "The Forest",
-            "Current Players": "6,020",
+            "Current Players": "6,181",
             "Peak Today": "8,346"
         },
         {
             "Game Name": "EVE Online",
-            "Current Players": "5,986",
+            "Current Players": "6,164",
             "Peak Today": "6,984"
         },
         {
             "Game Name": "No Man's Sky",
-            "Current Players": "5,762",
+            "Current Players": "6,022",
             "Peak Today": "7,688"
         },
         {
-            "Game Name": "Mount & Blade: Warband",
-            "Current Players": "5,414",
-            "Peak Today": "6,498"
+            "Game Name": "Planet Zoo",
+            "Current Players": "5,525",
+            "Peak Today": "8,106"
         }
     ],
     "General Data": [
         {
-            "Current Total Players": 21582760,
+            "Current Total Players": 21929235,
             "Current Total Peak": 22173929
         }
     ]

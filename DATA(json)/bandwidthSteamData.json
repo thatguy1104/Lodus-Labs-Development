@@ -1,237 +1,237 @@
 {
     "USA": {
-        "totalbytes": 88597039208277066,
-        "avgmbps": 56001604.013625,
-        "Percentage of global Steam Traffic": 16.69
+        "totalbytes": 78403840784141122,
+        "avgmbps": 56379191.740427,
+        "Percentage of global Steam Traffic": 16.5
     },
     "USA-NC": {
-        "totalbytes": 2518626432631519,
-        "avgmbps": 56472520.094073,
+        "totalbytes": 2220940043263249,
+        "avgmbps": 56558773.846425,
         "Percentage of global Steam Traffic": 0.47
     },
     "CHL": {
-        "totalbytes": 2220324605838762,
-        "avgmbps": 35714473.584701,
-        "Percentage of global Steam Traffic": 0.42
+        "totalbytes": 1948613862842050,
+        "avgmbps": 36143743.045312,
+        "Percentage of global Steam Traffic": 0.41
     },
     "USA-OK": {
-        "totalbytes": 923013656055827,
-        "avgmbps": 42943226.104281,
+        "totalbytes": 822286524601598,
+        "avgmbps": 43321272.375061,
         "Percentage of global Steam Traffic": 0.17
     },
     "USA-KY": {
-        "totalbytes": 1033218266013112,
-        "avgmbps": 48584186.254145,
+        "totalbytes": 909265262570358,
+        "avgmbps": 48816947.333939,
         "Percentage of global Steam Traffic": 0.19
     },
     "PRI": {
-        "totalbytes": 199481011813481,
-        "avgmbps": 27886303.500081,
+        "totalbytes": 177739229500319,
+        "avgmbps": 27827547.819119,
         "Percentage of global Steam Traffic": 0.04
     },
     "USA-TN": {
-        "totalbytes": 1535266799758430,
-        "avgmbps": 52008927.233579,
+        "totalbytes": 1356154498217007,
+        "avgmbps": 52282261.279524,
         "Percentage of global Steam Traffic": 0.29
     },
     "MNP": {
-        "totalbytes": 3064702960340,
-        "avgmbps": 17136752.196213,
+        "totalbytes": 2653088949994,
+        "avgmbps": 17154335.859494,
         "Percentage of global Steam Traffic": 0.0
     },
     "MKD": {
-        "totalbytes": 98465979283308,
-        "avgmbps": 19322634.527147,
+        "totalbytes": 87665228486383,
+        "avgmbps": 19251426.022237,
         "Percentage of global Steam Traffic": 0.02
     },
     "ABW": {
-        "totalbytes": 6501080654870,
-        "avgmbps": 36106086.476238,
+        "totalbytes": 5351310795516,
+        "avgmbps": 35762703.433103,
         "Percentage of global Steam Traffic": 0.0
     },
     "USA-UT": {
-        "totalbytes": 1092159136564566,
-        "avgmbps": 57810095.775413,
-        "Percentage of global Steam Traffic": 0.21
+        "totalbytes": 969271973156074,
+        "avgmbps": 58333198.470803,
+        "Percentage of global Steam Traffic": 0.2
     },
     "USA-CO": {
-        "totalbytes": 2044169025638341,
-        "avgmbps": 49480879.310914,
-        "Percentage of global Steam Traffic": 0.39
+        "totalbytes": 1821862144729867,
+        "avgmbps": 49817839.311659,
+        "Percentage of global Steam Traffic": 0.38
     },
     "FJI": {
-        "totalbytes": 1908762746833,
-        "avgmbps": 9717681.5110788,
+        "totalbytes": 1751011602028,
+        "avgmbps": 9751074.409121,
         "Percentage of global Steam Traffic": 0.0
     },
     "USA-SD": {
-        "totalbytes": 196465885556634,
-        "avgmbps": 50542414.208525,
+        "totalbytes": 174166123087739,
+        "avgmbps": 50596570.21133,
         "Percentage of global Steam Traffic": 0.04
     },
     "AUS": {
-        "totalbytes": 7646519197167415,
-        "avgmbps": 26750501.355541,
-        "Percentage of global Steam Traffic": 1.44
+        "totalbytes": 6978662799602859,
+        "avgmbps": 26799974.378044,
+        "Percentage of global Steam Traffic": 1.47
     },
     "LCA": {
-        "totalbytes": 3400336619971,
-        "avgmbps": 21474436.068853,
+        "totalbytes": 2818008502659,
+        "avgmbps": 21424650.180892,
         "Percentage of global Steam Traffic": 0.0
     },
     "ITA": {
-        "totalbytes": 3235842250589005,
-        "avgmbps": 24809568.344148,
+        "totalbytes": 2899555759849389,
+        "avgmbps": 24890181.792006,
         "Percentage of global Steam Traffic": 0.61
     },
     "USA-NH": {
-        "totalbytes": 507812779913104,
-        "avgmbps": 61221103.107739,
-        "Percentage of global Steam Traffic": 0.1
+        "totalbytes": 443334285257881,
+        "avgmbps": 61625987.03023,
+        "Percentage of global Steam Traffic": 0.09
     },
     "NFK": {
-        "totalbytes": 92450410292,
-        "avgmbps": 9503891.1149407,
+        "totalbytes": 92436717871,
+        "avgmbps": 9593283.3240031,
         "Percentage of global Steam Traffic": 0.0
     },
     "UGA": {
-        "totalbytes": 1559227033968,
-        "avgmbps": 6216474.2160003,
+        "totalbytes": 1426520646590,
+        "avgmbps": 6276393.8616011,
         "Percentage of global Steam Traffic": 0.0
     },
     "KWT": {
-        "totalbytes": 359295604220311,
-        "avgmbps": 25751984.948269,
+        "totalbytes": 318355627318865,
+        "avgmbps": 25755969.416063,
         "Percentage of global Steam Traffic": 0.07
     },
     "SUR": {
-        "totalbytes": 4056598392368,
-        "avgmbps": 6459435.7876462,
+        "totalbytes": 3511523167729,
+        "avgmbps": 6331598.7943884,
         "Percentage of global Steam Traffic": 0.0
     },
     "AND": {
-        "totalbytes": 12796085070072,
-        "avgmbps": 69286660.741148,
+        "totalbytes": 11808920091292,
+        "avgmbps": 69657668.338092,
         "Percentage of global Steam Traffic": 0.0
     },
     "THA": {
-        "totalbytes": 7566883803363843,
-        "avgmbps": 79106107.306897,
-        "Percentage of global Steam Traffic": 1.43
+        "totalbytes": 6760122403176289,
+        "avgmbps": 79647274.584085,
+        "Percentage of global Steam Traffic": 1.42
     },
     "CIV": {
-        "totalbytes": 4939239565325,
-        "avgmbps": 7893518.8023815,
+        "totalbytes": 4099974026553,
+        "avgmbps": 7744164.4829886,
         "Percentage of global Steam Traffic": 0.0
     },
     "GGY": {
-        "totalbytes": 21010577042655,
-        "avgmbps": 18725040.319221,
+        "totalbytes": 18700290861568,
+        "avgmbps": 18667315.899708,
         "Percentage of global Steam Traffic": 0.0
     },
     "GLP": {
-        "totalbytes": 9490768564640,
-        "avgmbps": 6444252.7516531,
+        "totalbytes": 8308928577460,
+        "avgmbps": 6319911.717523,
         "Percentage of global Steam Traffic": 0.0
     },
     "BHS": {
-        "totalbytes": 12542502393711,
-        "avgmbps": 20639675.1997,
+        "totalbytes": 11056419375335,
+        "avgmbps": 20424086.312168,
         "Percentage of global Steam Traffic": 0.0
     },
     "DEU": {
-        "totalbytes": 23029125915933540,
-        "avgmbps": 40013858.987938,
-        "Percentage of global Steam Traffic": 4.34
+        "totalbytes": 20937920001010897,
+        "avgmbps": 40192034.541155,
+        "Percentage of global Steam Traffic": 4.41
     },
     "USA-MA": {
-        "totalbytes": 2023460339773685,
-        "avgmbps": 70012399.591992,
-        "Percentage of global Steam Traffic": 0.38
+        "totalbytes": 1775893144366040,
+        "avgmbps": 70414987.786862,
+        "Percentage of global Steam Traffic": 0.37
     },
     "SGP": {
-        "totalbytes": 1792539978384566,
-        "avgmbps": 79637444.850682,
+        "totalbytes": 1615841045146376,
+        "avgmbps": 80839201.930185,
         "Percentage of global Steam Traffic": 0.34
     },
     "BHR": {
-        "totalbytes": 65048779130930,
-        "avgmbps": 17639920.522996,
+        "totalbytes": 57466778751370,
+        "avgmbps": 17604025.870915,
         "Percentage of global Steam Traffic": 0.01
     },
     "USA-WI": {
-        "totalbytes": 1536863097595686,
-        "avgmbps": 52164384.212155,
-        "Percentage of global Steam Traffic": 0.29
+        "totalbytes": 1354093565342921,
+        "avgmbps": 52499721.200198,
+        "Percentage of global Steam Traffic": 0.28
     },
     "MLT": {
-        "totalbytes": 88878961070132,
-        "avgmbps": 53497687.193998,
+        "totalbytes": 78302012522882,
+        "avgmbps": 53421347.903105,
         "Percentage of global Steam Traffic": 0.02
     },
     "GRC": {
-        "totalbytes": 862250478723046,
-        "avgmbps": 15786621.185359,
+        "totalbytes": 774654211718679,
+        "avgmbps": 15792070.328225,
         "Percentage of global Steam Traffic": 0.16
     },
     "TKM": {
-        "totalbytes": 3833149199920,
-        "avgmbps": 1270337.4719399,
+        "totalbytes": 3347672947028,
+        "avgmbps": 1272779.295779,
         "Percentage of global Steam Traffic": 0.0
     },
     "USA-AK": {
-        "totalbytes": 256649070450015,
-        "avgmbps": 37998883.718672,
+        "totalbytes": 231266883611835,
+        "avgmbps": 38507433.130059,
         "Percentage of global Steam Traffic": 0.05
     },
     "DJI": {
-        "totalbytes": 1708784670929,
-        "avgmbps": 3373655.577051,
+        "totalbytes": 1567060207462,
+        "avgmbps": 3369204.8924135,
         "Percentage of global Steam Traffic": 0.0
     },
     "COK": {
-        "totalbytes": 25912359365,
-        "avgmbps": 5606612.4806471,
+        "totalbytes": 25889974518,
+        "avgmbps": 5639336.7655466,
         "Percentage of global Steam Traffic": 0.0
     },
     "GIB": {
-        "totalbytes": 8130692217175,
-        "avgmbps": 69132821.325797,
+        "totalbytes": 7305032996479,
+        "avgmbps": 68308068.198546,
         "Percentage of global Steam Traffic": 0.0
     },
     "BEN": {
-        "totalbytes": 563133280946,
-        "avgmbps": 1895634.8233215,
+        "totalbytes": 508746872537,
+        "avgmbps": 2028431.2695364,
         "Percentage of global Steam Traffic": 0.0
     },
     "BMU": {
-        "totalbytes": 6953611115677,
-        "avgmbps": 41277018.909263,
+        "totalbytes": 6005904664810,
+        "avgmbps": 41232494.983458,
         "Percentage of global Steam Traffic": 0.0
     },
     "SRB": {
-        "totalbytes": 533321263876265,
-        "avgmbps": 27756489.599955,
+        "totalbytes": 471553406349493,
+        "avgmbps": 27694996.255099,
         "Percentage of global Steam Traffic": 0.1
     },
     "KEN": {
-        "totalbytes": 19988655964802,
-        "avgmbps": 8834559.7035384,
+        "totalbytes": 17578512418364,
+        "avgmbps": 8805280.829552,
         "Percentage of global Steam Traffic": 0.0
     },
     "PSE": {
-        "totalbytes": 27333342614925,
-        "avgmbps": 8854984.2422194,
+        "totalbytes": 25056462839062,
+        "avgmbps": 8832151.7272778,
         "Percentage of global Steam Traffic": 0.01
     },
     "NIC": {
-        "totalbytes": 15842201259030,
-        "avgmbps": 9286661.0918108,
+        "totalbytes": 14049598024443,
+        "avgmbps": 9298317.0428705,
         "Percentage of global Steam Traffic": 0.0
     },
     "BTN": {
-        "totalbytes": 798964931963,
-        "avgmbps": 5596738.2883701,
+        "totalbytes": 736712814995,
+        "avgmbps": 5710017.1306464,
         "Percentage of global Steam Traffic": 0.0
     },
     "NRU": {
@@ -240,793 +240,793 @@
         "Percentage of global Steam Traffic": 0.0
     },
     "USA-MI": {
-        "totalbytes": 2719174268537488,
-        "avgmbps": 51817439.850804,
-        "Percentage of global Steam Traffic": 0.51
+        "totalbytes": 2376278383471812,
+        "avgmbps": 52177996.777767,
+        "Percentage of global Steam Traffic": 0.5
     },
     "SAU": {
-        "totalbytes": 1167458262479073,
-        "avgmbps": 24595279.683465,
+        "totalbytes": 1034337308204821,
+        "avgmbps": 24563879.17539,
         "Percentage of global Steam Traffic": 0.22
     },
     "YEM": {
-        "totalbytes": 366220753163,
-        "avgmbps": 1392098.692667,
+        "totalbytes": 335179481634,
+        "avgmbps": 1430988.4617119,
         "Percentage of global Steam Traffic": 0.0
     },
     "LAO": {
-        "totalbytes": 24754609671487,
-        "avgmbps": 7044874.0325247,
+        "totalbytes": 22116871169706,
+        "avgmbps": 7012155.4053438,
         "Percentage of global Steam Traffic": 0.0
     },
     "CUW": {
-        "totalbytes": 5111055237097,
-        "avgmbps": 17902058.401414,
+        "totalbytes": 4514023500072,
+        "avgmbps": 17921839.205941,
         "Percentage of global Steam Traffic": 0.0
     },
     "USA-IN": {
-        "totalbytes": 1648598077803439,
-        "avgmbps": 52612842.996395,
+        "totalbytes": 1456668672803552,
+        "avgmbps": 53201318.949552,
         "Percentage of global Steam Traffic": 0.31
     },
     "PYF": {
-        "totalbytes": 7096351009539,
-        "avgmbps": 7258539.5662056,
+        "totalbytes": 6289233407088,
+        "avgmbps": 7207962.0679306,
         "Percentage of global Steam Traffic": 0.0
     },
     "USA-AR": {
-        "totalbytes": 566262377383644,
-        "avgmbps": 36338394.259732,
+        "totalbytes": 502771319028055,
+        "avgmbps": 36600037.325303,
         "Percentage of global Steam Traffic": 0.11
     },
     "PNG": {
-        "totalbytes": 503951742298,
-        "avgmbps": 3637134.2362856,
+        "totalbytes": 470902243853,
+        "avgmbps": 3692763.1061477,
         "Percentage of global Steam Traffic": 0.0
     },
     "BLR": {
-        "totalbytes": 1250261969392946,
-        "avgmbps": 22406735.39422,
+        "totalbytes": 1120193040091597,
+        "avgmbps": 22311439.694793,
         "Percentage of global Steam Traffic": 0.24
     },
     "USA-MD": {
-        "totalbytes": 1582150345526582,
-        "avgmbps": 60454425.858652,
-        "Percentage of global Steam Traffic": 0.3
+        "totalbytes": 1401108976272272,
+        "avgmbps": 60924881.064112,
+        "Percentage of global Steam Traffic": 0.29
     },
     "USA-WV": {
-        "totalbytes": 386201495405982,
-        "avgmbps": 41117439.888004,
+        "totalbytes": 343836395890389,
+        "avgmbps": 41515032.371131,
         "Percentage of global Steam Traffic": 0.07
     },
     "IOT": {
-        "totalbytes": 207406048652,
-        "avgmbps": 1591138.1021656,
+        "totalbytes": 172305459092,
+        "avgmbps": 1558515.4964819,
         "Percentage of global Steam Traffic": 0.0
     },
     "AGO": {
-        "totalbytes": 5508714516562,
-        "avgmbps": 4176515.4712372,
+        "totalbytes": 4874086811469,
+        "avgmbps": 4284970.4656116,
         "Percentage of global Steam Traffic": 0.0
     },
     "TZA": {
-        "totalbytes": 2452889023217,
-        "avgmbps": 7223524.7969483,
+        "totalbytes": 2205052555742,
+        "avgmbps": 7219801.0398788,
         "Percentage of global Steam Traffic": 0.0
     },
     "USA-CT": {
-        "totalbytes": 921066683642499,
-        "avgmbps": 59292694.249219,
+        "totalbytes": 805684830480353,
+        "avgmbps": 59360435.957893,
         "Percentage of global Steam Traffic": 0.17
     },
     "URY": {
-        "totalbytes": 351683181383075,
-        "avgmbps": 24804458.317787,
+        "totalbytes": 311222004316303,
+        "avgmbps": 24841866.207562,
         "Percentage of global Steam Traffic": 0.07
     },
     "BIH": {
-        "totalbytes": 159071172162684,
-        "avgmbps": 16607684.461673,
+        "totalbytes": 140132498857894,
+        "avgmbps": 16485780.080679,
         "Percentage of global Steam Traffic": 0.03
     },
     "AFG": {
-        "totalbytes": 15351370734815,
-        "avgmbps": 4941264.4565428,
+        "totalbytes": 13434453510100,
+        "avgmbps": 4933346.979709,
         "Percentage of global Steam Traffic": 0.0
     },
     "CYM": {
-        "totalbytes": 7822779639244,
-        "avgmbps": 22969268.156198,
+        "totalbytes": 6913268626236,
+        "avgmbps": 22910788.174555,
         "Percentage of global Steam Traffic": 0.0
     },
     "NAM": {
-        "totalbytes": 10495015366280,
-        "avgmbps": 4512793.5549345,
+        "totalbytes": 9389196401636,
+        "avgmbps": 4569194.5494747,
         "Percentage of global Steam Traffic": 0.0
     },
     "FRO": {
-        "totalbytes": 23080549509240,
-        "avgmbps": 26983697.087487,
+        "totalbytes": 20546892683764,
+        "avgmbps": 26857321.875621,
         "Percentage of global Steam Traffic": 0.0
     },
     "JEY": {
-        "totalbytes": 33494585700692,
-        "avgmbps": 72410412.364998,
+        "totalbytes": 30226209688469,
+        "avgmbps": 72607376.059758,
         "Percentage of global Steam Traffic": 0.01
     },
     "SXM": {
-        "totalbytes": 1330789935646,
-        "avgmbps": 5926722.3113623,
+        "totalbytes": 1208568581884,
+        "avgmbps": 5956183.821921,
         "Percentage of global Steam Traffic": 0.0
     },
     "TCD": {
-        "totalbytes": 115700851662,
-        "avgmbps": 989140.91367664,
+        "totalbytes": 96542219790,
+        "avgmbps": 1003038.6662519,
         "Percentage of global Steam Traffic": 0.0
     },
     "CHN": {
-        "totalbytes": 95003056941617600,
-        "avgmbps": 57187951.383595,
-        "Percentage of global Steam Traffic": 17.9
+        "totalbytes": 86731106625560450,
+        "avgmbps": 57456292.461203,
+        "Percentage of global Steam Traffic": 18.25
     },
     "GTM": {
-        "totalbytes": 69715208954453,
-        "avgmbps": 8140324.0723723,
+        "totalbytes": 60791478238439,
+        "avgmbps": 8125748.3216858,
         "Percentage of global Steam Traffic": 0.01
     },
     "GMB": {
-        "totalbytes": 294398635635,
-        "avgmbps": 2894752.1391985,
+        "totalbytes": 271482915868,
+        "avgmbps": 2876722.5254904,
         "Percentage of global Steam Traffic": 0.0
     },
     "USA-MN": {
-        "totalbytes": 1583889275127705,
-        "avgmbps": 52722924.848024,
+        "totalbytes": 1404501411395557,
+        "avgmbps": 53154258.819015,
         "Percentage of global Steam Traffic": 0.3
     },
     "DOM": {
-        "totalbytes": 99979908226709,
-        "avgmbps": 11254852.555453,
+        "totalbytes": 85917422240325,
+        "avgmbps": 11159907.953031,
         "Percentage of global Steam Traffic": 0.02
     },
     "PRY": {
-        "totalbytes": 82765126396749,
-        "avgmbps": 20723790.699764,
+        "totalbytes": 72590237440307,
+        "avgmbps": 20636489.820214,
         "Percentage of global Steam Traffic": 0.02
     },
     "KHM": {
-        "totalbytes": 60025650182623,
-        "avgmbps": 12952461.330104,
+        "totalbytes": 53848049722614,
+        "avgmbps": 12955100.744345,
         "Percentage of global Steam Traffic": 0.01
     },
     "SMR": {
-        "totalbytes": 3293783970266,
-        "avgmbps": 40649124.974057,
+        "totalbytes": 2660325448730,
+        "avgmbps": 40264324.012636,
         "Percentage of global Steam Traffic": 0.0
     },
     "BOL": {
-        "totalbytes": 140252665959878,
-        "avgmbps": 12319314.215543,
+        "totalbytes": 121491556316168,
+        "avgmbps": 12319560.576348,
         "Percentage of global Steam Traffic": 0.03
     },
     "MYS": {
-        "totalbytes": 2100066623826459,
-        "avgmbps": 29885722.572723,
-        "Percentage of global Steam Traffic": 0.4
+        "totalbytes": 1877034611648320,
+        "avgmbps": 29798878.399163,
+        "Percentage of global Steam Traffic": 0.39
     },
     "CZE": {
-        "totalbytes": 2953410930171400,
-        "avgmbps": 30423231.853534,
-        "Percentage of global Steam Traffic": 0.56
+        "totalbytes": 2710549710688124,
+        "avgmbps": 30454191.284955,
+        "Percentage of global Steam Traffic": 0.57
     },
     "USA-PA": {
-        "totalbytes": 3215275787986934,
-        "avgmbps": 57352409.250411,
-        "Percentage of global Steam Traffic": 0.61
+        "totalbytes": 2848544105019359,
+        "avgmbps": 57707266.213636,
+        "Percentage of global Steam Traffic": 0.6
     },
     "SPM": {
-        "totalbytes": 2208589279582,
-        "avgmbps": 43995363.306927,
+        "totalbytes": 1973411449479,
+        "avgmbps": 46522255.07497,
         "Percentage of global Steam Traffic": 0.0
     },
     "USA-RI": {
-        "totalbytes": 297491277917831,
-        "avgmbps": 80710626.566155,
-        "Percentage of global Steam Traffic": 0.06
+        "totalbytes": 261304074076732,
+        "avgmbps": 81136524.810004,
+        "Percentage of global Steam Traffic": 0.05
     },
     "HKG": {
-        "totalbytes": 2058788527336796,
-        "avgmbps": 56522948.596466,
+        "totalbytes": 1856952371886332,
+        "avgmbps": 56871503.031561,
         "Percentage of global Steam Traffic": 0.39
     },
     "LSO": {
-        "totalbytes": 649476982043,
-        "avgmbps": 12291015.788758,
+        "totalbytes": 540269794770,
+        "avgmbps": 11428812.73531,
         "Percentage of global Steam Traffic": 0.0
     },
     "MNE": {
-        "totalbytes": 32122011904305,
-        "avgmbps": 32965920.876192,
+        "totalbytes": 29009992613771,
+        "avgmbps": 33088085.023872,
         "Percentage of global Steam Traffic": 0.01
     },
     "USA-DC": {
-        "totalbytes": 303613306425681,
-        "avgmbps": 70698444.564466,
+        "totalbytes": 268600473537835,
+        "avgmbps": 71174303.337992,
         "Percentage of global Steam Traffic": 0.06
     },
     "FLK": {
-        "totalbytes": 325143982324,
-        "avgmbps": 1712280.4118036,
+        "totalbytes": 306318739218,
+        "avgmbps": 1782445.824849,
         "Percentage of global Steam Traffic": 0.0
     },
     "VUT": {
-        "totalbytes": 176396354537,
-        "avgmbps": 2002859.3776896,
+        "totalbytes": 158585161953,
+        "avgmbps": 1921612.9564168,
         "Percentage of global Steam Traffic": 0.0
     },
     "ATG": {
-        "totalbytes": 1253640406857,
-        "avgmbps": 8467832.8212547,
+        "totalbytes": 1136873056531,
+        "avgmbps": 8831689.0243229,
         "Percentage of global Steam Traffic": 0.0
     },
     "IND": {
-        "totalbytes": 1567493469233514,
-        "avgmbps": 18730453.485133,
+        "totalbytes": 1403313419666833,
+        "avgmbps": 18714297.686399,
         "Percentage of global Steam Traffic": 0.3
     },
     "AIA": {
-        "totalbytes": 1240756022270,
-        "avgmbps": 9664557.4160739,
+        "totalbytes": 1188007378519,
+        "avgmbps": 9672845.8447044,
         "Percentage of global Steam Traffic": 0.0
     },
     "USA-OR": {
-        "totalbytes": 1644126795224348,
-        "avgmbps": 53189231.634499,
+        "totalbytes": 1464999713538846,
+        "avgmbps": 53755244.06727,
         "Percentage of global Steam Traffic": 0.31
     },
     "IRL": {
-        "totalbytes": 907164384042591,
-        "avgmbps": 36674587.533364,
+        "totalbytes": 804823492823012,
+        "avgmbps": 36892432.47041,
         "Percentage of global Steam Traffic": 0.17
     },
     "ALB": {
-        "totalbytes": 47986629019803,
-        "avgmbps": 25184273.020275,
+        "totalbytes": 42265897250214,
+        "avgmbps": 24938594.997733,
         "Percentage of global Steam Traffic": 0.01
     },
     "KAZ": {
-        "totalbytes": 1022347399740289,
-        "avgmbps": 17094072.531567,
+        "totalbytes": 917965096016200,
+        "avgmbps": 17094715.119182,
         "Percentage of global Steam Traffic": 0.19
     },
     "SWZ": {
-        "totalbytes": 273189822058,
-        "avgmbps": 1791841.1208118,
+        "totalbytes": 241748582639,
+        "avgmbps": 1763723.1618399,
         "Percentage of global Steam Traffic": 0.0
     },
     "MRT": {
-        "totalbytes": 418298098739,
-        "avgmbps": 2453697.9196024,
+        "totalbytes": 339607810660,
+        "avgmbps": 2326352.9977353,
         "Percentage of global Steam Traffic": 0.0
     },
     "GBR": {
-        "totalbytes": 18145164249638393,
-        "avgmbps": 36432200.986325,
-        "Percentage of global Steam Traffic": 3.42
+        "totalbytes": 16191462083279489,
+        "avgmbps": 36521604.439745,
+        "Percentage of global Steam Traffic": 3.41
     },
     "LUX": {
-        "totalbytes": 134611627991110,
-        "avgmbps": 54209697.67889,
+        "totalbytes": 121799059772965,
+        "avgmbps": 54075900.247116,
         "Percentage of global Steam Traffic": 0.03
     },
     "OMN": {
-        "totalbytes": 51848047125854,
-        "avgmbps": 16305058.119343,
+        "totalbytes": 45968976813006,
+        "avgmbps": 16390357.141635,
         "Percentage of global Steam Traffic": 0.01
     },
     "UZB": {
-        "totalbytes": 73702248727781,
-        "avgmbps": 8103202.7503597,
+        "totalbytes": 65641630683625,
+        "avgmbps": 8068511.5323269,
         "Percentage of global Steam Traffic": 0.01
     },
     "JOR": {
-        "totalbytes": 124425658036881,
-        "avgmbps": 21312585.776,
+        "totalbytes": 110044946534175,
+        "avgmbps": 20932847.196736,
         "Percentage of global Steam Traffic": 0.02
     },
     "BGD": {
-        "totalbytes": 182066928622028,
-        "avgmbps": 12630730.394644,
+        "totalbytes": 160652032171652,
+        "avgmbps": 12595653.120072,
         "Percentage of global Steam Traffic": 0.03
     },
     "SYC": {
-        "totalbytes": 638840727551,
-        "avgmbps": 2773158.6115984,
+        "totalbytes": 583262352114,
+        "avgmbps": 2795445.6122318,
         "Percentage of global Steam Traffic": 0.0
     },
     "MDG": {
-        "totalbytes": 5558659897792,
-        "avgmbps": 10276101.24218,
+        "totalbytes": 4722529932290,
+        "avgmbps": 10269878.336533,
         "Percentage of global Steam Traffic": 0.0
     },
     "MNG": {
-        "totalbytes": 94756233241377,
-        "avgmbps": 18348997.777717,
+        "totalbytes": 85081770140639,
+        "avgmbps": 18315638.679582,
         "Percentage of global Steam Traffic": 0.02
     },
     "EGY": {
-        "totalbytes": 185841156995008,
-        "avgmbps": 9634729.7090883,
+        "totalbytes": 166565523391373,
+        "avgmbps": 9709296.2750287,
         "Percentage of global Steam Traffic": 0.04
     },
     "DMA": {
-        "totalbytes": 1126310747103,
-        "avgmbps": 16567081.566525,
+        "totalbytes": 1022632773713,
+        "avgmbps": 16904736.814312,
         "Percentage of global Steam Traffic": 0.0
     },
     "COG": {
-        "totalbytes": 551318339929,
-        "avgmbps": 4247086.970648,
+        "totalbytes": 506265534876,
+        "avgmbps": 4249546.3567302,
         "Percentage of global Steam Traffic": 0.0
     },
     "USA-GA": {
-        "totalbytes": 2408640791542289,
-        "avgmbps": 52663426.531017,
+        "totalbytes": 2121272269864051,
+        "avgmbps": 53058126.966635,
         "Percentage of global Steam Traffic": 0.45
     },
     "CHE": {
-        "totalbytes": 1762520381339876,
-        "avgmbps": 63876541.015129,
-        "Percentage of global Steam Traffic": 0.33
+        "totalbytes": 1607837408979297,
+        "avgmbps": 64123501.836962,
+        "Percentage of global Steam Traffic": 0.34
     },
     "GUF": {
-        "totalbytes": 8411369071227,
-        "avgmbps": 8864570.8831699,
+        "totalbytes": 7566137705206,
+        "avgmbps": 8744379.8898166,
         "Percentage of global Steam Traffic": 0.0
     },
     "USA-ID": {
-        "totalbytes": 495459259507653,
-        "avgmbps": 35435406.386481,
+        "totalbytes": 443333718884483,
+        "avgmbps": 35734130.554485,
         "Percentage of global Steam Traffic": 0.09
     },
     "PLW": {
-        "totalbytes": 292584528568,
-        "avgmbps": 10137401.973999,
+        "totalbytes": 289277781030,
+        "avgmbps": 10258230.778641,
         "Percentage of global Steam Traffic": 0.0
     },
     "SOM": {
-        "totalbytes": 599687851250,
-        "avgmbps": 4337472.4036241,
+        "totalbytes": 536295561648,
+        "avgmbps": 4220582.7840456,
         "Percentage of global Steam Traffic": 0.0
     },
     "WSM": {
-        "totalbytes": 58710053785,
-        "avgmbps": 6902704.9032997,
+        "totalbytes": 52546022758,
+        "avgmbps": 7268283.2868052,
         "Percentage of global Steam Traffic": 0.0
     },
     "REU": {
-        "totalbytes": 82755420460780,
-        "avgmbps": 24732577.230742,
+        "totalbytes": 73476675005532,
+        "avgmbps": 24885419.300043,
         "Percentage of global Steam Traffic": 0.02
     },
     "PAN": {
-        "totalbytes": 94938575191367,
-        "avgmbps": 33597413.122585,
+        "totalbytes": 82189949671051,
+        "avgmbps": 33705571.305143,
         "Percentage of global Steam Traffic": 0.02
     },
     "PRT": {
-        "totalbytes": 2090616575793110,
-        "avgmbps": 49417218.248878,
+        "totalbytes": 1831613864296682,
+        "avgmbps": 49640512.545381,
         "Percentage of global Steam Traffic": 0.39
     },
     "ZAF": {
-        "totalbytes": 1062204851130855,
-        "avgmbps": 14189075.281176,
+        "totalbytes": 951307665358127,
+        "avgmbps": 14251680.825252,
         "Percentage of global Steam Traffic": 0.2
     },
     "BRA": {
-        "totalbytes": 16134212152374579,
-        "avgmbps": 30293991.931028,
-        "Percentage of global Steam Traffic": 3.04
+        "totalbytes": 14273555502247165,
+        "avgmbps": 30384687.348036,
+        "Percentage of global Steam Traffic": 3.0
     },
     "TGO": {
-        "totalbytes": 1272139407660,
-        "avgmbps": 6079446.5651973,
+        "totalbytes": 1081017231806,
+        "avgmbps": 6073641.7899016,
         "Percentage of global Steam Traffic": 0.0
     },
     "MUS": {
-        "totalbytes": 17798666043886,
-        "avgmbps": 12216229.757317,
+        "totalbytes": 16030032908687,
+        "avgmbps": 12212307.788167,
         "Percentage of global Steam Traffic": 0.0
     },
     "TUN": {
-        "totalbytes": 74662006053892,
-        "avgmbps": 5543401.9390184,
+        "totalbytes": 66518547832809,
+        "avgmbps": 5548806.8905833,
         "Percentage of global Steam Traffic": 0.01
     },
     "USA-AL": {
-        "totalbytes": 945278528385524,
-        "avgmbps": 45992404.22666,
+        "totalbytes": 834327952237754,
+        "avgmbps": 46279099.241834,
         "Percentage of global Steam Traffic": 0.18
     },
     "MYT": {
-        "totalbytes": 1874777860880,
-        "avgmbps": 7202687.4977335,
+        "totalbytes": 1735445902424,
+        "avgmbps": 7253739.2394361,
         "Percentage of global Steam Traffic": 0.0
     },
     "PHL": {
-        "totalbytes": 2069601119968409,
-        "avgmbps": 15981502.856819,
+        "totalbytes": 1861522182990637,
+        "avgmbps": 15906680.312358,
         "Percentage of global Steam Traffic": 0.39
     },
     "USA-SC": {
-        "totalbytes": 1009457020846563,
-        "avgmbps": 53884175.115628,
+        "totalbytes": 892834453165838,
+        "avgmbps": 54087834.051078,
         "Percentage of global Steam Traffic": 0.19
     },
     "LVA": {
-        "totalbytes": 433232574557441,
-        "avgmbps": 41627859.096192,
+        "totalbytes": 390391283470036,
+        "avgmbps": 41748904.827921,
         "Percentage of global Steam Traffic": 0.08
     },
     "NLD": {
-        "totalbytes": 4259347443246544,
-        "avgmbps": 71979656.651389,
-        "Percentage of global Steam Traffic": 0.8
+        "totalbytes": 3835264357741870,
+        "avgmbps": 72421856.899236,
+        "Percentage of global Steam Traffic": 0.81
     },
     "USA-NM": {
-        "totalbytes": 447356706951460,
-        "avgmbps": 38292237.657332,
+        "totalbytes": 399121323060446,
+        "avgmbps": 38608409.049616,
         "Percentage of global Steam Traffic": 0.08
     },
     "MAF": {
-        "totalbytes": 1604683616755,
-        "avgmbps": 9683225.3078323,
+        "totalbytes": 1379398481151,
+        "avgmbps": 9912542.431653,
         "Percentage of global Steam Traffic": 0.0
     },
     "NZL": {
-        "totalbytes": 1201872015137289,
-        "avgmbps": 36647585.796592,
+        "totalbytes": 1105637051783055,
+        "avgmbps": 36841909.474079,
         "Percentage of global Steam Traffic": 0.23
     },
     "HTI": {
-        "totalbytes": 643816125817,
-        "avgmbps": 4771949.5275163,
+        "totalbytes": 584832537938,
+        "avgmbps": 4936646.9873579,
         "Percentage of global Steam Traffic": 0.0
     },
     "USA-DE": {
-        "totalbytes": 240756637975472,
-        "avgmbps": 68203694.564311,
-        "Percentage of global Steam Traffic": 0.05
+        "totalbytes": 212535032263553,
+        "avgmbps": 68455448.817043,
+        "Percentage of global Steam Traffic": 0.04
     },
     "FIN": {
-        "totalbytes": 2340238514891367,
-        "avgmbps": 43287702.68331,
+        "totalbytes": 2114097094604281,
+        "avgmbps": 43449391.482096,
         "Percentage of global Steam Traffic": 0.44
     },
     "LIE": {
-        "totalbytes": 7669523000938,
-        "avgmbps": 52581323.635652,
+        "totalbytes": 6969913072753,
+        "avgmbps": 53832610.734754,
         "Percentage of global Steam Traffic": 0.0
     },
     "STP": {
-        "totalbytes": 83638742044,
-        "avgmbps": 8102792.2689437,
+        "totalbytes": 59413323504,
+        "avgmbps": 7267100.3291214,
         "Percentage of global Steam Traffic": 0.0
     },
     "LBN": {
-        "totalbytes": 89472907658982,
-        "avgmbps": 5524201.2528775,
+        "totalbytes": 82152593339487,
+        "avgmbps": 5590767.019468,
         "Percentage of global Steam Traffic": 0.02
     },
     "NER": {
-        "totalbytes": 473611913453,
-        "avgmbps": 3773707.4970476,
+        "totalbytes": 397763778132,
+        "avgmbps": 3565129.7092461,
         "Percentage of global Steam Traffic": 0.0
     },
     "VEN": {
-        "totalbytes": 64472251938202,
-        "avgmbps": 1842495.0260806,
+        "totalbytes": 57054521055715,
+        "avgmbps": 1859282.604806,
         "Percentage of global Steam Traffic": 0.01
     },
     "GRD": {
-        "totalbytes": 2532329248343,
-        "avgmbps": 23403960.051211,
+        "totalbytes": 2097926947167,
+        "avgmbps": 23504627.53751,
         "Percentage of global Steam Traffic": 0.0
     },
     "USA-CA": {
-        "totalbytes": 12047411991436643,
-        "avgmbps": 63123218.06875,
-        "Percentage of global Steam Traffic": 2.27
+        "totalbytes": 10709988060885568,
+        "avgmbps": 63549351.880051,
+        "Percentage of global Steam Traffic": 2.25
     },
     "BDI": {
-        "totalbytes": 237138081864,
-        "avgmbps": 7160456.1407811,
+        "totalbytes": 235870507967,
+        "avgmbps": 7630507.3025975,
         "Percentage of global Steam Traffic": 0.0
     },
     "UKR": {
-        "totalbytes": 4740680111222402,
-        "avgmbps": 32908737.797478,
+        "totalbytes": 4246506681495183,
+        "avgmbps": 32836406.291485,
         "Percentage of global Steam Traffic": 0.89
     },
     "USA-ME": {
-        "totalbytes": 364861487088726,
-        "avgmbps": 37754281.088963,
+        "totalbytes": 320478806114371,
+        "avgmbps": 37738237.147456,
         "Percentage of global Steam Traffic": 0.07
     },
     "SVN": {
-        "totalbytes": 318341495929993,
-        "avgmbps": 32360166.498712,
+        "totalbytes": 282726201314103,
+        "avgmbps": 32436317.51306,
         "Percentage of global Steam Traffic": 0.06
     },
     "BFA": {
-        "totalbytes": 512149242376,
-        "avgmbps": 3176652.2700941,
+        "totalbytes": 450002412822,
+        "avgmbps": 3185544.3786473,
         "Percentage of global Steam Traffic": 0.0
     },
     "ESP": {
-        "totalbytes": 5867302390560293,
-        "avgmbps": 62485063.535772,
-        "Percentage of global Steam Traffic": 1.11
+        "totalbytes": 5229564042782692,
+        "avgmbps": 63268619.061583,
+        "Percentage of global Steam Traffic": 1.1
     },
     "GNQ": {
-        "totalbytes": 300863973244,
-        "avgmbps": 3456048.632315,
+        "totalbytes": 241714149131,
+        "avgmbps": 3088136.973661,
         "Percentage of global Steam Traffic": 0.0
     },
     "TTO": {
-        "totalbytes": 46829727983159,
-        "avgmbps": 29058119.698575,
+        "totalbytes": 40746623590447,
+        "avgmbps": 29252170.021937,
         "Percentage of global Steam Traffic": 0.01
     },
     "PAK": {
-        "totalbytes": 196428839608184,
-        "avgmbps": 6234390.9102696,
+        "totalbytes": 172549654161463,
+        "avgmbps": 6280848.3384618,
         "Percentage of global Steam Traffic": 0.04
     },
     "RUS": {
-        "totalbytes": 31919372926189249,
-        "avgmbps": 32226027.575533,
-        "Percentage of global Steam Traffic": 6.01
+        "totalbytes": 28529393403071043,
+        "avgmbps": 32218739.50182,
+        "Percentage of global Steam Traffic": 6.0
     },
     "ARE": {
-        "totalbytes": 721794741086622,
-        "avgmbps": 39560569.027282,
-        "Percentage of global Steam Traffic": 0.14
+        "totalbytes": 641405363594768,
+        "avgmbps": 39533261.506625,
+        "Percentage of global Steam Traffic": 0.13
     },
     "MHL": {
-        "totalbytes": 69746940884,
-        "avgmbps": 10509359.342901,
+        "totalbytes": 56952050728,
+        "avgmbps": 12743431.040225,
         "Percentage of global Steam Traffic": 0.0
     },
     "NOR": {
-        "totalbytes": 2374984081707794,
-        "avgmbps": 64546172.361295,
+        "totalbytes": 2139718869946811,
+        "avgmbps": 64719053.22013,
         "Percentage of global Steam Traffic": 0.45
     },
     "SLE": {
-        "totalbytes": 260197675644,
-        "avgmbps": 4935158.9460577,
+        "totalbytes": 248167242444,
+        "avgmbps": 5007760.7253103,
         "Percentage of global Steam Traffic": 0.0
     },
     "KOR": {
-        "totalbytes": 15825658912628745,
-        "avgmbps": 75760004.804731,
-        "Percentage of global Steam Traffic": 2.98
+        "totalbytes": 14350704354446760,
+        "avgmbps": 75615923.740662,
+        "Percentage of global Steam Traffic": 3.02
     },
     "MCO": {
-        "totalbytes": 4716684465923,
-        "avgmbps": 79821801.137475,
+        "totalbytes": 4075771279069,
+        "avgmbps": 80066711.525975,
         "Percentage of global Steam Traffic": 0.0
     },
     "USA-TX": {
-        "totalbytes": 7274642536643657,
-        "avgmbps": 57309354.281522,
-        "Percentage of global Steam Traffic": 1.37
+        "totalbytes": 6454868064998953,
+        "avgmbps": 57857369.62851,
+        "Percentage of global Steam Traffic": 1.36
     },
     "CPV": {
-        "totalbytes": 1475691466506,
-        "avgmbps": 9432344.1909891,
+        "totalbytes": 1346677991207,
+        "avgmbps": 9172427.3169324,
         "Percentage of global Steam Traffic": 0.0
     },
     "GUM": {
-        "totalbytes": 33769663179347,
-        "avgmbps": 16115568.48013,
+        "totalbytes": 30162761176891,
+        "avgmbps": 15892668.002882,
         "Percentage of global Steam Traffic": 0.01
     },
     "COD": {
-        "totalbytes": 1254687128970,
-        "avgmbps": 3439567.0627025,
+        "totalbytes": 1111148352462,
+        "avgmbps": 3454243.2218879,
         "Percentage of global Steam Traffic": 0.0
     },
     "CMR": {
-        "totalbytes": 1566349486092,
-        "avgmbps": 3600276.4433996,
+        "totalbytes": 1327003923570,
+        "avgmbps": 3676640.0596469,
         "Percentage of global Steam Traffic": 0.0
     },
     "BWA": {
-        "totalbytes": 2753116300990,
-        "avgmbps": 2757087.7508645,
+        "totalbytes": 2504387192623,
+        "avgmbps": 2810228.9006981,
         "Percentage of global Steam Traffic": 0.0
     },
     "USA-NE": {
-        "totalbytes": 450721629605189,
-        "avgmbps": 55770395.853291,
+        "totalbytes": 401451228310832,
+        "avgmbps": 56159063.758875,
         "Percentage of global Steam Traffic": 0.08
     },
     "NCL": {
-        "totalbytes": 14761103467327,
-        "avgmbps": 10695664.825858,
+        "totalbytes": 13489721075043,
+        "avgmbps": 10911100.711782,
         "Percentage of global Steam Traffic": 0.0
     },
     "CYP": {
-        "totalbytes": 83229102548233,
-        "avgmbps": 20456089.968029,
+        "totalbytes": 74552271039885,
+        "avgmbps": 20428334.679352,
         "Percentage of global Steam Traffic": 0.02
     },
     "TMP": {
-        "totalbytes": 301612367265,
-        "avgmbps": 2497218.6670655,
+        "totalbytes": 289603748053,
+        "avgmbps": 2596572.2175311,
         "Percentage of global Steam Traffic": 0.0
     },
     "USA-KS": {
-        "totalbytes": 748488573045322,
-        "avgmbps": 48513289.552632,
+        "totalbytes": 664162735211340,
+        "avgmbps": 48720975.614467,
         "Percentage of global Steam Traffic": 0.14
     },
     "USA-FL": {
-        "totalbytes": 5113973906863214,
-        "avgmbps": 56167057.618938,
-        "Percentage of global Steam Traffic": 0.96
+        "totalbytes": 4496132896180852,
+        "avgmbps": 56389274.047695,
+        "Percentage of global Steam Traffic": 0.95
     },
     "AZE": {
-        "totalbytes": 76141091670108,
-        "avgmbps": 10160728.671402,
+        "totalbytes": 68113609293883,
+        "avgmbps": 10237743.200043,
         "Percentage of global Steam Traffic": 0.01
     },
     "IRQ": {
-        "totalbytes": 117032256665191,
-        "avgmbps": 3303626.465679,
+        "totalbytes": 106399990841475,
+        "avgmbps": 3345832.2655077,
         "Percentage of global Steam Traffic": 0.02
     },
     "PER": {
-        "totalbytes": 1027462500546121,
-        "avgmbps": 12973303.087944,
+        "totalbytes": 887503401233329,
+        "avgmbps": 12873452.822941,
         "Percentage of global Steam Traffic": 0.19
     },
     "USA-MO": {
-        "totalbytes": 1716454717987565,
-        "avgmbps": 53095757.597975,
+        "totalbytes": 1519379789722207,
+        "avgmbps": 53786248.325813,
         "Percentage of global Steam Traffic": 0.32
     },
     "ARM": {
-        "totalbytes": 45016280597573,
-        "avgmbps": 19446187.671477,
+        "totalbytes": 40353390372088,
+        "avgmbps": 19462799.482492,
         "Percentage of global Steam Traffic": 0.01
     },
     "SSD": {
-        "totalbytes": 75631591869,
-        "avgmbps": 1071266.0215672,
+        "totalbytes": 59131444044,
+        "avgmbps": 960719.66959817,
         "Percentage of global Steam Traffic": 0.0
     },
     "ISR": {
-        "totalbytes": 940948999037543,
-        "avgmbps": 37814060.998208,
+        "totalbytes": 836568547174785,
+        "avgmbps": 37981701.803258,
         "Percentage of global Steam Traffic": 0.18
     },
     "HRV": {
-        "totalbytes": 397224784134113,
-        "avgmbps": 21105836.716954,
-        "Percentage of global Steam Traffic": 0.07
+        "totalbytes": 357477762630446,
+        "avgmbps": 21076327.399181,
+        "Percentage of global Steam Traffic": 0.08
     },
     "USA-IL": {
-        "totalbytes": 3370809354581407,
-        "avgmbps": 57597737.78617,
-        "Percentage of global Steam Traffic": 0.64
+        "totalbytes": 2973442241763712,
+        "avgmbps": 58140537.079568,
+        "Percentage of global Steam Traffic": 0.63
     },
     "FSM": {
-        "totalbytes": 138025386145,
-        "avgmbps": 1936408.7416994,
+        "totalbytes": 119410926100,
+        "avgmbps": 1934170.6796359,
         "Percentage of global Steam Traffic": 0.0
     },
     "MAR": {
-        "totalbytes": 124356246935183,
-        "avgmbps": 8551411.488817,
+        "totalbytes": 109672378212033,
+        "avgmbps": 8586283.288235,
         "Percentage of global Steam Traffic": 0.02
     },
     "MLI": {
-        "totalbytes": 358394757394,
-        "avgmbps": 3940126.2634019,
+        "totalbytes": 328954346351,
+        "avgmbps": 4167302.5706152,
         "Percentage of global Steam Traffic": 0.0
     },
     "MWI": {
-        "totalbytes": 328675769176,
-        "avgmbps": 3541433.2011665,
+        "totalbytes": 292768197936,
+        "avgmbps": 3589541.5118235,
         "Percentage of global Steam Traffic": 0.0
     },
     "USA-WY": {
-        "totalbytes": 153949760604190,
-        "avgmbps": 35602667.563037,
+        "totalbytes": 134681435899653,
+        "avgmbps": 35300818.014772,
         "Percentage of global Steam Traffic": 0.03
     },
     "USA-ND": {
-        "totalbytes": 248788049067813,
-        "avgmbps": 64525331.901529,
+        "totalbytes": 220277381387590,
+        "avgmbps": 65345072.954007,
         "Percentage of global Steam Traffic": 0.05
     },
     "GHA": {
-        "totalbytes": 6756852513803,
-        "avgmbps": 8740141.1721321,
+        "totalbytes": 5946032795309,
+        "avgmbps": 8987366.2356523,
         "Percentage of global Steam Traffic": 0.0
     },
     "VIR": {
-        "totalbytes": 3783617528692,
-        "avgmbps": 16931997.795915,
+        "totalbytes": 3391077243198,
+        "avgmbps": 17114883.036262,
         "Percentage of global Steam Traffic": 0.0
     },
     "JPN": {
-        "totalbytes": 6840617542703125,
-        "avgmbps": 73020361.557926,
-        "Percentage of global Steam Traffic": 1.29
+        "totalbytes": 6271569773039043,
+        "avgmbps": 73869989.710756,
+        "Percentage of global Steam Traffic": 1.32
     },
     "EST": {
-        "totalbytes": 465080528306010,
-        "avgmbps": 37039839.208741,
+        "totalbytes": 412237217772311,
+        "avgmbps": 37279310.432437,
         "Percentage of global Steam Traffic": 0.09
     },
     "USA-NY": {
-        "totalbytes": 4859859655560670,
-        "avgmbps": 62960426.705342,
-        "Percentage of global Steam Traffic": 0.92
+        "totalbytes": 4284344044465337,
+        "avgmbps": 63232692.178183,
+        "Percentage of global Steam Traffic": 0.9
     },
     "ARG": {
-        "totalbytes": 3907197371091214,
-        "avgmbps": 17164890.099483,
-        "Percentage of global Steam Traffic": 0.74
+        "totalbytes": 3464004499803243,
+        "avgmbps": 17210408.228089,
+        "Percentage of global Steam Traffic": 0.73
     },
     "DNK": {
-        "totalbytes": 2605993528983548,
-        "avgmbps": 63921965.504312,
+        "totalbytes": 2340858223778993,
+        "avgmbps": 64200195.107725,
         "Percentage of global Steam Traffic": 0.49
     },
     "VGB": {
-        "totalbytes": 1401152698769,
-        "avgmbps": 19716227.8187,
+        "totalbytes": 1134385237324,
+        "avgmbps": 19787156.255826,
         "Percentage of global Steam Traffic": 0.0
     },
     "CAN": {
-        "totalbytes": 12336122161528450,
-        "avgmbps": 53584963.121585,
-        "Percentage of global Steam Traffic": 2.32
+        "totalbytes": 10756770491623083,
+        "avgmbps": 53694040.466489,
+        "Percentage of global Steam Traffic": 2.26
     },
     "VNM": {
-        "totalbytes": 1971830569100449,
-        "avgmbps": 43368557.749687,
-        "Percentage of global Steam Traffic": 0.37
+        "totalbytes": 1806764381117555,
+        "avgmbps": 43520249.419343,
+        "Percentage of global Steam Traffic": 0.38
     },
     "AUT": {
-        "totalbytes": 1945404563276925,
-        "avgmbps": 31010873.407303,
+        "totalbytes": 1769557150379054,
+        "avgmbps": 31038406.355903,
         "Percentage of global Steam Traffic": 0.37
     },
     "SLB": {
-        "totalbytes": 92680158663,
-        "avgmbps": 2621180.203813,
+        "totalbytes": 87741759310,
+        "avgmbps": 3099843.1817448,
         "Percentage of global Steam Traffic": 0.0
     },
     "USA-HI": {
-        "totalbytes": 391187169739150,
-        "avgmbps": 70988614.856958,
+        "totalbytes": 354539829783985,
+        "avgmbps": 71646734.418569,
         "Percentage of global Steam Traffic": 0.07
     },
     "SVK": {
-        "totalbytes": 911813536441021,
-        "avgmbps": 31730612.789785,
+        "totalbytes": 828593812552029,
+        "avgmbps": 31757003.524014,
         "Percentage of global Steam Traffic": 0.17
     },
     "HUN": {
-        "totalbytes": 1974909248140728,
-        "avgmbps": 53254771.935162,
+        "totalbytes": 1773439663643703,
+        "avgmbps": 53545114.236095,
         "Percentage of global Steam Traffic": 0.37
     },
     "ATA": {
@@ -1035,358 +1035,358 @@
         "Percentage of global Steam Traffic": 0.0
     },
     "ECU": {
-        "totalbytes": 233229757303582,
-        "avgmbps": 11925166.814436,
+        "totalbytes": 200777606723572,
+        "avgmbps": 11833007.905985,
         "Percentage of global Steam Traffic": 0.04
     },
     "GAB": {
-        "totalbytes": 1868568380853,
-        "avgmbps": 8346435.9453519,
+        "totalbytes": 1703268786601,
+        "avgmbps": 8382992.5408914,
         "Percentage of global Steam Traffic": 0.0
     },
     "USA-AZ": {
-        "totalbytes": 2290009683920809,
-        "avgmbps": 57535526.296448,
+        "totalbytes": 2039456920755547,
+        "avgmbps": 58014730.599031,
         "Percentage of global Steam Traffic": 0.43
     },
     "TUR": {
-        "totalbytes": 7646568476936381,
-        "avgmbps": 14831801.968679,
-        "Percentage of global Steam Traffic": 1.44
+        "totalbytes": 6747248381890729,
+        "avgmbps": 14842410.488477,
+        "Percentage of global Steam Traffic": 1.42
     },
     "BLM": {
-        "totalbytes": 41072043,
-        "avgmbps": 5142920.5041722,
+        "totalbytes": 15999241,
+        "avgmbps": 4780618.6756403,
         "Percentage of global Steam Traffic": 0.0
     },
     "KGZ": {
-        "totalbytes": 67966017049095,
-        "avgmbps": 12923686.028536,
+        "totalbytes": 61138581498588,
+        "avgmbps": 12911348.837364,
         "Percentage of global Steam Traffic": 0.01
     },
     "KNA": {
-        "totalbytes": 820804854127,
-        "avgmbps": 14671442.762104,
+        "totalbytes": 711438970930,
+        "avgmbps": 14128991.502064,
         "Percentage of global Steam Traffic": 0.0
     },
     "COM": {
-        "totalbytes": 2854458407,
-        "avgmbps": 2074377.2914534,
+        "totalbytes": 1453246072,
+        "avgmbps": 1696336.8309115,
         "Percentage of global Steam Traffic": 0.0
     },
     "BRB": {
-        "totalbytes": 16647856413424,
-        "avgmbps": 39282059.044065,
+        "totalbytes": 15100173033119,
+        "avgmbps": 39617499.252665,
         "Percentage of global Steam Traffic": 0.0
     },
     "BEL": {
-        "totalbytes": 2180895952140489,
-        "avgmbps": 55732536.241237,
+        "totalbytes": 1961565908341744,
+        "avgmbps": 56075993.342175,
         "Percentage of global Steam Traffic": 0.41
     },
     "ETH": {
-        "totalbytes": 2976234993388,
-        "avgmbps": 3386610.8126656,
+        "totalbytes": 2634313917330,
+        "avgmbps": 3329082.5717841,
         "Percentage of global Steam Traffic": 0.0
     },
     "MOZ": {
-        "totalbytes": 3103358830055,
-        "avgmbps": 4152736.0929561,
+        "totalbytes": 2722292428776,
+        "avgmbps": 4190613.8613284,
         "Percentage of global Steam Traffic": 0.0
     },
     "COL": {
-        "totalbytes": 832594387961722,
-        "avgmbps": 14484820.521292,
-        "Percentage of global Steam Traffic": 0.16
+        "totalbytes": 718826285922845,
+        "avgmbps": 14499324.110256,
+        "Percentage of global Steam Traffic": 0.15
     },
     "GIN": {
-        "totalbytes": 285513046870,
-        "avgmbps": 3862646.8454595,
+        "totalbytes": 272415748102,
+        "avgmbps": 4027752.2866053,
         "Percentage of global Steam Traffic": 0.0
     },
     "GNB": {
-        "totalbytes": 24419734626,
-        "avgmbps": 4125719.5165122,
+        "totalbytes": 24202420118,
+        "avgmbps": 4028381.3017105,
         "Percentage of global Steam Traffic": 0.0
     },
     "ZMB": {
-        "totalbytes": 2429356480379,
-        "avgmbps": 3954275.3010178,
+        "totalbytes": 2202261899164,
+        "avgmbps": 3861564.8372921,
         "Percentage of global Steam Traffic": 0.0
     },
     "BES": {
-        "totalbytes": 567444609163,
-        "avgmbps": 13085205.962504,
+        "totalbytes": 489060534045,
+        "avgmbps": 13753664.626966,
         "Percentage of global Steam Traffic": 0.0
     },
     "MDA": {
-        "totalbytes": 210403946650640,
-        "avgmbps": 31123117.443729,
+        "totalbytes": 189941238814923,
+        "avgmbps": 31321810.73695,
         "Percentage of global Steam Traffic": 0.04
     },
     "MAC": {
-        "totalbytes": 136082902636469,
-        "avgmbps": 53738928.247705,
+        "totalbytes": 125322293065835,
+        "avgmbps": 54106628.617934,
         "Percentage of global Steam Traffic": 0.03
     },
     "USA-NJ": {
-        "totalbytes": 2637050950330782,
-        "avgmbps": 73559245.738058,
-        "Percentage of global Steam Traffic": 0.5
+        "totalbytes": 2322259131852470,
+        "avgmbps": 73890461.128135,
+        "Percentage of global Steam Traffic": 0.49
     },
     "MDV": {
-        "totalbytes": 5684262014980,
-        "avgmbps": 3561614.7317885,
+        "totalbytes": 5116859037998,
+        "avgmbps": 3532329.5805624,
         "Percentage of global Steam Traffic": 0.0
     },
     "IDN": {
-        "totalbytes": 2118867348836390,
-        "avgmbps": 10205216.574185,
+        "totalbytes": 1890525702821803,
+        "avgmbps": 10199436.725191,
         "Percentage of global Steam Traffic": 0.4
     },
     "USA-MT": {
-        "totalbytes": 253761150269588,
-        "avgmbps": 36174056.482116,
+        "totalbytes": 226420988385912,
+        "avgmbps": 36309174.548627,
         "Percentage of global Steam Traffic": 0.05
     },
     "SLV": {
-        "totalbytes": 41124758779901,
-        "avgmbps": 8228778.9308784,
+        "totalbytes": 36053980629801,
+        "avgmbps": 8238765.8910118,
         "Percentage of global Steam Traffic": 0.01
     },
     "VAT": {
-        "totalbytes": 51385587748,
-        "avgmbps": 18663079.345334,
+        "totalbytes": 37084199806,
+        "avgmbps": 17931909.71521,
         "Percentage of global Steam Traffic": 0.0
     },
     "USA-IA": {
-        "totalbytes": 675109556462559,
-        "avgmbps": 46378231.852108,
+        "totalbytes": 594692565417154,
+        "avgmbps": 46551347.853349,
         "Percentage of global Steam Traffic": 0.13
     },
     "LBY": {
-        "totalbytes": 8603538053065,
-        "avgmbps": 6060703.6645285,
+        "totalbytes": 7964224335560,
+        "avgmbps": 6223040.0913233,
         "Percentage of global Steam Traffic": 0.0
     },
     "NGA": {
-        "totalbytes": 10989173392098,
-        "avgmbps": 3745040.2648621,
+        "totalbytes": 9896961305363,
+        "avgmbps": 3779395.8730715,
         "Percentage of global Steam Traffic": 0.0
     },
     "LBR": {
-        "totalbytes": 392108195080,
-        "avgmbps": 6075760.2577364,
+        "totalbytes": 376596641545,
+        "avgmbps": 6197605.6541375,
         "Percentage of global Steam Traffic": 0.0
     },
     "NPL": {
-        "totalbytes": 44215880309474,
-        "avgmbps": 12763966.849106,
+        "totalbytes": 39032795186624,
+        "avgmbps": 12600505.446066,
         "Percentage of global Steam Traffic": 0.01
     },
     "USA-LA": {
-        "totalbytes": 976404997210038,
-        "avgmbps": 42355272.269104,
+        "totalbytes": 866234524204373,
+        "avgmbps": 42680938.155925,
         "Percentage of global Steam Traffic": 0.18
     },
     "IMN": {
-        "totalbytes": 27613237944960,
-        "avgmbps": 21698345.6619,
+        "totalbytes": 24787283636140,
+        "avgmbps": 21983336.324363,
         "Percentage of global Steam Traffic": 0.01
     },
     "QAT": {
-        "totalbytes": 189111918855016,
-        "avgmbps": 45575371.265597,
+        "totalbytes": 166793919786058,
+        "avgmbps": 45426748.547966,
         "Percentage of global Steam Traffic": 0.04
     },
     "ALA": {
-        "totalbytes": 11983413920012,
-        "avgmbps": 63534819.125403,
+        "totalbytes": 11011239930356,
+        "avgmbps": 65267916.867759,
         "Percentage of global Steam Traffic": 0.0
     },
     "HND": {
-        "totalbytes": 36069588993601,
-        "avgmbps": 9467683.7878202,
+        "totalbytes": 32339713218874,
+        "avgmbps": 9500260.3060349,
         "Percentage of global Steam Traffic": 0.01
     },
     "VCT": {
-        "totalbytes": 2156360416768,
-        "avgmbps": 37872960.508598,
+        "totalbytes": 1933772291108,
+        "avgmbps": 39685851.739788,
         "Percentage of global Steam Traffic": 0.0
     },
     "FRA": {
-        "totalbytes": 11061670667115280,
-        "avgmbps": 28573364.240066,
+        "totalbytes": 9897592401065894,
+        "avgmbps": 28740908.107082,
         "Percentage of global Steam Traffic": 2.08
     },
     "WLF": {
-        "totalbytes": 16583605847,
-        "avgmbps": 532381.34469871,
+        "totalbytes": 16582610258,
+        "avgmbps": 532724.37343129,
         "Percentage of global Steam Traffic": 0.0
     },
     "USA-NV": {
-        "totalbytes": 1047443703362093,
-        "avgmbps": 64651397.591683,
+        "totalbytes": 929030472469571,
+        "avgmbps": 65267205.197139,
         "Percentage of global Steam Traffic": 0.2
     },
     "RWA": {
-        "totalbytes": 600058311680,
-        "avgmbps": 4682444.1069372,
+        "totalbytes": 535670966345,
+        "avgmbps": 4572353.5215961,
         "Percentage of global Steam Traffic": 0.0
     },
     "ISL": {
-        "totalbytes": 173082486146297,
-        "avgmbps": 76948939.020176,
+        "totalbytes": 153569223220598,
+        "avgmbps": 77358476.330173,
         "Percentage of global Steam Traffic": 0.03
     },
     "SEN": {
-        "totalbytes": 6395073335434,
-        "avgmbps": 6359367.2454923,
+        "totalbytes": 5671296341857,
+        "avgmbps": 6592202.5523593,
         "Percentage of global Steam Traffic": 0.0
     },
     "JAM": {
-        "totalbytes": 26425735091584,
-        "avgmbps": 17490987.062268,
+        "totalbytes": 23509255720493,
+        "avgmbps": 17521259.317864,
         "Percentage of global Steam Traffic": 0.0
     },
     "SWE": {
-        "totalbytes": 4389873183400760,
-        "avgmbps": 76440236.397111,
+        "totalbytes": 3956176390447627,
+        "avgmbps": 76589640.70893,
         "Percentage of global Steam Traffic": 0.83
     },
     "USA-VT": {
-        "totalbytes": 155425002995548,
-        "avgmbps": 43506939.871887,
+        "totalbytes": 134999958374291,
+        "avgmbps": 43589968.995212,
         "Percentage of global Steam Traffic": 0.03
     },
     "MTQ": {
-        "totalbytes": 11637365501969,
-        "avgmbps": 9276043.7454822,
+        "totalbytes": 10389311950800,
+        "avgmbps": 9291224.8074678,
         "Percentage of global Steam Traffic": 0.0
     },
     "MEX": {
-        "totalbytes": 2471778243855472,
-        "avgmbps": 19254532.348785,
-        "Percentage of global Steam Traffic": 0.47
+        "totalbytes": 2160250811592536,
+        "avgmbps": 19277347.089427,
+        "Percentage of global Steam Traffic": 0.45
     },
     "GEO": {
-        "totalbytes": 174307054686774,
-        "avgmbps": 19246008.942367,
+        "totalbytes": 154691879102899,
+        "avgmbps": 19208394.245119,
         "Percentage of global Steam Traffic": 0.03
     },
     "TWN": {
-        "totalbytes": 3868153741580567,
-        "avgmbps": 40752218.844157,
-        "Percentage of global Steam Traffic": 0.73
+        "totalbytes": 3535364614585249,
+        "avgmbps": 40944272.301831,
+        "Percentage of global Steam Traffic": 0.74
     },
     "CAF": {
-        "totalbytes": 52749237870,
-        "avgmbps": 1916519.5225433,
+        "totalbytes": 48980412240,
+        "avgmbps": 2133992.5783536,
         "Percentage of global Steam Traffic": 0.0
     },
     "GRL": {
-        "totalbytes": 8316858130070,
-        "avgmbps": 17941637.891513,
+        "totalbytes": 7617535723150,
+        "avgmbps": 18058275.02222,
         "Percentage of global Steam Traffic": 0.0
     },
     "ZWE": {
-        "totalbytes": 2807410749224,
-        "avgmbps": 6700550.6153822,
+        "totalbytes": 2465513016989,
+        "avgmbps": 6678668.7107118,
         "Percentage of global Steam Traffic": 0.0
     },
     "LKA": {
-        "totalbytes": 27662234444977,
-        "avgmbps": 12997110.116187,
+        "totalbytes": 24958341031458,
+        "avgmbps": 12995748.839263,
         "Percentage of global Steam Traffic": 0.01
     },
     "BGR": {
-        "totalbytes": 558705213510641,
-        "avgmbps": 39967303.312178,
-        "Percentage of global Steam Traffic": 0.11
+        "totalbytes": 498005102498014,
+        "avgmbps": 40068400.35539,
+        "Percentage of global Steam Traffic": 0.1
     },
     "BRN": {
-        "totalbytes": 42753855567507,
-        "avgmbps": 12860557.813927,
+        "totalbytes": 38853730291232,
+        "avgmbps": 12784907.474017,
         "Percentage of global Steam Traffic": 0.01
     },
     "KIR": {
-        "totalbytes": 6091020435,
-        "avgmbps": 1441020.1631776,
+        "totalbytes": 5670124212,
+        "avgmbps": 1344335.7485437,
         "Percentage of global Steam Traffic": 0.0
     },
     "LTU": {
-        "totalbytes": 658808697592080,
-        "avgmbps": 45101204.632234,
+        "totalbytes": 586642341501615,
+        "avgmbps": 45430815.457059,
         "Percentage of global Steam Traffic": 0.12
     },
     "USA-VA": {
-        "totalbytes": 2501288774268868,
-        "avgmbps": 65787031.707033,
-        "Percentage of global Steam Traffic": 0.47
+        "totalbytes": 2205392407392323,
+        "avgmbps": 66094970.357756,
+        "Percentage of global Steam Traffic": 0.46
     },
     "TJK": {
-        "totalbytes": 3958592877632,
-        "avgmbps": 2191583.5733459,
+        "totalbytes": 3605370340150,
+        "avgmbps": 2200941.1533182,
         "Percentage of global Steam Traffic": 0.0
     },
     "GUY": {
-        "totalbytes": 4399874941442,
-        "avgmbps": 9464070.7458403,
+        "totalbytes": 3902509083154,
+        "avgmbps": 9361304.6502142,
         "Percentage of global Steam Traffic": 0.0
     },
     "TCA": {
-        "totalbytes": 1147866885126,
-        "avgmbps": 9834969.7295526,
+        "totalbytes": 995992941429,
+        "avgmbps": 10173963.479923,
         "Percentage of global Steam Traffic": 0.0
     },
     "ERI": {
-        "totalbytes": 35323088,
-        "avgmbps": 274231.48174581,
+        "totalbytes": 34777584,
+        "avgmbps": 293937.80580822,
         "Percentage of global Steam Traffic": 0.0
     },
     "ROU": {
-        "totalbytes": 2425501793013387,
-        "avgmbps": 58831853.158883,
+        "totalbytes": 2175471984575857,
+        "avgmbps": 59149666.904836,
         "Percentage of global Steam Traffic": 0.46
     },
     "DZA": {
-        "totalbytes": 94913664779819,
-        "avgmbps": 2215101.18672,
+        "totalbytes": 84357555966710,
+        "avgmbps": 2234449.9067774,
         "Percentage of global Steam Traffic": 0.02
     },
     "CRI": {
-        "totalbytes": 233182110943961,
-        "avgmbps": 17576852.815908,
+        "totalbytes": 204865903934455,
+        "avgmbps": 17566087.456666,
         "Percentage of global Steam Traffic": 0.04
     },
     "BLZ": {
-        "totalbytes": 5340454033156,
-        "avgmbps": 20568234.885139,
+        "totalbytes": 4750545693683,
+        "avgmbps": 20751863.981164,
         "Percentage of global Steam Traffic": 0.0
     },
     "POL": {
-        "totalbytes": 7758645182124079,
-        "avgmbps": 29393896.87134,
+        "totalbytes": 6916495137855381,
+        "avgmbps": 29718487.709201,
         "Percentage of global Steam Traffic": 1.46
     },
     "USA-MS": {
-        "totalbytes": 370104183987300,
-        "avgmbps": 34594868.651838,
+        "totalbytes": 330427917749582,
+        "avgmbps": 34717374.404346,
         "Percentage of global Steam Traffic": 0.07
     },
     "USA-WA": {
-        "totalbytes": 3799433005589037,
-        "avgmbps": 51495898.680364,
+        "totalbytes": 3397810132613422,
+        "avgmbps": 52078602.239574,
         "Percentage of global Steam Traffic": 0.72
     },
     "TON": {
-        "totalbytes": 36937370923,
-        "avgmbps": 11061959.512824,
+        "totalbytes": 35066295798,
+        "avgmbps": 11515480.931605,
         "Percentage of global Steam Traffic": 0.0
     },
     "USA-OH": {
-        "totalbytes": 3067262317549668,
-        "avgmbps": 51553867.073379,
-        "Percentage of global Steam Traffic": 0.58
+        "totalbytes": 2707050628796918,
+        "avgmbps": 51811682.864533,
+        "Percentage of global Steam Traffic": 0.57
     }
 }

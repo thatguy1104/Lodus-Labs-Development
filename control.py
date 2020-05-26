@@ -3,26 +3,33 @@ from Platform.steamConcurrent import *
 from Platform.steamBandwidth import *
 from Scrapers.corpNamesList import *
 
-""" INITIALISE THE JSON FILES (RUN ONLY ONCE, UNLESS CHANGES ARE MADE) """
+class SteamController():
+    def getDevelopersNames(self):
+        corp = GameCorporations()
+        corp.writeCorpNames()
 
-# CORPORATION LIST: NAME, CITY, COUNTRY
-# corp = GameCorporations()
-# corp.writeCorpNames()
+    def getAllgames(self):
+        steam_general = SteamList('2C2C2E0FEBFD8D32F9346602D47C83BA')  # Reads steam.csv
+        steam_general.writeToJSON()  # Writes to processedSteamData.json
 
-# Get the NAME, DEVELOPER, CURRENT_PLAYERS
-# steam_general = SteamList('2C2C2E0FEBFD8D32F9346602D47C83BA')
-# steam_general.writeToJSON()
+    def getTop100Games(self):
+        steam_concurrent = steamConcurrent()
+        steam_concurrent.writeToJSON()  # Writes to top100GamesByPlayers.json
 
-# Concurrent Steam Players
-steam_concurrent = steamConcurrent()
-# steam_concurrent.getConcurrent()
-steam_concurrent.writeToJSON()
+    def getBandwidthPerCountry(self):
+        steam_bandwidth = SteamBandwidth(17) # 16 = is the weird number at the end of the request link
+        steam_bandwidth.writeBandwidthSteam()  # Writes to bandwidthSteamData.json
 
-# Write AVG Download rate, 
-# steam_bandwidth = SteamBandwidth(17) # 16 = is the weird number at the end of the request link
-# steam_bandwidth.writeBandwidthSteam()
+    def runControl(self):
+        """ GET NAMES OF GAME DEVELOPERS """
+        # self.getDevelopersNames()
+        """ GET 30K GAME NAMES, IDs, LIVE PLAYER COUNT """
+        # self.getAllgames()
+        """ GET # OF PLAYERS + PEAK PER GAME (FOR TOP 100 PLAYED GAMES)"""
+        # self.getTop100Games()
+        """ GET DOWNLOAD DATA PER COUNTRY """
+        self.getBandwidthPerCountry()
 
-
-""" CONTROL FLOW CLASSES """
-
+control = SteamController()
+control.runControl()
 
