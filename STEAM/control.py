@@ -9,8 +9,8 @@ class SteamController():
 
     def getAllGameStats(self):
         steam_concurrent = steamConcurrent()
-        # steam_concurrent.writeToJSON()  # Writes to top100GamesByPlayers.json
-        steam_concurrent.getTopGamesByPlayerCount()
+        steam_concurrent.writeToJSON()  # Writes to top100GamesByPlayers.json
+        # steam_concurrent.getTopGamesByPlayerCount()
 
     def getBandwidthPerCountry(self):
         steam_bandwidth = SteamBandwidth(17) # 16 = is the weird number at the end of the request link
