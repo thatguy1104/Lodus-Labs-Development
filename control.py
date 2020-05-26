@@ -15,7 +15,8 @@ from Scrapers.corpNamesList import *
 
 # Concurrent Steam Players
 steam_concurrent = steamConcurrent()
-steam_concurrent.getConcurrent()
+# steam_concurrent.getConcurrent()
+steam_concurrent.writeToJSON()
 
 # Write AVG Download rate, 
 # steam_bandwidth = SteamBandwidth(17) # 16 = is the weird number at the end of the request link
