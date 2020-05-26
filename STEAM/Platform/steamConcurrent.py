@@ -53,21 +53,22 @@ class steamConcurrent():
         
         return all_game_names, current_players, peak_players, hours_played
 
-    def writeToJSON(self):
+    def updateJSON(self, pages):
         data = {}
         data['Concurrent Steam Data'] = []
         data['General Data'] = []
         total_current, total_peak = self.getConcurrent()
-        name, current, peak, hours_played = self.getTopGamesByPlayerCount(1)
 
-        for i in range(len(name)):
-            print("Writing item ", i)
-            data['Concurrent Steam Data'].append({
-                'Game Name' : name[i],
-                'Current Players' : current[i],
-                'Peak Today' : peak[i],
-                'Hours Played' : hours_played[i]
-            })
+        for p in range(1, pages):
+            print("Writing page ", p)
+            name, current, peak, hours_played = self.getTopGamesByPlayerCount(p)
+            for i in range(len(name)):
+                data['Concurrent Steam Data'].append({
+                    'Game Name' : name[i],
+                    'Current Players' : current[i],
+                    'Peak Today' : peak[i],
+                    'Hours Played' : hours_played[i]
+                })
 
         data['General Data'].append({
             'Current Total Players': total_current,

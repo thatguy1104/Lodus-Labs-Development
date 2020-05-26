@@ -9,7 +9,8 @@ class SteamController():
 
     def getAllGameStats(self):
         steam_concurrent = steamConcurrent()
-        steam_concurrent.writeToJSON()  # Writes to top100GamesByPlayers.json
+        MAX_pages = 480
+        steam_concurrent.updateJSON(MAX_pages) # Writes to top100GamesByPlayers.json
         # steam_concurrent.getTopGamesByPlayerCount()
 
     def getBandwidthPerCountry(self):
