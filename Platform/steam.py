@@ -22,9 +22,11 @@ class SteamList():
         name = []
         appID = []
         developer = []
+        live_players = []
         pos_rating = []
         neg_rating = []
         average_play_time = []
+        length = 0
 
         # READ the data, isolate necessary information
         with open(self.filenameREAD, newline='') as csvfile:
@@ -36,7 +38,6 @@ class SteamList():
                 pos_rating.append(row[12])
                 neg_rating.append(row[13])
                 average_play_time.append(row[14])
-
         return name, appID, developer, pos_rating, neg_rating, average_play_time
 
     def writeToJSON(self):
@@ -46,11 +47,12 @@ class SteamList():
 
         for i in range(1, len(name) - 1):
             print("Writing item ", i)
+            count = self.getSteamStatsForAGame(appID[i])
             data['games'].append({
                 'appID'             : appID[i],
                 'name'              : name[i],
                 'developer'         : developer[i],
-                'live_players'      : pos_rating[i],
+                'live_players'      : count,
                 'positive_ratings'  : pos_rating[i],
                 'negative_ratings'  : neg_rating[i],
                 'average_play_time' : average_play_time[i]
