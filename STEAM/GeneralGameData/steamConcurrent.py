@@ -9,7 +9,8 @@ class steamConcurrent():
         self.linkAll = 'https://steamcharts.com/top/p.'
         self.response = requests.get(self.linkGeneral)
         self.soup = BeautifulSoup(self.response.text, 'lxml')
-        self.filenameWRITE = './DATA(json)/top100GamesByPlayers.json'
+        self.filenameWRITE = 'GeneralGameData/top100GamesByPlayers.json'
+        self.total_pages = 0
 
     def getConcurrent(self):
         all_current = self.soup.find_all('span', class_ = 'statsTopHi')
@@ -46,14 +47,15 @@ class steamConcurrent():
             if (player not in peaks) and (player not in hours):
                 current_players.append(player.text)
 
-        for i in range(len(peaks)):
+        for i in range(len(names)):
             peak_players.append(peaks[i].text)
-        for i in range(len(hours)):
+        for i in range(len(names)):
             hours_played.append(hours[i].text)
         
         return all_game_names, current_players, peak_players, hours_played
 
     def updateJSON(self, pages):
+        self.total_pages = pages
         data = {}
         data['Concurrent Steam Data'] = []
         data['General Data'] = []
@@ -63,11 +65,14 @@ class steamConcurrent():
             print("Writing page ", p)
             name, current, peak, hours_played = self.getTopGamesByPlayerCount(p)
             for i in range(len(name)):
+                current[i] = int(current[i])
+                peak[i] = int(peak[i])
+                hours_played[i] = int(hours_played[i])
                 data['Concurrent Steam Data'].append({
                     'Game Name' : name[i],
-                    'Current Players' : current[i],
-                    'Peak Today' : peak[i],
-                    'Hours Played' : hours_played[i]
+                    'Current Players': current[i],
+                    'Peak Today': peak[i],
+                    'Hours Played': hours_played[i]
                 })
 
         data['General Data'].append({

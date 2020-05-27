@@ -1,11 +1,7 @@
-from Platform.steamConcurrent import steamConcurrent
-from Platform.steamBandwidth import SteamBandwidth
-from Scrapers.corpNamesList import GameCorporations
+from GeneralGameData.steamConcurrent import steamConcurrent
+from Network.steamBandwidth import SteamBandwidth
 
 class SteamController():
-    def getDevelopersNames(self):
-        corp = GameCorporations()
-        corp.writeCorpNames()
 
     def getAllGameStats(self):
         steam_concurrent = steamConcurrent()
@@ -18,10 +14,8 @@ class SteamController():
         steam_bandwidth.writeBandwidthSteam()  # Writes to bandwidthSteamData.json
 
     def runControl(self):
-        """ GET NAMES OF GAME DEVELOPERS """
-        # self.getDevelopersNames() # NO NEED TO RUN THIS EITHER
         """ GET ALL GAMES DATA """
-        # self.getAllGameStats() 
+        # self.getAllGameStats()
         """ GET ALL DATA PER COUNTRY """
         # self.getBandwidthPerCountry()
 

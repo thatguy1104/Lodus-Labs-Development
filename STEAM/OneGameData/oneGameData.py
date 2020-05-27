@@ -12,22 +12,24 @@ class GameStats():
         response = requests.get(self.link)
         soup = BeautifulSoup(response.text, 'lxml')
         
-        month = soup.find_all('td', class_='month-cell left italic') + \
-            soup.find_all('td', class_='month-cell left')
-        avg_players = soup.find_all('td', class_='right num-f italic') + \
-            soup.find_all('td', class_='right num-f')
-        
-        gain = soup.find_all('td', class_='right num-p gainorloss italic loss')
-        percent_gain = soup.find_all('td', class_='right gainorloss italic loss') + \
-            soup.find_all('td', class_='right gainorloss gain')
 
+        all_list = []
+        table = soup.find('table', class_='common-table')
+        rows = table.find_all('tr')
 
-        print(gain)
-        
-        
-        peak_players = soup.find_all('td', class_='right num italic') + \
-            soup.find_all('td', class_='right num')
+        for el in rows:
+            row = el.text.replace('\t', '').replace('\n', '')
+            all_list.append((row))
 
+        
+
+        print(all_list)
+        
+        month = []
+        avg_players = []
+        gain = []
+        percent_gain = []
+        peak_players = []
         return month, avg_players, gain, percent_gain, peak_players
 
     def getOneGameData(self):
@@ -61,7 +63,7 @@ class GameStats():
         #     all_peak_players.append(mid_5)
         
 
-        print(all_peak_players)
+        # print(all_peak_players)
 
 
 
