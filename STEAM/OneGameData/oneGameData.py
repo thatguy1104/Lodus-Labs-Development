@@ -66,9 +66,8 @@ class GameStats():
             initial_5 = peak_players[i].text.replace('\t', '')
             mid_5 = initial_5.replace('\n', '')
             all_peak_players.append(mid_5)
-        
-        for i in range(len(all_months)):
-            print(all_months[i], all_players[i], all_gains[i], all_percent_gains[i], all_peak_players[i])
+
+        return all_months, all_players, all_gains, all_percent_gains, all_peak_players
 
 
 

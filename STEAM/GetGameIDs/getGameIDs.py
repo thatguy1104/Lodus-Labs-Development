@@ -5,12 +5,15 @@ import json
 
 
 class GetGameID():
+    """
+    RUN ONES TO UPDATE GAME IDs
+    """
     def __init__(self):
         self.linkGeneral = 'https://store.steampowered.com/stats/'
         self.linkAll = 'https://steamcharts.com/top/p.'
         self.response = requests.get(self.linkGeneral)
         self.soup = BeautifulSoup(self.response.text, 'lxml')
-        self.filenameWRITE = 'OneGameData/gameIDs.json'
+        self.filenameWRITE = 'gameIDs.json'
         self.total_pages = 0
 
     def getTopGamesByPlayerCount(self, page):
@@ -55,4 +58,3 @@ class GetGameID():
 
         with open(self.filenameWRITE, 'w') as outfile:
             json.dump(data, outfile)
-
