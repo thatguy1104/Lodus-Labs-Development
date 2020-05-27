@@ -36,6 +36,7 @@ class steamConcurrent():
 
         for tittle in names:
             game_name = tittle.find('a')
+
             # Process the weirdly formatted string output for NAMES
             raw = game_name.text.replace('\t', '')
             final = raw.replace('\n', '')
@@ -69,10 +70,10 @@ class steamConcurrent():
                 peak[i] = int(peak[i])
                 hours_played[i] = int(hours_played[i])
                 data['Concurrent Steam Data'].append({
-                    'Game Name' : name[i],
-                    'Current Players': current[i],
-                    'Peak Today': peak[i],
-                    'Hours Played': hours_played[i]
+                    'Game Name'         : name[i],
+                    'Current Players'   : current[i],
+                    'Peak Today'        : peak[i],
+                    'Hours Played'      : hours_played[i]
                 })
 
         data['General Data'].append({
