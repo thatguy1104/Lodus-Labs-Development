@@ -8,7 +8,7 @@ class SteamBandwidth():
         self.url = 'https://steamcdn-a.akamaihd.net/steam/publicstats/download_traffic_per_country.jsonp?v=' + \
             time.strftime("%m-%d-%Y") + str(weird_num)
         self.response = requests.get(self.url).text
-        self.bandwidthFILENAME = './DATA(json)/bandwidthSteamData.json'
+        self.bandwidthFILENAME = 'bandwidthSteamData.json'
 
     def setup(self):
         # Remove JSONP function name and braces, conversion to JSON format
