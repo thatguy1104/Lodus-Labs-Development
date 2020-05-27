@@ -22,13 +22,19 @@ class SteamController():
         steam_bandwidth = SteamBandwidth(17) # 16 = is the weird number at the end of the request link
         steam_bandwidth.writeBandwidthSteam()
 
+    def getOneGameDATA(self):
+        gameID = '/app/730'
+        one_game = GameStats(gameID)
+        one_game.writeToJSON()
+
     def getALLGamesDATA(self):
         """
         RECORD HISTORY DATA FOR 12K GAMES
             - Writes to recordsAllGameStats.json
         """
+        GAMES_TO_RECORD = 1
         set_all_data = GetAllRecordData()
-        set_all_data.record()
+        set_all_data.record(GAMES_TO_RECORD)
 
     def runControl(self):
         """
@@ -36,7 +42,7 @@ class SteamController():
         """
         # self.getBriefGameStats()
         # self.getBandwidthPerCountry()
-        self.getALLGamesDATA()
+        # self.getOneGameDATA()
 
 control = SteamController()
 control.runControl()

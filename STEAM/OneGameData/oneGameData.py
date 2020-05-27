@@ -6,7 +6,9 @@ import json
 
 class GameStats():
     def __init__(self, gameID):
+        self.GameID = gameID
         self.link = 'https://steamcharts.com/' + gameID
+        self.writeFILE = 'OneGameData/oneGameStats.json'
 
     def recieveData(self):
         response = requests.get(self.link)
@@ -69,5 +71,24 @@ class GameStats():
 
         return all_months, all_players, all_gains, all_percent_gains, all_peak_players
 
+    def writeToJSON(self):
+        all_months, all_players, all_gains, all_percent_gains, all_peak_players = self.getOneGameData()
+
+        data = {}
+        data['One Game Data'] = []
+
+        for i in range(len(all_months)):    
+            print('Writing {0} out of {1}'.format(i, len(all_months)))
+            data['One Game Data'].append({
+                'Game ID'       : self.GameID,
+                'Month'         : all_months,
+                'Avg. Players'  : all_players,
+                'Gains'         : all_gains,
+                '\% Gains'      : all_percent_gains,
+                'Peak Players'  : all_peak_players
+            })
+
+        with open(self.writeFILE, 'w') as outfile:
+            json.dump(data, outfile)
 
 
