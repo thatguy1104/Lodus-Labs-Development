@@ -1,0 +1,17 @@
+{
+  "data": [
+    {
+      "id": "3454",
+      "name": "THIIRD",
+      "box_art_url": "https://static-cdn.jtvnw.net/ttv-boxart/Car%20Mechanic%20Simulator%202018-{width}x{height}.jpg"
+    },
+    {
+      "id": "23445",
+      "name": "Car Mechanic Simulator 2018",
+      "box_art_url": "https://static-cdn.jtvnw.net/ttv-boxart/Car%20Mechanic%20Simulator%202018-{width}x{height}.jpg"
+    }
+  ],
+  "pagination": {
+    "cursor": "NEW KEY=="
+  }
+}

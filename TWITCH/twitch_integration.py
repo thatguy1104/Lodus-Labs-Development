@@ -6,63 +6,63 @@ CLIENT_SECRET = '3j58umfzeu2mve615u3mkfwogfamy1'
 GRANT_TYPE = 'client_credentials'
 HEADERS = { 'Client-ID': CLIENT_ID, 
             'Client-Secret': CLIENT_SECRET,
-            'Authorization': 'Bearer t5gsvxikp6cnmfqmde9e0lncus8ejs'}
+            'Authorization': 'Bearer vum536vbu1eszirljemgpsbx7ymws7'}
 INDENT = 2
 
-def get_response(query):
+def get_response(query, payload=None):
     """
     Get response from twitch API call
     """
     url = BASE_URL + query
-    response = requests.get(url, headers=HEADERS)
+    response = requests.get(url, headers=HEADERS, params=payload)
     return response
 
-def print_response(response):
-    """
-    Print reponse with JSON for debugging
-    """
-    response_json = response.json()
-    print_response = json.dumps(response_json, indent=INDENT)
-    print(print_response)
+# Save JSON data to file | ('filename.json')
+def write_json(filename, data_json):
+    with open(filename, 'w') as f:
+        json.dump(data_json, f, indent=INDENT)
+    return
 
-def get_user_streams_query(user_login):
-    """
-    Pass in a twitch username and get user's current live stream info
-    """
-    return 'streams?user_login={0}'.format(user_login)
+# Appends game data (json format) to a json file
+# Replaces cursor key
+def append_game_data_json(filename, data_json):
+    with open(filename) as json_file:
+        filedata = json.load(json_file)
+        merged = filedata['data'] + data_json['data']
+        filedata['data'] = merged
+        filedata['pagination'] = data_json['pagination']
+    write_json(filename, filedata)
+    return
 
-def get_user_query(user_login):
-    """
-    Get user info by passing in twitch username
-    """
-    return 'streams?login={0}'.format(user_login)
 
-def get_user_videos_query(user_id):
-    """
-    Get videos on user's page, returns first 50
-    """
-    return 'videos?user_login={0}&first=50'.format(user_id)
+# Gets games sorted by number of current viewers on Twitch, most popular first.
+def get_top_games_query(pagination_nr=None):
+    payload = {'first': 100, 'after': pagination_nr}
+    response = get_response('games/top', payload)
 
-def get_games_query():
-  return 'games/top'
+    # Save response to json file
+    write_json('test2append.json', response.json())
 
-def get_oath2_verification():
-    test = 0
-    return test
+    # If there exists more game pages continue iterating 
+    while(response.json()["pagination"]):
+        # Update cursor (pagination number)
+        payload['after'] = response.json()["pagination"]["cursor"]
+        response = get_response('games/top', payload)
+        response_json = response.json()
+        print("Appending page")
+        append_game_data_json('test2append.json', response_json)
+    print("Done")
+    return
+    
+get_top_games_query()
+
 
 #user_login = 'ninja'
 #query = get_user_streams_query(user_login)
 #response = get_response(query)
-#print(response.url)
 #print_response(response)
 
-#x = requests.get('https://api.twitch.tv/helix/games/top', headers=HEADERS)
-#print_response(x)
-#y = x.json()
 
-#data = y
-#with open('test.json', 'w') as f:
-#    json.dump(y, f, indent=INDENT)
 #print(y["data"][0]["name"])
 
 # Returns oauth2 access token
@@ -74,4 +74,6 @@ def get_access_token(client_id, client_secret, grant_type):
     #print(r_json['access_token'])
     return(r_json['access_token'])
 
-get_access_token(CLIENT_ID, CLIENT_SECRET, GRANT_TYPE)
+#print(get_access_token(CLIENT_ID, CLIENT_SECRET, GRANT_TYPE))
+
+
