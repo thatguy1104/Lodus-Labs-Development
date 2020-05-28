@@ -1,4 +1,5 @@
 import requests, json, sys
+import twitch_oauth2_access_token_generator
 
 BASE_URL = 'https://api.twitch.tv/helix/'
 CLIENT_ID = 'lgb4dq2tni1ce2ib9gzmg0kp571lgz'
@@ -21,7 +22,6 @@ def get_response(query, payload=None):
 def write_json(filename, data_json):
     with open(filename, 'w') as f:
         json.dump(data_json, f, indent=INDENT)
-    return
 
 # Appends game data (json format) to a json file
 # Replaces cursor key
@@ -32,8 +32,6 @@ def append_game_data_json(filename, data_json):
         filedata['data'] = merged
         filedata['pagination'] = data_json['pagination']
     write_json(filename, filedata)
-    return
-
 
 # Gets games sorted by number of current viewers on Twitch, most popular first.
 def get_top_games_query(pagination_nr=None, filename = 'top_streamed_games_query.json'):
@@ -52,18 +50,33 @@ def get_top_games_query(pagination_nr=None, filename = 'top_streamed_games_query
         print("Appending page")
         append_game_data_json(filename, response_json)
     print("Done")
-    return
     
-get_top_games_query()
+#get_top_games_query()
 
-# Returns oauth2 access token
-def get_access_token(client_id, client_secret, grant_type):
-    r = requests.post('https://id.twitch.tv/oauth2/token?client_id={}&client_secret={}&grant_type={}'
-    .format(client_id, client_secret, grant_type))
-    r_json = r.json()
-    #print(json.dumps(r_json, indent=INDENT))
-    #print(r_json['access_token'])
-    return(r_json['access_token'])
+# Will itearte through all livestreams and acculumate the total view count per game
+def get_view_count_of_games(filename, pagination_nr=None, view_counts={}):
+    payload = {'first': 100, 'after': pagination_nr}
+    response = get_response('streams', payload)
+    response_json = response.json()
+
+    # Iteate through streams and add view_count
+    for dict_item in response_json['data']:
+        if dict_item['game_id'] in view_counts:
+            view_counts['game_id'] =+ dict_item['viewer_count']
+        else:
+            view_counts[dict_item['game_id']] = dict_item['viewer_count']
+    
+    # Save view counts to file
+    write_json('view_counts.json', view_counts)
+
+    # If there exists more livestreams go to next page
+    if (response.json()["pagination"]):
+        payload['after'] = response.json()["pagination"]["cursor"]
+        get_view_count_of_games(filename, pagination_nr=response.json()["pagination"]["cursor"])
+
+    
+get_view_count_of_games('test')
+
 
 #print(get_access_token(CLIENT_ID, CLIENT_SECRET, GRANT_TYPE))
 
