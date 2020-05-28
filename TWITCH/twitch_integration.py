@@ -36,12 +36,12 @@ def append_game_data_json(filename, data_json):
 
 
 # Gets games sorted by number of current viewers on Twitch, most popular first.
-def get_top_games_query(pagination_nr=None):
+def get_top_games_query(pagination_nr=None, filename = 'top_streamed_games_query.json'):
     payload = {'first': 100, 'after': pagination_nr}
     response = get_response('games/top', payload)
 
     # Save response to json file
-    write_json('test2append.json', response.json())
+    write_json(filename, response.json())
 
     # If there exists more game pages continue iterating 
     while(response.json()["pagination"]):
@@ -50,20 +50,11 @@ def get_top_games_query(pagination_nr=None):
         response = get_response('games/top', payload)
         response_json = response.json()
         print("Appending page")
-        append_game_data_json('test2append.json', response_json)
+        append_game_data_json(filename, response_json)
     print("Done")
     return
     
 get_top_games_query()
-
-
-#user_login = 'ninja'
-#query = get_user_streams_query(user_login)
-#response = get_response(query)
-#print_response(response)
-
-
-#print(y["data"][0]["name"])
 
 # Returns oauth2 access token
 def get_access_token(client_id, client_secret, grant_type):
