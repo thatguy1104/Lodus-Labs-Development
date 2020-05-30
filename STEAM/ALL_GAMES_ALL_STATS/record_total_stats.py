@@ -21,6 +21,7 @@ class GetAllRecordData():
                 names.append(p['Game Name'])
         return names, ids
 
+
     def getOneGameStats(self, num_of_games):
         names, get_all_ids = self.readGameIds()
 
@@ -30,14 +31,25 @@ class GetAllRecordData():
             data[get_all_ids[i]] = []
             one_game = GameStats(get_all_ids[i])
             all_months, all_players, all_gains, all_percent_gains, all_peak_players = one_game.getOneGameData()
-            
+
+            # Convert list of strings to list of integers
+            all_players = [float(i) for i in all_players]
+            all_peak_players = [int(i) for i in all_peak_players]
+
+            gains_converted = []
+            for item in all_gains:
+                try:
+                    gains_converted.append(float(item))
+                except ValueError as e:
+                    gains_converted.append(item)
+
             print('Writing {0} out of {1}'.format(i, len(get_all_ids)))
             data[get_all_ids[i]].append({
                 'Name'          : names[i],
                 'ID'            : get_all_ids[i],
                 'Month'         : all_months,
                 'Avg. Players'  : all_players,
-                'Gains'         : all_gains,
+                'Gains'         : gains_converted,
                 '\% Gains'      : all_percent_gains,
                 'Peak Players'  : all_peak_players
             })

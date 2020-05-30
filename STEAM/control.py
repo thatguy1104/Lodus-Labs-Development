@@ -40,6 +40,7 @@ class SteamController():
         """
         UPDATES ALL STEAM-RELATED DATA
         """
+        self.getALLGamesDATA()
         # self.getBriefGameStats()
         # self.getBandwidthPerCountry()
         # self.getOneGameDATA()
