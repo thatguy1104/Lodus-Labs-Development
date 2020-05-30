@@ -47,13 +47,14 @@ def get_top_games_query(pagination_nr=None, filename = 'top_streamed_games_query
         payload['after'] = response.json()["pagination"]["cursor"]
         response = get_response('games/top', payload)
         response_json = response.json()
-        print("Appending page")
+        print(".", end=' ')
         append_game_data_json(filename, response_json)
     print("Done")
     
 #get_top_games_query()
 
 # Will itearte through all livestreams and acculumate the total view count per game
+# 'Filename' usecase to be implemented
 def get_view_count_of_games(filename, pagination_nr=None, view_counts={}, testcount=0):
     payload = {'first': 100, 'after': pagination_nr}
     response = get_response('streams', payload)
@@ -61,19 +62,17 @@ def get_view_count_of_games(filename, pagination_nr=None, view_counts={}, testco
 
     # Iteate through streams and add view_count
     for dict_item in response_json['data']:
-        #write_json('view_counts.json', dict_item)
-        #print(dict_item['game_id'])
-        if dict_item['game_id'] == '21779':
-            testcount += dict_item['viewer_count']
-            print(testcount)
+        if dict_item['game_id'] in view_counts.keys():
+            view_counts[dict_item['game_id']] += dict_item['viewer_count']
+        else:
+            view_counts[dict_item['game_id']] = dict_item['viewer_count']
 
-        #if dict_item['game_id'] in view_counts:
-        #    view_counts['game_id'] += dict_item['viewer_count']
-        #else:
-        #    view_counts[dict_item['game_id']] += dict_item['viewer_count']
-    
+    # Stop the functions once we are looking at streams with 1 viewer
+    if 1 in view_counts.values():
+        return 
+
     # Save view counts to file
-    #write_json('view_counts.json', view_counts)
+    write_json('view_counts.json', view_counts)
 
     # If there exists more livestreams go to next page
     if (response.json()["pagination"]):
@@ -83,6 +82,7 @@ def get_view_count_of_games(filename, pagination_nr=None, view_counts={}, testco
     
 get_view_count_of_games('test')
 
+#get_top_games_query()
 
 #print(get_access_token(CLIENT_ID, CLIENT_SECRET, GRANT_TYPE))
 
