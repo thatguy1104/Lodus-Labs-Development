@@ -54,25 +54,31 @@ def get_top_games_query(pagination_nr=None, filename = 'top_streamed_games_query
 #get_top_games_query()
 
 # Will itearte through all livestreams and acculumate the total view count per game
-def get_view_count_of_games(filename, pagination_nr=None, view_counts={}):
+def get_view_count_of_games(filename, pagination_nr=None, view_counts={}, testcount=0):
     payload = {'first': 100, 'after': pagination_nr}
     response = get_response('streams', payload)
     response_json = response.json()
 
     # Iteate through streams and add view_count
     for dict_item in response_json['data']:
-        if dict_item['game_id'] in view_counts:
-            view_counts['game_id'] =+ dict_item['viewer_count']
-        else:
-            view_counts[dict_item['game_id']] = dict_item['viewer_count']
+        #write_json('view_counts.json', dict_item)
+        #print(dict_item['game_id'])
+        if dict_item['game_id'] == '21779':
+            testcount += dict_item['viewer_count']
+            print(testcount)
+
+        #if dict_item['game_id'] in view_counts:
+        #    view_counts['game_id'] += dict_item['viewer_count']
+        #else:
+        #    view_counts[dict_item['game_id']] += dict_item['viewer_count']
     
     # Save view counts to file
-    write_json('view_counts.json', view_counts)
+    #write_json('view_counts.json', view_counts)
 
     # If there exists more livestreams go to next page
     if (response.json()["pagination"]):
         payload['after'] = response.json()["pagination"]["cursor"]
-        get_view_count_of_games(filename, pagination_nr=response.json()["pagination"]["cursor"])
+        get_view_count_of_games(filename, pagination_nr=response.json()["pagination"]["cursor"], view_counts=view_counts, testcount=testcount)
 
     
 get_view_count_of_games('test')
