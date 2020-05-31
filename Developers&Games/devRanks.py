@@ -37,8 +37,6 @@ class DevelopersGames():
         counter = 1
         end_page = 1341
 
-        total_results = []
-
         while start_page != end_page:
             print("Writing {0} / {1} pages".format(start_page, end_page))
             data_list = self.scrape(str(start_page))

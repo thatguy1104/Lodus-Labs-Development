@@ -29,7 +29,6 @@ class AllGamesForDev():
             growth_60_days = row[7].text
             price = row[8].text.replace('\n', '')
             results.append((rank, tittle, rating, intalls, avg_rating, growth_30_days, growth_60_days, price))
-
         return results
 
     def getIDs(self):
@@ -37,27 +36,28 @@ class AllGamesForDev():
         with open(self.readFILE) as json_file:
             data = json.load(json_file)
             for p in data:
-                print('Name: ' + p)
-
+                ids.append(data[p][0]['Link'])
+        return ids
 
     def getAllGameStats(self):
-        id = ['/developer?id=5700313618786177705']
         data = {}
+        ids = self.getIDs()
 
-
-        resultOne = self.scrapeOne(id[0])
-        for i in range(len(resultOne)):
-            data[resultOne[i][1]] = []
-            data[resultOne[i][1]].append({
-                'Rank'              : resultOne[i][0],
-                'App Name'          : resultOne[i][1],
-                'Total Rating'      : resultOne[i][2],
-                'Installs'          : resultOne[i][3],
-                'Average Rating'    : resultOne[i][4],
-                'Growth: 30 days'   : resultOne[i][5],
-                'Growth: 60 days'   : resultOne[i][6],
-                'Price'             : resultOne[i][7]
-            })
+        for dev in range(len(ids)):
+            resultOne = self.scrapeOne(ids[dev])
+            print("Writing {0} / {1}".format(dev, len(ids)))
+            for i in range(len(resultOne)):
+                data[resultOne[i][1]] = []
+                data[resultOne[i][1]].append({
+                    'Rank'              : resultOne[i][0],
+                    'App Name'          : resultOne[i][1],
+                    'Total Rating'      : resultOne[i][2],
+                    'Installs'          : resultOne[i][3],
+                    'Average Rating'    : resultOne[i][4],
+                    'Growth: 30 days'   : resultOne[i][5],
+                    'Growth: 60 days'   : resultOne[i][6],
+                    'Price'             : resultOne[i][7]
+                })
 
         with open(self.writeFILE, 'w') as outfile:
             json.dump(data, outfile)
