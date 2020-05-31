@@ -47,36 +47,42 @@ def get_top_games_query(pagination_nr=None, filename = 'top_streamed_games_query
         payload['after'] = response.json()["pagination"]["cursor"]
         response = get_response('games/top', payload)
         response_json = response.json()
-        print("Appending page")
+        print(".", end=' ')
         append_game_data_json(filename, response_json)
     print("Done")
     
 #get_top_games_query()
 
 # Will itearte through all livestreams and acculumate the total view count per game
-def get_view_count_of_games(filename, pagination_nr=None, view_counts={}):
+# 'Filename' usecase to be implemented
+def get_view_count_of_games(filename, pagination_nr=None, view_counts={}, testcount=0):
     payload = {'first': 100, 'after': pagination_nr}
     response = get_response('streams', payload)
     response_json = response.json()
 
     # Iteate through streams and add view_count
     for dict_item in response_json['data']:
-        if dict_item['game_id'] in view_counts:
-            view_counts['game_id'] =+ dict_item['viewer_count']
+        if dict_item['game_id'] in view_counts.keys():
+            view_counts[dict_item['game_id']] += dict_item['viewer_count']
         else:
             view_counts[dict_item['game_id']] = dict_item['viewer_count']
-    
+
+    # Stop the functions once we are looking at streams with 1 viewer
+    if 1 in view_counts.values():
+        return 
+
     # Save view counts to file
     write_json('view_counts.json', view_counts)
 
     # If there exists more livestreams go to next page
     if (response.json()["pagination"]):
         payload['after'] = response.json()["pagination"]["cursor"]
-        get_view_count_of_games(filename, pagination_nr=response.json()["pagination"]["cursor"])
+        get_view_count_of_games(filename, pagination_nr=response.json()["pagination"]["cursor"], view_counts=view_counts, testcount=testcount)
 
     
 get_view_count_of_games('test')
 
+#get_top_games_query()
 
 #print(get_access_token(CLIENT_ID, CLIENT_SECRET, GRANT_TYPE))
 
