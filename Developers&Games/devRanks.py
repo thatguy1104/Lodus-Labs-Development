@@ -19,13 +19,14 @@ class DevelopersGames():
         results = []
         for item in all_rows:
             row = item.find_all('td')
+            link = item.find('a')['href']
             # Get: Rank, Developer, Total ratings, Total installs, Applications, Average rating
             rank = int(row[0].text.replace('.', ''))
             ratings = int(row[2].text.replace(',', ''))
             installs = int(row[3].text.replace(',', ''))
             applications = int(row[4].text)
             avg_rating = float(row[5].text)
-            results.append((rank, row[1].text, ratings, installs, applications, avg_rating))
+            results.append((rank, row[1].text, ratings, installs, applications, avg_rating, link))
         
         results = sorted(results, key=lambda x: x[0])
         return results
@@ -38,7 +39,8 @@ class DevelopersGames():
 
         total_results = []
 
-        while start_page != end_page:
+        # while start_page != end_page:
+        for i in range(3):
             print("Writing {0} / {1} pages".format(start_page, end_page))
             data_list = self.scrape(str(start_page))
             for i in range(len(data_list)):
@@ -46,6 +48,7 @@ class DevelopersGames():
                 data[data_list[i][1]].append({
                     'Rank'              : data_list[i][0],
                     'Developer'         : data_list[i][1],
+                    'Link'              : data_list[i][6],
                     'Total Ratings'     : data_list[i][2],
                     'Total installs'    : data_list[i][3],
                     'Applications'      : data_list[i][4],
