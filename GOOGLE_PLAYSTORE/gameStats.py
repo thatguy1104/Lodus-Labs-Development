@@ -46,7 +46,6 @@ class AllGamesForDev():
 
         total = {}
         for dev in range(len(ids)):
-            # data = {ids[dev][1]: {}}
             data = {}
             resultOne = self.scrapeOne(ids[dev][0])
             print("Writing {0} / {1}".format(dev, len(ids)))
