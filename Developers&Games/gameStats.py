@@ -36,19 +36,23 @@ class AllGamesForDev():
         with open(self.readFILE) as json_file:
             data = json.load(json_file)
             for p in data:
-                ids.append(data[p][0]['Link'])
+                id_ = data[p][0]['Link']
+                dev = data[p][0]['Developer']
+                ids.append((id_, dev))
         return ids
 
     def getAllGameStats(self):
-        data = {}
         ids = self.getIDs()
 
         for dev in range(len(ids)):
-            resultOne = self.scrapeOne(ids[dev])
+            data = {ids[dev][1]: {}}
+
+            resultOne = self.scrapeOne(ids[dev][0])
             print("Writing {0} / {1}".format(dev, len(ids)))
+
             for i in range(len(resultOne)):
-                data[resultOne[i][1]] = []
-                data[resultOne[i][1]].append({
+                data[ids[dev][1]][resultOne[i][1]] = []
+                data[ids[dev][1]][resultOne[i][1]].append({
                     'Rank'              : resultOne[i][0],
                     'App Name'          : resultOne[i][1],
                     'Total Rating'      : resultOne[i][2],
@@ -58,7 +62,7 @@ class AllGamesForDev():
                     'Growth: 60 days'   : resultOne[i][6],
                     'Price'             : resultOne[i][7]
                 })
-
+            
         with open(self.writeFILE, 'w') as outfile:
             json.dump(data, outfile)
 
