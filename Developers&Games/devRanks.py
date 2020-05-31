@@ -39,8 +39,7 @@ class DevelopersGames():
 
         total_results = []
 
-        # while start_page != end_page:
-        for i in range(3):
+        while start_page != end_page:
             print("Writing {0} / {1} pages".format(start_page, end_page))
             data_list = self.scrape(str(start_page))
             for i in range(len(data_list)):
@@ -52,7 +51,8 @@ class DevelopersGames():
                     'Total Ratings'     : data_list[i][2],
                     'Total installs'    : data_list[i][3],
                     'Applications'      : data_list[i][4],
-                    'Average rating'    : data_list[i][5]
+                    'Average rating'    : data_list[i][5],
+                    'List of Games:'    : []
                 })
             start_page += 20
             counter += 1
