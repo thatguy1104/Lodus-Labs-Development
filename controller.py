@@ -3,7 +3,6 @@ from STEAM.GeneralGameData.steamConcurrent import steamConcurrent
 from STEAM.Network.steamBandwidth import SteamBandwidth
 from STEAM.ALL_GAMES_ALL_STATS.record_total_stats import GetAllRecordData
 
-
 def updateSTEAM():
     steam_concurrent = steamConcurrent()
     MAX_pages = 480
