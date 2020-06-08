@@ -1,8 +1,8 @@
 # Step 1: update app ids
 # Step 2: iterate through OneGameData
 
-from OneGameData.oneGameData import GameStats
-from GetGameIDs.getGameIDs import GetGameID
+from STEAM.OneGameData.oneGameData import GameStats
+from STEAM.GetGameIDs.getGameIDs import GetGameID
 import json
 
 class GetAllRecordData():
@@ -22,12 +22,12 @@ class GetAllRecordData():
         return names, ids
 
 
-    def getOneGameStats(self, num_of_games):
+    def getOneGameStats(self):
         names, get_all_ids = self.readGameIds()
 
         data = {}
 
-        for i in range(num_of_games):
+        for i in range(len(names)):
             data[get_all_ids[i]] = []
             one_game = GameStats(get_all_ids[i])
             all_months, all_players, all_gains, all_percent_gains, all_peak_players = one_game.getOneGameData()

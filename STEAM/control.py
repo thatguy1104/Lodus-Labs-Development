@@ -32,9 +32,8 @@ class SteamController():
         RECORD HISTORY DATA FOR 12K GAMES
             - Writes to recordsAllGameStats.json
         """
-        GAMES_TO_RECORD = 1
         set_all_data = GetAllRecordData()
-        set_all_data.record(GAMES_TO_RECORD)
+        set_all_data.record()
 
     def runControl(self):
         """

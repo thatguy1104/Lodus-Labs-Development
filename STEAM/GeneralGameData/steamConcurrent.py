@@ -63,7 +63,7 @@ class steamConcurrent():
         total_current, total_peak = self.getConcurrent()
 
         for p in range(1, pages):
-            print("Writing page ", p)
+            print("Writing page {0} / {1}".format(p, pages))
             name, current, peak, hours_played = self.getTopGamesByPlayerCount(p)
             for i in range(len(name)):
                 current[i] = int(current[i])
