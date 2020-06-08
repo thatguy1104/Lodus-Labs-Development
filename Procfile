@@ -1,1 +1,1 @@
-worker: python controller.py
+web: python controller.py
