@@ -8,7 +8,7 @@ def connect():
     try:
         # connect to the PostgreSQL server
         print('Connecting to the PostgreSQL database...')
-        conn = psycopg2.connect("dbname=template1 user=postgres password=hakalbert0")
+        conn = psycopg2.connect("dbname=steam_data user=postgres password=hakalbert0")
 		
         # create a cursor
         cur = conn.cursor()

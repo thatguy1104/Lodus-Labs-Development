@@ -1,0 +1,20 @@
+CREATE TABLE  static_game_data(
+    appid           INT,
+    game_ame        CHAR(40),
+    release_date    CHAR(40),
+    english         INT,
+    developer       CHAR(40),
+    publisher       CHAR(40),
+    platforms       CHAR(40),
+    required_age    INT,
+    categories      CHAR(40),
+    genres          CHAR(40),
+    steamspy_tags   CHAR(40),
+    achievements    CHAR(40),
+    positive_ratings    INT,
+    negative_ratings    INT,
+    average_playtime    FLOAT,
+    median_playtime     INT,
+    owners          CHAR(40),
+    price           FLOAT
+);
