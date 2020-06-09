@@ -1,3 +1,8 @@
 {
-    "python.pythonPath": "/Library/Frameworks/Python.framework/Versions/3.7/bin/python3"
+    "python.pythonPath": "/home/djavadin/anaconda3/envs/pyth_env/bin/python",
+    "azureFunctions.deploySubpath": "TimerTrigger2",
+    "azureFunctions.scmDoBuildDuringDeployment": true,
+    "azureFunctions.projectLanguage": "Python",
+    "azureFunctions.projectRuntime": "~3",
+    "debug.internalConsoleOptions": "neverOpen"
 }
