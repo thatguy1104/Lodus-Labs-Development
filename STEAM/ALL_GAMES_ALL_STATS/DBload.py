@@ -57,7 +57,5 @@ def doQuery() :
 
     myConnection.commit()
     myConnection.close()
-    # for name in cur.fetchall():
-    #     print(name)
 
 doQuery()
