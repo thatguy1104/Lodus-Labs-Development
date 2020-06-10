@@ -76,18 +76,18 @@ class steamConcurrent():
             Current_Players     BIGINT,
             Peak_Today          BIGINT,
             Hours_Played        BIGINT,
-            Time_Updated        TIME NOT NULL DEFAULT CURRENT_TIME,
+            Time_Updated        TIME,
             Date_Updated        DATE NOT NULL DEFAULT CURRENT_DATE
         );"""
         cur.execute(create)
         print("Successully created DB Table: concurrentGames")
 
         for p in range(1, pages):
-            print("Writing page {0} / {1}".format(p, pages))
+            print("Writing page {0} / {1} to <concurrentGames> table (db: {2})".format(p, pages, database))
             name, current, peak, hours_played = self.getTopGamesByPlayerCount(p)
 
             for i in range(len(name)):
-                insertion = "INSERT INTO concurrentGames(Name_, Current_Players, Peak_Today, Hours_Played) VALUES (%s, %s, %s, %s)"
+                insertion = "INSERT INTO concurrentGames(Name_, Current_Players, Peak_Today, Hours_Played, Time_Updated) VALUES (%s, %s, %s, %s, CURRENT_TIME)"
                 values = (name[i], current[i], peak[i], hours_played[i])
                 cur.execute(insertion, values)
 

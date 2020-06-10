@@ -5,7 +5,7 @@ from ALL_GAMES_ALL_STATS.record_total_stats import GetAllRecordData
 
 class SteamController():
 
-    def getBriefGameStats(self):
+    def getConcurrentStats(self):
         """
         UPDATABLE: GET BREIF DATA ON ALL 12K GAMES
             - Writes to top100GamesByPlayers.json
@@ -39,10 +39,13 @@ class SteamController():
         """
         UPDATES ALL STEAM-RELATED DATA
         """
-        # self.getALLGamesDATA()
-        self.getBriefGameStats()
+
+        '''DONE WRITING TO DB'''
+        # self.getConcurrentStats()
         # self.getBandwidthPerCountry()
-        # self.getOneGameDATA()
+
+        '''NOT DONE WRITING TO DB'''
+        # self.getALLGamesDATA()
 
 control = SteamController()
 control.runControl()
