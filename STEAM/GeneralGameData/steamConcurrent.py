@@ -15,8 +15,6 @@ class steamConcurrent():
         self.linkAll = 'https://steamcharts.com/top/p.'
         self.response = requests.get(self.linkGeneral)
         self.soup = BeautifulSoup(self.response.text, 'lxml')
-        # self.filenameWRITE = 'GeneralGameData/top100GamesByPlayers.json'
-        # self.total_pages = 0
 
     def getConcurrent(self):
         all_current = self.soup.find_all('span', class_ = 'statsTopHi')
@@ -62,7 +60,6 @@ class steamConcurrent():
         return all_game_names, current_players, peak_players, hours_played
 
     def updateJSON(self, pages):
-        # self.total_pages = pages
         data = {}
         data['Concurrent Steam Data'] = []
         data['General Data'] = []
@@ -97,14 +94,3 @@ class steamConcurrent():
         print("Successully written to DB Table: concurrentGames")
         myConnection.commit()
         myConnection.close()
-
-
-            
-        # data['General Data'].append({
-        #     'Current Total Players': total_current,
-        #     'Current Total Peak': total_peak
-        # })
-
-        # with open(self.filenameWRITE, 'w') as outfile:
-        #     json.dump(data, outfile)
-            
