@@ -2,6 +2,12 @@ from bs4 import BeautifulSoup
 import requests
 import lxml
 import json
+import psycopg2
+
+hostname = 'localhost'
+username = 'postgres'
+password = 'analytcis_123'
+database = 'steam_data'
 
 class steamConcurrent():
     def __init__(self):
@@ -9,8 +15,8 @@ class steamConcurrent():
         self.linkAll = 'https://steamcharts.com/top/p.'
         self.response = requests.get(self.linkGeneral)
         self.soup = BeautifulSoup(self.response.text, 'lxml')
-        self.filenameWRITE = 'GeneralGameData/top100GamesByPlayers.json'
-        self.total_pages = 0
+        # self.filenameWRITE = 'GeneralGameData/top100GamesByPlayers.json'
+        # self.total_pages = 0
 
     def getConcurrent(self):
         all_current = self.soup.find_all('span', class_ = 'statsTopHi')
@@ -56,31 +62,49 @@ class steamConcurrent():
         return all_game_names, current_players, peak_players, hours_played
 
     def updateJSON(self, pages):
-        self.total_pages = pages
+        # self.total_pages = pages
         data = {}
         data['Concurrent Steam Data'] = []
         data['General Data'] = []
         total_current, total_peak = self.getConcurrent()
 
+        # CONNECT TO DATABASE
+        myConnection = psycopg2.connect(host=hostname, user=username, password=password, dbname=database)
+        cur = myConnection.cursor()
+
+        # EXECUTE SQL COMMANDS
+        cur.execute("DROP TABLE IF EXISTS concurrentGames;")
+        create = """CREATE TABLE concurrentGames(
+            Name_               CHAR(200),
+            Current_Players     BIGINT,
+            Peak_Today          BIGINT,
+            Hours_Played        BIGINT,
+            Time_Updated        TIME NOT NULL DEFAULT CURRENT_TIME,
+            Date_Updated        DATE NOT NULL DEFAULT CURRENT_DATE
+        );"""
+        cur.execute(create)
+        print("Successully created DB Table: concurrentGames")
+
         for p in range(1, pages):
             print("Writing page {0} / {1}".format(p, pages))
             name, current, peak, hours_played = self.getTopGamesByPlayerCount(p)
+
             for i in range(len(name)):
-                current[i] = int(current[i])
-                peak[i] = int(peak[i])
-                hours_played[i] = int(hours_played[i])
-                data['Concurrent Steam Data'].append({
-                    'Game Name'         : name[i],
-                    'Current Players'   : current[i],
-                    'Peak Today'        : peak[i],
-                    'Hours Played'      : hours_played[i]
-                })
+                insertion = "INSERT INTO concurrentGames(Name_, Current_Players, Peak_Today, Hours_Played) VALUES (%s, %s, %s, %s)"
+                values = (name[i], current[i], peak[i], hours_played[i])
+                cur.execute(insertion, values)
 
-        data['General Data'].append({
-            'Current Total Players': total_current,
-            'Current Total Peak': total_peak
-        })
+        print("Successully written to DB Table: concurrentGames")
+        myConnection.commit()
+        myConnection.close()
 
-        with open(self.filenameWRITE, 'w') as outfile:
-            json.dump(data, outfile)
+
+            
+        # data['General Data'].append({
+        #     'Current Total Players': total_current,
+        #     'Current Total Peak': total_peak
+        # })
+
+        # with open(self.filenameWRITE, 'w') as outfile:
+        #     json.dump(data, outfile)
             

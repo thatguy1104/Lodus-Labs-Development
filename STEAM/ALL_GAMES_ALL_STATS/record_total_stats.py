@@ -1,8 +1,8 @@
 # Step 1: update app ids
 # Step 2: iterate through OneGameData
 
-from STEAM.OneGameData.oneGameData import GameStats
-from STEAM.GetGameIDs.getGameIDs import GetGameID
+from OneGameData.oneGameData import GameStats
+from GetGameIDs.getGameIDs import GetGameID
 import json
 
 class GetAllRecordData():
