@@ -45,7 +45,7 @@ class SteamController():
         # self.getBandwidthPerCountry()
 
         '''NOT DONE WRITING TO DB'''
-        # self.getALLGamesDATA()
+        self.getALLGamesDATA()
 
 control = SteamController()
 control.runControl()

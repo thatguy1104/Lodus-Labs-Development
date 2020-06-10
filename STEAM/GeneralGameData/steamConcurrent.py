@@ -7,7 +7,7 @@ import psycopg2
 hostname = 'localhost'
 username = 'postgres'
 password = 'analytcis_123'
-database = 'steam_data'
+database = 'project_data'
 
 class steamConcurrent():
     def __init__(self):

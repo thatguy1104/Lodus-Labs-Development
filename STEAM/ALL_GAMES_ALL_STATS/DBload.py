@@ -4,7 +4,7 @@ import json
 hostname = 'localhost'
 username = 'postgres'
 password = 'analytcis_123'
-database = 'steam_data'
+database = 'project_data'
 
 def readJSON():
     data = None
@@ -28,9 +28,12 @@ def doQuery() :
         avg_players     float[],
         gains           float[],
         percent_gains   text[][],
-        peak_players    integer[]
+        peak_players    integer[],
+        Time_Updated    TIME NOT NULL DEFAULT CURRENT_TIME,
+        Date_Updated    DATE NOT NULL DEFAULT CURRENT_DATE
     );"""
     cur.execute(create)
+    print("Successully created DB Table: all_games_all_data")
 
     counter = 0
     for i in data:
@@ -48,13 +51,12 @@ def doQuery() :
         if len(percent_gains) is not 0:
             percent_gains[len(percent_gains) - 1] = 0
         
-        
-        cur.execute("INSERT into all_games_all_data(name_, ids) VALUES (%s, %s)", (name, id_))
-
+        cur.execute("INSERT into all_games_all_data(name_, ids, months) VALUES (%s, %s, %s)", (name, id_, months))
 
         # insertion = "INSERT INTO all_games_all_data (name_, ids, months, avg_players, gains, percent_gains, peak_players) VALUES (%s, %s, %s, %d, %d, %s, %i)"
         # cur.execute(insertion, (name, id_, months, avg_players, gains, percent_gains, peak_players))
 
+    print("Successully written to DB Table: all_games_all_data")
     myConnection.commit()
     myConnection.close()
 
