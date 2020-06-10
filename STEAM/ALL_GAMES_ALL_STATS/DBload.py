@@ -3,7 +3,7 @@ import json
 
 hostname = 'localhost'
 username = 'postgres'
-password = ''
+password = 'analytcis_123'
 database = 'steam_data'
 
 def readJSON():

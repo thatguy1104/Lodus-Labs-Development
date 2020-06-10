@@ -1,9 +1,10 @@
 import psycopg2
 import json
+import datetime
 
 hostname = 'localhost'
 username = 'postgres'
-password = 'hakalbert0'
+password = 'analytcis_123'
 database = 'steam_data'
 
 def readJSON():
@@ -29,6 +30,7 @@ def doQuery() :
 
     # READ DATA
     data = readJSON()
+    time_now = datetime.datetime.now()
 
     # EXECUTE SQL COMMANDS
     cur.execute("DROP TABLE IF EXISTS concurrentGames;")
@@ -36,7 +38,8 @@ def doQuery() :
         Name_               CHAR(200),
         Current_Players     BIGINT,
         Peak_Today          BIGINT,
-        Hours_Played        BIGINT
+        Hours_Played        BIGINT,
+        Last_Updated        TIME
     );"""
     cur.execute(create)
 
@@ -46,9 +49,11 @@ def doQuery() :
         peak = elem['Peak Today']
         hours = elem['Hours Played']
         
-        insertion = "INSERT INTO concurrentGames(Name_, Current_Players, Peak_Today, Hours_Played) VALUES (%s, %s, %s, %s)"
-        values = (game_name, current, peak, hours)
+        insertion = "INSERT INTO concurrentGames(Name_, Current_Players, Peak_Today, Hours_Played, Last_Updated) VALUES (%s, %s, %s, %s, %s)"
+        t = str(time_now.hour) + ":" + str(time_now.minute) + ":" + str(time_now.second)
+        values = (game_name, current, peak, hours, t)
         cur.execute(insertion, values)
+    
     print("db files loaded")
 
     myConnection.commit()
