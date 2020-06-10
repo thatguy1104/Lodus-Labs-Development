@@ -31,7 +31,7 @@ class DevelopersGames():
         results = sorted(results, key=lambda x: x[0])
         return results
         
-    def writeToJSON(self):
+    def writeToDB(self):
         data = {}
         start_page = 1
         counter = 1
@@ -57,7 +57,3 @@ class DevelopersGames():
 
         with open(self.writeFILE, 'w') as outfile:
             json.dump(data, outfile)
-
-
-obj = DevelopersGames()
-obj.writeToJSON()

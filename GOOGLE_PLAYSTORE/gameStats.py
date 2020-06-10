@@ -67,5 +67,3 @@ class AllGamesForDev():
         with open(self.writeFILE, 'w') as outfile:
             json.dump(total, outfile)
 
-obj = AllGamesForDev()
-obj.getAllGameStats()
