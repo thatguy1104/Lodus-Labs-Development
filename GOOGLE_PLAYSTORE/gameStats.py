@@ -2,6 +2,12 @@ import requests
 import json
 from bs4 import BeautifulSoup
 import lxml
+import psycopg2
+
+hostname = 'localhost'
+username = 'postgres'
+password = 'analytcis_123'
+database = 'project_data'
 
 class AllGamesForDev():
     def __init__(self):
@@ -33,16 +39,23 @@ class AllGamesForDev():
 
     def getIDs(self):
         ids = []
-        with open(self.readFILE) as json_file:
-            data = json.load(json_file)
-            for p in data:
-                id_ = data[p][0]['Link']
-                dev = data[p][0]['Developer']
-                ids.append((id_, dev))
+        myConnection = psycopg2.connect(host=hostname, user=username, password=password, dbname=database)
+        cur = myConnection.cursor()
+
+        read =  """SELECT developer,link FROM play_dev_ranks"""
+        cur.execute(read)
+        result = cur.fetchall()
+
+        for i in range(len(result)):
+            id1 = result[i][1].replace(' ', '')
+            ids.append(id1)
         return ids
 
     def getAllGameStats(self):
         ids = self.getIDs()
+
+        resultOne = self.scrapeOne(ids[0])
+        print(resultOne)
 
         total = {}
         for dev in range(len(ids)):
@@ -64,6 +77,6 @@ class AllGamesForDev():
                 })
             total[ids[dev][1]] = data
             
-        with open(self.writeFILE, 'w') as outfile:
-            json.dump(total, outfile)
+        # with open(self.writeFILE, 'w') as outfile:
+        #     json.dump(total, outfile)
 

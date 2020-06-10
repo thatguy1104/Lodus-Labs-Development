@@ -66,7 +66,7 @@ class DevelopersGames():
             data_list = self.scrape(str(start_page))
             for i in range(len(data_list)):
                 rank = data_list[i][0]
-                dev = data_list[i][1]
+                dev = data_list[i][1].replace('\t', '')
                 link = data_list[i][6]
                 rat = data_list[i][2]
                 installs = data_list[i][3]

@@ -14,13 +14,14 @@ def load_Ranks():
 
 def load_Apps():
     """
-    
+    DETAILED APP ANALYTICS
     """
     apps = AllGamesForDev()
     apps.getAllGameStats()
 
 
 def controller():
-    load_Ranks()
+    # load_Ranks()
+    load_Apps()
 
 controller()
