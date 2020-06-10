@@ -12,7 +12,6 @@ database = 'project_data'
 class DevelopersGames():
     def __init__(self):
         self.startLink = 'https://www.androidrank.org/developers/ranking?&start='
-        self.writeFILE = 'devRanks.json'
 
     def scrape(self, page):
         response = requests.get(self.startLink + page)
@@ -60,7 +59,7 @@ class DevelopersGames():
             Date_Updated        DATE NOT NULL DEFAULT CURRENT_DATE
         );"""
         cur.execute(create)
-        print("Successully created DB: Table -> PLAY_dev_ranks DB -> project_data")
+        print("Successully created DB: Table -> PLAY_dev_ranks DB -> {0}".format(database))
 
         while start_page != end_page:
             print("Writing {0} / {1} to PLAY_dev_ranks".format(start_page, end_page))
@@ -79,6 +78,6 @@ class DevelopersGames():
                 cur.execute(insertion, values)
             start_page += 20
         
-        print("Successully written to: Table -> PLAY_dev_ranks DB -> project_data")
+        print("Successully written to: Table -> PLAY_dev_ranks DB -> {0}".format(database))
         myConnection.commit()
         myConnection.close()
