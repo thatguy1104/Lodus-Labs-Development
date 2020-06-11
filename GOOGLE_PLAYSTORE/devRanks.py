@@ -78,6 +78,6 @@ class DevelopersGames():
                 cur.execute(insertion, values)
             start_page += 20
         
-        print("Successully written to: Table -> PLAY_dev_ranks DB -> {0}".format(database))
+        print("Successully written to: Table -> play_dev_ranks DB -> {0}".format(database))
         myConnection.commit()
         myConnection.close()

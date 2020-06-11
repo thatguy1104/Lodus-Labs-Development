@@ -8,7 +8,9 @@ class SteamController():
     def getConcurrentStats(self):
         """
         UPDATABLE: GET BREIF DATA ON ALL 12K GAMES
-            - Writes to top100GamesByPlayers.json
+            Writes to:
+                table = 
+                database = project_data
         """
         steam_concurrent = steamConcurrent()
         MAX_pages = 480
@@ -17,7 +19,9 @@ class SteamController():
     def getBandwidthPerCountry(self):
         """
         UPDATABLE: GET DATA BANDWIDTH PER COUNTRY
-            - Writes to bandwidthSteamData.json
+            Writes to:
+                table = 
+                database = project_data
         """
         steam_bandwidth = SteamBandwidth(17) # 16 = is the weird number at the end of the request link
         steam_bandwidth.writeBandwidthSteam()
@@ -30,7 +34,9 @@ class SteamController():
     def getALLGamesDATA(self):
         """
         RECORD HISTORY DATA FOR 12K GAMES
-            - Writes to recordsAllGameStats.json
+            Writes to:
+                table = 
+                database = project_data
         """
         set_all_data = GetAllRecordData()
         set_all_data.record()
