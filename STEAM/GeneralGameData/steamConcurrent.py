@@ -72,7 +72,7 @@ class steamConcurrent():
         # EXECUTE SQL COMMANDS
         cur.execute("DROP TABLE IF EXISTS concurrentGames;")
         create = """CREATE TABLE concurrentGames(
-            Name_               CHAR(200),
+            Name_               text,
             Current_Players     BIGINT,
             Peak_Today          BIGINT,
             Hours_Played        BIGINT,
@@ -91,6 +91,6 @@ class steamConcurrent():
                 values = (name[i], current[i], peak[i], hours_played[i])
                 cur.execute(insertion, values)
 
-        print("Successully written to DB Table: concurrentGames")
+        print("Successully written to Table -> concurrentGames DB -> {0}".format(database))
         myConnection.commit()
         myConnection.close()

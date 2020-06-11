@@ -22,13 +22,13 @@ def doQuery() :
 
     cur.execute("DROP TABLE IF EXISTS all_games_all_data;")
     create = """CREATE TABLE all_games_all_data(
-        name_       CHAR(200),
-        ids         CHAR(200),
-        months          text[][],
-        avg_players     float[],
-        gains           float[],
-        percent_gains   text[][],
-        peak_players    integer[],
+        Month           text,
+        name_           text,
+        ids             text,
+        avg_players     float,
+        gains           float,
+        percent_gains   text,
+        peak_players    INT,
         Time_Updated    TIME NOT NULL DEFAULT CURRENT_TIME,
         Date_Updated    DATE NOT NULL DEFAULT CURRENT_DATE
     );"""
@@ -37,6 +37,7 @@ def doQuery() :
 
     counter = 0
     for i in data:
+        print("Writing page {0} / {1} to <all_games_all_data> table (db: {2})".format(counter, len(data), database))
         name = data[i][0]['Name']
         id_ = data[i][0]['ID']
         months = data[i][0]['Month'] # LIST OF STRINGS
@@ -51,11 +52,10 @@ def doQuery() :
         if len(percent_gains) is not 0:
             percent_gains[len(percent_gains) - 1] = 0
         
-        cur.execute("INSERT into all_games_all_data(name_, ids, months) VALUES (%s, %s, %s)", (name, id_, months))
-
-        # insertion = "INSERT INTO all_games_all_data (name_, ids, months, avg_players, gains, percent_gains, peak_players) VALUES (%s, %s, %s, %d, %d, %s, %i)"
-        # cur.execute(insertion, (name, id_, months, avg_players, gains, percent_gains, peak_players))
-
+        for j in range(len(months)):
+            cur.execute("INSERT into all_games_all_data(Month, name_, ids, avg_players, gains, percent_gains, peak_players) VALUES (%s, %s, %s, %s, %s, %s, %s)", (months[j], name, id_, avg_players[j], gains[j], percent_gains[j], peak_players[j]))
+        counter += 1
+        
     print("Successully written to DB Table: all_games_all_data")
     myConnection.commit()
     myConnection.close()

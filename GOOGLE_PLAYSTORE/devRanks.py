@@ -49,8 +49,8 @@ class DevelopersGames():
         cur.execute("DROP TABLE IF EXISTS PLAY_dev_ranks;")
         create = """CREATE TABLE PLAY_dev_ranks(
             Rank                INT,
-            Developer           CHAR(200),
-            Link                CHAR(200),
+            Developer           text,
+            Link                text,
             Total_Ratings       BIGINT DEFAULT 0,
             Total_Installs      BIGINT DEFAULT 0,
             Applications        INT DEFAULT 0,
@@ -62,7 +62,7 @@ class DevelopersGames():
         print("Successully created DB: Table -> PLAY_dev_ranks DB -> {0}".format(database))
 
         while start_page != end_page:
-            print("Writing {0} / {1} to PLAY_dev_ranks".format(start_page, end_page))
+            print("Writing {0} / {1} to <play_dev_ranks> table (db: {2})".format(start_page, end_page, database))
             data_list = self.scrape(str(start_page))
             for i in range(len(data_list)):
                 rank = data_list[i][0]

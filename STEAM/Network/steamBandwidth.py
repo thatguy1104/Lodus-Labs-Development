@@ -72,6 +72,6 @@ class SteamBandwidth():
             values = (country, totalbytes, avg_mb, perc_global_traffic)
             cur.execute(insertion, values)
 
-        print("Successully written to DB Table: network_data")
+        print("\nSuccessully written to Table -> network_data DB -> {0}".format(database))
         myConnection.commit()
         myConnection.close()

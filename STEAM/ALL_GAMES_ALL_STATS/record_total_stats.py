@@ -5,7 +5,7 @@ from OneGameData.oneGameData import GameStats
 import json
 import psycopg2
 
-hostname = 'localhost'~
+hostname = 'localhost'
 username = 'postgres'
 password = 'analytcis_123'
 database = 'project_data'

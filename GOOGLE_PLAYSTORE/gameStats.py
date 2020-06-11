@@ -86,7 +86,7 @@ class AllGamesForDev():
         # ITERATE THROUGH IDS, SCRAPE DATA, WRITE TO DB
         for dev in range(len(ids)):
             resultOne = self.scrapeOne(ids[dev][0])
-            print("Writing {0} / {1} to table -> {2} DB -> {3}".format(dev, len(ids), "play_app_ranks", database))
+            print("Writing {0} / {1} to <{2}> table (db: {3})".format(dev, len(ids), "play_app_ranks", database))
             for i in range(len(resultOne)):
                 # dev = ids[dev][1]
                 rank = resultOne[i][0],
