@@ -1,7 +1,7 @@
-from GeneralGameData.steamConcurrent import steamConcurrent
-from Network.steamBandwidth import SteamBandwidth
-from ALL_GAMES_ALL_STATS.oneGameData import GameStats
-from ALL_GAMES_ALL_STATS.record_total_stats import GetAllRecordData
+from STEAM.GeneralGameData.steamConcurrent import steamConcurrent
+from STEAM.Network.steamBandwidth import SteamBandwidth
+from STEAM.ALL_GAMES_ALL_STATS.oneGameData import GameStats
+from STEAM.ALL_GAMES_ALL_STATS.record_total_stats import GetAllRecordData
 import time
 
 class SteamController():
@@ -53,7 +53,4 @@ class SteamController():
         t1 = time.time()
 
         print("\n\nCode Finished In: {0}\n\n".format(t1-t0))
-
-control = SteamController()
-control.runControl()
 

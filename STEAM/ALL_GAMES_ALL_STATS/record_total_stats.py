@@ -1,7 +1,7 @@
 # Step 1: update app ids
 # Step 2: iterate through OneGameData
 
-from ALL_GAMES_ALL_STATS.oneGameData import GameStats
+from STEAM.ALL_GAMES_ALL_STATS.oneGameData import GameStats
 from bs4 import BeautifulSoup
 import requests
 import lxml
