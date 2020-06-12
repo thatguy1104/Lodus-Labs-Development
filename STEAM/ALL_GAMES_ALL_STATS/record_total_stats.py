@@ -90,24 +90,23 @@ class GetAllRecordData():
         for i in range(len(names)):
             one_game = GameStats(get_all_ids[i])
             all_months, all_players, all_gains, all_percent_gains, all_peak_players = one_game.getOneGameData()
-            if counter < 4:
-                print("Writing page {0} / {1} to <all_games_all_data> table (db: {2})".format(i, len(names), database))
-                name = names[i]
-                id_ = get_all_ids[i]
-                months = all_months # LIST OF STRINGS
-                avg_players = all_players # LIST OF FLOATS
-                gains = all_gains # LIST OF FLOATS
-                percent_gains = all_percent_gains # LIST OF STRINGS
-                peak_players = all_peak_players # LIST OF STRINGS
+            print("Writing page {0} / {1} to <all_games_all_data> table (db: {2})".format(i, len(names), database))
+            name = names[i]
+            id_ = get_all_ids[i]
+            months = all_months # LIST OF STRINGS
+            avg_players = all_players # LIST OF FLOATS
+            gains = all_gains # LIST OF FLOATS
+            percent_gains = all_percent_gains # LIST OF STRINGS
+            peak_players = all_peak_players # LIST OF STRINGS
 
-                if len(gains) is not 0:
-                    gains[len(gains) - 1] = 0
+            if len(gains) is not 0:
+                gains[len(gains) - 1] = 0
 
-                if len(percent_gains) is not 0:
-                    percent_gains[len(percent_gains) - 1] = 0
-                
-                for j in range(len(months)):
-                    cur.execute("INSERT into all_games_all_data(Month, name_, ids, avg_players, gains, percent_gains, peak_players) VALUES (%s, %s, %s, %s, %s, %s, %s)", (months[j], name, id_, avg_players[j], gains[j], percent_gains[j], peak_players[j]))
+            if len(percent_gains) is not 0:
+                percent_gains[len(percent_gains) - 1] = 0
+            
+            for j in range(len(months)):
+                cur.execute("INSERT into all_games_all_data(Month, name_, ids, avg_players, gains, percent_gains, peak_players) VALUES (%s, %s, %s, %s, %s, %s, %s)", (months[j], name, id_, avg_players[j], gains[j], percent_gains[j], peak_players[j]))
                 
         print("Successully written to DB Table: all_games_all_data")
         myConnection.commit()
