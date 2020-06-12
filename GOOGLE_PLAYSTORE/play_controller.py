@@ -26,9 +26,9 @@ def controller():
     # START TIME
     t0 = time.time()
 
-    load_Ranks()
     load_Apps()
-
+    load_Ranks()
+    
     # END TIME
     t1 = time.time()
 

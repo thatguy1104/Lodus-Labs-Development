@@ -75,10 +75,10 @@ class AllGamesForDev():
             Total_Rating        BIGINT,
             Installs            text,
             Average_Rating      FLOAT,
-            Growth_30_days     text,
-            Growth_60_days     text,
+            Growth_30_days      text,
+            Growth_60_days      text,
             Price               text,
-            Last_Updated        DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
+            Last_Updated        DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP AT TIME ZONE 'Russian Standard Time'
         );"""
         cur.execute(create)
         print("Successully created DB: Table -> play_app_ranks DB -> {0}".format(database))
@@ -88,18 +88,18 @@ class AllGamesForDev():
             resultOne = self.scrapeOne(ids[dev][0])
             print("Writing {0} / {1} to <{2}> table (db: {3})".format(dev, len(ids), "play_app_ranks", database))
             for i in range(len(resultOne)):
-                # dev = ids[dev][1]
-                rank = resultOne[i][0],
-                app_name = resultOne[i][1],
-                rating = int(resultOne[i][2]),
-                installs = resultOne[i][3],
-                avg = resultOne[i][4],
-                thirty = resultOne[i][5],
-                sixty = resultOne[i][6],
+                oke = ids[dev][1]
+                rank = resultOne[i][0]
+                app_name = resultOne[i][1]
+                rating = int(resultOne[i][2])
+                installs = resultOne[i][3]
+                avg = resultOne[i][4]
+                thirty = resultOne[i][5]
+                sixty = resultOne[i][6]
                 price = resultOne[i][7]
 
                 insertion = "INSERT INTO play_app_ranks(Developer, App_Rank, App_Name, Total_Rating, Installs, Average_Rating, Growth_30_days, Growth_60_days, Price) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)"
-                values = (ids[dev][1], rank, app_name, rating, installs, avg, thirty, sixty, price)
+                values = (oke, rank, app_name, rating, installs, avg, thirty, sixty, price)
                 cur.execute(insertion, values)
 
         print("Successully written to: Table -> play_app_ranks DB -> {0}".format(database))

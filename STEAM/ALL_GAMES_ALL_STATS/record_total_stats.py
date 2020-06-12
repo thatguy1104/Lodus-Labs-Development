@@ -81,8 +81,7 @@ class GetAllRecordData():
             gains           float,
             percent_gains   text,
             peak_players    INT,
-            Time_Updated    TIME NOT NULL DEFAULT CURRENT_TIME,
-            Date_Updated    DATE NOT NULL DEFAULT CURRENT_DATE
+            Last_Updated        DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
         );"""
         cur.execute(create)
         print("Successully created DB Table: steam_all_games_all_data")
@@ -107,7 +106,7 @@ class GetAllRecordData():
                 percent_gains[len(percent_gains) - 1] = 0
             
             for j in range(len(months)):
-                cur.execute("INSERT into steam_all_games_all_data(Month, name_, ids, avg_players, gains, percent_gains, peak_players) VALUES (%s, %s, %s, %s, %s, %s, %s)", (months[j], name, id_, avg_players[j], gains[j], percent_gains[j], peak_players[j]))
+                cur.execute("INSERT into steam_all_games_all_data(Month, name_, ids, avg_players, gains, percent_gains, peak_players) VALUES (?, ?, ?, ?, ?, ?, ?)", (months[j], name, id_, avg_players[j], gains[j], percent_gains[j], peak_players[j]))
                 
         print("Successully written to DB Table: steam_all_games_all_data")
         myConnection.commit()

@@ -2,7 +2,7 @@ import requests
 import json
 import time
 import math
-import psycopg2
+import pyodbc
 
 server = 'serverteest.database.windows.net'
 database = 'testdatabase'
@@ -54,8 +54,7 @@ class SteamBandwidth():
             Total_Bytes                     BIGINT,
             Avg_MB_Per_Sec                  NUMERIC,
             Percentage_of_Global_Traffic    NUMERIC,
-            Time_Updated                    TIME NOT NULL DEFAULT CURRENT_TIME,
-            Date_Updated                    DATE NOT NULL DEFAULT CURRENT_DATE
+            Last_Updated        DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
         );"""
         cur.execute(create)
         print("Successully created DB Table: steam_network_data")

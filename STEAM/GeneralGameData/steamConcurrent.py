@@ -2,7 +2,7 @@ from bs4 import BeautifulSoup
 import requests
 import lxml
 import json
-import psycopg2
+import pyodbc
 
 server = 'serverteest.database.windows.net'
 database = 'testdatabase'
@@ -77,8 +77,7 @@ class steamConcurrent():
             Current_Players     BIGINT,
             Peak_Today          BIGINT,
             Hours_Played        BIGINT,
-            Time_Updated        TIME,
-            Date_Updated        DATE NOT NULL DEFAULT CURRENT_DATE
+            Last_Updated        DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
         );"""
         cur.execute(create)
         print("Successully created DB Table: steam_concurrentGames")
@@ -88,7 +87,7 @@ class steamConcurrent():
             name, current, peak, hours_played = self.getTopGamesByPlayerCount(p)
 
             for i in range(len(name)):
-                insertion = "INSERT INTO steam_concurrentGames(Name_, Current_Players, Peak_Today, Hours_Played, Time_Updated) VALUES (%s, %s, %s, %s, CURRENT_TIME)"
+                insertion = "INSERT INTO steam_concurrentGames(Name_, Current_Players, Peak_Today, Hours_Played) VALUES (?, ?, ?, ?)"
                 values = (name[i], current[i], peak[i], hours_played[i])
                 cur.execute(insertion, values)
 

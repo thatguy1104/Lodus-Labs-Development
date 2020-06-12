@@ -47,8 +47,8 @@ class DevelopersGames():
         cur = myConnection.cursor()
 
         # EXECUTE SQL COMMANDS
-        cur.execute("DROP TABLE IF EXISTS PLAY_dev_ranks;")
-        create = """CREATE TABLE PLAY_dev_ranks(
+        cur.execute("DROP TABLE IF EXISTS play_dev_ranks;")
+        create = """CREATE TABLE play_dev_ranks(
             Rank                INT,
             Developer           text,
             Link                text,
@@ -56,10 +56,10 @@ class DevelopersGames():
             Total_Installs      BIGINT DEFAULT 0,
             Applications        INT DEFAULT 0,
             Average_Rating      NUMERIC DEFAULT 0.0,
-            Last_Updated        DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
+            Last_Updated        DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP AT TIME ZONE 'Russian Standard Time'
         );"""
         cur.execute(create)
-        print("Successully created DB: Table -> PLAY_dev_ranks DB -> {0}".format(database))
+        print("Successully created DB: Table -> play_dev_ranks DB -> {0}".format(database))
 
         while start_page != end_page:
             print("Writing {0} / {1} to <play_dev_ranks> table (db: {2})".format(start_page, end_page, database))
@@ -73,7 +73,7 @@ class DevelopersGames():
                 apps = data_list[i][4]
                 avg = data_list[i][5]
                 
-                insertion = "INSERT INTO PLAY_dev_ranks(Rank, Developer, Link, Total_Ratings, Total_Installs, Applications, Average_Rating) VALUES (?, ?, ?, ?, ?, ?, ?)"
+                insertion = "INSERT INTO play_dev_ranks(Rank, Developer, Link, Total_Ratings, Total_Installs, Applications, Average_Rating) VALUES (?, ?, ?, ?, ?, ?, ?)"
                 values = (rank, dev, link, rat, installs, apps, avg)
                 cur.execute(insertion, values)
             start_page += 20
