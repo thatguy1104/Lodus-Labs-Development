@@ -2,6 +2,7 @@ from GeneralGameData.steamConcurrent import steamConcurrent
 from Network.steamBandwidth import SteamBandwidth
 from ALL_GAMES_ALL_STATS.oneGameData import GameStats
 from ALL_GAMES_ALL_STATS.record_total_stats import GetAllRecordData
+import time
 
 class SteamController():
 
@@ -40,9 +41,18 @@ class SteamController():
         """
         UPDATES ALL STEAM-RELATED DATA
         """
+
+        # START TIME
+        t0 = time.time()
+
         self.getConcurrentStats()
         self.getBandwidthPerCountry()
         self.getALLGamesDATA()
+
+        # END TIME
+        t1 = time.time()
+
+        print("\n\n Code Finished In: {0}\n\n".format(t1-t0))
 
 control = SteamController()
 control.runControl()
