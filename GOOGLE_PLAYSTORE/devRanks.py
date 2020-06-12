@@ -3,6 +3,7 @@ import json
 from bs4 import BeautifulSoup
 import lxml
 import pyodbc
+import datetime
 
 server = 'serverteest.database.windows.net'
 database = 'testdatabase'
@@ -56,7 +57,7 @@ class DevelopersGames():
             Total_Installs      BIGINT DEFAULT 0,
             Applications        INT DEFAULT 0,
             Average_Rating      NUMERIC DEFAULT 0.0,
-            Last_Updated        DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP AT TIME ZONE 'Russian Standard Time'
+            Last_Updated        DATETIME
         );"""
         cur.execute(create)
         print("Successully created DB: Table -> play_dev_ranks DB -> {0}".format(database))
@@ -72,9 +73,9 @@ class DevelopersGames():
                 installs = data_list[i][3]
                 apps = data_list[i][4]
                 avg = data_list[i][5]
-                
-                insertion = "INSERT INTO play_dev_ranks(Rank, Developer, Link, Total_Ratings, Total_Installs, Applications, Average_Rating) VALUES (?, ?, ?, ?, ?, ?, ?)"
-                values = (rank, dev, link, rat, installs, apps, avg)
+                curr_date = datetime.datetime.now()
+                insertion = "INSERT INTO play_dev_ranks(Rank, Developer, Link, Total_Ratings, Total_Installs, Applications, Average_Rating, Last_Updated) VALUES (?, ?, ?, ?, ?, ?, ?, ?)"
+                values = (rank, dev, link, rat, installs, apps, avg, curr_date)
                 cur.execute(insertion, values)
             start_page += 20
         
