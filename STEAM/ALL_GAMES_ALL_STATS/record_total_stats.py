@@ -1,7 +1,7 @@
 # Step 1: update app ids
 # Step 2: iterate through OneGameData
 
-from OneGameData.oneGameData import GameStats
+from ALL_GAMES_ALL_STATS.oneGameData import GameStats
 from bs4 import BeautifulSoup
 import requests
 import lxml
@@ -49,7 +49,7 @@ class GetAllRecordData():
         return all_game_names, all_game_id
 
     def readGameIds(self):
-        pages = 450
+        pages = 448
         ids = []
         names = []
 
