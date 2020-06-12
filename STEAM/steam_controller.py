@@ -20,7 +20,7 @@ class SteamController():
         """
         UPDATABLE: GET DATA BANDWIDTH PER COUNTRY
             Writes to:
-                table = 
+                table = network_data
                 database = project_data
         """
         steam_bandwidth = SteamBandwidth(17) # 16 = is the weird number at the end of the request link
