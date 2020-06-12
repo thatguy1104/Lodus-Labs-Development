@@ -2,12 +2,13 @@ import requests
 import json
 from bs4 import BeautifulSoup
 import lxml
-import psycopg2
+import pyodbc
 
-hostname = 'localhost'
-username = 'postgres'
-password = 'analytcis_123'
-database = 'project_data'
+server = 'serverteest.database.windows.net'
+database = 'testdatabase'
+username = 'login12391239'
+password = 'HejsanHejsan!1'
+driver= '{ODBC Driver 17 for SQL Server}'
 
 class DevelopersGames():
     def __init__(self):
@@ -42,7 +43,7 @@ class DevelopersGames():
         end_page = 1341
 
         # CONNECT TO DATABASE
-        myConnection = psycopg2.connect(host=hostname, user=username, password=password, dbname=database)
+        myConnection = pyodbc.connect('DRIVER='+driver+';SERVER='+server+';PORT=1433;DATABASE='+database+';UID='+username+';PWD='+password)
         cur = myConnection.cursor()
 
         # EXECUTE SQL COMMANDS
@@ -55,8 +56,7 @@ class DevelopersGames():
             Total_Installs      BIGINT DEFAULT 0,
             Applications        INT DEFAULT 0,
             Average_Rating      NUMERIC DEFAULT 0.0,
-            Time_Updated        TIME NOT NULL DEFAULT CURRENT_TIME,
-            Date_Updated        DATE NOT NULL DEFAULT CURRENT_DATE
+            Last_Updated        DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
         );"""
         cur.execute(create)
         print("Successully created DB: Table -> PLAY_dev_ranks DB -> {0}".format(database))
@@ -73,7 +73,7 @@ class DevelopersGames():
                 apps = data_list[i][4]
                 avg = data_list[i][5]
                 
-                insertion = "INSERT INTO PLAY_dev_ranks(Rank, Developer, Link, Total_Ratings, Total_Installs, Applications, Average_Rating) VALUES (%s, %s, %s, %s, %s, %s, %s)"
+                insertion = "INSERT INTO PLAY_dev_ranks(Rank, Developer, Link, Total_Ratings, Total_Installs, Applications, Average_Rating) VALUES (?, ?, ?, ?, ?, ?, ?)"
                 values = (rank, dev, link, rat, installs, apps, avg)
                 cur.execute(insertion, values)
             start_page += 20

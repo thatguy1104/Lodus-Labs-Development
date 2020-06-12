@@ -2,12 +2,13 @@ import requests
 import json
 from bs4 import BeautifulSoup
 import lxml
-import psycopg2
+import pyodbc
 
-hostname = 'localhost'
-username = 'postgres'
-password = 'analytcis_123'
-database = 'project_data'
+server = 'serverteest.database.windows.net'
+database = 'testdatabase'
+username = 'login12391239'
+password = 'HejsanHejsan!1'
+driver= '{ODBC Driver 17 for SQL Server}'
 
 class AllGamesForDev():
     def __init__(self):
@@ -40,7 +41,7 @@ class AllGamesForDev():
         ids = []
 
         # CONNECT TO DATABASE
-        myConnection = psycopg2.connect(host=hostname, user=username, password=password, dbname=database)
+        myConnection = pyodbc.connect('DRIVER='+driver+';SERVER='+server+';PORT=1433;DATABASE='+database+';UID='+username+';PWD='+password)
         cur = myConnection.cursor()
 
         # READ IDS FROM NEIGHBOURING DB (project_data) & TABLE (play_dev_ranks): 
@@ -62,7 +63,7 @@ class AllGamesForDev():
         ids = self.getIDs()
 
         # CONNECT TO DATABASE
-        myConnection = psycopg2.connect(host=hostname, user=username, password=password, dbname=database)
+        myConnection = pyodbc.connect('DRIVER='+driver+';SERVER='+server+';PORT=1433;DATABASE='+database+';UID='+username+';PWD='+password)
         cur = myConnection.cursor()
 
         # EXECUTE SQL COMMANDS
@@ -77,8 +78,7 @@ class AllGamesForDev():
             Growth_30_days     text,
             Growth_60_days     text,
             Price               text,
-            Time_Updated        TIME NOT NULL DEFAULT CURRENT_TIME,
-            Date_Updated        DATE NOT NULL DEFAULT CURRENT_DATE
+            Last_Updated        DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
         );"""
         cur.execute(create)
         print("Successully created DB: Table -> play_app_ranks DB -> {0}".format(database))
@@ -98,7 +98,7 @@ class AllGamesForDev():
                 sixty = resultOne[i][6],
                 price = resultOne[i][7]
 
-                insertion = "INSERT INTO play_app_ranks(Developer, App_Rank, App_Name, Total_Rating, Installs, Average_Rating, Growth_30_days, Growth_60_days, Price) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)"
+                insertion = "INSERT INTO play_app_ranks(Developer, App_Rank, App_Name, Total_Rating, Installs, Average_Rating, Growth_30_days, Growth_60_days, Price) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)"
                 values = (ids[dev][1], rank, app_name, rating, installs, avg, thirty, sixty, price)
                 cur.execute(insertion, values)
 

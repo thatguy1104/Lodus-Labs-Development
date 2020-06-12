@@ -6,12 +6,13 @@ from bs4 import BeautifulSoup
 import requests
 import lxml
 import json
-import psycopg2
+import pyodbc
 
-hostname = 'localhost'
-username = 'postgres'
-password = 'analytcis_123'
-database = 'project_data'
+server = 'serverteest.database.windows.net'
+database = 'testdatabase'
+username = 'login12391239'
+password = 'HejsanHejsan!1'
+driver= '{ODBC Driver 17 for SQL Server}'
 
 class GetAllRecordData():
 
@@ -67,11 +68,11 @@ class GetAllRecordData():
         names, get_all_ids = self.readGameIds()
 
         # CONNECT TO A SERVER DATABASE
-        myConnection = psycopg2.connect(host=hostname, user=username, password=password, dbname=database)
+        myConnection = pyodbc.connect('DRIVER='+driver+';SERVER='+server+';PORT=1433;DATABASE='+database+';UID='+username+';PWD='+password)
         cur = myConnection.cursor()
 
         # RESET THE TABLE
-        cur.execute("DROP TABLE IF EXISTS all_games_all_data;")
+        cur.execute("DROP TABLE IF EXISTS steam_all_games_all_data;")
         create = """CREATE TABLE all_games_all_data(
             Month           text,
             name_           text,
@@ -84,13 +85,13 @@ class GetAllRecordData():
             Date_Updated    DATE NOT NULL DEFAULT CURRENT_DATE
         );"""
         cur.execute(create)
-        print("Successully created DB Table: all_games_all_data")
+        print("Successully created DB Table: steam_all_games_all_data")
 
         # RECORD DATA
         for i in range(len(names)):
             one_game = GameStats(get_all_ids[i])
             all_months, all_players, all_gains, all_percent_gains, all_peak_players = one_game.getOneGameData()
-            print("Writing page {0} / {1} to <all_games_all_data> table (db: {2})".format(i, len(names), database))
+            print("Writing page {0} / {1} to <steam_all_games_all_data> table (db: {2})".format(i, len(names), database))
             name = names[i]
             id_ = get_all_ids[i]
             months = all_months # LIST OF STRINGS
@@ -106,9 +107,9 @@ class GetAllRecordData():
                 percent_gains[len(percent_gains) - 1] = 0
             
             for j in range(len(months)):
-                cur.execute("INSERT into all_games_all_data(Month, name_, ids, avg_players, gains, percent_gains, peak_players) VALUES (%s, %s, %s, %s, %s, %s, %s)", (months[j], name, id_, avg_players[j], gains[j], percent_gains[j], peak_players[j]))
+                cur.execute("INSERT into steam_all_games_all_data(Month, name_, ids, avg_players, gains, percent_gains, peak_players) VALUES (%s, %s, %s, %s, %s, %s, %s)", (months[j], name, id_, avg_players[j], gains[j], percent_gains[j], peak_players[j]))
                 
-        print("Successully written to DB Table: all_games_all_data")
+        print("Successully written to DB Table: steam_all_games_all_data")
         myConnection.commit()
         myConnection.close()
 

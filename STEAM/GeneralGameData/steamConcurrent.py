@@ -4,10 +4,11 @@ import lxml
 import json
 import psycopg2
 
-hostname = 'localhost'
-username = 'postgres'
-password = 'analytcis_123'
-database = 'project_data'
+server = 'serverteest.database.windows.net'
+database = 'testdatabase'
+username = 'login12391239'
+password = 'HejsanHejsan!1'
+driver= '{ODBC Driver 17 for SQL Server}'
 
 class steamConcurrent():
     def __init__(self):
@@ -66,12 +67,12 @@ class steamConcurrent():
         total_current, total_peak = self.getConcurrent()
 
         # CONNECT TO DATABASE
-        myConnection = psycopg2.connect(host=hostname, user=username, password=password, dbname=database)
+        myConnection = pyodbc.connect('DRIVER='+driver+';SERVER='+server+';PORT=1433;DATABASE='+database+';UID='+username+';PWD='+password)
         cur = myConnection.cursor()
 
         # EXECUTE SQL COMMANDS
-        cur.execute("DROP TABLE IF EXISTS concurrentGames;")
-        create = """CREATE TABLE concurrentGames(
+        cur.execute("DROP TABLE IF EXISTS steam_concurrentGames;")
+        create = """CREATE TABLE steam_concurrentGames(
             Name_               text,
             Current_Players     BIGINT,
             Peak_Today          BIGINT,
@@ -80,17 +81,17 @@ class steamConcurrent():
             Date_Updated        DATE NOT NULL DEFAULT CURRENT_DATE
         );"""
         cur.execute(create)
-        print("Successully created DB Table: concurrentGames")
+        print("Successully created DB Table: steam_concurrentGames")
 
         for p in range(1, pages):
-            print("Writing page {0} / {1} to <concurrentGames> table (db: {2})".format(p, pages, database))
+            print("Writing page {0} / {1} to <steam_concurrentGames> table (db: {2})".format(p, pages, database))
             name, current, peak, hours_played = self.getTopGamesByPlayerCount(p)
 
             for i in range(len(name)):
-                insertion = "INSERT INTO concurrentGames(Name_, Current_Players, Peak_Today, Hours_Played, Time_Updated) VALUES (%s, %s, %s, %s, CURRENT_TIME)"
+                insertion = "INSERT INTO steam_concurrentGames(Name_, Current_Players, Peak_Today, Hours_Played, Time_Updated) VALUES (%s, %s, %s, %s, CURRENT_TIME)"
                 values = (name[i], current[i], peak[i], hours_played[i])
                 cur.execute(insertion, values)
 
-        print("Successully written to Table -> concurrentGames DB -> {0}".format(database))
+        print("Successully written to table <steam_concurrentGames> (db: {0})".format(database))
         myConnection.commit()
         myConnection.close()

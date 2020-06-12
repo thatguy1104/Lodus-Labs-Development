@@ -10,7 +10,7 @@ class SteamController():
         """
         UPDATABLE: GET BREIF DATA ON ALL 12K GAMES
             Writes to:
-                table = 
+                table = steam_concurrentGames
                 database = project_data
         """
         steam_concurrent = steamConcurrent()
@@ -21,7 +21,7 @@ class SteamController():
         """
         UPDATABLE: GET DATA BANDWIDTH PER COUNTRY
             Writes to:
-                table = network_data
+                table = steam_network_data
                 database = project_data
         """
         steam_bandwidth = SteamBandwidth(17) # 16 = is the weird number at the end of the request link
@@ -31,7 +31,7 @@ class SteamController():
         """
         RECORD HISTORY DATA FOR 12K GAMES
             Writes to:
-                table = all_games_all_data
+                table = steam_all_games_all_data
                 database = project_data
         """
         set_all_data = GetAllRecordData()

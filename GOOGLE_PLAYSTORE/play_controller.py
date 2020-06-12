@@ -1,5 +1,6 @@
 from gameStats import AllGamesForDev
 from devRanks import DevelopersGames
+import time
 
 def load_Ranks():
     """
@@ -22,7 +23,16 @@ def load_Apps():
     apps.getAllGameStats()
 
 def controller():
+    # START TIME
+    t0 = time.time()
+
     load_Ranks()
     load_Apps()
+
+    # END TIME
+    t1 = time.time()
+
+    print("\n\n Code Finished In: {0}\n\n".format(t1-t0))
+
 
 controller()
