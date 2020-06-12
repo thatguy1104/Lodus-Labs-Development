@@ -15,7 +15,7 @@ class SteamController():
         """
         steam_concurrent = steamConcurrent()
         MAX_pages = 480
-        steam_concurrent.updateJSON(MAX_pages)
+        steam_concurrent.updateDB(MAX_pages)
 
     def getBandwidthPerCountry(self):
         """
@@ -45,14 +45,14 @@ class SteamController():
         # START TIME
         t0 = time.time()
 
+        self.getALLGamesDATA()
         self.getConcurrentStats()
         self.getBandwidthPerCountry()
-        self.getALLGamesDATA()
-
+        
         # END TIME
         t1 = time.time()
 
-        print("\n\n Code Finished In: {0}\n\n".format(t1-t0))
+        print("\n\nCode Finished In: {0}\n\n".format(t1-t0))
 
 control = SteamController()
 control.runControl()

@@ -3,6 +3,7 @@ import requests
 import lxml
 import json
 import pyodbc
+import datetime
 
 server = 'serverteest.database.windows.net'
 database = 'testdatabase'
@@ -60,7 +61,7 @@ class steamConcurrent():
         
         return all_game_names, current_players, peak_players, hours_played
 
-    def updateJSON(self, pages):
+    def updateDB(self, pages):
         data = {}
         data['Concurrent Steam Data'] = []
         data['General Data'] = []
@@ -77,7 +78,7 @@ class steamConcurrent():
             Current_Players     BIGINT,
             Peak_Today          BIGINT,
             Hours_Played        BIGINT,
-            Last_Updated        DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
+            Last_Updated        DATETIME
         );"""
         cur.execute(create)
         print("Successully created DB Table: steam_concurrentGames")
@@ -85,10 +86,11 @@ class steamConcurrent():
         for p in range(1, pages):
             print("Writing page {0} / {1} to <steam_concurrentGames> table (db: {2})".format(p, pages, database))
             name, current, peak, hours_played = self.getTopGamesByPlayerCount(p)
+            curr_date = datetime.datetime.now()
 
             for i in range(len(name)):
-                insertion = "INSERT INTO steam_concurrentGames(Name_, Current_Players, Peak_Today, Hours_Played) VALUES (?, ?, ?, ?)"
-                values = (name[i], current[i], peak[i], hours_played[i])
+                insertion = "INSERT INTO steam_concurrentGames(Name_, Current_Players, Peak_Today, Hours_Played, Last_Updated) VALUES (?, ?, ?, ?, ?)"
+                values = (name[i], current[i], peak[i], hours_played[i], curr_date)
                 cur.execute(insertion, values)
 
         print("Successully written to table <steam_concurrentGames> (db: {0})".format(database))

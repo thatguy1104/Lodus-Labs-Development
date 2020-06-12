@@ -3,6 +3,7 @@ import json
 import time
 import math
 import pyodbc
+import datetime
 
 server = 'serverteest.database.windows.net'
 database = 'testdatabase'
@@ -54,7 +55,7 @@ class SteamBandwidth():
             Total_Bytes                     BIGINT,
             Avg_MB_Per_Sec                  NUMERIC,
             Percentage_of_Global_Traffic    NUMERIC,
-            Last_Updated        DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
+            Last_Updated                    DATETIME DEFAULT CURRENT_TIMESTAMP
         );"""
         cur.execute(create)
         print("Successully created DB Table: steam_network_data")
@@ -67,9 +68,10 @@ class SteamBandwidth():
             totalbytes = bandwidthFile[name]['totalbytes']
             avg_mb = bandwidthFile[name]['avgmbps']
             perc_global_traffic = bandwidthFile[name]['Percentage of global Steam Traffic']
+            curr_date = datetime.datetime.now()
 
-            insertion = "INSERT INTO steam_network_data(Country, Total_Bytes, Avg_MB_Per_Sec, Percentage_of_Global_Traffic) VALUES (?, ?, ?, ?)"
-            values = (country, totalbytes, avg_mb, perc_global_traffic)
+            insertion = "INSERT INTO steam_network_data(Country, Total_Bytes, Avg_MB_Per_Sec, Percentage_of_Global_Traffic, Last_Updated) VALUES (?, ?, ?, ?, ?)"
+            values = (country, totalbytes, avg_mb, perc_global_traffic, curr_date)
             cur.execute(insertion, values)
 
         print("\nSuccessully written to table  <steam_network_data> (db: {0})".format(database))

@@ -7,6 +7,7 @@ import requests
 import lxml
 import json
 import pyodbc
+import datetime
 
 server = 'serverteest.database.windows.net'
 database = 'testdatabase'
@@ -73,15 +74,15 @@ class GetAllRecordData():
 
         # RESET THE TABLE
         cur.execute("DROP TABLE IF EXISTS steam_all_games_all_data;")
-        create = """CREATE TABLE all_games_all_data(
+        create = """CREATE TABLE steam_all_games_all_data(
             Month           text,
             name_           text,
             ids             text,
             avg_players     float,
             gains           float,
             percent_gains   text,
-            peak_players    INT,
-            Last_Updated        DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
+            peak_players    BIGINT,
+            Last_Updated    DATETIME
         );"""
         cur.execute(create)
         print("Successully created DB Table: steam_all_games_all_data")
@@ -98,16 +99,22 @@ class GetAllRecordData():
             gains = all_gains # LIST OF FLOATS
             percent_gains = all_percent_gains # LIST OF STRINGS
             peak_players = all_peak_players # LIST OF STRINGS
+            curr_date = datetime.datetime.now()
 
             if len(gains) is not 0:
                 gains[len(gains) - 1] = 0
 
             if len(percent_gains) is not 0:
-                percent_gains[len(percent_gains) - 1] = 0
+                percent_gains[len(percent_gains) - 1] = '0'
             
             for j in range(len(months)):
-                cur.execute("INSERT into steam_all_games_all_data(Month, name_, ids, avg_players, gains, percent_gains, peak_players) VALUES (?, ?, ?, ?, ?, ?, ?)", (months[j], name, id_, avg_players[j], gains[j], percent_gains[j], peak_players[j]))
-                
+                f = float(avg_players[j])
+                f2 = float(gains[j])
+                inte = int(peak_players[j])
+                insertion = "INSERT into steam_all_games_all_data(Month, name_, ids, avg_players, gains, percent_gains, peak_players, Last_Updated) VALUES (?, ?, ?, ?, ?, ?, ?, ?)"
+                values = (months[j], name, id_, f, f2, percent_gains[j], inte, curr_date)
+                cur.execute(insertion, values)
+
         print("Successully written to DB Table: steam_all_games_all_data")
         myConnection.commit()
         myConnection.close()
