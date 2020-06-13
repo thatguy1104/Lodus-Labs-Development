@@ -82,6 +82,7 @@ def get_view_count_of_games(filename, pagination_nr=None, view_counts={}, testco
     
 get_view_count_of_games('test')
 
+
 #get_top_games_query()
 
 #print(get_access_token(CLIENT_ID, CLIENT_SECRET, GRANT_TYPE))
