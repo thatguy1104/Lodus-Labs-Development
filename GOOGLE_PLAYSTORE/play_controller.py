@@ -34,3 +34,6 @@ class PlayController():
         t1 = time.time()
 
         print("\n\n Code Finished In: {0}\n\n".format(t1-t0))
+
+obj = PlayController()
+obj.controller()
