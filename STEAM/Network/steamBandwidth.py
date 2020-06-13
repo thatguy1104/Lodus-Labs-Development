@@ -2,12 +2,14 @@ import requests
 import json
 import time
 import math
-import psycopg2
+import pyodbc
+import datetime
 
-hostname = 'localhost'
-username = 'postgres'
-password = 'analytcis_123'
-database = 'project_data'
+server = 'serverteest.database.windows.net'
+database = 'testdatabase'
+username = 'login12391239'
+password = 'HejsanHejsan!1'
+driver= '{ODBC Driver 17 for SQL Server}'
 
 class SteamBandwidth():
     def __init__(self, weird_num):
@@ -43,21 +45,20 @@ class SteamBandwidth():
 
     def writeBandwidthSteam(self):
         # CONNECT TO DATABASE
-        myConnection = psycopg2.connect(host=hostname, user=username, password=password, dbname=database)
+        myConnection = pyodbc.connect('DRIVER='+driver+';SERVER='+server+';PORT=1433;DATABASE='+database+';UID='+username+';PWD='+password)
         cur = myConnection.cursor()
 
         # EXECUTE SQL COMMANDS
-        cur.execute("DROP TABLE IF EXISTS network_data;")
-        create = """CREATE TABLE network_data(
+        cur.execute("DROP TABLE IF EXISTS steam_network_data;")
+        create = """CREATE TABLE steam_network_data(
             Country                         CHAR(200),
             Total_Bytes                     BIGINT,
             Avg_MB_Per_Sec                  NUMERIC,
             Percentage_of_Global_Traffic    NUMERIC,
-            Time_Updated                    TIME NOT NULL DEFAULT CURRENT_TIME,
-            Date_Updated                    DATE NOT NULL DEFAULT CURRENT_DATE
+            Last_Updated                    DATETIME DEFAULT CURRENT_TIMESTAMP
         );"""
         cur.execute(create)
-        print("Successully created DB Table: network_data")
+        print("Successully created DB Table: steam_network_data")
 
         # DATA:
         bandwidthFile = self.setup()
@@ -67,11 +68,12 @@ class SteamBandwidth():
             totalbytes = bandwidthFile[name]['totalbytes']
             avg_mb = bandwidthFile[name]['avgmbps']
             perc_global_traffic = bandwidthFile[name]['Percentage of global Steam Traffic']
+            curr_date = datetime.datetime.now()
 
-            insertion = "INSERT INTO network_data(Country, Total_Bytes, Avg_MB_Per_Sec, Percentage_of_Global_Traffic) VALUES (%s, %s, %s, %s)"
-            values = (country, totalbytes, avg_mb, perc_global_traffic)
+            insertion = "INSERT INTO steam_network_data(Country, Total_Bytes, Avg_MB_Per_Sec, Percentage_of_Global_Traffic, Last_Updated) VALUES (?, ?, ?, ?, ?)"
+            values = (country, totalbytes, avg_mb, perc_global_traffic, curr_date)
             cur.execute(insertion, values)
 
-        print("Successully written to DB Table: network_data")
+        print("\nSuccessully written to table  <steam_network_data> (db: {0})".format(database))
         myConnection.commit()
         myConnection.close()
