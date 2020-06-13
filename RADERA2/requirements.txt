@@ -1,4 +1,0 @@
-azure-functions
-numpy==1.18.5
-pyodbc==4.0.22
-

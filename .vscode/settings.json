@@ -1,9 +1,8 @@
 {
-    "azureFunctions.deploySubpath": "RADERA2",
+    "azureFunctions.deploySubpath": "azuresandbox",
     "azureFunctions.scmDoBuildDuringDeployment": true,
     "azureFunctions.projectLanguage": "Python",
     "azureFunctions.projectRuntime": "~3",
     "debug.internalConsoleOptions": "neverOpen",
-    "python.pythonPath": "/home/djavadin/anaconda3/envs/pyth_env/bin/python",
-    "azureFunctions.pythonVenv": ".venv"
+    "python.pythonPath": "/home/djavadin/anaconda3/envs/pyth_env/bin/python"
 }
