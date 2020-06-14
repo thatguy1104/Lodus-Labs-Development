@@ -31,20 +31,20 @@ def writeToDB():
     cur = myConnection.cursor()
 
     curr_date = datetime.datetime.now()
-    dummy_data = ((248821,	"Bruh", "2013-11-08", curr_date),                                                                                                                                                                                                                                                                                 
-                  (248861,	"NEO Scavenger", "2014-12-15", curr_date),                                                                                                                                                                                                                                                                                               
+    dummy_data = ((248820,	"Bruh", "2013-11-08", curr_date),                                                                                                                                                                                                                                                                                 
+                  (248860,	"NEO Scavenger", "2014-12-15", curr_date),                                                                                                                                                                                                                                                                                               
                   (249051,	"Dungeon of the Endless™", "2014-10-27", curr_date),                                                                                                                                                                                                                                                                                       
                   (249131,	"LEGO® Marvel™ Super Heroes", "2013-11-15", curr_date),                                                                                                                                                                                                                                                                                               
                   (249191,	"Ancient Space", "2014-09-23", curr_date),                                                                                                                                                                                                                                                                               
                   (249231,	"BET okeee", "2014-08-13", curr_date))
     
     for data in dummy_data:
-        # cols = ['appid', 'name_', 'release_date', 'Last_Update']
-        # update = "UPDATE trials SET appid = ?"
-        # cur.execute(update, data[0])
+        cols = ['appid', 'name_', 'release_date', 'Last_Update']
+        update = "UPDATE trials SET appid = ?"
+        cur.execute(update, data[0])
 
-        insertion = """INSERT INTO trials(appid, name_, release_date, Last_Updated) VALUES(?, ?, ?, ?)"""
-        cur.execute(insertion, data)
+        # insertion = """INSERT INTO trials(appid, name_, release_date, Last_Updated) VALUES(?, ?, ?, ?)"""
+        # cur.execute(insertion, data)
     
     print("Successfully written to table -> {0}, DB -> {1}".format("trials", database))
 

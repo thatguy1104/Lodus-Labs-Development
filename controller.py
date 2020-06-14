@@ -10,4 +10,4 @@ def updateSteam():
     control.runControl()
 
 updatePlay()
-updateSteam()
+# updateSteam()
