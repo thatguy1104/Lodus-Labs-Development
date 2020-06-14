@@ -10,17 +10,11 @@ def getLoginCredentials():
     parser = cfg.ConfigParser()
     parser.read('config.cfg')
 
-    # server = parser.get('db_credentials', 'server')
-    # database = parser.get('db_credentials', 'database')
-    # username = parser.get('db_credentials', 'username')
-    # password = parser.get('db_credentials', 'password')
-    # driver = parser.get('db_credentials', 'driver')
-    server = 'serverteest.database.windows.net'
-    database = 'testdatabase'
-    username = 'login12391239'
-    password = 'HejsanHejsan!1'
-    driver= '{ODBC Driver 17 for SQL Server}'
-
+    server = parser.get('db_credentials', 'server')
+    database = parser.get('db_credentials', 'database')
+    username = parser.get('db_credentials', 'username')
+    password = parser.get('db_credentials', 'password')
+    driver = parser.get('db_credentials', 'driver')
 
     print(server, database, username, password, driver)
 
