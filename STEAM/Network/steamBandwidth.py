@@ -62,7 +62,7 @@ class SteamBandwidth():
             Country                         text,
             Total_Bytes                     BIGINT,
             Avg_MB_Per_Sec                  NUMERIC,
-            Percentage_of_Global_Traffic    NUMERIC,
+            Percentage_of_Global_Traffic    FLOAT,
             Last_Updated                    DATETIME DEFAULT CURRENT_TIMESTAMP
         );"""
         cur.execute(create)
@@ -82,6 +82,6 @@ class SteamBandwidth():
             values = (country, totalbytes, avg_mb, perc_global_traffic, curr_date)
             cur.execute(insertion, values)
 
-        print("\nSuccessully written to table <steam_network_data> (db: {0})".format(self.database))
+        print("Successully written to table <steam_network_data> (db: {0})".format(self.database))
         myConnection.commit()
         myConnection.close()
