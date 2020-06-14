@@ -8,12 +8,7 @@ import lxml
 import json
 import pyodbc
 import datetime
-
-server = 'serverteest.database.windows.net'
-database = 'testdatabase'
-username = 'login12391239'
-password = 'HejsanHejsan!1'
-driver= '{ODBC Driver 17 for SQL Server}'
+import configparser as cfg
 
 class GetAllRecordData():
 
@@ -23,6 +18,13 @@ class GetAllRecordData():
         self.linkAll = 'https://steamcharts.com/top/p.'
         self.response = requests.get(self.linkGeneral)
         self.soup = BeautifulSoup(self.response.text, 'lxml')
+        parser = cfg.ConfigParser()
+        parser.read('config.cfg')
+        self.server = parser.get('db_credentials', 'server')
+        self.database = parser.get('db_credentials', 'database')
+        self.username = parser.get('db_credentials', 'username')
+        self.password = parser.get('db_credentials', 'password')
+        self.driver = parser.get('db_credentials', 'driver')
 
     def getTopGamesByPlayerCount(self, page):
         link = self.linkAll + str(page)
@@ -69,7 +71,7 @@ class GetAllRecordData():
         names, get_all_ids = self.readGameIds()
 
         # CONNECT TO A SERVER DATABASE
-        myConnection = pyodbc.connect('DRIVER='+driver+';SERVER='+server+';PORT=1433;DATABASE='+database+';UID='+username+';PWD='+password)
+        myConnection = pyodbc.connect('DRIVER='+self.driver+';SERVER='+self.server+';PORT=1433;DATABASE='+self.database+';UID='+self.username+';PWD='+self.password)
         cur = myConnection.cursor()
 
         # RESET THE TABLE
@@ -91,7 +93,7 @@ class GetAllRecordData():
         for i in range(len(names)):
             one_game = GameStats(get_all_ids[i])
             all_months, all_players, all_gains, all_percent_gains, all_peak_players = one_game.getOneGameData()
-            print("Writing page {0} / {1} to <steam_all_games_all_data> table (db: {2})".format(i, len(names), database))
+            print("Writing page {0} / {1} to <steam_all_games_all_data> table (db: {2})".format(i, len(names), self.database))
             name = names[i]
             id_ = get_all_ids[i]
             months = all_months # LIST OF STRINGS
@@ -115,7 +117,7 @@ class GetAllRecordData():
                 values = (months[j], name, id_, f, f2, percent_gains[j], inte, curr_date)
                 cur.execute(insertion, values)
 
-        print("Successully written to DB Table: steam_all_games_all_data")
+        print("Successully written to table <steam_all_games_all_data> (db: {0})".format(self.database))
         myConnection.commit()
         myConnection.close()
 

@@ -4,6 +4,7 @@ import time
 import math
 import pyodbc
 import datetime
+import configparser as cfg
 
 server = 'serverteest.database.windows.net'
 database = 'testdatabase'
@@ -16,6 +17,13 @@ class SteamBandwidth():
         self.url = 'https://steamcdn-a.akamaihd.net/steam/publicstats/download_traffic_per_country.jsonp?v=' + \
             time.strftime("%m-%d-%Y") + str(weird_num)
         self.response = requests.get(self.url).text
+        parser = cfg.ConfigParser()
+        parser.read('config.cfg')
+        self.server = parser.get('db_credentials', 'server')
+        self.database = parser.get('db_credentials', 'database')
+        self.username = parser.get('db_credentials', 'username')
+        self.password = parser.get('db_credentials', 'password')
+        self.driver = parser.get('db_credentials', 'driver')
 
     def setup(self):
         # Remove JSONP function name and braces, conversion to JSON format
@@ -45,7 +53,7 @@ class SteamBandwidth():
 
     def writeBandwidthSteam(self):
         # CONNECT TO DATABASE
-        myConnection = pyodbc.connect('DRIVER='+driver+';SERVER='+server+';PORT=1433;DATABASE='+database+';UID='+username+';PWD='+password)
+        myConnection = pyodbc.connect('DRIVER='+self.driver+';SERVER='+self.server+';PORT=1433;DATABASE='+self.database+';UID='+self.username+';PWD='+self.password)
         cur = myConnection.cursor()
 
         # EXECUTE SQL COMMANDS
@@ -74,6 +82,6 @@ class SteamBandwidth():
             values = (country, totalbytes, avg_mb, perc_global_traffic, curr_date)
             cur.execute(insertion, values)
 
-        print("\nSuccessully written to table  <steam_network_data> (db: {0})".format(database))
+        print("\nSuccessully written to table <steam_network_data> (db: {0})".format(self.database))
         myConnection.commit()
         myConnection.close()

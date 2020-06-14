@@ -4,12 +4,7 @@ import lxml
 import json
 import pyodbc
 import datetime
-
-server = 'serverteest.database.windows.net'
-database = 'testdatabase'
-username = 'login12391239'
-password = 'HejsanHejsan!1'
-driver= '{ODBC Driver 17 for SQL Server}'
+import configparser as cfg
 
 class steamConcurrent():
     def __init__(self):
@@ -17,6 +12,13 @@ class steamConcurrent():
         self.linkAll = 'https://steamcharts.com/top/p.'
         self.response = requests.get(self.linkGeneral)
         self.soup = BeautifulSoup(self.response.text, 'lxml')
+        parser = cfg.ConfigParser()
+        parser.read('config.cfg')
+        self.server = parser.get('db_credentials', 'server')
+        self.database = parser.get('db_credentials', 'database')
+        self.username = parser.get('db_credentials', 'username')
+        self.password = parser.get('db_credentials', 'password')
+        self.driver = parser.get('db_credentials', 'driver')
 
     def getConcurrent(self):
         all_current = self.soup.find_all('span', class_ = 'statsTopHi')
@@ -68,7 +70,7 @@ class steamConcurrent():
         total_current, total_peak = self.getConcurrent()
 
         # CONNECT TO DATABASE
-        myConnection = pyodbc.connect('DRIVER='+driver+';SERVER='+server+';PORT=1433;DATABASE='+database+';UID='+username+';PWD='+password)
+        myConnection = pyodbc.connect('DRIVER='+self.driver+';SERVER='+self.server+';PORT=1433;DATABASE='+self.database+';UID='+self.username+';PWD='+self.password)
         cur = myConnection.cursor()
 
         # EXECUTE SQL COMMANDS
@@ -84,7 +86,7 @@ class steamConcurrent():
         print("Successully created DB Table: steam_concurrentGames")
 
         for p in range(1, pages):
-            print("Writing page {0} / {1} to <steam_concurrentGames> table (db: {2})".format(p, pages, database))
+            print("Writing page {0} / {1} to <steam_concurrentGames> table (db: {2})".format(p, pages, self.database))
             name, current, peak, hours_played = self.getTopGamesByPlayerCount(p)
             curr_date = datetime.datetime.now()
 
@@ -93,6 +95,6 @@ class steamConcurrent():
                 values = (name[i], current[i], peak[i], hours_played[i], curr_date)
                 cur.execute(insertion, values)
 
-        print("Successully written to table <steam_concurrentGames> (db: {0})".format(database))
+        print("Successully written to table <steam_concurrentGames> (db: {0})".format(self.database))
         myConnection.commit()
         myConnection.close()
