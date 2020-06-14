@@ -45,9 +45,9 @@ class SteamController():
         # START TIME
         t0 = time.time()
 
-        self.getALLGamesDATA()
         self.getConcurrentStats()
         self.getBandwidthPerCountry()
+        self.getALLGamesDATA()
         
         # END TIME
         t1 = time.time()
