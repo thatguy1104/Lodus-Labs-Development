@@ -4,16 +4,18 @@ from bs4 import BeautifulSoup
 import lxml
 import pyodbc
 import datetime
-
-server = 'serverteest.database.windows.net'
-database = 'testdatabase'
-username = 'login12391239'
-password = 'HejsanHejsan!1'
-driver= '{ODBC Driver 17 for SQL Server}'
+import configparser as cfg
 
 class AllGamesForDev():
     def __init__(self):
         self.link = 'https://www.androidrank.org'
+        parser = cfg.ConfigParser()
+        parser.read('config.cfg')
+        self.server = parser.get('db_credentials', 'server')
+        self.database = parser.get('db_credentials', 'database')
+        self.username = parser.get('db_credentials', 'username')
+        self.password = parser.get('db_credentials', 'password')
+        self.driver = parser.get('db_credentials', 'driver')
 
     def scrapeOne(self, id):
         response = requests.get(self.link + id)
@@ -42,7 +44,7 @@ class AllGamesForDev():
         ids = []
 
         # CONNECT TO DATABASE
-        myConnection = pyodbc.connect('DRIVER='+driver+';SERVER='+server+';PORT=1433;DATABASE='+database+';UID='+username+';PWD='+password)
+        myConnection = pyodbc.connect('DRIVER='+self.driver+';SERVER='+self.server+';PORT=1433;DATABASE='+self.database+';UID='+self.username+';PWD='+self.password)
         cur = myConnection.cursor()
 
         # READ IDS FROM NEIGHBOURING DB (project_data) & TABLE (play_dev_ranks): 
@@ -64,7 +66,7 @@ class AllGamesForDev():
         ids = self.getIDs()
 
         # CONNECT TO DATABASE
-        myConnection = pyodbc.connect('DRIVER='+driver+';SERVER='+server+';PORT=1433;DATABASE='+database+';UID='+username+';PWD='+password)
+        myConnection = pyodbc.connect('DRIVER='+self.driver+';SERVER='+self.server+';PORT=1433;DATABASE='+self.database+';UID='+self.username+';PWD='+self.password)
         cur = myConnection.cursor()
 
         # EXECUTE SQL COMMANDS
@@ -82,12 +84,12 @@ class AllGamesForDev():
             Last_Updated        DATETIME
         );"""
         cur.execute(create)
-        print("Successully created DB: Table -> play_app_ranks DB -> {0}".format(database))
+        print("Successully created DB: Table -> play_app_ranks DB -> {0}".format(self.database))
 
         # ITERATE THROUGH IDS, SCRAPE DATA, WRITE TO DB
         for dev in range(len(ids)):
             resultOne = self.scrapeOne(ids[dev][0])
-            print("Writing {0} / {1} to <{2}> table (db: {3})".format(dev, len(ids), "play_app_ranks", database))
+            print("Writing {0} / {1} to <{2}> table (db: {3})".format(dev, len(ids), "play_app_ranks", self.database))
             for i in range(len(resultOne)):
                 oke = ids[dev][1]
                 rank = resultOne[i][0]
@@ -104,6 +106,6 @@ class AllGamesForDev():
                 values = (oke, rank, app_name, rating, installs, avg, thirty, sixty, price, curr_date)
                 cur.execute(insertion, values)
 
-        print("Successully written to: Table -> play_app_ranks DB -> {0}".format(database))
+        print("Successully written to: Table -> play_app_ranks DB -> {0}".format(self.database))
         myConnection.commit()
         myConnection.close()

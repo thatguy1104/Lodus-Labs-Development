@@ -4,16 +4,18 @@ from bs4 import BeautifulSoup
 import lxml
 import pyodbc
 import datetime
-
-server = 'serverteest.database.windows.net'
-database = 'testdatabase'
-username = 'login12391239'
-password = 'HejsanHejsan!1'
-driver= '{ODBC Driver 17 for SQL Server}'
+import configparser as cfg
 
 class DevelopersGames():
     def __init__(self):
         self.startLink = 'https://www.androidrank.org/developers/ranking?&start='
+        parser = cfg.ConfigParser()
+        parser.read('config.cfg')
+        self.server = parser.get('db_credentials', 'server')
+        self.database = parser.get('db_credentials', 'database')
+        self.username = parser.get('db_credentials', 'username')
+        self.password = parser.get('db_credentials', 'password')
+        self.driver = parser.get('db_credentials', 'driver')
 
     def scrape(self, page):
         response = requests.get(self.startLink + page)
@@ -44,7 +46,7 @@ class DevelopersGames():
         end_page = 1341
 
         # CONNECT TO DATABASE
-        myConnection = pyodbc.connect('DRIVER='+driver+';SERVER='+server+';PORT=1433;DATABASE='+database+';UID='+username+';PWD='+password)
+        myConnection = pyodbc.connect('DRIVER='+self.driver+';SERVER='+self.server+';PORT=1433;DATABASE='+self.database+';UID='+self.username+';PWD='+self.password)
         cur = myConnection.cursor()
 
         # EXECUTE SQL COMMANDS
@@ -60,10 +62,10 @@ class DevelopersGames():
             Last_Updated        DATETIME
         );"""
         cur.execute(create)
-        print("Successully created DB: Table -> play_dev_ranks DB -> {0}".format(database))
+        print("Successully created DB: Table -> play_dev_ranks DB -> {0}".format(self.database))
 
         while start_page != end_page:
-            print("Writing {0} / {1} to <play_dev_ranks> table (db: {2})".format(start_page, end_page, database))
+            print("Writing {0} / {1} to <play_dev_ranks> table (db: {2})".format(start_page, end_page, self.database))
             data_list = self.scrape(str(start_page))
             for i in range(len(data_list)):
                 rank = data_list[i][0]
@@ -79,6 +81,6 @@ class DevelopersGames():
                 cur.execute(insertion, values)
             start_page += 20
         
-        print("Successully written to: Table -> play_dev_ranks DB -> {0}".format(database))
+        print("Successully written to: Table -> play_dev_ranks DB -> {0}".format(self.database))
         myConnection.commit()
         myConnection.close()
