@@ -14,7 +14,7 @@ class SteamController():
                 database = project_data
         """
         steam_concurrent = steamConcurrent()
-        MAX_pages = 480
+        MAX_pages = 478
         steam_concurrent.updateDB(MAX_pages)
 
     def getBandwidthPerCountry(self):
