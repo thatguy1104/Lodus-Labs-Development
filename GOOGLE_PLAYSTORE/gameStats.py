@@ -100,10 +100,7 @@ class AllGamesForDev():
         cur.execute(create)
         print("Successully created DB: Table -> play_app_ranks DB -> {0}".format(self.database))
 
-        # START TIME
-        # t0 = time.time()        
-        
-
+        # ITERATE THROUGH DICT AND INSERT VALUES ROW-BY-ROW
         counter = 0
         for elem in data:
             print("Writing {0} / {1} to <{2}> table (db: {3})".format(counter, len(data), "play_app_ranks", self.database))
@@ -111,12 +108,6 @@ class AllGamesForDev():
             row = data[elem]
             cur.execute(insertion, row)
             counter += 1
-
-        # END TIME
-        # t1 = time.time()
-        # f = open("PLAY_TIMES.txt", "a")
-        # f.write("Writing to play_app_ranks finished in " + str(t1-t0))
-        # f.write("\n")
 
         print("Successully written to: Table -> play_app_ranks DB -> {0}".format(self.database))
         myConnection.commit()
