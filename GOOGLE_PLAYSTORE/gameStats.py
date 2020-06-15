@@ -4,6 +4,7 @@ from bs4 import BeautifulSoup
 import lxml
 import pyodbc
 import datetime
+import time
 import configparser as cfg
 
 class AllGamesForDev():
@@ -68,12 +69,15 @@ class AllGamesForDev():
 
         # ITERATE THROUGH IDS, SCRAPE DATA
         data = {}
+        count = 0
         for dev in range(len(ids)):
+            print("Scraping for <play_dev_ranks> {0} / {1}".format(count, len(ids)))
             resultOne = self.scrapeOne(ids[dev][0])
             devel = ids[dev][1]
             for i in range(len(resultOne)):
                 resultOne[i].insert(0, devel)
-                data[resultOne[i][1]] = resultOne[i]    
+                data[resultOne[i][1]] = resultOne[i] 
+            count += 1   
 
         # CONNECT TO DATABASE
         myConnection = pyodbc.connect('DRIVER='+self.driver+';SERVER='+self.server+';PORT=1433;DATABASE='+self.database+';UID='+self.username+';PWD='+self.password)
@@ -96,6 +100,10 @@ class AllGamesForDev():
         cur.execute(create)
         print("Successully created DB: Table -> play_app_ranks DB -> {0}".format(self.database))
 
+        # START TIME
+        # t0 = time.time()        
+        
+
         counter = 0
         for elem in data:
             print("Writing {0} / {1} to <{2}> table (db: {3})".format(counter, len(data), "play_app_ranks", self.database))
@@ -103,6 +111,12 @@ class AllGamesForDev():
             row = data[elem]
             cur.execute(insertion, row)
             counter += 1
+
+        # END TIME
+        # t1 = time.time()
+        # f = open("PLAY_TIMES.txt", "a")
+        # f.write("Writing to play_app_ranks finished in " + str(t1-t0))
+        # f.write("\n")
 
         print("Successully written to: Table -> play_app_ranks DB -> {0}".format(self.database))
         myConnection.commit()

@@ -4,6 +4,7 @@ from bs4 import BeautifulSoup
 import lxml
 import pyodbc
 import datetime
+import time
 import configparser as cfg
 
 class DevelopersGames():
@@ -73,12 +74,26 @@ class DevelopersGames():
         cur.execute(create)
         print("Successully created DB: Table -> play_dev_ranks DB -> {0}".format(self.database))
 
+
+        # START TIME
+        # t0 = time.time()
+
         # ITERATE THROUGH DICT AND INSERT VALUES ROW-BY-ROW
+        counter = 0
         for elem in data:
-            print("Writing {0} / {1} to <play_dev_ranks> table (db: {2})".format(start_page, end_page, self.database))
+            print("Writing {0} / {1} to <play_dev_ranks> table (db: {2})".format(counter, len(data), self.database))
             insertion = "INSERT INTO play_dev_ranks(Rank, Developer, Total_Ratings, Total_Installs, Applications, Average_Rating, Link, Last_Updated) VALUES (?, ?, ?, ?, ?, ?, ?, ?)"
             values = data[elem]
             cur.execute(insertion, values)
+            counter += 1
+
+
+        # END TIME
+        # t1 = time.time()
+        # f = open("PLAY_TIMES.txt", "a")
+        # f.write("Writing to play_dev_ranks finished in " + str(t1-t0))
+        # f.write('\n')
+
 
         print("Successully written to: Table -> play_dev_ranks DB -> {0}".format(self.database))
         myConnection.commit()

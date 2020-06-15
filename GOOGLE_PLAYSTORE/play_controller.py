@@ -7,7 +7,7 @@ class PlayController():
         """
         RANKS COMPANIES + GENERAL DATA
             Writes to: 
-                table = play_dev_ranks
+                table = play_dev_ranks 
                 database = project_data
         """
         ranks = DevelopersGames()
@@ -27,7 +27,7 @@ class PlayController():
         # START TIME
         t0 = time.time()
 
-        # self.load_Ranks()
+        self.load_Ranks()
         self.load_Apps()
         
         # END TIME
