@@ -15,7 +15,7 @@ class SteamController():
         """
         steam_concurrent = steamConcurrent()
         MAX_pages = 478
-        steam_concurrent.updateDB(MAX_pages)
+        return steam_concurrent.updateDB(MAX_pages)
 
     def getBandwidthPerCountry(self):
         """
@@ -25,7 +25,7 @@ class SteamController():
                 database = project_data
         """
         steam_bandwidth = SteamBandwidth(17) # 16 = is the weird number at the end of the request link
-        steam_bandwidth.writeBandwidthSteam()
+        return steam_bandwidth.writeBandwidthSteam()
 
     def getALLGamesDATA(self):
         """
@@ -35,7 +35,7 @@ class SteamController():
                 database = project_data
         """
         set_all_data = GetAllRecordData()
-        set_all_data.record()
+        return set_all_data.record()
 
     def runControl(self):
         """
@@ -43,14 +43,14 @@ class SteamController():
         """
 
         # START TIME
-        t0 = time.time()
+        # t0 = time.time()
 
-        self.getConcurrentStats()
-        self.getBandwidthPerCountry()
-        self.getALLGamesDATA()
+        concurrent = self.getConcurrentStats()
+        bandwidth = self.getBandwidthPerCountry()
+        all_games = self.getALLGamesDATA()
         
         # END TIME
-        t1 = time.time()
+        # t1 = time.time()
 
-        print("\n\nCode Finished In: {0}\n\n".format(t1-t0))
+        # print("\n\nCode Finished In: {0}\n\n".format(t1-t0))
 

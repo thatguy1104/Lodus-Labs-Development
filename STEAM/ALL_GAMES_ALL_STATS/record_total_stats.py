@@ -8,6 +8,7 @@ import lxml
 import json
 import pyodbc
 import datetime
+import time
 import configparser as cfg
 
 class GetAllRecordData():
@@ -70,30 +71,14 @@ class GetAllRecordData():
     def getOneGameStats(self):
         names, get_all_ids = self.readGameIds()
 
-        # CONNECT TO A SERVER DATABASE
-        myConnection = pyodbc.connect('DRIVER='+self.driver+';SERVER='+self.server+';PORT=1433;DATABASE='+self.database+';UID='+self.username+';PWD='+self.password)
-        cur = myConnection.cursor()
-
-        # RESET THE TABLE
-        cur.execute("DROP TABLE IF EXISTS steam_all_games_all_data;")
-        create = """CREATE TABLE steam_all_games_all_data(
-            Month           text,
-            name_           text,
-            ids             text,
-            avg_players     float,
-            gains           float,
-            percent_gains   text,
-            peak_players    BIGINT,
-            Last_Updated    DATETIME
-        );"""
-        cur.execute(create)
-        print("Successully created DB Table: steam_all_games_all_data")
-
         # RECORD DATA
+        data = {}
         for i in range(len(names)):
+            print("Scraping for <play_dev_ranks> {0} / {1}".format(i, len(names)))
+            # PREPARE THE IDs
             one_game = GameStats(get_all_ids[i])
+            # SCRAPE DATA FOR A GIVEN GAME
             all_months, all_players, all_gains, all_percent_gains, all_peak_players = one_game.getOneGameData()
-            print("Writing page {0} / {1} to <steam_all_games_all_data> table (db: {2})".format(i, len(names), self.database))
             name = names[i]
             id_ = get_all_ids[i]
             months = all_months # LIST OF STRINGS
@@ -113,13 +98,47 @@ class GetAllRecordData():
                 f = float(avg_players[j])
                 f2 = float(gains[j])
                 inte = int(peak_players[j])
-                insertion = "INSERT into steam_all_games_all_data(Month, name_, ids, avg_players, gains, percent_gains, peak_players, Last_Updated) VALUES (?, ?, ?, ?, ?, ?, ?, ?)"
-                values = (months[j], name, id_, f, f2, percent_gains[j], inte, curr_date)
-                cur.execute(insertion, values)
+                data[name] = [months[j], name, id_, f, f2, percent_gains[j], inte, curr_date]
+
+        # CONNECT TO A SERVER DATABASE
+        myConnection = pyodbc.connect('DRIVER='+self.driver+';SERVER='+self.server+';PORT=1433;DATABASE='+self.database+';UID='+self.username+';PWD='+self.password)
+        cur = myConnection.cursor()
+
+        # RESET THE TABLE
+        cur.execute("DROP TABLE IF EXISTS steam_all_games_all_data;")
+        create = """CREATE TABLE steam_all_games_all_data(
+            Month           text,
+            name_           text,
+            ids             text,
+            avg_players     float,
+            gains           float,
+            percent_gains   text,
+            peak_players    BIGINT,
+            Last_Updated    DATETIME
+        );"""
+        cur.execute(create)
+        print("Successully created DB Table: steam_all_games_all_data")
+
+        # RECORD INITIAL TIME OF WRITING
+        t0 = time.time()
+
+        # ITERATE THROUGH DICT AND INSERT VALUES ROW-BY-ROW
+        counter = 0
+        for elem in data:
+            print("Writing page {0} / {1} to <steam_all_games_all_data> table (db: {2})".format(counter, len(data), self.database))
+            insertion = "INSERT into steam_all_games_all_data(Month, name_, ids, avg_players, gains, percent_gains, peak_players, Last_Updated) VALUES (?, ?, ?, ?, ?, ?, ?, ?)"
+            values = data[elem]
+            cur.execute(insertion, values)
+            counter += 1
+
+        # RECORD END TIME OF WRITING
+        t1 = time.time()
 
         print("Successully written to table <steam_all_games_all_data> (db: {0})".format(self.database))
         myConnection.commit()
         myConnection.close()
 
+        return t1-t0
+
     def record(self):
-        self.getOneGameStats()
+        return self.getOneGameStats()

@@ -9,5 +9,5 @@ def updateSteam():
     control = SteamController()
     control.runControl()
 
-updatePlay()
-# updateSteam()
+# updatePlay()
+updateSteam()

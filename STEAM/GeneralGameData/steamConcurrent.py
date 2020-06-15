@@ -4,6 +4,7 @@ import lxml
 import json
 import pyodbc
 import datetime
+import time
 import configparser as cfg
 
 class steamConcurrent():
@@ -20,6 +21,7 @@ class steamConcurrent():
         self.password = parser.get('db_credentials', 'password')
         self.driver = parser.get('db_credentials', 'driver')
 
+    # FUNCTION IS NOT USED
     def getConcurrent(self):
         all_current = self.soup.find_all('span', class_ = 'statsTopHi')
         current = all_current[0].text.replace(',', '')
@@ -64,10 +66,16 @@ class steamConcurrent():
         return all_game_names, current_players, peak_players, hours_played
 
     def updateDB(self, pages):
+        # total_current, total_peak = self.getConcurrent()  <-- NOT USED ANYWHERE, BUT KEEP FOR NOW
+
+        # SCRAPE THE DATA FIRST
         data = {}
-        data['Concurrent Steam Data'] = []
-        data['General Data'] = []
-        total_current, total_peak = self.getConcurrent()
+        for p in range(1, pages):
+            print("Scraping for steam_concurrentGames {} / {}".format(p, pages))
+            name, current, peak, hours_played = self.getTopGamesByPlayerCount(p)
+            curr_date = datetime.datetime.now()
+            for i in range(len(name)):
+                data[name[i]] = [name[i], current[i], peak[i], hours_played[i], curr_date]
 
         # CONNECT TO DATABASE
         myConnection = pyodbc.connect('DRIVER='+self.driver+';SERVER='+self.server+';PORT=1433;DATABASE='+self.database+';UID='+self.username+';PWD='+self.password)
@@ -85,16 +93,23 @@ class steamConcurrent():
         cur.execute(create)
         print("Successully created DB Table: steam_concurrentGames")
 
-        for p in range(1, pages):
-            print("Writing page {0} / {1} to <steam_concurrentGames> table (db: {2})".format(p, pages, self.database))
-            name, current, peak, hours_played = self.getTopGamesByPlayerCount(p)
-            curr_date = datetime.datetime.now()
+        # RECORD INITIAL TIME OF WRITING
+        t0 = time.time()
 
-            for i in range(len(name)):
-                insertion = "INSERT INTO steam_concurrentGames(Name_, Current_Players, Peak_Today, Hours_Played, Last_Updated) VALUES (?, ?, ?, ?, ?)"
-                values = (name[i], current[i], peak[i], hours_played[i], curr_date)
-                cur.execute(insertion, values)
+        # EXECUTE INSERTION INTO DB
+        counter = 0
+        for elem in data:
+            print("Writing page {0} / {1} to <steam_concurrentGames> table (db: {2})".format(counter, len(data), self.database))
+            insertion = "INSERT INTO steam_concurrentGames(Name_, Current_Players, Peak_Today, Hours_Played, Last_Updated) VALUES (?, ?, ?, ?, ?)"
+            values = data[elem]
+            cur.execute(insertion, values)
+            counter += 1
+
+        # RECORD END TIME OF WRITING
+        t1 = time.time()
 
         print("Successully written to table <steam_concurrentGames> (db: {0})".format(self.database))
         myConnection.commit()
         myConnection.close()
+
+        return t1-t0
