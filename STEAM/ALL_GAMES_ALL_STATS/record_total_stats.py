@@ -98,7 +98,7 @@ class GetAllRecordData():
                 f = float(avg_players[j])
                 f2 = float(gains[j])
                 inte = int(peak_players[j])
-                data[name] = [months[j], name, id_, f, f2, percent_gains[j], inte, curr_date]
+                data[months[j]] = [months[j], name, id_, f, f2, percent_gains[j], inte, curr_date]
 
         # CONNECT TO A SERVER DATABASE
         myConnection = pyodbc.connect('DRIVER='+self.driver+';SERVER='+self.server+';PORT=1433;DATABASE='+self.database+';UID='+self.username+';PWD='+self.password)

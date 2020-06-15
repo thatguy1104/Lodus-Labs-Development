@@ -3,7 +3,7 @@ import logging
 
 import azure.functions as func
 
-from . import GOOGLE_PLAYSTORE.play_controller
+from . import play_controller
 
 def run():
     play_controller.load()
