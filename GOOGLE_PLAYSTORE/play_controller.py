@@ -27,10 +27,10 @@ class PlayController():
         # START TIME
         t0 = time.time()
 
-        self.load_Ranks()
+        # self.load_Ranks()
         self.load_Apps()
         
         # END TIME
         t1 = time.time()
 
-        print("\n\n Code Finished In: {0}\n\n".format(t1-t0))
+        print("\n\nCode Finished In: {0}\n\n".format(t1-t0))

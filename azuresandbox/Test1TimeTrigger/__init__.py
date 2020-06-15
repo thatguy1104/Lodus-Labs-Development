@@ -3,6 +3,10 @@ import logging
 
 import azure.functions as func
 
+from . import GOOGLE_PLAYSTORE.play_controller
+
+def run():
+    play_controller.load()
 
 def main(mytimer: func.TimerRequest) -> None:
     utc_timestamp = datetime.datetime.utcnow().replace(
@@ -11,6 +15,5 @@ def main(mytimer: func.TimerRequest) -> None:
     if mytimer.past_due:
         logging.info('The timer is past due!')
 
-    print("WOW, IT PRINTS!?")
-
+    run()
     logging.info('Python timer trigger function ran at %s', utc_timestamp)

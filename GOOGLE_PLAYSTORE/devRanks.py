@@ -35,15 +35,24 @@ class DevelopersGames():
             installs = int(row[3].text.replace(',', ''))
             applications = int(row[4].text)
             avg_rating = float(row[5].text)
-            results.append((rank, row[1].text, ratings, installs, applications, avg_rating, link))
+            curr_date = datetime.datetime.now()
+            results.append((rank, row[1].text, ratings, installs, applications, avg_rating, link, curr_date))
         
         results = sorted(results, key=lambda x: x[0])
         return results
         
     def writeToDB(self):
-        data = {}
         start_page = 1
         end_page = 1341
+
+        # SCRAPE ALL DATA FIRST
+        data = {}
+        while start_page != end_page:
+            data_list = self.scrape(str(start_page))
+            for i in range(len(data_list)):
+                data[data_list[i][1]] = data_list[i]
+            start_page += 20
+
 
         # CONNECT TO DATABASE
         myConnection = pyodbc.connect('DRIVER='+self.driver+';SERVER='+self.server+';PORT=1433;DATABASE='+self.database+';UID='+self.username+';PWD='+self.password)
@@ -54,33 +63,23 @@ class DevelopersGames():
         create = """CREATE TABLE play_dev_ranks(
             Rank                INT,
             Developer           text,
-            Link                text,
             Total_Ratings       BIGINT DEFAULT 0,
             Total_Installs      BIGINT DEFAULT 0,
             Applications        INT DEFAULT 0,
-            Average_Rating      NUMERIC DEFAULT 0.0,
+            Average_Rating      FLOAT DEFAULT 0.0,
+            Link                text,
             Last_Updated        DATETIME
         );"""
         cur.execute(create)
         print("Successully created DB: Table -> play_dev_ranks DB -> {0}".format(self.database))
 
-        while start_page != end_page:
+        # ITERATE THROUGH DICT AND INSERT VALUES ROW-BY-ROW
+        for elem in data:
             print("Writing {0} / {1} to <play_dev_ranks> table (db: {2})".format(start_page, end_page, self.database))
-            data_list = self.scrape(str(start_page))
-            for i in range(len(data_list)):
-                rank = data_list[i][0]
-                dev = data_list[i][1].replace('\t', '')
-                link = data_list[i][6]
-                rat = data_list[i][2]
-                installs = data_list[i][3]
-                apps = data_list[i][4]
-                avg = data_list[i][5]
-                curr_date = datetime.datetime.now()
-                insertion = "INSERT INTO play_dev_ranks(Rank, Developer, Link, Total_Ratings, Total_Installs, Applications, Average_Rating, Last_Updated) VALUES (?, ?, ?, ?, ?, ?, ?, ?)"
-                values = (rank, dev, link, rat, installs, apps, avg, curr_date)
-                cur.execute(insertion, values)
-            start_page += 20
-        
+            insertion = "INSERT INTO play_dev_ranks(Rank, Developer, Total_Ratings, Total_Installs, Applications, Average_Rating, Link, Last_Updated) VALUES (?, ?, ?, ?, ?, ?, ?, ?)"
+            values = data[elem]
+            cur.execute(insertion, values)
+
         print("Successully written to: Table -> play_dev_ranks DB -> {0}".format(self.database))
         myConnection.commit()
         myConnection.close()

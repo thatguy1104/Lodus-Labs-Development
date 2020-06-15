@@ -37,7 +37,6 @@ def writeToDB():
                   (249131,	"LEGO® Marvel™ Super Heroes", "2013-11-15", curr_date),                                                                                                                                                                                                                                                                                               
                   (249191,	"Ancient Space", "2014-09-23", curr_date),                                                                                                                                                                                                                                                                               
                   (249231,	"BET okeee", "2014-08-13", curr_date))
-    
     for data in dummy_data:
         cols = ['appid', 'name_', 'release_date', 'Last_Update']
         update = "UPDATE trials SET appid = ?"

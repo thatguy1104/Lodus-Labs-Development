@@ -37,7 +37,8 @@ class AllGamesForDev():
             growth_30_days = row[6].text
             growth_60_days = row[7].text
             price = row[8].text.replace('\n', '')
-            results.append((rank, tittle, rating, intalls, avg_rating, growth_30_days, growth_60_days, price))
+            curr_date = datetime.datetime.now()
+            results.append([tittle, rank, rating, intalls, avg_rating, growth_30_days, growth_60_days, price, curr_date])
         return results
 
     def getIDs(self):
@@ -65,6 +66,15 @@ class AllGamesForDev():
     def getAllGameStats(self):
         ids = self.getIDs()
 
+        # ITERATE THROUGH IDS, SCRAPE DATA
+        data = {}
+        for dev in range(len(ids)):
+            resultOne = self.scrapeOne(ids[dev][0])
+            devel = ids[dev][1]
+            for i in range(len(resultOne)):
+                resultOne[i].insert(0, devel)
+                data[resultOne[i][1]] = resultOne[i]    
+
         # CONNECT TO DATABASE
         myConnection = pyodbc.connect('DRIVER='+self.driver+';SERVER='+self.server+';PORT=1433;DATABASE='+self.database+';UID='+self.username+';PWD='+self.password)
         cur = myConnection.cursor()
@@ -73,8 +83,8 @@ class AllGamesForDev():
         cur.execute("DROP TABLE IF EXISTS play_app_ranks;")
         create = """CREATE TABLE play_app_ranks(
             Developer           text,
-            App_Rank            text,
             App_Name            text,
+            App_Rank            text,
             Total_Rating        BIGINT,
             Installs            text,
             Average_Rating      FLOAT,
@@ -86,25 +96,13 @@ class AllGamesForDev():
         cur.execute(create)
         print("Successully created DB: Table -> play_app_ranks DB -> {0}".format(self.database))
 
-        # ITERATE THROUGH IDS, SCRAPE DATA, WRITE TO DB
-        for dev in range(len(ids)):
-            resultOne = self.scrapeOne(ids[dev][0])
-            print("Writing {0} / {1} to <{2}> table (db: {3})".format(dev, len(ids), "play_app_ranks", self.database))
-            for i in range(len(resultOne)):
-                oke = ids[dev][1]
-                rank = resultOne[i][0]
-                app_name = resultOne[i][1]
-                rating = int(resultOne[i][2])
-                installs = resultOne[i][3]
-                avg = resultOne[i][4]
-                thirty = resultOne[i][5]
-                sixty = resultOne[i][6]
-                price = resultOne[i][7]
-                curr_date = datetime.datetime.now()
-
-                insertion = "INSERT INTO play_app_ranks(Developer, App_Rank, App_Name, Total_Rating, Installs, Average_Rating, Growth_30_days, Growth_60_days, Price, Last_Updated) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"
-                values = (oke, rank, app_name, rating, installs, avg, thirty, sixty, price, curr_date)
-                cur.execute(insertion, values)
+        counter = 0
+        for elem in data:
+            print("Writing {0} / {1} to <{2}> table (db: {3})".format(counter, len(data), "play_app_ranks", self.database))
+            insertion = "INSERT INTO play_app_ranks(Developer, App_Name, App_Rank, Total_Rating, Installs, Average_Rating, Growth_30_days, Growth_60_days, Price, Last_Updated) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"
+            row = data[elem]
+            cur.execute(insertion, row)
+            counter += 1
 
         print("Successully written to: Table -> play_app_ranks DB -> {0}".format(self.database))
         myConnection.commit()
