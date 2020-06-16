@@ -11,7 +11,7 @@ class PlayController():
                 database = project_data
         """
         ranks = DevelopersGames()
-        ranks.writeToDB()
+        return ranks.writeToDB()
 
     def load_Apps(self):
         """
@@ -27,10 +27,11 @@ class PlayController():
         # START TIME
         t0 = time.time()
 
-        self.load_Ranks()
+        ranks = self.load_Ranks()
+        print(ranks)
         # self.load_Apps()
         
         # END TIME
         t1 = time.time()
 
-        print("\n\nCode Finished In: {0}\n\n".format(t1-t0))
+        # print("\n\nCode Finished In: {0}\n\n".format(t1-t0))

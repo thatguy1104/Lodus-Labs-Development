@@ -4,6 +4,7 @@ from bs4 import BeautifulSoup
 import lxml
 import pyodbc
 import datetime
+import time
 import configparser as cfg
 
 class DevelopersGames():
@@ -46,11 +47,11 @@ class DevelopersGames():
         end_page = 1341
 
         # SCRAPE ALL DATA FIRST
-        data = {}
+        data = []
         while start_page != end_page:
             data_list = self.scrape(str(start_page))
             for i in range(len(data_list)):
-                data[data_list[i][1]] = data_list[i]
+                data.append(data_list[i])
             start_page += 20
 
         # CONNECT TO DATABASE
@@ -72,15 +73,18 @@ class DevelopersGames():
         cur.execute(create)
         print("Successully created DB: Table -> play_dev_ranks DB -> {0}".format(self.database))
 
+        # RECORD INITIAL TIME OF WRITING
+        t0 = time.time()
+
         # ITERATE THROUGH DICT AND INSERT VALUES ROW-BY-ROW
-        counter = 0
-        for elem in data:
-            print("Writing {0} / {1} to <play_dev_ranks> table (db: {2})".format(counter, len(data), self.database))
-            insertion = "INSERT INTO play_dev_ranks(Rank, Developer, Total_Ratings, Total_Installs, Applications, Average_Rating, Link, Last_Updated) VALUES (?, ?, ?, ?, ?, ?, ?, ?)"
-            values = data[elem]
-            cur.execute(insertion, values)
-            counter += 1
+        insertion = "INSERT INTO play_dev_ranks(Rank, Developer, Total_Ratings, Total_Installs, Applications, Average_Rating, Link, Last_Updated) VALUES (?, ?, ?, ?, ?, ?, ?, ?)"
+        cur.executemany(insertion, data)
+
+        # RECORD END TIME OF WRITING
+        t1 = time.time()
 
         print("Successully written to: Table -> play_dev_ranks DB -> {0}".format(self.database))
         myConnection.commit()
         myConnection.close()
+
+        return t1-t0
