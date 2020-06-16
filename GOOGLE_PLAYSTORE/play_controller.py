@@ -28,7 +28,7 @@ class PlayController():
         t0 = time.time()
 
         self.load_Ranks()
-        self.load_Apps()
+        # self.load_Apps()
         
         # END TIME
         t1 = time.time()

@@ -42,15 +42,15 @@ class SteamController():
         UPDATES ALL STEAM-RELATED DATA
         """
 
-        # START TIME
-        # t0 = time.time()
+        START TIME
+        t0 = time.time()
 
-        # concurrent = self.getConcurrentStats()
-        # bandwidth = self.getBandwidthPerCountry()
+        concurrent = self.getConcurrentStats()
+        bandwidth = self.getBandwidthPerCountry()
         all_games = self.getALLGamesDATA()
         
-        # END TIME
-        # t1 = time.time()
+        END TIME
+        t1 = time.time()
 
-        # print("\n\nCode Finished In: {0}\n\n".format(t1-t0))
+        print("\n\Total time to complete: {0}\n\n".format(t1-t0))
 

@@ -20,7 +20,7 @@ class DevelopersGames():
     def scrape(self, page):
         response = requests.get(self.startLink + page)
         soup = BeautifulSoup(response.text, 'lxml')
-
+        
         odd = soup.find_all('tr', class_='odd')
         even = soup.find_all('tr', class_='even')
         all_rows =  odd + even
