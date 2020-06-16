@@ -70,7 +70,7 @@ class DevelopersGames():
             Link                text,
             Last_Updated        DATETIME
         );"""
-        cur.execute(create)
+        cur.execute(create) 
         print("Successully created DB: Table -> play_dev_ranks DB -> {0}".format(self.database))
 
         # RECORD INITIAL TIME OF WRITING
