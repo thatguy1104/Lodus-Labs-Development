@@ -12,5 +12,5 @@ def updateSteam():
 play_store_time = updatePlay()
 # steam_time = updateSteam()
 
-print("Play Store finished in " + str(play_store_time))
+# print("Play Store finished in " + str(play_store_time))
 # print("Steam finished in " + str(steam_time))
