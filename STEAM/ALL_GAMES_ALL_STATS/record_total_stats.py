@@ -75,9 +75,11 @@ class GetAllRecordData():
         data = []
         curr_date = datetime.datetime.now()
         for i in range(len(names)):
-            print("Scraping for <play_dev_ranks> {0} / {1}".format(i, len(names)))
+            print("Scraping for <steam_all_games_all_data> {0} / {1}".format(i, len(names)))
+
             # PREPARE THE IDs
             one_game = GameStats(get_all_ids[i])
+            
             # SCRAPE DATA FOR A GIVEN GAME
             all_months, all_players, all_gains, all_percent_gains, all_peak_players = one_game.getOneGameData()
             name = names[i]

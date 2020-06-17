@@ -6,6 +6,7 @@ import pyodbc
 import datetime
 import time
 import csv
+import sys
 import configparser as cfg
 
 class DevelopersGames():
@@ -18,6 +19,16 @@ class DevelopersGames():
         self.username = parser.get('db_credentials', 'username')
         self.password = parser.get('db_credentials', 'password')
         self.driver = parser.get('db_credentials', 'driver')
+
+    def progress(self, count, total, custom_text, suffix=''):
+        bar_len = 60
+        filled_len = int(round(bar_len * count / float(total)))
+
+        percents = round(100.0 * count / float(total), 1)
+        bar = '*' * filled_len + '-' * (bar_len - filled_len)
+
+        sys.stdout.write('[%s] %s%s %s %s\r' % (bar, percents, '%', custom_text, suffix))
+        sys.stdout.flush()
 
     def scrape(self, page):
         response = requests.get(self.startLink + page)
@@ -40,22 +51,22 @@ class DevelopersGames():
             curr_date = datetime.datetime.now()
             results.append((rank, row[1].text, ratings, installs, applications, avg_rating, link, curr_date))
         
-        print(results)
         results = sorted(results, key=lambda x: x[0])
         return results
         
     def writeToDB(self):
         start_page = 1
-        # end_page = 1341
-        end_page = 21
-
+        end_page = 1341
+        
         # SCRAPE ALL DATA FIRST
         data = []
         while start_page != end_page:
+            self.progress(start_page, end_page, "scraping for <play_dev_ranks>")
             data_list = self.scrape(str(start_page))
             for i in range(len(data_list)):
                 data.append(data_list[i])
             start_page += 20
+        sys.stdout.write('\n')
 
         # CONNECT TO DATABASE
         myConnection = pyodbc.connect('DRIVER='+self.driver+';SERVER='+self.server+';PORT=1433;DATABASE='+self.database+';UID='+self.username+';PWD='+self.password)
@@ -75,7 +86,7 @@ class DevelopersGames():
         );"""
         cur.execute(create) 
         print("Successully created DB: Table -> play_dev_ranks DB -> {0}".format(self.database))
-
+        
         # RECORD INITIAL TIME OF WRITING
         t0 = time.time()
 
@@ -83,7 +94,7 @@ class DevelopersGames():
         cur.fast_executemany = True
         insertion = "INSERT INTO play_dev_ranks(Rank, Developer, Total_Ratings, Total_Installs, Applications, Average_Rating, Link, Last_Updated) VALUES (?, ?, ?, ?, ?, ?, ?, ?)"
         cur.executemany(insertion, data)
-
+        
         # RECORD END TIME OF WRITING
         t1 = time.time()
 

@@ -71,7 +71,7 @@ class steamConcurrent():
         # SCRAPE THE DATA FIRST
         data = []
         curr_date = datetime.datetime.now()
-        for p in range(1, 10):
+        for p in range(1, pages):
             print("Scraping for steam_concurrentGames {} / {}".format(p, pages))
             name, current, peak, hours_played = self.getTopGamesByPlayerCount(p)
             for i in range(len(name)):

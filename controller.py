@@ -3,11 +3,14 @@ from STEAM.steam_controller import SteamController
 
 def updatePlay():
     play = PlayController()
-    play.controller()
+    return play.controller()
 
 def updateSteam():
     control = SteamController()
-    control.runControl()
+    return control.runControl()
 
-updatePlay()
-# updateSteam()
+play_store_time = updatePlay()
+# steam_time = updateSteam()
+
+print("Play Store finished in " + str(play_store_time))
+# print("Steam finished in " + str(steam_time))
