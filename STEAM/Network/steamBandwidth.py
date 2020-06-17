@@ -1,5 +1,6 @@
 import requests
 import json
+import sys
 import time
 import math
 import pyodbc
@@ -51,6 +52,16 @@ class SteamBandwidth():
 
         return bandwidthFile
 
+    def progress(self, count, total, custom_text, suffix=''):
+        bar_len = 60
+        filled_len = int(round(bar_len * count / float(total)))
+
+        percents = round(100.0 * count / float(total), 1)
+        bar = '*' * filled_len + '-' * (bar_len - filled_len)
+
+        sys.stdout.write('[%s] %s%s %s %s\r' % (bar, percents, '%', custom_text, suffix))
+        sys.stdout.flush()
+
     def writeBandwidthSteam(self):
         # DATA:
         bandwidthFile = self.setup()
@@ -58,11 +69,15 @@ class SteamBandwidth():
 
         # CURRENT DATA
         curr_date = datetime.datetime.now()
+        counter = 1
         for name in bandwidthFile:
+            self.progress(counter, len(bandwidthFile), "scraping for <steam_network_data>")
             totalbytes = bandwidthFile[name]['totalbytes']
             avg_mb = bandwidthFile[name]['avgmbps']
             perc_global_traffic = bandwidthFile[name]['Percentage of global Steam Traffic']
             data.append((name, totalbytes, avg_mb, perc_global_traffic, curr_date))
+            counter += 1
+        sys.stdout.write('\n')
 
         # CONNECT TO DATABASE
         myConnection = pyodbc.connect('DRIVER='+self.driver+';SERVER='+self.server+';PORT=1433;DATABASE='+self.database+';UID='+self.username+';PWD='+self.password)

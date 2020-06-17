@@ -5,6 +5,7 @@ import json
 import pyodbc
 import datetime
 import time
+import sys
 import configparser as cfg
 
 class steamConcurrent():
@@ -28,6 +29,16 @@ class steamConcurrent():
         peak_today = all_current[1].text.replace(',', '')
 
         return int(current), int(peak_today)
+
+    def progress(self, count, total, custom_text, suffix=''):
+        bar_len = 60
+        filled_len = int(round(bar_len * count / float(total)))
+
+        percents = round(100.0 * count / float(total), 1)
+        bar = '*' * filled_len + '-' * (bar_len - filled_len)
+
+        sys.stdout.write('[%s] %s%s %s %s\r' % (bar, percents, '%', custom_text, suffix))
+        sys.stdout.flush()
 
     def getTopGamesByPlayerCount(self, page):
         link = self.linkAll + str(page)
@@ -72,10 +83,11 @@ class steamConcurrent():
         data = []
         curr_date = datetime.datetime.now()
         for p in range(1, pages):
-            print("Scraping for steam_concurrentGames {} / {}".format(p, pages))
+            self.progress(p, pages, "scraping for <steam_concurrentGames>")
             name, current, peak, hours_played = self.getTopGamesByPlayerCount(p)
             for i in range(len(name)):
                 data.append((name[i], current[i], peak[i], hours_played[i], curr_date))
+        sys.stdout.write('\n')
 
         # CONNECT TO DATABASE
         myConnection = pyodbc.connect('DRIVER='+self.driver+';SERVER='+self.server+';PORT=1433;DATABASE='+self.database+';UID='+self.username+';PWD='+self.password)
