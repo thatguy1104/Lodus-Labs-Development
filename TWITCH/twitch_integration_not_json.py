@@ -33,6 +33,10 @@ def append_game_data_json(filename, data_json):
         filedata['pagination'] = data_json['pagination']
     write_json(filename, filedata)
 
+
+
+top_games_list = []
+
 # Gets games sorted by number of current viewers on Twitch, most popular first.
 def get_top_games_query(pagination_nr=None, filename = 'top_streamed_games_query.json'):
 
@@ -42,8 +46,10 @@ def get_top_games_query(pagination_nr=None, filename = 'top_streamed_games_query
     # Save response to json file
     write_json(filename, response.json()) # Save response to json file
 
+    
+    for game in response.json()["data"]:
+        top_games_list.append((int(game["id"]), game["name"]))
 
-    # If there exists more game pages continue iterating 
     while(response.json()["pagination"]):
         # Update cursor (pagination number)
         payload['after'] = response.json()["pagination"]["cursor"]
@@ -52,12 +58,6 @@ def get_top_games_query(pagination_nr=None, filename = 'top_streamed_games_query
         print(".", end=' ')
         append_game_data_json(filename, response_json)
     print("Done")
-    
-#get_top_games_query()
-
-
-
-view_count_list = []
 
 # Will itearte through all livestreams and acculumate the total view count per game
 # 'Filename' usecase to be implemented
@@ -86,8 +86,16 @@ def get_view_count_of_games(filename, pagination_nr=None, view_counts={}, testco
         get_view_count_of_games(filename, pagination_nr=response.json()["pagination"]["cursor"], view_counts=view_counts, testcount=testcount)
 
 
-import pyodbc 
+get_top_games_query()
 
+top_games_list = top_games_list.copy() + top_games_list
+top_games_list = top_games_list.copy() + top_games_list
+top_games_list = top_games_list.copy() + top_games_list
+top_games_list = top_games_list.copy() + top_games_list
+top_games_list = top_games_list.copy() + top_games_list
+print(len(top_games_list))
+
+import pyodbc 
 server = 'serverteest.database.windows.net'
 database = 'testdatabase'
 username = 'login12391239'
@@ -96,13 +104,22 @@ driver= '{ODBC Driver 17 for SQL Server}'
 
 conn = pyodbc.connect('DRIVER='+driver+';SERVER='+server+';PORT=1433;DATABASE='+database+';UID='+username+';PWD='+password)
 cursor = conn.cursor()
-cursor.execute('SELECT * FROM testdatabase.dbo.salespromotions')
- 
-for row in cursor:
-    print(row)
+cursor.fast_executemany = True
+sql_insert_query = """INSERT INTO games2 (gameid, gamename) 
+                                VALUES (?, ?) """
 
-DECLARE @json NVARCHAR(MAX)
-SET @json 
+cursor.executemany(sql_insert_query, top_games_list)
+conn.commit()
+print(cursor.rowcount, "Record inserted successfully into Laptop table")
+
+cursor.close()
+conn.close()
+print("MySQL connection is closed")
+
+
+#cursor.execute('SELECT * FROM testdatabase.dbo.salespromotions')
+# for row in cursor:
+#     print(row)
 
 #get_view_count_of_games('test')
 
