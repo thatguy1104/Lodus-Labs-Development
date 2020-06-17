@@ -54,13 +54,15 @@ class SteamBandwidth():
     def writeBandwidthSteam(self):
         # DATA:
         bandwidthFile = self.setup()
-        data = {}
+        data = []
+
+        # CURRENT DATA
+        curr_date = datetime.datetime.now()
         for name in bandwidthFile:
             totalbytes = bandwidthFile[name]['totalbytes']
             avg_mb = bandwidthFile[name]['avgmbps']
             perc_global_traffic = bandwidthFile[name]['Percentage of global Steam Traffic']
-            curr_date = datetime.datetime.now()
-            data[name] = [name, totalbytes, avg_mb, perc_global_traffic, curr_date]
+            data.append((name, totalbytes, avg_mb, perc_global_traffic, curr_date))
 
         # CONNECT TO DATABASE
         myConnection = pyodbc.connect('DRIVER='+self.driver+';SERVER='+self.server+';PORT=1433;DATABASE='+self.database+';UID='+self.username+';PWD='+self.password)
@@ -76,19 +78,15 @@ class SteamBandwidth():
             Last_Updated                    DATETIME DEFAULT CURRENT_TIMESTAMP
         );"""
         cur.execute(create)
-        print("Successully created DB Table: steam_network_data")
+        print("Successully created table <steam_network_data>")
 
         # RECORD INITIAL TIME OF WRITING
         t0 = time.time()
 
         # EXECUTE INSERTION INTO DB
-        counter = 0
-        for elem in data:
-            print("Writing page {0} / {1} to <steam_network_data> table (db: {2})".format(counter, len(data), self.database))
-            insertion = "INSERT INTO steam_network_data(Country, Total_Bytes, Avg_MB_Per_Sec, Percentage_of_Global_Traffic, Last_Updated) VALUES (?, ?, ?, ?, ?)"
-            values = data[elem]
-            cur.execute(insertion, values)
-            counter += 1
+        cur.fast_executemany = True
+        insertion = "INSERT INTO steam_network_data(Country, Total_Bytes, Avg_MB_Per_Sec, Percentage_of_Global_Traffic, Last_Updated) VALUES (?, ?, ?, ?, ?)"
+        cur.executemany(insertion, data)
 
         # RECORD END TIME OF WRITING
         t1 = time.time()

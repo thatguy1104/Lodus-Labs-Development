@@ -40,12 +40,14 @@ class DevelopersGames():
             curr_date = datetime.datetime.now()
             results.append((rank, row[1].text, ratings, installs, applications, avg_rating, link, curr_date))
         
+        print(results)
         results = sorted(results, key=lambda x: x[0])
         return results
         
     def writeToDB(self):
         start_page = 1
-        end_page = 1341
+        # end_page = 1341
+        end_page = 21
 
         # SCRAPE ALL DATA FIRST
         data = []
@@ -55,13 +57,6 @@ class DevelopersGames():
                 data.append(data_list[i])
             start_page += 20
 
-        f = open('dev_ranks.csv', 'w')
-        with f:
-            writer = csv.writer(f)
-            for row in data:
-                writer.writerow(row)
-        f.close()
-
         # CONNECT TO DATABASE
         myConnection = pyodbc.connect('DRIVER='+self.driver+';SERVER='+self.server+';PORT=1433;DATABASE='+self.database+';UID='+self.username+';PWD='+self.password)
         cur = myConnection.cursor()
@@ -70,12 +65,12 @@ class DevelopersGames():
         cur.execute("DROP TABLE IF EXISTS play_dev_ranks;")
         create = """CREATE TABLE play_dev_ranks(
             Rank                INT,
-            Developer           text,
+            Developer           VARCHAR(200),
             Total_Ratings       BIGINT DEFAULT 0,
             Total_Installs      BIGINT DEFAULT 0,
             Applications        INT DEFAULT 0,
             Average_Rating      FLOAT DEFAULT 0.0,
-            Link                text,
+            Link                VARCHAR(200),
             Last_Updated        DATETIME
         );"""
         cur.execute(create) 
@@ -84,7 +79,8 @@ class DevelopersGames():
         # RECORD INITIAL TIME OF WRITING
         t0 = time.time()
 
-        # ITERATE THROUGH DICT AND INSERT VALUES ROW-BY-ROW
+        # INSERT THE VALUES INTO DB TABLE
+        cur.fast_executemany = True
         insertion = "INSERT INTO play_dev_ranks(Rank, Developer, Total_Ratings, Total_Installs, Applications, Average_Rating, Link, Last_Updated) VALUES (?, ?, ?, ?, ?, ?, ?, ?)"
         cur.executemany(insertion, data)
 

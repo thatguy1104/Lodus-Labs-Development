@@ -69,13 +69,13 @@ class steamConcurrent():
         # total_current, total_peak = self.getConcurrent()  <-- NOT USED ANYWHERE, BUT KEEP FOR NOW
 
         # SCRAPE THE DATA FIRST
-        data = {}
-        for p in range(1, pages):
+        data = []
+        curr_date = datetime.datetime.now()
+        for p in range(1, 10):
             print("Scraping for steam_concurrentGames {} / {}".format(p, pages))
             name, current, peak, hours_played = self.getTopGamesByPlayerCount(p)
-            curr_date = datetime.datetime.now()
             for i in range(len(name)):
-                data[name[i]] = [name[i], current[i], peak[i], hours_played[i], curr_date]
+                data.append((name[i], current[i], peak[i], hours_played[i], curr_date))
 
         # CONNECT TO DATABASE
         myConnection = pyodbc.connect('DRIVER='+self.driver+';SERVER='+self.server+';PORT=1433;DATABASE='+self.database+';UID='+self.username+';PWD='+self.password)
@@ -97,13 +97,9 @@ class steamConcurrent():
         t0 = time.time()
 
         # EXECUTE INSERTION INTO DB
-        counter = 0
-        for elem in data:
-            print("Writing page {0} / {1} to <steam_concurrentGames> table (db: {2})".format(counter, len(data), self.database))
-            insertion = "INSERT INTO steam_concurrentGames(Name_, Current_Players, Peak_Today, Hours_Played, Last_Updated) VALUES (?, ?, ?, ?, ?)"
-            values = data[elem]
-            cur.execute(insertion, values)
-            counter += 1
+        cur.fast_executemany = True
+        insertion = "INSERT INTO steam_concurrentGames(Name_, Current_Players, Peak_Today, Hours_Played, Last_Updated) VALUES (?, ?, ?, ?, ?)"
+        cur.executemany(insertion, data)
 
         # RECORD END TIME OF WRITING
         t1 = time.time()

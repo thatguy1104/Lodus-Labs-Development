@@ -49,8 +49,12 @@ class SteamController():
         bandwidth = self.getBandwidthPerCountry()
         all_games = self.getALLGamesDATA()
         
+        print("Concurrent finished in" + str(concurrent))
+        print("Bandwidth finished in" + str(bandwidth))
+        print("All games finished in" + str(all_games))
+
         # END TIME
         t1 = time.time()
 
-        print("\n\Total time to complete: {0}\n\n".format(t1-t0))
+        # print("\n\Total time to complete: {0}\n\n".format(t1-t0))
 

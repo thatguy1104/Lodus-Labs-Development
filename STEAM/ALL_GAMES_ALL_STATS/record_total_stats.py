@@ -72,7 +72,8 @@ class GetAllRecordData():
         names, get_all_ids = self.readGameIds()
 
         # RECORD DATA
-        data = {}
+        data = []
+        curr_date = datetime.datetime.now()
         for i in range(len(names)):
             print("Scraping for <play_dev_ranks> {0} / {1}".format(i, len(names)))
             # PREPARE THE IDs
@@ -81,24 +82,18 @@ class GetAllRecordData():
             all_months, all_players, all_gains, all_percent_gains, all_peak_players = one_game.getOneGameData()
             name = names[i]
             id_ = get_all_ids[i]
-            months = all_months # LIST OF STRINGS
-            avg_players = all_players # LIST OF FLOATS
-            gains = all_gains # LIST OF FLOATS
-            percent_gains = all_percent_gains # LIST OF STRINGS
-            peak_players = all_peak_players # LIST OF STRINGS
-            curr_date = datetime.datetime.now()
 
-            if len(gains) is not 0:
-                gains[len(gains) - 1] = 0
+            if len(all_gains) is not 0:
+                all_gains[len(all_gains) - 1] = 0
 
-            if len(percent_gains) is not 0:
-                percent_gains[len(percent_gains) - 1] = '0'
+            if len(all_percent_gains) is not 0:
+                all_percent_gains[len(all_percent_gains) - 1] = '0'
             
-            for j in range(len(months)):
-                f = float(avg_players[j])
-                f2 = float(gains[j])
-                inte = int(peak_players[j])
-                data[months[j]] = [months[j], name, id_, f, f2, percent_gains[j], inte, curr_date]
+            for j in range(len(all_months)):
+                f = float(all_players[j])
+                f2 = float(all_gains[j])
+                inte = int(all_peak_players[j])
+                data.append((all_months[j], name, id_, f, f2, all_percent_gains[j], inte, curr_date))
 
         # CONNECT TO A SERVER DATABASE
         myConnection = pyodbc.connect('DRIVER='+self.driver+';SERVER='+self.server+';PORT=1433;DATABASE='+self.database+';UID='+self.username+';PWD='+self.password)
@@ -107,29 +102,30 @@ class GetAllRecordData():
         # RESET THE TABLE
         cur.execute("DROP TABLE IF EXISTS steam_all_games_all_data;")
         create = """CREATE TABLE steam_all_games_all_data(
-            Month           text,
-            name_           text,
-            ids             text,
+            Month           VARCHAR(100),
+            name_           VARCHAR(100),
+            ids             VARCHAR(100),
             avg_players     float,
             gains           float,
-            percent_gains   text,
+            percent_gains   VARCHAR(100),
             peak_players    BIGINT,
             Last_Updated    DATETIME
         );"""
         cur.execute(create)
         print("Successully created DB Table: steam_all_games_all_data")
 
+        # DIVIDE DATA INTO n CHUNKS
+        n = 1000
+        final = [data[i * n:(i + 1) * n] for i in range((len(data) + n - 1) // n )]
+
         # RECORD INITIAL TIME OF WRITING
         t0 = time.time()
 
         # ITERATE THROUGH DICT AND INSERT VALUES ROW-BY-ROW
-        counter = 0
-        for elem in data:
-            print("Writing page {0} / {1} to <steam_all_games_all_data> table (db: {2})".format(counter, len(data), self.database))
+        cur.fast_executemany = True
+        for elem in final:
             insertion = "INSERT into steam_all_games_all_data(Month, name_, ids, avg_players, gains, percent_gains, peak_players, Last_Updated) VALUES (?, ?, ?, ?, ?, ?, ?, ?)"
-            values = data[elem]
-            cur.execute(insertion, values)
-            counter += 1
+            cur.executemany(insertion, elem)
 
         # RECORD END TIME OF WRITING
         t1 = time.time()

@@ -21,15 +21,17 @@ class PlayController():
                 database = project_data
         """
         apps = AllGamesForDev()
-        apps.getAllGameStats()
+        return apps.getAllGameStats()
 
     def controller(self):
         # START TIME
         t0 = time.time()
 
         ranks = self.load_Ranks()
-        print(ranks)
-        # self.load_Apps()
+        apps = self.load_Apps()
+        
+        print("PLAY_Ranks finished in" + str(ranks))
+        print("PLAY_Apps finished in" + str(apps))
         
         # END TIME
         t1 = time.time()
