@@ -5,6 +5,7 @@ import lxml
 import pyodbc
 import datetime
 import time
+import csv
 import configparser as cfg
 
 class DevelopersGames():
@@ -53,6 +54,13 @@ class DevelopersGames():
             for i in range(len(data_list)):
                 data.append(data_list[i])
             start_page += 20
+
+        f = open('dev_ranks.csv', 'w')
+        with f:
+            writer = csv.writer(f)
+            for row in data:
+                writer.writerow(row)
+        f.close()
 
         # CONNECT TO DATABASE
         myConnection = pyodbc.connect('DRIVER='+self.driver+';SERVER='+self.server+';PORT=1433;DATABASE='+self.database+';UID='+self.username+';PWD='+self.password)
