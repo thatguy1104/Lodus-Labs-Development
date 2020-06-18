@@ -1,6 +1,6 @@
-import requests, json, sys
+import requests, json, sys, time
 import twitch_oauth2_access_token_generator
-from . import credentials
+import pyodbc 
 
 INDENT = 2
 BASE_URL = 'https://api.twitch.tv/helix/'
@@ -9,16 +9,7 @@ CLIENT_SECRET = '3j58umfzeu2mve615u3mkfwogfamy1'
 GRANT_TYPE = 'client_credentials'
 HEADERS = { 'Client-ID': CLIENT_ID, 
             'Client-Secret': CLIENT_SECRET,
-            'Authorization': 'Bearer ' + get_access_token(CLIENT_ID,CLIENT_SECRET,GRANT_TYPE)}
-
-def get_access_token(client_id, client_secret, grant_type):
-    """
-    Returns oauth2 access token
-    """
-    r = requests.post('https://id.twitch.tv/oauth2/token?client_id={}&client_secret={}&grant_type={}'
-    .format(client_id, client_secret, grant_type))
-    r_json = r.json() # For debugging use: print(json.dumps(r_json, indent=INDENT))
-    return(r_json['access_token'])
+            'Authorization': 'Bearer ' + twitch_oauth2_access_token_generator.get_access_token(CLIENT_ID,CLIENT_SECRET,GRANT_TYPE)}
 
 def get_response(query, payload=None):
     """
@@ -28,11 +19,13 @@ def get_response(query, payload=None):
     response = requests.get(url, headers=HEADERS, params=payload)
     return response
 
-def get_top_games_query():
+def get_top_games():
     """
     Gets games sorted by number of current viewers on Twitch, most popular first.
     Returned in a list of 2-tuples [(game_id, game_name),,,,]
     """
+    print("Calling api to receive list of top games...")
+    start_time = time.time()
     top_games_list = []
     payload = {'first': 100, 'after': None}
     response = get_response('games/top', payload)
@@ -45,7 +38,7 @@ def get_top_games_query():
         for game in response.json()["data"]:
             top_games_list.append((int(game["id"]), game["name"]))
 
-    print("Done with top games list")
+    print("Finished receiving list with top games in " + str(time.time()-start_time) + " seconds")
     return top_games_list
 
 def get_view_count_of_games(pagination_nr=None, view_counts={}):
@@ -73,41 +66,30 @@ def get_view_count_of_games(pagination_nr=None, view_counts={}):
     return list(view_counts.items())
 
 def run():
-    run_function = True
+    SERVER = 'serverteest.database.windows.net'
+    DATABASE = 'testdatabase'
+    USERNAME = 'login12391239'
+    PASSWORD = 'HejsanHejsan!1'
+    DRIVER= '{ODBC Driver 17 for SQL Server}'
 
-print(HEADERS)
+    top_games_list = get_top_games() 
 
-# import pyodbc 
-# server = 'serverteest.database.windows.net'
-# database = 'testdatabase'
-# username = 'login12391239'
-# password = 'HejsanHejsan!1'
-# driver= '{ODBC Driver 17 for SQL Server}'
+    conn = pyodbc.connect('DRIVER='+DRIVER+';SERVER='+SERVER+';PORT=1433;DATABASE='+DATABASE+';UID='+USERNAME+';PWD='+PASSWORD)
+    cursor = conn.cursor()
+    print("SQL Server connection established")
+    cursor.fast_executemany = True
+    sql_insert_query = """INSERT INTO games2 (gameid, gamename) 
+                                    VALUES (?, ?) """
+    start_time = time.time()
+    cursor.executemany(sql_insert_query, top_games_list)
+    conn.commit()
+    print(cursor.rowcount, "Record inserted successfully into table")
+    print(str(len(top_games_list)) + " rows in " + str(time.time() - start_time) + "seconds")
+    cursor.close()
+    conn.close()
+    print("SQL Server connection is closed")
 
-# conn = pyodbc.connect('DRIVER='+driver+';SERVER='+server+';PORT=1433;DATABASE='+database+';UID='+username+';PWD='+password)
-# cursor = conn.cursor()
-# cursor.fast_executemany = True
-# sql_insert_query = """INSERT INTO games2 (gameid, gamename) 
-#                                 VALUES (?, ?) """
-
-# cursor.executemany(sql_insert_query, top_games_list)
-# conn.commit()
-# print(cursor.rowcount, "Record inserted successfully into Laptop table")
-
-# cursor.close()
-# conn.close()
-# print("MySQL connection is closed")
-
-
-#cursor.execute('SELECT * FROM testdatabase.dbo.salespromotions')
-# for row in cursor:
-#     print(row)
-
-#get_view_count_of_games('test')
-
-#get_top_games_query()
-
-#print(get_access_token(CLIENT_ID, CLIENT_SECRET, GRANT_TYPE))
+run()
 
 
 # NOT USED EXPECT FOR TESTING PURPOSES (SAVING DATA IN JSON FILE)
