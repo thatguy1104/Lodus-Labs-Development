@@ -54,6 +54,36 @@ class DevelopersGames():
         results = sorted(results, key=lambda x: x[0])
         return results
         
+    def checkTableExists(self, dbcon, tablename):
+        dbcur = dbcon.cursor()
+        dbcur.execute("""
+            SELECT COUNT(*)
+            FROM information_schema.tables
+            WHERE table_name = '{0}'
+            """.format(tablename.replace('\'', '\'\'')))
+        if dbcur.fetchone()[0] == 1:
+            dbcur.close()
+            return True
+
+        dbcur.close()
+        return False
+
+    def createDB(self):
+        # EXECUTE SQL COMMANDS
+        cur.execute("DROP TABLE IF EXISTS play_dev_ranks;")
+        create = """CREATE TABLE play_dev_ranks(
+            Rank                INT,
+            Developer           NVARCHAR(200),
+            Total_Ratings       BIGINT DEFAULT 0,
+            Total_Installs      BIGINT DEFAULT 0,
+            Applications        INT DEFAULT 0,
+            Average_Rating      FLOAT DEFAULT 0.0,
+            Link                VARCHAR(200),
+            Last_Updated        DATETIME
+        );"""
+        cur.execute(create) 
+        print("Successully created DB: Table -> play_dev_ranks DB -> {0}".format(self.database))
+
     def writeToDB(self):
         start_page = 1
         end_page = 1341
@@ -72,20 +102,8 @@ class DevelopersGames():
         myConnection = pyodbc.connect('DRIVER='+self.driver+';SERVER='+self.server+';PORT=1433;DATABASE='+self.database+';UID='+self.username+';PWD='+self.password)
         cur = myConnection.cursor()
 
-        # EXECUTE SQL COMMANDS
-        # cur.execute("DROP TABLE IF EXISTS play_dev_ranks;")
-        # create = """CREATE TABLE play_dev_ranks(
-        #     Rank                INT,
-        #     Developer           NVARCHAR(200),
-        #     Total_Ratings       BIGINT DEFAULT 0,
-        #     Total_Installs      BIGINT DEFAULT 0,
-        #     Applications        INT DEFAULT 0,
-        #     Average_Rating      FLOAT DEFAULT 0.0,
-        #     Link                VARCHAR(200),
-        #     Last_Updated        DATETIME
-        # );"""
-        # cur.execute(create) 
-        # print("Successully created DB: Table -> play_dev_ranks DB -> {0}".format(self.database))
+        if not self.checkTableExists(myConnection, 'trials'):
+            self.createDB()
         
         # RECORD INITIAL TIME OF WRITING
         t0 = time.time()

@@ -75,6 +75,38 @@ class AllGamesForDev():
 
         return ids
 
+    def checkTableExists(self, dbcon, tablename):
+        dbcur = dbcon.cursor()
+        dbcur.execute("""
+            SELECT COUNT(*)
+            FROM information_schema.tables
+            WHERE table_name = '{0}'
+            """.format(tablename.replace('\'', '\'\'')))
+        if dbcur.fetchone()[0] == 1:
+            dbcur.close()
+            return True
+
+        dbcur.close()
+        return False
+
+    def createDB(self, ):
+        # EXECUTE SQL COMMANDS
+        cur.execute("DROP TABLE IF EXISTS play_app_ranks;")
+        create = """CREATE TABLE play_app_ranks(
+            Developer           NVARCHAR(100),
+            App_Name            NVARCHAR(100),
+            App_Rank            INT,
+            Total_Rating        BIGINT,
+            Installs            VARCHAR(100),
+            Average_Rating      FLOAT,
+            Growth_30_days      VARCHAR(100),
+            Growth_60_days      VARCHAR(100),
+            Price               VARCHAR(50),
+            Last_Updated        DATETIME
+        );"""
+        cur.execute(create)
+        print("Successully created DB: Table -> play_app_ranks DB -> {0}".format(self.database))
+
     def getAllGameStats(self):
         ids = self.getIDs()
 
@@ -96,22 +128,8 @@ class AllGamesForDev():
         myConnection = pyodbc.connect('DRIVER='+self.driver+';SERVER='+self.server+';PORT=1433;DATABASE='+self.database+';UID='+self.username+';PWD='+self.password)
         cur = myConnection.cursor()
 
-        # EXECUTE SQL COMMANDS
-        cur.execute("DROP TABLE IF EXISTS play_app_ranks;")
-        create = """CREATE TABLE play_app_ranks(
-            Developer           NVARCHAR(100),
-            App_Name            NVARCHAR(100),
-            App_Rank            INT,
-            Total_Rating        BIGINT,
-            Installs            VARCHAR(100),
-            Average_Rating      FLOAT,
-            Growth_30_days      VARCHAR(100),
-            Growth_60_days      VARCHAR(100),
-            Price               VARCHAR(50),
-            Last_Updated        DATETIME
-        );"""
-        cur.execute(create)
-        print("Successully created DB: Table -> play_app_ranks DB -> {0}".format(self.database))
+        if not self.checkTableExists(myConnection, 'trials'):
+            self.createDB()
 
         # DIVIDE DATA INTO n CHUNKS
         n = 2000
