@@ -26,9 +26,26 @@ def createDB():
     myConnection.commit()
     myConnection.close()
 
+def checkTableExists(dbcon, tablename):
+    dbcur = dbcon.cursor()
+    dbcur.execute("""
+        SELECT COUNT(*)
+        FROM information_schema.tables
+        WHERE table_name = '{0}'
+        """.format(tablename.replace('\'', '\'\'')))
+    if dbcur.fetchone()[0] == 1:
+        dbcur.close()
+        return True
+
+    dbcur.close()
+    return False
+
 def writeToDB():
     myConnection = pyodbc.connect('DRIVER='+driver+';SERVER='+server+';PORT=1433;DATABASE='+database+';UID='+username+';PWD='+password)
     cur = myConnection.cursor()
+
+    if not checkTableExists(myConnection, 'trials'):
+        createDB()
 
     curr_date = datetime.datetime.now()
     dummy_data = ((248820,	"Bruh", "2013-11-08", curr_date),                                                                                                                                                                                                                                                                                 
@@ -42,11 +59,10 @@ def writeToDB():
         update = "UPDATE trials SET appid = ?"
         cur.execute(update, data[0])
 
-        # insertion = """INSERT INTO trials(appid, name_, release_date, Last_Updated) VALUES(?, ?, ?, ?)"""
-        # cur.execute(insertion, data)
+    #     # insertion = """INSERT INTO trials(appid, name_, release_date, Last_Updated) VALUES(?, ?, ?, ?)"""
+    #     # cur.execute(insertion, data)
     
     print("Successfully written to table -> {0}, DB -> {1}".format("trials", database))
-
     myConnection.commit()
     myConnection.close()
 
