@@ -96,7 +96,7 @@ class steamConcurrent():
         # EXECUTE SQL COMMANDS
         cur.execute("DROP TABLE IF EXISTS steam_concurrentGames;")
         create = """CREATE TABLE steam_concurrentGames(
-            Name_               text,
+            Name_               NVARCHAR,
             Current_Players     BIGINT,
             Peak_Today          BIGINT,
             Hours_Played        BIGINT,

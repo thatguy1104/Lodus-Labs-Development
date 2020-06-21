@@ -7,18 +7,15 @@ import datetime
 import time
 import csv
 import sys
-import configparser as cfg
 
 class DevelopersGames():
     def __init__(self):
         self.startLink = 'https://www.androidrank.org/developers/ranking?&start='
-        parser = cfg.ConfigParser()
-        parser.read('config.cfg')
-        self.server = parser.get('db_credentials', 'server')
-        self.database = parser.get('db_credentials', 'database')
-        self.username = parser.get('db_credentials', 'username')
-        self.password = parser.get('db_credentials', 'password')
-        self.driver = parser.get('db_credentials', 'driver')
+        self.server = 'serverteest.database.windows.net'
+        self.database = 'testdatabase'
+        self.username = 'login12391239'
+        self.password = 'HejsanHejsan!1'
+        self.driver= '{ODBC Driver 17 for SQL Server}'
 
     def progress(self, count, total, custom_text, suffix=''):
         bar_len = 60
@@ -56,7 +53,7 @@ class DevelopersGames():
         
     def writeToDB(self):
         start_page = 1
-        end_page = 1341
+        end_page = 1361
         
         # SCRAPE ALL DATA FIRST
         data = []
@@ -66,26 +63,26 @@ class DevelopersGames():
             for i in range(len(data_list)):
                 data.append(data_list[i])
             start_page += 20
-        sys.stdout.write('\n')
+        # sys.stdout.write('\n')
 
         # CONNECT TO DATABASE
         myConnection = pyodbc.connect('DRIVER='+self.driver+';SERVER='+self.server+';PORT=1433;DATABASE='+self.database+';UID='+self.username+';PWD='+self.password)
         cur = myConnection.cursor()
 
         # EXECUTE SQL COMMANDS
-        # cur.execute("DROP TABLE IF EXISTS play_dev_ranks;")
-        # create = """CREATE TABLE play_dev_ranks(
-        #     Rank                INT,
-        #     Developer           NVARCHAR(200),
-        #     Total_Ratings       BIGINT DEFAULT 0,
-        #     Total_Installs      BIGINT DEFAULT 0,
-        #     Applications        INT DEFAULT 0,
-        #     Average_Rating      FLOAT DEFAULT 0.0,
-        #     Link                VARCHAR(200),
-        #     Last_Updated        DATETIME
-        # );"""
-        # cur.execute(create) 
-        # print("Successully created DB: Table -> play_dev_ranks DB -> {0}".format(self.database))
+        cur.execute("DROP TABLE IF EXISTS play_dev_ranks;")
+        create = """CREATE TABLE play_dev_ranks(
+            Rank                INT,
+            Developer           NVARCHAR(200),
+            Total_Ratings       BIGINT DEFAULT 0,
+            Total_Installs      BIGINT DEFAULT 0,
+            Applications        INT DEFAULT 0,
+            Average_Rating      FLOAT DEFAULT 0.0,
+            Link                VARCHAR(200),
+            Last_Updated        DATETIME
+        );"""
+        cur.execute(create) 
+        print("Successully created DB: Table -> play_dev_ranks DB -> {0}".format(self.database))
         
         # RECORD INITIAL TIME OF WRITING
         t0 = time.time()
@@ -103,3 +100,7 @@ class DevelopersGames():
         myConnection.close()
 
         return t1-t0
+
+def run():
+    obj = DevelopersGames()
+    obj.writeToDB()

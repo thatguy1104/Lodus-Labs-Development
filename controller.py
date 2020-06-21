@@ -10,7 +10,7 @@ def updateSteam():
     return control.runControl()
 
 play_store_time = updatePlay()
-steam_time = updateSteam()
+# steam_time = updateSteam()
 
-print("Play Store finished in " + str(play_store_time))
-print("Steam finished in " + str(steam_time))
+# print("Play Store finished in " + str(play_store_time))
+# print("Steam finished in " + str(steam_time))

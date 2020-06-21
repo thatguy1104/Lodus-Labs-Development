@@ -99,8 +99,8 @@ class AllGamesForDev():
         # EXECUTE SQL COMMANDS
         cur.execute("DROP TABLE IF EXISTS play_app_ranks;")
         create = """CREATE TABLE play_app_ranks(
-            Developer           VARCHAR(100),
-            App_Name            VARCHAR(100),
+            Developer           NVARCHAR(100),
+            App_Name            NVARCHAR(100),
             App_Rank            INT,
             Total_Rating        BIGINT,
             Installs            VARCHAR(100),

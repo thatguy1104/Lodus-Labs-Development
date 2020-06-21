@@ -116,7 +116,7 @@ class GetAllRecordData():
         cur.execute("DROP TABLE IF EXISTS steam_all_games_all_data;")
         create = """CREATE TABLE steam_all_games_all_data(
             Month           VARCHAR(100),
-            name_           VARCHAR(100),
+            name_           NVARCHAR(100),
             ids             VARCHAR(100),
             avg_players     float,
             gains           float,

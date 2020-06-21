@@ -86,7 +86,7 @@ class SteamBandwidth():
         # EXECUTE SQL COMMANDS
         cur.execute("DROP TABLE IF EXISTS steam_network_data;")
         create = """CREATE TABLE steam_network_data(
-            Country                         text,
+            Country                         VARCHAR(100),
             Total_Bytes                     BIGINT,
             Avg_MB_Per_Sec                  NUMERIC,
             Percentage_of_Global_Traffic    FLOAT,
