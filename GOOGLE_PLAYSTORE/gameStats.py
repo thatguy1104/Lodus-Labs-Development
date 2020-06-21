@@ -37,6 +37,8 @@ class AllGamesForDev():
         even = soup.find_all('tr', class_='even')
         all_rows = odd + even
 
+        curr_date = datetime.datetime.now()
+
         results = []
         # SCRAPE THROUGH THE WEBSITE DATA TABLE
         for item in all_rows:
@@ -49,7 +51,6 @@ class AllGamesForDev():
             growth_30_days = row[6].text
             growth_60_days = row[7].text
             price = row[8].text.replace('\n', '')
-            curr_date = datetime.datetime.now()
             results.append([tittle, rank, rating, intalls, avg_rating, growth_30_days, growth_60_days, price, curr_date])
         return results
 
@@ -89,24 +90,6 @@ class AllGamesForDev():
         dbcur.close()
         return False
 
-    def createDB(self, ):
-        # EXECUTE SQL COMMANDS
-        cur.execute("DROP TABLE IF EXISTS play_app_ranks;")
-        create = """CREATE TABLE play_app_ranks(
-            Developer           NVARCHAR(100),
-            App_Name            NVARCHAR(100),
-            App_Rank            INT,
-            Total_Rating        BIGINT,
-            Installs            VARCHAR(100),
-            Average_Rating      FLOAT,
-            Growth_30_days      VARCHAR(100),
-            Growth_60_days      VARCHAR(100),
-            Price               VARCHAR(50),
-            Last_Updated        DATETIME
-        );"""
-        cur.execute(create)
-        print("Successully created DB: Table -> play_app_ranks DB -> {0}".format(self.database))
-
     def getAllGameStats(self):
         ids = self.getIDs()
 
@@ -129,7 +112,23 @@ class AllGamesForDev():
         cur = myConnection.cursor()
 
         if not self.checkTableExists(myConnection, 'trials'):
-            self.createDB()
+            # EXECUTE SQL COMMANDS
+            cur.execute("DROP TABLE IF EXISTS play_app_ranks;")
+            create = """CREATE TABLE play_app_ranks(
+                Developer           NVARCHAR(100),
+                App_Name            NVARCHAR(100),
+                App_Rank            INT,
+                Total_Rating        BIGINT,
+                Installs            VARCHAR(100),
+                Average_Rating      FLOAT,
+                Growth_30_days      VARCHAR(100),
+                Growth_60_days      VARCHAR(100),
+                Price               VARCHAR(50),
+                Last_Updated        DATETIME
+            );"""
+            cur.execute(create)
+            print("Successully created DB: Table -> play_app_ranks DB -> {0}".format(self.database))
+            myConnection.commit()
 
         # DIVIDE DATA INTO n CHUNKS
         n = 2000
