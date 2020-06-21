@@ -7,18 +7,15 @@ import datetime
 import time
 import csv
 import sys
-import configparser as cfg
 
 class DevelopersGames():
     def __init__(self):
         self.startLink = 'https://www.androidrank.org/developers/ranking?&start='
-        parser = cfg.ConfigParser()
-        parser.read('config.cfg')
-        self.server = parser.get('db_credentials', 'server')
-        self.database = parser.get('db_credentials', 'database')
-        self.username = parser.get('db_credentials', 'username')
-        self.password = parser.get('db_credentials', 'password')
-        self.driver = parser.get('db_credentials', 'driver')
+        self.server = 'serverteest.database.windows.net'
+        self.database = 'testdatabase'
+        self.username = 'login12391239'
+        self.password = 'HejsanHejsan!1'
+        self.driver = '{ODBC Driver 17 for SQL Server}'
 
     def progress(self, count, total, custom_text, suffix=''):
         bar_len = 60
@@ -68,25 +65,9 @@ class DevelopersGames():
         dbcur.close()
         return False
 
-    def createDB(self):
-        # EXECUTE SQL COMMANDS
-        cur.execute("DROP TABLE IF EXISTS play_dev_ranks;")
-        create = """CREATE TABLE play_dev_ranks(
-            Rank                INT,
-            Developer           NVARCHAR(200),
-            Total_Ratings       BIGINT DEFAULT 0,
-            Total_Installs      BIGINT DEFAULT 0,
-            Applications        INT DEFAULT 0,
-            Average_Rating      FLOAT DEFAULT 0.0,
-            Link                VARCHAR(200),
-            Last_Updated        DATETIME
-        );"""
-        cur.execute(create) 
-        print("Successully created DB: Table -> play_dev_ranks DB -> {0}".format(self.database))
-
     def writeToDB(self):
         start_page = 1
-        end_page = 131
+        end_page = 1361
         
         # SCRAPE ALL DATA FIRST
         data = []
@@ -103,7 +84,20 @@ class DevelopersGames():
         cur = myConnection.cursor()
 
         if not self.checkTableExists(myConnection, 'trials'):
-            self.createDB()
+            cur.execute("DROP TABLE IF EXISTS play_dev_ranks;")
+            create = """CREATE TABLE play_dev_ranks(
+                Rank                INT,
+                Developer           NVARCHAR(200),
+                Total_Ratings       BIGINT DEFAULT 0,
+                Total_Installs      BIGINT DEFAULT 0,
+                Applications        INT DEFAULT 0,
+                Average_Rating      FLOAT DEFAULT 0.0,
+                Link                VARCHAR(200),
+                Last_Updated        DATETIME
+            );"""
+            cur.execute(create)
+            print("Successully created DB: Table -> play_dev_ranks DB -> {0}".format(self.database))
+            myConnection.commit()
 
         # DO NOT WRITE IF LIST IS EMPTY DUE TO TOO MANY REQUESTS
         if data:
@@ -121,8 +115,6 @@ class DevelopersGames():
             print("Successully written to: Table -> play_dev_ranks DB -> {0}".format(self.database))
         myConnection.commit()
         myConnection.close()
-
-        return t1-t0
 
 def run():
     obj = DevelopersGames()

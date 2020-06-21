@@ -68,30 +68,15 @@ class DevelopersGames():
         dbcur.close()
         return False
 
-    def createDB(self):
-        # EXECUTE SQL COMMANDS
-        cur.execute("DROP TABLE IF EXISTS play_dev_ranks;")
-        create = """CREATE TABLE play_dev_ranks(
-            Rank                INT,
-            Developer           NVARCHAR(200),
-            Total_Ratings       BIGINT DEFAULT 0,
-            Total_Installs      BIGINT DEFAULT 0,
-            Applications        INT DEFAULT 0,
-            Average_Rating      FLOAT DEFAULT 0.0,
-            Link                VARCHAR(200),
-            Last_Updated        DATETIME
-        );"""
-        cur.execute(create) 
-        print("Successully created DB: Table -> play_dev_ranks DB -> {0}".format(self.database))
-
     def writeToDB(self):
         start_page = 1
-        end_page = 1341
-        
+        end_page = 1361
+
         # SCRAPE ALL DATA FIRST
         data = []
         while start_page != end_page:
-            self.progress(start_page, end_page, "scraping for <play_dev_ranks>")
+            self.progress(start_page, end_page,
+                        "scraping for <play_dev_ranks>")
             data_list = self.scrape(str(start_page))
             for i in range(len(data_list)):
                 data.append(data_list[i])
@@ -99,14 +84,31 @@ class DevelopersGames():
         sys.stdout.write('\n')
 
         # CONNECT TO DATABASE
-        myConnection = pyodbc.connect('DRIVER='+self.driver+';SERVER='+self.server+';PORT=1433;DATABASE='+self.database+';UID='+self.username+';PWD='+self.password)
+        myConnection = pyodbc.connect('DRIVER='+self.driver+';SERVER='+self.server +
+                                      ';PORT=1433;DATABASE='+self.database+';UID='+self.username+';PWD='+self.password)
         cur = myConnection.cursor()
 
         if not self.checkTableExists(myConnection, 'trials'):
-            self.createDB()
+            cur.execute("DROP TABLE IF EXISTS play_dev_ranks;")
+            create = """CREATE TABLE play_dev_ranks(
+                Rank                INT,
+                Developer           NVARCHAR(200),
+                Total_Ratings       BIGINT DEFAULT 0,
+                Total_Installs      BIGINT DEFAULT 0,
+                Applications        INT DEFAULT 0,
+                Average_Rating      FLOAT DEFAULT 0.0,
+                Link                VARCHAR(200),
+                Last_Updated        DATETIME
+            );"""
+            cur.execute(create)
+            print(
+                "Successully created DB: Table -> play_dev_ranks DB -> {0}".format(self.database))
+            myConnection.commit()
 
         # DO NOT WRITE IF LIST IS EMPTY DUE TO TOO MANY REQUESTS
-        if data:
+        if not data:
+            print("Not written --> too many requests")
+        else:
             # RECORD INITIAL TIME OF WRITING
             t0 = time.time()
 
@@ -114,11 +116,12 @@ class DevelopersGames():
             cur.fast_executemany = True
             insertion = "INSERT INTO play_dev_ranks(Rank, Developer, Total_Ratings, Total_Installs, Applications, Average_Rating, Link, Last_Updated) VALUES (?, ?, ?, ?, ?, ?, ?, ?)"
             cur.executemany(insertion, data)
-            
+
             # RECORD END TIME OF WRITING
             t1 = time.time()
 
             print("Successully written to: Table -> play_dev_ranks DB -> {0}".format(self.database))
+        
         myConnection.commit()
         myConnection.close()
 
