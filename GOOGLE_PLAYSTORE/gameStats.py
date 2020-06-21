@@ -135,23 +135,25 @@ class AllGamesForDev():
         n = 2000
         final = [data[i * n:(i + 1) * n] for i in range((len(data) + n - 1) // n )]
 
-        # RECORD INITIAL TIME OF WRITING
-        t0 = time.time()
+        # DO NOT WRITE IF LIST IS EMPTY DUE TO TOO MANY REQUESTS
+        if data:
+            # RECORD INITIAL TIME OF WRITING
+            t0 = time.time()
 
-        # ITERATE THROUGH DICT AND INSERT VALUES ROW-BY
-        counter = 0
-        for elem in final:
-            self.progress(counter, len(final), "writing to <play_app_ranks>")
-            cur.fast_executemany = True
-            insertion = "INSERT INTO play_app_ranks(Developer, App_Name, App_Rank, Total_Rating, Installs, Average_Rating, Growth_30_days, Growth_60_days, Price, Last_Updated) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"
-            cur.executemany(insertion, elem)
-            counter += 1
-        sys.stdout.write('\n')
-        
-        # RECORD END TIME OF WRITING
-        t1 = time.time()
+            # ITERATE THROUGH DICT AND INSERT VALUES ROW-BY
+            counter = 0
+            for elem in final:
+                self.progress(counter, len(final), "writing to <play_app_ranks>")
+                cur.fast_executemany = True
+                insertion = "INSERT INTO play_app_ranks(Developer, App_Name, App_Rank, Total_Rating, Installs, Average_Rating, Growth_30_days, Growth_60_days, Price, Last_Updated) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"
+                cur.executemany(insertion, elem)
+                counter += 1
+            sys.stdout.write('\n')
+            
+            # RECORD END TIME OF WRITING
+            t1 = time.time()
 
-        print("Successully written to: Table -> play_app_ranks DB -> {0}".format(self.database))
+            print("Successully written to: Table -> play_app_ranks DB -> {0}".format(self.database))
         myConnection.commit()
         myConnection.close()
 

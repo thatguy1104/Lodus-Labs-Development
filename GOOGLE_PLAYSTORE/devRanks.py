@@ -104,19 +104,21 @@ class DevelopersGames():
 
         if not self.checkTableExists(myConnection, 'trials'):
             self.createDB()
-        
-        # RECORD INITIAL TIME OF WRITING
-        t0 = time.time()
 
-        # INSERT THE VALUES INTO DB TABLE
-        cur.fast_executemany = True
-        insertion = "INSERT INTO play_dev_ranks(Rank, Developer, Total_Ratings, Total_Installs, Applications, Average_Rating, Link, Last_Updated) VALUES (?, ?, ?, ?, ?, ?, ?, ?)"
-        cur.executemany(insertion, data)
-        
-        # RECORD END TIME OF WRITING
-        t1 = time.time()
+        # DO NOT WRITE IF LIST IS EMPTY DUE TO TOO MANY REQUESTS
+        if data:
+            # RECORD INITIAL TIME OF WRITING
+            t0 = time.time()
 
-        print("Successully written to: Table -> play_dev_ranks DB -> {0}".format(self.database))
+            # INSERT THE VALUES INTO DB TABLE
+            cur.fast_executemany = True
+            insertion = "INSERT INTO play_dev_ranks(Rank, Developer, Total_Ratings, Total_Installs, Applications, Average_Rating, Link, Last_Updated) VALUES (?, ?, ?, ?, ?, ?, ?, ?)"
+            cur.executemany(insertion, data)
+            
+            # RECORD END TIME OF WRITING
+            t1 = time.time()
+
+            print("Successully written to: Table -> play_dev_ranks DB -> {0}".format(self.database))
         myConnection.commit()
         myConnection.close()
 
