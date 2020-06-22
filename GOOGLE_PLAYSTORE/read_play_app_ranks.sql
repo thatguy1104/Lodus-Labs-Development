@@ -1,5 +1,5 @@
 SELECT TOP (1000)
-  [Developer]
+        [Developer]
       , [App_Name]
       , [App_Rank]
       , [Total_Rating]

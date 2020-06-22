@@ -135,7 +135,9 @@ class AllGamesForDev():
         final = [data[i * n:(i + 1) * n] for i in range((len(data) + n - 1) // n )]
 
         # DO NOT WRITE IF LIST IS EMPTY DUE TO TOO MANY REQUESTS
-        if data:
+        if not data:
+            print("Not written --> too many requests")
+        else:
             # RECORD INITIAL TIME OF WRITING
             t0 = time.time()
 
