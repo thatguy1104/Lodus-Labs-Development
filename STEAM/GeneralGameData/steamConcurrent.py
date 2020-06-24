@@ -97,8 +97,7 @@ class steamConcurrent():
         data = []
         curr_date = datetime.datetime.now()
 
-        # pages
-        for p in range(1, 10):
+        for p in range(1, pages):
             self.progress(p, pages, "scraping for <steam_concurrentGames>")
             name, current, peak, hours_played = self.getTopGamesByPlayerCount(p)
             for i in range(len(name)):
@@ -113,7 +112,7 @@ class steamConcurrent():
             # EXECUTE SQL COMMANDS
             cur.execute("DROP TABLE IF EXISTS steam_concurrentGames;")
             create = """CREATE TABLE steam_concurrentGames(
-                Name_               NVARCHAR,
+                Name_               NVARCHAR(255),
                 Current_Players     BIGINT,
                 Peak_Today          BIGINT,
                 Hours_Played        BIGINT,
