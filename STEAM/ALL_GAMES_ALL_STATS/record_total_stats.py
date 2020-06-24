@@ -14,7 +14,6 @@ import configparser as cfg
 
 class GetAllRecordData():
     def __init__(self):
-        self.writeFILE = 'ALL_GAMES_ALL_STATS/recordsAllGameStats.json'
         self.linkGeneral = 'https://store.steampowered.com/stats/'
         self.linkAll = 'https://steamcharts.com/top/p.'
         self.response = requests.get(self.linkGeneral)

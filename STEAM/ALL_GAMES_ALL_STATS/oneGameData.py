@@ -2,6 +2,7 @@ from bs4 import BeautifulSoup
 import requests
 import lxml
 import json
+import datetime
 
 class GameStats():
     def __init__(self, gameID):
@@ -56,8 +57,15 @@ class GameStats():
             initial_1 = month[i].text.replace('\t', '')
             mid_1 = initial_1.replace('\n', '')
             separate = mid_1.split(' ')
-            all_months.append(separate[0])
-            all_years.append(int(separate[1]))
+
+            if separate[0] == "Last":
+                ok = datetime.datetime.now()
+                current_month = ok.strftime("%B")
+                all_months.append(current_month)
+                all_years.append(datetime.datetime.now().year)
+            else:
+                all_months.append(separate[0])
+                all_years.append(int(separate[1]))
 
             initial_2 = avg_player[i].text.replace('\t', '')
             mid_2 = initial_2.replace('\n', '')
