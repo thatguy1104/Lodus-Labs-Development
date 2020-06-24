@@ -27,7 +27,7 @@ class PlayController():
         # START TIME
         t0 = time.time()
 
-        # ranks = self.load_Ranks()
+        ranks = self.load_Ranks()
         apps = self.load_Apps()
 
         # file1 = open("WRITING_TIMES.txt", "a")

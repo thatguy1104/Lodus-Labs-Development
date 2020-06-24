@@ -101,8 +101,7 @@ class DevelopersGames():
                 Last_Updated        DATETIME
             );"""
             cur.execute(create)
-            print(
-                "Successully created DB: Table -> play_dev_ranks DB -> {0}".format(self.database))
+            print("Successully created DB: Table -> play_dev_ranks DB -> {0}".format(self.database))
             myConnection.commit()
 
         # DO NOT WRITE IF LIST IS EMPTY DUE TO TOO MANY REQUESTS
