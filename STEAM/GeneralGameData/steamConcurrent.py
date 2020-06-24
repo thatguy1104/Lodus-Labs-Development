@@ -40,6 +40,20 @@ class steamConcurrent():
         sys.stdout.write('[%s] %s%s %s %s\r' % (bar, percents, '%', custom_text, suffix))
         sys.stdout.flush()
 
+    def checkTableExists(self, dbcon, tablename):
+        dbcur = dbcon.cursor()
+        dbcur.execute("""
+            SELECT COUNT(*)
+            FROM information_schema.tables
+            WHERE table_name = '{0}'
+            """.format(tablename.replace('\'', '\'\'')))
+        if dbcur.fetchone()[0] == 1:
+            dbcur.close()
+            return True
+
+        dbcur.close()
+        return False
+
     def getTopGamesByPlayerCount(self, page):
         link = self.linkAll + str(page)
         response = requests.get(link)
@@ -82,7 +96,9 @@ class steamConcurrent():
         # SCRAPE THE DATA FIRST
         data = []
         curr_date = datetime.datetime.now()
-        for p in range(1, pages):
+
+        # pages
+        for p in range(1, 10):
             self.progress(p, pages, "scraping for <steam_concurrentGames>")
             name, current, peak, hours_played = self.getTopGamesByPlayerCount(p)
             for i in range(len(name)):
@@ -93,30 +109,37 @@ class steamConcurrent():
         myConnection = pyodbc.connect('DRIVER='+self.driver+';SERVER='+self.server+';PORT=1433;DATABASE='+self.database+';UID='+self.username+';PWD='+self.password)
         cur = myConnection.cursor()
 
-        # EXECUTE SQL COMMANDS
-        cur.execute("DROP TABLE IF EXISTS steam_concurrentGames;")
-        create = """CREATE TABLE steam_concurrentGames(
-            Name_               NVARCHAR,
-            Current_Players     BIGINT,
-            Peak_Today          BIGINT,
-            Hours_Played        BIGINT,
-            Last_Updated        DATETIME
-        );"""
-        cur.execute(create)
-        print("Successully created DB Table: steam_concurrentGames")
+        if not self.checkTableExists(myConnection, 'steam_concurrentGames'):
+            # EXECUTE SQL COMMANDS
+            cur.execute("DROP TABLE IF EXISTS steam_concurrentGames;")
+            create = """CREATE TABLE steam_concurrentGames(
+                Name_               NVARCHAR,
+                Current_Players     BIGINT,
+                Peak_Today          BIGINT,
+                Hours_Played        BIGINT,
+                Last_Updated        DATETIME
+            );"""
+            cur.execute(create)
+            print("Successully created DB Table: steam_concurrentGames")
+            myConnection.commit()
 
-        # RECORD INITIAL TIME OF WRITING
-        t0 = time.time()
+        # DO NOT WRITE IF LIST IS EMPTY DUE TO TOO MANY REQUESTS
+        if not data:
+            print("Not written --> too many requests")
+        else:
+            # RECORD INITIAL TIME OF WRITING
+            t0 = time.time()
 
-        # EXECUTE INSERTION INTO DB
-        cur.fast_executemany = True
-        insertion = "INSERT INTO steam_concurrentGames(Name_, Current_Players, Peak_Today, Hours_Played, Last_Updated) VALUES (?, ?, ?, ?, ?)"
-        cur.executemany(insertion, data)
+            # EXECUTE INSERTION INTO DB TABLE
+            cur.fast_executemany = True
+            insertion = "INSERT INTO steam_concurrentGames(Name_, Current_Players, Peak_Today, Hours_Played, Last_Updated) VALUES (?, ?, ?, ?, ?)"
+            cur.executemany(insertion, data)
 
-        # RECORD END TIME OF WRITING
-        t1 = time.time()
+            # RECORD END TIME OF WRITING
+            t1 = time.time()
 
-        print("Successully written to table <steam_concurrentGames> (db: {0})".format(self.database))
+            print("Successully written to table <steam_concurrentGames> (db: {0})".format(self.database))
+            
         myConnection.commit()
         myConnection.close()
 

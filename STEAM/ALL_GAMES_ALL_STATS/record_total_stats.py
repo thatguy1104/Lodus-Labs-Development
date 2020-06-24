@@ -37,6 +37,20 @@ class GetAllRecordData():
         sys.stdout.write('[%s] %s%s %s %s\r' % (bar, percents, '%', custom_text, suffix))
         sys.stdout.flush()
 
+    def checkTableExists(self, dbcon, tablename):
+        dbcur = dbcon.cursor()
+        dbcur.execute("""
+            SELECT COUNT(*)
+            FROM information_schema.tables
+            WHERE table_name = '{0}'
+            """.format(tablename.replace('\'', '\'\'')))
+        if dbcur.fetchone()[0] == 1:
+            dbcur.close()
+            return True
+
+        dbcur.close()
+        return False
+
     def getTopGamesByPlayerCount(self, page):
         link = self.linkAll + str(page)
         response = requests.get(link)
@@ -64,7 +78,8 @@ class GetAllRecordData():
         return all_game_names, all_game_id
 
     def readGameIds(self):
-        pages = 448
+        # pages = 448
+        pages = 2
         ids = []
         names = []
 
@@ -84,6 +99,8 @@ class GetAllRecordData():
         # RECORD DATA
         data = []
         curr_date = datetime.datetime.now()
+
+        # len(names)
         for i in range(len(names)):
             self.progress(i, len(names), "scraping for <steam_all_games_all_data>")
 
@@ -91,7 +108,7 @@ class GetAllRecordData():
             one_game = GameStats(get_all_ids[i])
             
             # SCRAPE DATA FOR A GIVEN GAME
-            all_months, all_players, all_gains, all_percent_gains, all_peak_players = one_game.getOneGameData()
+            all_months, all_years, all_players, all_gains, all_percent_gains, all_peak_players = one_game.getOneGameData()
             name = names[i]
             id_ = get_all_ids[i]
 
@@ -105,48 +122,56 @@ class GetAllRecordData():
                 f = float(all_players[j])
                 f2 = float(all_gains[j])
                 inte = int(all_peak_players[j])
-                data.append((all_months[j], name, id_, f, f2, all_percent_gains[j], inte, curr_date))
+                data.append((all_months[j], all_years[j], name, id_, f, f2, all_percent_gains[j], inte, curr_date))
         sys.stdout.write('\n')
 
         # CONNECT TO A SERVER DATABASE
         myConnection = pyodbc.connect('DRIVER='+self.driver+';SERVER='+self.server+';PORT=1433;DATABASE='+self.database+';UID='+self.username+';PWD='+self.password)
         cur = myConnection.cursor()
 
-        # RESET THE TABLE
-        cur.execute("DROP TABLE IF EXISTS steam_all_games_all_data;")
-        create = """CREATE TABLE steam_all_games_all_data(
-            Month           VARCHAR(100),
-            name_           NVARCHAR(100),
-            ids             VARCHAR(100),
-            avg_players     float,
-            gains           float,
-            percent_gains   VARCHAR(100),
-            peak_players    BIGINT,
-            Last_Updated    DATETIME
-        );"""
-        cur.execute(create)
-        print("Successully created DB Table: steam_all_games_all_data")
+        if not self.checkTableExists(myConnection, 'steam_all_games_all_data'):
+            # RESET THE TABLE
+            cur.execute("DROP TABLE IF EXISTS steam_all_games_all_data;")
+            create = """CREATE TABLE steam_all_games_all_data(
+                Month           VARCHAR(100),
+                Year_           INT,
+                name_           NVARCHAR(100),
+                ids             VARCHAR(100),
+                avg_players     float,
+                gains           float,
+                percent_gains   VARCHAR(100),
+                peak_players    BIGINT,
+                Last_Updated    DATETIME
+            );"""
+            cur.execute(create)
+            myConnection.commit()
+            print("Successully created DB Table: steam_all_games_all_data")
 
         # DIVIDE DATA INTO n CHUNKS
         n = 1000
         final = [data[i * n:(i + 1) * n] for i in range((len(data) + n - 1) // n )]
 
-        # RECORD INITIAL TIME OF WRITING
-        t0 = time.time()
-
-        # ITERATE THROUGH DICT AND INSERT VALUES ROW-BY-ROW
         cur.fast_executemany = True
         count = 1
-        for elem in final:
-            self.progress(count, len(final), "writing to <steam_all_games_all_data>")
-            insertion = "INSERT into steam_all_games_all_data(Month, name_, ids, avg_players, gains, percent_gains, peak_players, Last_Updated) VALUES (?, ?, ?, ?, ?, ?, ?, ?)"
-            cur.executemany(insertion, elem)
-            count += 1
+        # DO NOT WRITE IF LIST IS EMPTY DUE TO TOO MANY REQUESTS
+        if not data:
+            print("Not written --> too many requests")
+        else:
+            # RECORD INITIAL TIME OF WRITING
+            t0 = time.time()
 
-        # RECORD END TIME OF WRITING
-        t1 = time.time()
+            # ITERATE THROUGH DICT AND INSERT VALUES ROW-BY-ROW
+            for elem in final:
+                self.progress(count, len(final), "writing to <steam_all_games_all_data>")
+                insertion = "INSERT into steam_all_games_all_data(Month, Year_, name_, ids, avg_players, gains, percent_gains, peak_players, Last_Updated) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)"
+                cur.executemany(insertion, elem)
+                count += 1
 
-        print("Successully written to table <steam_all_games_all_data> (db: {0})".format(self.database))
+            # RECORD END TIME OF WRITING
+            t1 = time.time()
+
+            print("Successully written to table <steam_all_games_all_data> (db: {0})".format(self.database))
+            
         myConnection.commit()
         myConnection.close()
 

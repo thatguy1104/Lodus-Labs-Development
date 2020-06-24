@@ -62,6 +62,20 @@ class SteamBandwidth():
         sys.stdout.write('[%s] %s%s %s %s\r' % (bar, percents, '%', custom_text, suffix))
         sys.stdout.flush()
 
+    def checkTableExists(self, dbcon, tablename):
+        dbcur = dbcon.cursor()
+        dbcur.execute("""
+            SELECT COUNT(*)
+            FROM information_schema.tables
+            WHERE table_name = '{0}'
+            """.format(tablename.replace('\'', '\'\'')))
+        if dbcur.fetchone()[0] == 1:
+            dbcur.close()
+            return True
+
+        dbcur.close()
+        return False
+
     def writeBandwidthSteam(self):
         # DATA:
         bandwidthFile = self.setup()
@@ -83,30 +97,37 @@ class SteamBandwidth():
         myConnection = pyodbc.connect('DRIVER='+self.driver+';SERVER='+self.server+';PORT=1433;DATABASE='+self.database+';UID='+self.username+';PWD='+self.password)
         cur = myConnection.cursor()
 
-        # EXECUTE SQL COMMANDS
-        cur.execute("DROP TABLE IF EXISTS steam_network_data;")
-        create = """CREATE TABLE steam_network_data(
-            Country                         VARCHAR(100),
-            Total_Bytes                     BIGINT,
-            Avg_MB_Per_Sec                  NUMERIC,
-            Percentage_of_Global_Traffic    FLOAT,
-            Last_Updated                    DATETIME DEFAULT CURRENT_TIMESTAMP
-        );"""
-        cur.execute(create)
-        print("Successully created table <steam_network_data>")
+        if not self.checkTableExists(myConnection, 'steam_network_data'):
+            # EXECUTE SQL COMMANDS
+            cur.execute("DROP TABLE IF EXISTS steam_network_data;")
+            create = """CREATE TABLE steam_network_data(
+                Country                         VARCHAR(100),
+                Total_Bytes                     BIGINT,
+                Avg_MB_Per_Sec                  NUMERIC,
+                Percentage_of_Global_Traffic    FLOAT,
+                Last_Updated                    DATETIME DEFAULT CURRENT_TIMESTAMP
+            );"""
+            cur.execute(create)
+            myConnection.commit()
+            print("Successully created table <steam_network_data>")
 
-        # RECORD INITIAL TIME OF WRITING
-        t0 = time.time()
+        # DO NOT WRITE IF LIST IS EMPTY DUE TO TOO MANY REQUESTS
+        if not data:
+            print("Not written --> too many requests")
+        else:
+            # RECORD INITIAL TIME OF WRITING
+            t0 = time.time()
 
-        # EXECUTE INSERTION INTO DB
-        cur.fast_executemany = True
-        insertion = "INSERT INTO steam_network_data(Country, Total_Bytes, Avg_MB_Per_Sec, Percentage_of_Global_Traffic, Last_Updated) VALUES (?, ?, ?, ?, ?)"
-        cur.executemany(insertion, data)
+            # EXECUTE INSERTION INTO DB
+            cur.fast_executemany = True
+            insertion = "INSERT INTO steam_network_data(Country, Total_Bytes, Avg_MB_Per_Sec, Percentage_of_Global_Traffic, Last_Updated) VALUES (?, ?, ?, ?, ?)"
+            cur.executemany(insertion, data)
 
-        # RECORD END TIME OF WRITING
-        t1 = time.time()
+            # RECORD END TIME OF WRITING
+            t1 = time.time()
 
-        print("Successully written to table <steam_network_data> (db: {0})".format(self.database))
+            print("Successully written to table <steam_network_data> (db: {0})".format(self.database))
+
         myConnection.commit()
         myConnection.close()
 

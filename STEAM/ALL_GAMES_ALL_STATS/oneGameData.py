@@ -45,6 +45,7 @@ class GameStats():
 
     def getOneGameData(self):
         month, avg_player, gain, percent_gain, peak_players = self.recieveData()
+        all_years = []
         all_months = []
         all_players = []
         all_gains = []
@@ -54,7 +55,9 @@ class GameStats():
         for i in range(len(month)):
             initial_1 = month[i].text.replace('\t', '')
             mid_1 = initial_1.replace('\n', '')
-            all_months.append(mid_1)
+            separate = mid_1.split(' ')
+            all_months.append(separate[0])
+            all_years.append(int(separate[1]))
 
             initial_2 = avg_player[i].text.replace('\t', '')
             mid_2 = initial_2.replace('\n', '')
@@ -68,7 +71,7 @@ class GameStats():
             mid_5 = initial_5.replace('\n', '')
             all_peak_players.append(mid_5)
 
-        return all_months, all_players, all_gains, all_percent_gains, all_peak_players
+        return all_months, all_years, all_players, all_gains, all_percent_gains, all_peak_players
 
     # def writeToJSON(self):
     #     all_months, all_players, all_gains, all_percent_gains, all_peak_players = self.getOneGameData()
