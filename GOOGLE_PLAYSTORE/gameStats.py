@@ -8,6 +8,7 @@ import time
 import sys
 import configparser as cfg
 
+
 class AllGamesForDev():
     def __init__(self):
         self.link = 'https://www.androidrank.org'
@@ -51,18 +52,20 @@ class AllGamesForDev():
             growth_30_days = row[6].text
             growth_60_days = row[7].text
             price = row[8].text.replace('\n', '')
-            results.append([tittle, rank, rating, intalls, avg_rating, growth_30_days, growth_60_days, price, curr_date])
+            results.append(
+                [tittle, rank, rating, intalls, avg_rating, growth_30_days, growth_60_days, price, curr_date])
         return results
 
     def getIDs(self):
         ids = []
 
         # CONNECT TO DATABASE
-        myConnection = pyodbc.connect('DRIVER='+self.driver+';SERVER='+self.server+';PORT=1433;DATABASE='+self.database+';UID='+self.username+';PWD='+self.password)
+        myConnection = pyodbc.connect(
+            'DRIVER=' + self.driver + ';SERVER=' + self.server + ';PORT=1433;DATABASE=' + self.database + ';UID=' + self.username + ';PWD=' + self.password)
         cur = myConnection.cursor()
 
         # READ IDS FROM NEIGHBOURING DB (project_data) & TABLE (play_dev_ranks): 
-        read =  """SELECT developer,link FROM play_dev_ranks"""
+        read = """SELECT developer,link FROM play_dev_ranks"""
         cur.execute(read)
         result = cur.fetchall()
 
@@ -104,11 +107,12 @@ class AllGamesForDev():
             for i in range(len(resultOne)):
                 resultOne[i].insert(0, devel)
                 data.append(tuple(resultOne[i]))
-            count += 1  
+            count += 1
         sys.stdout.write('\n')
 
         # CONNECT TO DATABASE
-        myConnection = pyodbc.connect('DRIVER='+self.driver+';SERVER='+self.server+';PORT=1433;DATABASE='+self.database+';UID='+self.username+';PWD='+self.password)
+        myConnection = pyodbc.connect(
+            'DRIVER=' + self.driver + ';SERVER=' + self.server + ';PORT=1433;DATABASE=' + self.database + ';UID=' + self.username + ';PWD=' + self.password)
         cur = myConnection.cursor()
 
         if not self.checkTableExists(myConnection, 'trials'):
@@ -132,7 +136,7 @@ class AllGamesForDev():
 
         # DIVIDE DATA INTO n CHUNKS
         n = 2000
-        final = [data[i * n:(i + 1) * n] for i in range((len(data) + n - 1) // n )]
+        final = [data[i * n:(i + 1) * n] for i in range((len(data) + n - 1) // n)]
 
         # DO NOT WRITE IF LIST IS EMPTY DUE TO TOO MANY REQUESTS
         if not data:
@@ -150,7 +154,7 @@ class AllGamesForDev():
                 cur.executemany(insertion, elem)
                 counter += 1
             sys.stdout.write('\n')
-            
+
             # RECORD END TIME OF WRITING
             t1 = time.time()
 
@@ -158,4 +162,4 @@ class AllGamesForDev():
         myConnection.commit()
         myConnection.close()
 
-        return t1-t0
+        return t1 - t0

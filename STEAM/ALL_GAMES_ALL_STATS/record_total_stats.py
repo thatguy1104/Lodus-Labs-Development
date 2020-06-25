@@ -12,6 +12,7 @@ import time
 import sys
 import configparser as cfg
 
+
 class GetAllRecordData():
     def __init__(self):
         self.linkGeneral = 'https://store.steampowered.com/stats/'
@@ -55,12 +56,10 @@ class GetAllRecordData():
         response = requests.get(link)
         soup = BeautifulSoup(response.text, 'lxml')
 
-        all_rows = soup.find_all('tr')
         all_game_names = []
         all_game_id = []
 
         names = soup.find_all('td', class_='game-name left')
-        current_p = soup.find_all('td', class_='num')
 
         for tittle in names:
             game_name = tittle.find('a')
@@ -103,7 +102,7 @@ class GetAllRecordData():
 
             # PREPARE THE IDs
             one_game = GameStats(get_all_ids[i])
-            
+
             # SCRAPE DATA FOR A GIVEN GAME
             all_months, all_years, all_players, all_gains, all_percent_gains, all_peak_players = one_game.getOneGameData()
             name = names[i]
@@ -114,7 +113,7 @@ class GetAllRecordData():
 
             if len(all_percent_gains) is not 0:
                 all_percent_gains[len(all_percent_gains) - 1] = '0'
-            
+
             for j in range(len(all_months)):
                 f = float(all_players[j])
                 f2 = float(all_gains[j])
@@ -123,7 +122,8 @@ class GetAllRecordData():
         sys.stdout.write('\n')
 
         # CONNECT TO A SERVER DATABASE
-        myConnection = pyodbc.connect('DRIVER='+self.driver+';SERVER='+self.server+';PORT=1433;DATABASE='+self.database+';UID='+self.username+';PWD='+self.password)
+        myConnection = pyodbc.connect(
+            'DRIVER=' + self.driver + ';SERVER=' + self.server + ';PORT=1433;DATABASE=' + self.database + ';UID=' + self.username + ';PWD=' + self.password)
         cur = myConnection.cursor()
 
         if not self.checkTableExists(myConnection, 'steam_all_games_all_data'):
@@ -146,7 +146,7 @@ class GetAllRecordData():
 
         # DIVIDE DATA INTO n CHUNKS
         n = 1000
-        final = [data[i * n:(i + 1) * n] for i in range((len(data) + n - 1) // n )]
+        final = [data[i * n:(i + 1) * n] for i in range((len(data) + n - 1) // n)]
 
         cur.fast_executemany = True
         # DO NOT WRITE IF LIST IS EMPTY DUE TO TOO MANY REQUESTS
@@ -168,11 +168,11 @@ class GetAllRecordData():
             t1 = time.time()
 
             print("Successully written to table <steam_all_games_all_data> (db: {0})".format(self.database))
-            
+
         myConnection.commit()
         myConnection.close()
 
-        return t1-t0
+        return t1 - t0
 
     def record(self):
         return self.getOneGameStats()

@@ -9,6 +9,7 @@ import csv
 import sys
 import configparser as cfg
 
+
 class DevelopersGames():
     def __init__(self):
         self.startLink = 'https://www.androidrank.org/developers/ranking?&start='
@@ -33,11 +34,11 @@ class DevelopersGames():
     def scrape(self, page):
         response = requests.get(self.startLink + page)
         soup = BeautifulSoup(response.text, 'lxml')
-        
+
         odd = soup.find_all('tr', class_='odd')
         even = soup.find_all('tr', class_='even')
-        all_rows =  odd + even
-        
+        all_rows = odd + even
+
         results = []
         for item in all_rows:
             row = item.find_all('td')
@@ -50,10 +51,10 @@ class DevelopersGames():
             avg_rating = float(row[5].text)
             curr_date = datetime.datetime.now()
             results.append((rank, row[1].text, ratings, installs, applications, avg_rating, link, curr_date))
-        
+
         results = sorted(results, key=lambda x: x[0])
         return results
-        
+
     def checkTableExists(self, dbcon, tablename):
         dbcur = dbcon.cursor()
         dbcur.execute("""
@@ -76,7 +77,7 @@ class DevelopersGames():
         data = []
         while start_page != end_page:
             self.progress(start_page, end_page,
-                        "scraping for <play_dev_ranks>")
+                          "scraping for <play_dev_ranks>")
             data_list = self.scrape(str(start_page))
             for i in range(len(data_list)):
                 data.append(data_list[i])
@@ -84,8 +85,8 @@ class DevelopersGames():
         sys.stdout.write('\n')
 
         # CONNECT TO DATABASE
-        myConnection = pyodbc.connect('DRIVER='+self.driver+';SERVER='+self.server +
-                                      ';PORT=1433;DATABASE='+self.database+';UID='+self.username+';PWD='+self.password)
+        myConnection = pyodbc.connect('DRIVER=' + self.driver + ';SERVER=' + self.server +
+                                      ';PORT=1433;DATABASE=' + self.database + ';UID=' + self.username + ';PWD=' + self.password)
         cur = myConnection.cursor()
 
         if not self.checkTableExists(myConnection, 'trials'):
@@ -120,8 +121,8 @@ class DevelopersGames():
             t1 = time.time()
 
             print("Successully written to: Table -> play_dev_ranks DB -> {0}".format(self.database))
-        
+
         myConnection.commit()
         myConnection.close()
 
-        return t1-t0
+        return t1 - t0

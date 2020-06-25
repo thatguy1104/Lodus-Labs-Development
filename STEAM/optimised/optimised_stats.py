@@ -4,6 +4,7 @@ import lxml
 import json
 import datetime
 
+
 class OptimisedGameStats():
     def __init__(self, gameID):
         self.GameID = gameID
@@ -27,7 +28,7 @@ class OptimisedGameStats():
 
         # SPECIFY NUMBER OF PREVIOUS MONTHS TO INCLUDE IN THE SCRAPE DATA
         rows_to_record = 1
-        
+
         count_rows = 0
         if len(rows) != 0:
             for i in range(0, len(rows)):
@@ -44,7 +45,7 @@ class OptimisedGameStats():
 
             month.append(row_elements[0])
             avg_players.append(row_elements[1])
- 
+
             try:
                 gain.append(float(row_elements[2]))
             except:
@@ -60,7 +61,7 @@ class OptimisedGameStats():
         month, avg_player, gain, percent_gain, peak_players = self.recieveData()
         all_years = []
         all_months = []
-        
+
         # SEPARATE MONTH AND YEAR STRING
         for i in range(len(month)):
             separate = month[i].split(' ')
@@ -74,4 +75,3 @@ class OptimisedGameStats():
                 all_years.append(int(separate[1]))
 
         return all_months, all_years, avg_player, gain, percent_gain, peak_players
-

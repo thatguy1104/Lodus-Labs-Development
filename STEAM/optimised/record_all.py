@@ -11,6 +11,7 @@ import datetime
 import time
 import sys
 
+
 class OptimisedStats():
     def __init__(self):
         self.linkGeneral = 'https://store.steampowered.com/stats/'
@@ -52,12 +53,10 @@ class OptimisedStats():
         response = requests.get(link)
         soup = BeautifulSoup(response.text, 'lxml')
 
-        all_rows = soup.find_all('tr')
         all_game_names = []
         all_game_id = []
 
         names = soup.find_all('td', class_='game-name left')
-        current_p = soup.find_all('td', class_='num')
 
         for tittle in names:
             game_name = tittle.find('a')
@@ -74,8 +73,7 @@ class OptimisedStats():
         return all_game_names, all_game_id
 
     def readGameIds(self):
-        # pages = 448
-        pages = 2
+        pages = 448
         ids = []
         names = []
 
@@ -100,12 +98,12 @@ class OptimisedStats():
 
             # PREPARE THE IDs
             one_game = OptimisedGameStats(get_all_ids[i])
-            
+
             # SCRAPE DATA FOR A GIVEN GAME
             all_months, all_years, all_players, all_gains, all_percent_gains, all_peak_players = one_game.getOneGameData()
             name = names[i]
             id_ = get_all_ids[i]
-            
+
             for j in range(len(all_months)):
                 f = float(all_players[j])
                 f2 = float(all_gains[j])
@@ -114,7 +112,8 @@ class OptimisedStats():
         sys.stdout.write('\n')
 
         # CONNECT TO A SERVER DATABASE
-        myConnection = pyodbc.connect('DRIVER='+self.driver+';SERVER='+self.server+';PORT=1433;DATABASE='+self.database+';UID='+self.username+';PWD='+self.password)
+        myConnection = pyodbc.connect(
+            'DRIVER=' + self.driver + ';SERVER=' + self.server + ';PORT=1433;DATABASE=' + self.database + ';UID=' + self.username + ';PWD=' + self.password)
         cur = myConnection.cursor()
 
         # if not self.checkTableExists(myConnection, 'steam_optimised_all_games_all_data'):
@@ -137,7 +136,7 @@ class OptimisedStats():
 
         # DIVIDE DATA INTO n CHUNKS
         n = 1000
-        final = [data[i * n:(i + 1) * n] for i in range((len(data) + n - 1) // n )]
+        final = [data[i * n:(i + 1) * n] for i in range((len(data) + n - 1) // n)]
 
         cur.fast_executemany = True
         count = 1
@@ -159,8 +158,8 @@ class OptimisedStats():
             t1 = time.time()
 
             print("Successully written to DB table <steam_optimised_all_games_all_data>")
-            
+
         myConnection.commit()
         myConnection.close()
 
-        return t1-t0
+        return t1 - t0

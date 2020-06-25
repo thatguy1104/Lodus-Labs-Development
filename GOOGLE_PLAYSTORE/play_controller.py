@@ -2,6 +2,7 @@ from GOOGLE_PLAYSTORE.gameStats import AllGamesForDev
 from GOOGLE_PLAYSTORE.devRanks import DevelopersGames
 import time
 
+
 class PlayController():
     def load_Ranks(self):
         """
@@ -33,8 +34,8 @@ class PlayController():
         # file1 = open("WRITING_TIMES.txt", "a")
         # file1.write("PLAY_Ranks finished in " + str(ranks) + "\n")
         # file1.write("PLAY_Apps finished in " + str(apps) + "\n")
-        
+
         # END TIME
         t1 = time.time()
 
-        return t1-t0
+        return t1 - t0

@@ -8,6 +8,7 @@ import time
 import sys
 import configparser as cfg
 
+
 class steamConcurrent():
     def __init__(self):
         self.linkGeneral = 'https://store.steampowered.com/stats/'
@@ -24,7 +25,7 @@ class steamConcurrent():
 
     # FUNCTION IS NOT USED
     def getConcurrent(self):
-        all_current = self.soup.find_all('span', class_ = 'statsTopHi')
+        all_current = self.soup.find_all('span', class_='statsTopHi')
         current = all_current[0].text.replace(',', '')
         peak_today = all_current[1].text.replace(',', '')
 
@@ -59,8 +60,6 @@ class steamConcurrent():
         response = requests.get(link)
         soup = BeautifulSoup(response.text, 'lxml')
 
-        all_rows = soup.find_all('tr')
-
         all_game_names = []
         current_players = []
         peak_players = []
@@ -76,7 +75,7 @@ class steamConcurrent():
             raw = game_name.text.replace('\t', '')
             final = raw.replace('\n', '')
             all_game_names.append(final)
-        
+
         for player in current_p:
             peaks = soup.find_all('td', class_='num period-col peak-concurrent')
             hours = soup.find_all('td', class_='num period-col player-hours')
@@ -87,7 +86,7 @@ class steamConcurrent():
             peak_players.append(peaks[i].text)
         for i in range(len(names)):
             hours_played.append(hours[i].text)
-        
+
         return all_game_names, current_players, peak_players, hours_played
 
     def updateDB(self, pages):
@@ -105,7 +104,8 @@ class steamConcurrent():
         sys.stdout.write('\n')
 
         # CONNECT TO DATABASE
-        myConnection = pyodbc.connect('DRIVER='+self.driver+';SERVER='+self.server+';PORT=1433;DATABASE='+self.database+';UID='+self.username+';PWD='+self.password)
+        myConnection = pyodbc.connect(
+            'DRIVER=' + self.driver + ';SERVER=' + self.server + ';PORT=1433;DATABASE=' + self.database + ';UID=' + self.username + ';PWD=' + self.password)
         cur = myConnection.cursor()
 
         if not self.checkTableExists(myConnection, 'steam_concurrentGames'):
@@ -138,8 +138,8 @@ class steamConcurrent():
             t1 = time.time()
 
             print("Successully written to table <steam_concurrentGames> (db: {0})".format(self.database))
-            
+
         myConnection.commit()
         myConnection.close()
 
-        return t1-t0
+        return t1 - t0

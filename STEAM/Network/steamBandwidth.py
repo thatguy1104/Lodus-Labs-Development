@@ -11,12 +11,13 @@ server = 'serverteest.database.windows.net'
 database = 'testdatabase'
 username = 'login12391239'
 password = 'HejsanHejsan!1'
-driver= '{ODBC Driver 17 for SQL Server}'
+driver = '{ODBC Driver 17 for SQL Server}'
+
 
 class SteamBandwidth():
     def __init__(self, weird_num):
         self.url = 'https://steamcdn-a.akamaihd.net/steam/publicstats/download_traffic_per_country.jsonp?v=' + \
-            time.strftime("%m-%d-%Y") + str(weird_num)
+                   time.strftime("%m-%d-%Y") + str(weird_num)
         self.response = requests.get(self.url).text
         parser = cfg.ConfigParser()
         parser.read('config.cfg')
@@ -37,12 +38,12 @@ class SteamBandwidth():
         for name in bandwidthFile:
             if type(bandwidthFile[name]['totalbytes']) == str:
                 bandwidthFile[name]['totalbytes'] = int(bandwidthFile[name]['totalbytes'])
-            
+
             # Add to total for traffic percentage per country insight
             grand_total += bandwidthFile[name]['totalbytes']
             if type(bandwidthFile[name]['avgmbps']) == str:
                 bandwidthFile[name]['avgmbps'] = int(bandwidthFile[name]['avgmbps'])
-        
+
         # Calculate additional insights
         for name in bandwidthFile:
             bandwidthFile[name]['Percentage of global Steam Traffic'] = []
@@ -94,7 +95,8 @@ class SteamBandwidth():
         sys.stdout.write('\n')
 
         # CONNECT TO DATABASE
-        myConnection = pyodbc.connect('DRIVER='+self.driver+';SERVER='+self.server+';PORT=1433;DATABASE='+self.database+';UID='+self.username+';PWD='+self.password)
+        myConnection = pyodbc.connect(
+            'DRIVER=' + self.driver + ';SERVER=' + self.server + ';PORT=1433;DATABASE=' + self.database + ';UID=' + self.username + ';PWD=' + self.password)
         cur = myConnection.cursor()
 
         if not self.checkTableExists(myConnection, 'steam_network_data'):
@@ -131,4 +133,4 @@ class SteamBandwidth():
         myConnection.commit()
         myConnection.close()
 
-        return t1-t0
+        return t1 - t0

@@ -4,6 +4,7 @@ from STEAM.ALL_GAMES_ALL_STATS.oneGameData import GameStats
 from STEAM.ALL_GAMES_ALL_STATS.record_total_stats import GetAllRecordData
 import time
 
+
 class SteamController():
 
     def getConcurrentStats(self):
@@ -24,7 +25,7 @@ class SteamController():
                 table = steam_network_data
                 database = project_data
         """
-        steam_bandwidth = SteamBandwidth(17) # 16 = is the weird number at the end of the request link
+        steam_bandwidth = SteamBandwidth(17)  # 16 = is the weird number at the end of the request link
         return steam_bandwidth.writeBandwidthSteam()
 
     def getALLGamesDATA(self):
@@ -48,7 +49,7 @@ class SteamController():
         # concurrent = self.getConcurrentStats()
         # bandwidth = self.getBandwidthPerCountry()
         all_games = self.getALLGamesDATA()
-        
+
         # file1 = open("WRITING_TIMES.txt", "a")
         # file1.write("Concurrent finished in " + str(concurrent) + "\n")
         # file1.write("Bandwidth finished in " + str(bandwidth) + "\n")
@@ -57,5 +58,4 @@ class SteamController():
         # END TIME
         t1 = time.time()
 
-        return t1-t0
-
+        return t1 - t0

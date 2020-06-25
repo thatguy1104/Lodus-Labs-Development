@@ -8,3 +8,4 @@ SELECT  [Month]
       , [peak_players]
       , [Last_Updated]
 FROM [dbo].[steam_optimised_all_games_all_data]
+ORDER BY name_
