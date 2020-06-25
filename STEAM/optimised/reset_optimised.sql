@@ -1,0 +1,1 @@
+DROP TABLE IF EXISTS steam_optimised_all_games_all_data;
