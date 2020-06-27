@@ -74,6 +74,7 @@ class OptimisedStats():
 
     def readGameIds(self):
         pages = 448
+        # pages = 2
         ids = []
         names = []
 

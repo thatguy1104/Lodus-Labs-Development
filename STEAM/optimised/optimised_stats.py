@@ -15,9 +15,12 @@ class OptimisedGameStats():
         response = requests.get(self.link)
         soup = BeautifulSoup(response.text, 'lxml')
 
+        # SPECIFY NUMBER OF PREVIOUS MONTHS TO INCLUDE IN THE SCRAPE DATA
+        rows_to_record = 2
+
         tabl = soup.find('table', class_='common-table')
-        table_body = tabl.find('tbody')
-        rows = table_body.find_all('tr')
+        tbody = tabl.find('tbody')
+        rows = tbody.find_all('tr', limit = rows_to_record)
         two_rows = []
         month = []
         avg_players = []
@@ -26,17 +29,10 @@ class OptimisedGameStats():
         peak_players = []
         result = []
 
-        # SPECIFY NUMBER OF PREVIOUS MONTHS TO INCLUDE IN THE SCRAPE DATA
-        rows_to_record = 1
+        # for i in range(0, len(rows)):
+        #     two_rows.append(rows[i])
 
-        count_rows = 0
-        if len(rows) != 0:
-            for i in range(0, len(rows)):
-                if count_rows <= rows_to_record:
-                    two_rows.append(rows[i])
-                    count_rows += 1
-
-        for i in two_rows:
+        for i in rows:
             td_s = i.find_all('td')
             row_elements = []
             for j in td_s:
@@ -65,7 +61,7 @@ class OptimisedGameStats():
         # SEPARATE MONTH AND YEAR STRING
         for i in range(len(month)):
             separate = month[i].split(' ')
-            if separate[0] == "Last":
+            if separate[0][0] == "L":
                 ok = datetime.datetime.now()
                 current_month = ok.strftime("%B")
                 all_months.append(current_month)
