@@ -3,7 +3,6 @@ import json
 import sys
 import time
 import math
-from tqdm import tqdm
 import pyodbc
 import datetime
 import configparser as cfg
@@ -14,19 +13,11 @@ username = 'login12391239'
 password = 'HejsanHejsan!1'
 driver = '{ODBC Driver 17 for SQL Server}'
 
-
 class SteamBandwidth():
     def __init__(self, weird_num):
         self.url = 'https://steamcdn-a.akamaihd.net/steam/publicstats/download_traffic_per_country.jsonp?v=' + \
                    time.strftime("%m-%d-%Y") + str(weird_num)
         self.response = requests.get(self.url).text
-        parser = cfg.ConfigParser()
-        parser.read('config.cfg')
-        self.server = parser.get('db_credentials', 'server')
-        self.database = parser.get('db_credentials', 'database')
-        self.username = parser.get('db_credentials', 'username')
-        self.password = parser.get('db_credentials', 'password')
-        self.driver = parser.get('db_credentials', 'driver')
 
     def setup(self):
         # Remove JSONP function name and braces, conversion to JSON format
@@ -55,7 +46,7 @@ class SteamBandwidth():
         return bandwidthFile
 
     def progress(self, count, total, custom_text, suffix=''):
-        bar_len = 60
+        bar_len = 40
         filled_len = int(round(bar_len * count / float(total)))
 
         percents = round(100.0 * count / float(total), 1)
@@ -93,11 +84,11 @@ class SteamBandwidth():
             perc_global_traffic = bandwidthFile[name]['Percentage of global Steam Traffic']
             data.append((name, totalbytes, avg_mb, perc_global_traffic, curr_date))
             counter += 1
-        sys.stdout.write('\n')
+        # sys.stdout.write('\n')
 
         # CONNECT TO DATABASE
         myConnection = pyodbc.connect(
-            'DRIVER=' + self.driver + ';SERVER=' + self.server + ';PORT=1433;DATABASE=' + self.database + ';UID=' + self.username + ';PWD=' + self.password)
+            'DRIVER=' + driver + ';SERVER=' + server + ';PORT=1433;DATABASE=' + database + ';UID=' + username + ';PWD=' + password)
         cur = myConnection.cursor()
 
         if not self.checkTableExists(myConnection, 'steam_network_data'):
@@ -129,9 +120,13 @@ class SteamBandwidth():
             # RECORD END TIME OF WRITING
             t1 = time.time()
 
-            print("Successully written to table <steam_network_data> (db: {0})".format(self.database))
+            print("Successully written to table <steam_network_data> (db: {0})".format(database))
 
         myConnection.commit()
         myConnection.close()
 
         return t1 - t0
+
+def run():
+    obj = SteamBandwidth(17)
+    obj.writeBandwidthSteam()
