@@ -72,49 +72,33 @@ class OptimisedStats():
 
         return all_game_names, all_game_id
 
-    def readGameIds(self):
+    def getOneGameStats(self):
         pages = 448
         # pages = 2
-        ids = []
-        names = []
-
-        for p in range(1, pages):
-            self.progress(p, pages, "Gathering game IDs..")
-            name, game_id = self.getTopGamesByPlayerCount(p)
-            for i in range(len(name)):
-                ids.append(game_id[i])
-                names.append(name[i])
-        return names, ids
-
-    def getOneGameStats(self):
-        names, get_all_ids = self.readGameIds()
 
         # RECORD DATA
         data = []
+
+        # GET CURRENT TIMESTAMP
         curr_date = datetime.datetime.now()
 
-        # len(names)
-        for i in range(len(names)):
-            self.progress(i, len(names), "scraping for <steam_optimised_all_games_all_data>")
+        for p in range(1, pages):
+            self.progress(p, pages, "scraping for <steam_optimised_all_games_all_data>")
+            name, game_id = self.getTopGamesByPlayerCount(p)
+            for i in range(len(name)):
 
-            # PREPARE THE IDs
-            one_game = OptimisedGameStats(get_all_ids[i])
+                # PREPARE THE IDs
+                one_game = OptimisedGameStats(game_id[i])
 
-            # SCRAPE DATA FOR A GIVEN GAME
-            all_months, all_years, all_players, all_gains, all_percent_gains, all_peak_players = one_game.getOneGameData()
-            name = names[i]
-            id_ = get_all_ids[i]
+                # SCRAPE DATA FOR A GIVEN GAME
+                all_months, all_years, all_players, all_gains, all_percent_gains, all_peak_players = one_game.recieveData()
+                for j in range(len(all_months)):
+                    data.append((all_months[j], all_years[j], name[i], game_id[i], all_players[j], all_gains[j], all_percent_gains[j], all_peak_players[j], curr_date))
 
-            for j in range(len(all_months)):
-                f = float(all_players[j])
-                f2 = float(all_gains[j])
-                inte = int(all_peak_players[j])
-                data.append((all_months[j], all_years[j], name, id_, f, f2, all_percent_gains[j], inte, curr_date))
         sys.stdout.write('\n')
 
         # CONNECT TO A SERVER DATABASE
-        myConnection = pyodbc.connect(
-            'DRIVER=' + self.driver + ';SERVER=' + self.server + ';PORT=1433;DATABASE=' + self.database + ';UID=' + self.username + ';PWD=' + self.password)
+        myConnection = pyodbc.connect('DRIVER=' + self.driver + ';SERVER=' + self.server + ';PORT=1433;DATABASE=' + self.database + ';UID=' + self.username + ';PWD=' + self.password)
         cur = myConnection.cursor()
 
         # if not self.checkTableExists(myConnection, 'steam_optimised_all_games_all_data'):
@@ -150,7 +134,7 @@ class OptimisedStats():
 
             # ITERATE THROUGH DICT AND INSERT VALUES ROW-BY-ROW
             for elem in final:
-                # self.progress(count, len(final), "writing to <steam_optimised_all_games_all_data>")
+                self.progress(count, len(final), "writing to <steam_optimised_all_games_all_data>")
                 insertion = "INSERT into steam_optimised_all_games_all_data(Month, Year_, name_, ids, avg_players, gains, percent_gains, peak_players, Last_Updated) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)"
                 cur.executemany(insertion, elem)
                 count += 1
