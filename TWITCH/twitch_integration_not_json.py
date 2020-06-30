@@ -43,21 +43,24 @@ def get_top_games():
 
 def get_view_count_of_games(pagination_nr=None, view_counts={}):
     """
-    Iteartes through all livestreams and sums the total view count per game
+    Iteartes through all livestreams and sums the total view count per game, sorted accordingly
     """
     payload = {'first': 100, 'after': pagination_nr}
     response = get_response('streams', payload)
     response_json = response.json()
+    print("In progress with " + my_function.__name__)
 
     # Iteate through streams and add view_count
-    for dict_item in response_json['data']:
-        if dict_item['game_id'] in view_counts.keys():
-            view_counts[dict_item['game_id']] += dict_item['viewer_count']
+    for stream in response_json['data']:
+        if stream['game_id'] == '':
+            continue 
+        elif stream['game_id'] in view_counts.keys():
+            view_counts[stream['game_id']] += stream['viewer_count']
         else:
-            view_counts[dict_item['game_id']] = dict_item['viewer_count']
+            view_counts[stream['game_id']] = stream['viewer_count']
 
     # Stop the functions once we are looking at streams with 3 viewer
-    if 3 in view_counts.values():
+    if 100 in view_counts.values():
         return list(view_counts.items())
 
     if (response.json()["pagination"]):  # If there exists more livestreams go to next page
@@ -65,7 +68,7 @@ def get_view_count_of_games(pagination_nr=None, view_counts={}):
         get_view_count_of_games(pagination_nr=response.json()["pagination"]["cursor"], view_counts=view_counts)
     return list(view_counts.items())
 
-def run():
+def run_get_top_games():
     SERVER = 'serverteest.database.windows.net'
     DATABASE = 'testdatabase'
     USERNAME = 'login12391239'
@@ -89,8 +92,34 @@ def run():
     conn.close()
     print("SQL Server connection is closed")
 
-run()
+def run_get_view_count_of_games():
+    SERVER = 'serverteest.database.windows.net'
+    DATABASE = 'testdatabase'
+    USERNAME = 'login12391239'
+    PASSWORD = 'HejsanHejsan!1'
+    DRIVER= '{ODBC Driver 17 for SQL Server}'
 
+    top_games_list = get_view_count_of_games()
+    top_games_list = list(tuple(map(int, (x,y))) for x,y in top_games_list) # convert ('gameid',viewcount) -> (gameid,viewcount) aka (str,int)->(int,int) 
+    top_games_list.sort(key=lambda tup: tup[1], reverse=True) # sort list based on viewcount
+
+    conn = pyodbc.connect('DRIVER='+DRIVER+';SERVER='+SERVER+';PORT=1433;DATABASE='+DATABASE+';UID='+USERNAME+';PWD='+PASSWORD)
+    cursor = conn.cursor()
+    print("SQL Server connection established")
+    cursor.fast_executemany = True
+    sql_insert_query = """INSERT INTO twitch_view_counts (GameID, ViewCount) 
+                                    VALUES (?, ?) """
+    start_time = time.time()
+    cursor.executemany(sql_insert_query, top_games_list)
+    conn.commit()
+    print(cursor.rowcount, "Record inserted successfully into table")
+    print(str(len(top_games_list)) + " rows in " + str(time.time() - start_time) + "seconds")
+    cursor.close()
+    conn.close()
+    print("SQL Server connection is closed")
+
+run_get_top_games()
+run_get_view_count_of_games()
 
 # NOT USED EXPECT FOR TESTING PURPOSES (SAVING DATA IN JSON FILE)
 def write_json(file_json, data_json):
