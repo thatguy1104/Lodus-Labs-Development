@@ -1,6 +1,9 @@
 import requests, json, sys, time
 import twitch_oauth2_access_token_generator
-import pyodbc 
+import pyodbc
+import sqlalchemy
+import pandas as pd
+import urllib
 
 INDENT = 2
 BASE_URL = 'https://api.twitch.tv/helix/'
@@ -24,7 +27,7 @@ def get_top_games():
     Gets games sorted by number of current viewers on Twitch, most popular first.
     Returned in a list of 2-tuples [(game_id, game_name),,,,]
     """
-    print("Calling api to receive list of top games...")
+    print(sys._getframe().f_code.co_name + " calling api to receive list of top games...")
     start_time = time.time()
     top_games_list = []
     payload = {'first': 100, 'after': None}
@@ -41,14 +44,16 @@ def get_top_games():
     print("Finished receiving list with top games in " + str(time.time()-start_time) + " seconds")
     return top_games_list
 
-def get_view_count_of_games(pagination_nr=None, view_counts={}):
+def get_view_count_of_games(pagination_nr=None, view_counts={}, stream_data=[]):
     """
     Iteartes through all livestreams and sums the total view count per game, sorted accordingly
     """
     payload = {'first': 100, 'after': pagination_nr}
     response = get_response('streams', payload)
     response_json = response.json()
-    print("In progress with " + my_function.__name__)
+    #print("In progress with " + sys._getframe().f_code.co_name)
+
+    stream_data += response_json['data']
 
     # Iteate through streams and add view_count
     for stream in response_json['data']:
@@ -61,12 +66,12 @@ def get_view_count_of_games(pagination_nr=None, view_counts={}):
 
     # Stop the functions once we are looking at streams with 3 viewer
     if 100 in view_counts.values():
-        return list(view_counts.items())
+        return list(view_counts.items()),stream_data
 
     if (response.json()["pagination"]):  # If there exists more livestreams go to next page
         payload['after'] = response.json()["pagination"]["cursor"]
-        get_view_count_of_games(pagination_nr=response.json()["pagination"]["cursor"], view_counts=view_counts)
-    return list(view_counts.items())
+        get_view_count_of_games(pagination_nr=response.json()["pagination"]["cursor"], view_counts=view_counts, stream_data=stream_data)
+    return list(view_counts.items()),stream_data
 
 def run_get_top_games():
     SERVER = 'serverteest.database.windows.net'
@@ -99,7 +104,7 @@ def run_get_view_count_of_games():
     PASSWORD = 'HejsanHejsan!1'
     DRIVER= '{ODBC Driver 17 for SQL Server}'
 
-    top_games_list = get_view_count_of_games()
+    top_games_list = get_view_count_of_games()[0]
     top_games_list = list(tuple(map(int, (x,y))) for x,y in top_games_list) # convert ('gameid',viewcount) -> (gameid,viewcount) aka (str,int)->(int,int) 
     top_games_list.sort(key=lambda tup: tup[1], reverse=True) # sort list based on viewcount
 
@@ -118,5 +123,34 @@ def run_get_view_count_of_games():
     conn.close()
     print("SQL Server connection is closed")
 
-run_get_top_games()
-run_get_view_count_of_games()
+#run_get_top_games()
+#run_get_view_count_of_games()
+
+
+def testt():
+    streamlist = get_view_count_of_games()[1]
+    dataframe = pd.DataFrame.from_dict(streamlist, orient='columns')
+    dataframe.drop(columns=['tag_ids','type','title','user_name','thumbnail_url'], inplace = True)
+    #curr_time = time.strftime("%Y-%m-%d %H:%M:%S",time.gmtime())
+    #dataframe['time_logged'] = curr_time
+    dataframe = dataframe.rename(columns={'user_id':'userr_id', 'language':'stream_language'})
+    print(dataframe)
+
+    SERVER = 'serverteest.database.windows.net'
+    DATABASE = 'testdatabase'
+    USERNAME = 'login12391239'
+    PASSWORD = 'HejsanHejsan!1'
+    DRIVER= '{ODBC Driver 17 for SQL Server}'
+
+    params = urllib.parse.quote_plus('DRIVER='+DRIVER+';SERVER='+SERVER+';PORT=1433;DATABASE='+DATABASE+';UID='+USERNAME+';PWD='+PASSWORD)
+    engine = sqlalchemy.create_engine("mssql+pyodbc:///?odbc_connect=%s" % params, fast_executemany=True)
+    
+    print("SQL Server connection established")
+    start_time = time.time()
+
+    dataframe.to_sql('streams', con=engine, schema='dbo', if_exists='append',index=False)
+    print("Record inserted successfully into table")
+    print(str(dataframe.shape[0]) + " rows in " + str(time.time() - start_time) + "seconds")
+    print("SQL Server connection is closed")
+
+testt()
