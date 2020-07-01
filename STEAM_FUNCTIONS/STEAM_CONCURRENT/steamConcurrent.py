@@ -8,6 +8,11 @@ import time
 import sys
 import configparser as cfg
 
+server = 'serverteest.database.windows.net'
+database = 'testdatabase'
+username = 'login12391239'
+password = 'HejsanHejsan!1'
+driver = '{ODBC Driver 17 for SQL Server}'
 
 class steamConcurrent():
     def __init__(self):
@@ -15,13 +20,6 @@ class steamConcurrent():
         self.linkAll = 'https://steamcharts.com/top/p.'
         self.response = requests.get(self.linkGeneral)
         self.soup = BeautifulSoup(self.response.text, 'lxml')
-        parser = cfg.ConfigParser()
-        parser.read('config.cfg')
-        self.server = parser.get('db_credentials', 'server')
-        self.database = parser.get('db_credentials', 'database')
-        self.username = parser.get('db_credentials', 'username')
-        self.password = parser.get('db_credentials', 'password')
-        self.driver = parser.get('db_credentials', 'driver')
 
     # FUNCTION IS NOT USED
     def getConcurrent(self):
@@ -105,7 +103,7 @@ class steamConcurrent():
 
         # CONNECT TO DATABASE
         myConnection = pyodbc.connect(
-            'DRIVER=' + self.driver + ';SERVER=' + self.server + ';PORT=1433;DATABASE=' + self.database + ';UID=' + self.username + ';PWD=' + self.password)
+            'DRIVER=' + driver + ';SERVER=' + server + ';PORT=1433;DATABASE=' + database + ';UID=' + username + ';PWD=' + password)
         cur = myConnection.cursor()
 
         if not self.checkTableExists(myConnection, 'steam_concurrentGames'):
