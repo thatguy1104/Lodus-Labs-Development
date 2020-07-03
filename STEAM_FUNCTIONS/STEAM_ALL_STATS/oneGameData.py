@@ -8,7 +8,6 @@ class GameStats():
     def __init__(self, gameID):
         self.GameID = gameID
         self.link = 'https://steamcharts.com/' + gameID
-        self.writeFILE = 'OneGameData/oneGameStats.json'
 
     def recieveData(self):
         response = requests.get(self.link)

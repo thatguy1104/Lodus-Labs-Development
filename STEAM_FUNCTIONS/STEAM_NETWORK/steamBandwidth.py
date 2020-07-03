@@ -6,6 +6,7 @@ import math
 import pyodbc
 import datetime
 import configparser as cfg
+from tqdm import trange
 
 server = 'serverteest.database.windows.net'
 database = 'testdatabase'
