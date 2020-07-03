@@ -49,14 +49,22 @@ class AllGamesForDev():
             rating = row[3].text
             intalls = row[4].text
             avg_rating = float(row[5].text)
-            growth_30_days = row[6].text
-            growth_60_days = row[7].text
+            growth_30_days = row[6].text.split('%')[0]
+            growth_60_days = row[7].text.split('%')[0]
             price = row[8].text.replace('\n', '')
+            if price[0] is 'F':
+                price = 0
+            else:
+                try:
+                    price = float(price.split('$')[1])
+                except:
+                    price = 0.0
             results.append(
                 [tittle, rank, rating, intalls, avg_rating, growth_30_days, growth_60_days, price, curr_date])
         return results
 
     def getIDs(self):
+
         ids = []
 
         # CONNECT TO DATABASE
@@ -115,7 +123,7 @@ class AllGamesForDev():
             'DRIVER=' + self.driver + ';SERVER=' + self.server + ';PORT=1433;DATABASE=' + self.database + ';UID=' + self.username + ';PWD=' + self.password)
         cur = myConnection.cursor()
 
-        if not self.checkTableExists(myConnection, 'trials'):
+        if not self.checkTableExists(myConnection, 'play_app_ranks'):
             # EXECUTE SQL COMMANDS
             cur.execute("DROP TABLE IF EXISTS play_app_ranks;")
             create = """CREATE TABLE play_app_ranks(
@@ -125,9 +133,9 @@ class AllGamesForDev():
                 Total_Rating        BIGINT,
                 Installs            VARCHAR(100),
                 Average_Rating      FLOAT,
-                Growth_30_days      VARCHAR(100),
-                Growth_60_days      VARCHAR(100),
-                Price               VARCHAR(50),
+                Growth_30_days_Percent      VARCHAR(100),
+                Growth_60_days_Percent      VARCHAR(100),
+                Price                       INT,
                 Last_Updated        DATETIME
             );"""
             cur.execute(create)
@@ -150,7 +158,7 @@ class AllGamesForDev():
             for elem in final:
                 self.progress(counter, len(final), "writing to <play_app_ranks>")
                 cur.fast_executemany = True
-                insertion = "INSERT INTO play_app_ranks(Developer, App_Name, App_Rank, Total_Rating, Installs, Average_Rating, Growth_30_days, Growth_60_days, Price, Last_Updated) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"
+                insertion = "INSERT INTO play_app_ranks(Developer, App_Name, App_Rank, Total_Rating, Installs, Average_Rating, Growth_30_days_Percent, Growth_60_days_Percent, Price, Last_Updated) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"
                 cur.executemany(insertion, elem)
                 counter += 1
             sys.stdout.write('\n')
