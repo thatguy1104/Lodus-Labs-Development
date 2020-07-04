@@ -5,8 +5,6 @@
     "version": "[1.*, 2.0.0)"
   },
   "functions": [
-    "STEAM_NETWORK",
-    "STEAM_CONCURRENT",
-    "STEAM_ALL_STATS"
+    "STEAM_PROVIDERS"
   ]
 }
