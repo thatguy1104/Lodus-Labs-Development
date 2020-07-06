@@ -6,7 +6,6 @@ import lxml
 from tqdm import tqdm
 import pyodbc
 import datetime
-from bs4 import BeautifulSoup
 
 server = 'serverteest.database.windows.net'
 database = 'testdatabase'

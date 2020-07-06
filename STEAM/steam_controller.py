@@ -3,6 +3,7 @@ from STEAM.Network.steamBandwidth import SteamBandwidth
 from STEAM.ALL_GAMES_ALL_STATS.oneGameData import GameStats
 from STEAM.ALL_GAMES_ALL_STATS.record_total_stats import GetAllRecordData
 from STEAM.ServiceProvider.provider import Provider
+from STEAM.Bandwidth_48.bandwidth_48 import Bandwidth_48
 import time
 
 
@@ -47,7 +48,18 @@ class SteamController():
                 database = project_data
         """
         data_ = Provider()
-        data_.writeProvider()
+        return data_.writeProvider()
+
+    def get48Bandwidth(self):
+        """
+        PERFORMANCE BY INTERNET SERVICE PROVIDER (ISP)
+            Writes to:
+                table = steam_48_bandwidth
+                database = project_data
+        """
+        obj = Bandwidth_48()
+        # obj.get_data()
+        return obj.writeBandwidth()
 
     def runControl(self):
         """
@@ -60,13 +72,15 @@ class SteamController():
         # concurrent = self.getConcurrentStats()
         # bandwidth = self.getBandwidthPerCountry()
         # all_games = self.getALLGamesDATA()
-        provider = self.getProviderData()
+        # provider = self.getProviderData()
+        bandwidth_48 = self.get48Bandwidth()
 
         # file1 = open("WRITING_TIMES.txt", "a")
         # file1.write("Concurrent finished in " + str(concurrent) + "\n")
         # file1.write("Bandwidth finished in " + str(bandwidth) + "\n")
         # file1.write("All games finished in " + str(all_games) + "\n")
-        # file1.write("Provide frinished in " + str(provider) + "\n")
+        # file1.write("Provide finished in " + str(provider) + "\n")
+        # file1.write("Bandwidth_48 finished in " + str(bandwidth_48) + "\n")
 
         # END TIME
         t1 = time.time()
