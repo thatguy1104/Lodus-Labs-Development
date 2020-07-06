@@ -5,6 +5,6 @@
     "version": "[1.*, 2.0.0)"
   },
   "functions": [
-    "STEAM_PROVIDERS"
+    "STEAM_48_BANDWIDTH"
   ]
 }
