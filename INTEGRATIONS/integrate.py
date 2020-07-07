@@ -2,31 +2,28 @@ import json
 import pyodbc
 import configparser as cfg
 
+server = 'serverteest.database.windows.net'
+database = 'testdatabase'
+username = 'login12391239'
+password = 'HejsanHejsan!1'
+driver = '{ODBC Driver 17 for SQL Server}'
 
 class Integrate():
     def __init__(self):
-        parser = cfg.ConfigParser()
-        parser.read('config.cfg')
-        self.server = parser.get('db_credentials', 'server')
-        self.database = parser.get('db_credentials', 'database')
-        self.username = parser.get('db_credentials', 'username')
-        self.password = parser.get('db_credentials', 'password')
-        self.driver = parser.get('db_credentials', 'driver')
+        ok = 4
 
-    def connect(self):
+    def returnNameSet(self):
         # CONNECT TO A SERVER DATABASE
-        myConnection = pyodbc.connect('DRIVER=' + self.driver + ';SERVER=' + self.server + ';PORT=1433;DATABASE=' + self.database + ';UID=' + self.username + ';PWD=' + self.password)
+        myConnection = pyodbc.connect('DRIVER=' + driver + ';SERVER=' + server + ';PORT=1433;DATABASE=' + database + ';UID=' + username + ';PWD=' + password)
         cur = myConnection.cursor()
-        cur.execute("""
-            SELECT name_
-            FROM information_schema.tables
-            WHERE table_name = '{0}'
-            """.format("steam_all_games_all_data"))
+        cur.execute("""SELECT name_ FROM steam_all_games_all_data""")
         records = cur.fetchall()
-        print(records)
 
-
-
+        name_set = set()
+        for name in records:
+            name_set.add(str(name[0]))
+        
+        return name_set
 
 obj = Integrate()
-obj.connect()
+obj.returnNameSet()
