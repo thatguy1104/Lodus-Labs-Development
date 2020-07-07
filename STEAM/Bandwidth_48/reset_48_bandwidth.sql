@@ -1,1 +1,1 @@
-DROP TABLE IF EXISTS steam_48_bandwidth;w
+DROP TABLE IF EXISTS steam_48_bandwidth;
