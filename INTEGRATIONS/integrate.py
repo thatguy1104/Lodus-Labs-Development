@@ -16,7 +16,22 @@ class Integrate():
     def __init__(self):
         ok = 4
 
-    def returnNameSet(self):
+    def returnTwitch(self):
+        # CONNECT TO A SERVER DATABASE
+        myConnection = pyodbc.connect('DRIVER=' + driver + ';SERVER=' + server + ';PORT=1433;DATABASE=' + database + ';UID=' + username + ';PWD=' + password)
+        cur = myConnection.cursor()
+        cur.execute("""SELECT gameid, gamename FROM games2""")
+        records = cur.fetchall()
+
+        twitch_name_set = set()
+        for name in records:
+            twitch_name_set.add((name[1], name[0]))
+        steam_names = list(twitch_name_set)
+
+        myConnection.close()
+        return steam_names
+
+    def returnSteam(self):
         # CONNECT TO A SERVER DATABASE
         myConnection = pyodbc.connect('DRIVER=' + driver + ';SERVER=' + server + ';PORT=1433;DATABASE=' + database + ';UID=' + username + ';PWD=' + password)
         cur = myConnection.cursor()
@@ -29,18 +44,8 @@ class Integrate():
             steam_name_set.add((name[0], name[1]))
         steam_names = list(steam_name_set)
 
-        # TWITCH
-        twitch_names = []
-        with open('top_streamed_games_query.json') as json_file:
-            streamed_data = json.load(json_file)
-            the_data = streamed_data['data']
-            for p in the_data:
-                game_name = p['name']
-                game_id = p['id']
-                twitch_names.append((game_name, game_id))
-
         myConnection.close()
-        return steam_names, twitch_names
+        return steam_names
 
     def returnUnion(self, steam_dict, twitch_dict):
         final_set = {}
@@ -58,7 +63,7 @@ class Integrate():
                 final_set[elem] = []
                 final_set[elem].append({
                     'Hash': elem,
-                    'Game_Name': twitch_dict[elem][0],
+                    'Game_Name': steam_dict[elem][0],
                     'ID_steam': steam_dict[elem][1],
                 })
 
@@ -79,8 +84,8 @@ class Integrate():
         return hash_object.hexdigest()
 
     def converstion(self):
-        # key: hash, value: (name, ids)
-        steam_names, twitch_names = self.returnNameSet()
+        steam_names = self.returnSteam()
+        twitch_names = self.returnTwitch()
 
         steam_dict = {}
         twitch_dict = {}
@@ -91,20 +96,12 @@ class Integrate():
 
         for tupl_twitch in twitch_names:
             name_hashed_twitch = self.customHash(tupl_twitch[0])
-            # twitch_dict.add((name_hashed_twitch, tupl_twitch[0], tupl_twitch[1]))
             twitch_dict[name_hashed_twitch] = tupl_twitch
         
         final_set = self.returnUnion(steam_dict, twitch_dict)
 
-        # with open('results1.json', 'w') as outfile:
-        #     json.dump(dict1, outfile)
-        # with open('results2.json', 'w') as outfile:
-        #     json.dump(dict2, outfile)
         with open('final_set.json', 'w') as outfile:
             json.dump(final_set, outfile)
-        # f = open('final_set.txt', 'w')
-        # for i in final_set:
-        #     f.write(str(i[0]) + ", " + str(i[1]) + ", " +  str(i[2]) + '\n')
 
     def pushToDB(self):
         name_set = self.returnNameSet()
