@@ -42,6 +42,37 @@ class Integrate():
         myConnection.close()
         return steam_names, twitch_names
 
+    def returnUnion(self, steam_dict, twitch_dict):
+        final_set = {}
+
+        for elem in steam_dict:
+            if elem in twitch_dict:
+                final_set[elem] = []
+                final_set[elem].append({
+                    'Hash'      : elem,
+                    'Game_Name' : twitch_dict[elem][0],
+                    'ID_steam'  : steam_dict[elem][1],
+                    'ID_twitch' : twitch_dict[elem][1]
+                })
+            else:
+                final_set[elem] = []
+                final_set[elem].append({
+                    'Hash': elem,
+                    'Game_Name': twitch_dict[elem][0],
+                    'ID_steam': steam_dict[elem][1],
+                })
+
+        for elem in twitch_dict:
+            if elem not in steam_dict:
+                final_set[elem] = []
+                final_set[elem].append({
+                    'Hash': elem,
+                    'Game_Name': twitch_dict[elem][0],
+                    'ID_twitch': twitch_dict[elem][1]
+                })
+
+        return final_set
+
     def customHash(self, string_to_be_hashed):
         # FROM: https://www.pythoncentral.io/hashing-strings-with-python/
         hash_object = hashlib.md5(string_to_be_hashed.encode())
@@ -53,7 +84,6 @@ class Integrate():
 
         steam_dict = {}
         twitch_dict = {}
-        steam_&_twitch = {}
 
         for tupl_steam in steam_names:
             name_hashed_steam = self.customHash(tupl_steam[0])
@@ -61,24 +91,20 @@ class Integrate():
 
         for tupl_twitch in twitch_names:
             name_hashed_twitch = self.customHash(tupl_twitch[0])
-            #twitch_dict.add((name_hashed_twitch, tupl_twitch[0], tupl_twitch[1]))
+            # twitch_dict.add((name_hashed_twitch, tupl_twitch[0], tupl_twitch[1]))
             twitch_dict[name_hashed_twitch] = tupl_twitch
-            if name_hashed_twitch in steam_dict:
-                set_tuple_steam = set(steam_dict[name_hashed_twitch])
-                set_tuple_twitch = set(tupl_twitch)
-                steam_&_twitch[name_hashed_twitch] = set_tuple_steam.union(set_tuple_twitch)
-            else:
-                steam_&_twitch[name_hashed_twitch] = tupl_twitch
-
-        final_set = steam_dict.union(twitch_dict)
+        
+        final_set = self.returnUnion(steam_dict, twitch_dict)
 
         # with open('results1.json', 'w') as outfile:
         #     json.dump(dict1, outfile)
         # with open('results2.json', 'w') as outfile:
         #     json.dump(dict2, outfile)
-        f = open('results.txt', 'w')
-        for i in final_set:
-            f.write(str(i[0]) + ", " + str(i[1]) + ", " +  str(i[2]) + '\n')
+        with open('final_set.json', 'w') as outfile:
+            json.dump(final_set, outfile)
+        # f = open('final_set.txt', 'w')
+        # for i in final_set:
+        #     f.write(str(i[0]) + ", " + str(i[1]) + ", " +  str(i[2]) + '\n')
 
     def pushToDB(self):
         name_set = self.returnNameSet()
