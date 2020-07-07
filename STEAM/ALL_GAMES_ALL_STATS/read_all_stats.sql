@@ -1,17 +1,17 @@
 SELECT
-       [Month]
-      ,[Year_]
-      ,[name_]
-      ,[ids]
-      ,[avg_players]
-      ,[gains]
-      ,[percent_gains]
-      ,[peak_players]
-      ,[Last_Updated]
-  FROM [dbo].[steam_all_games_all_data]
+  [Month]
+      , [Year_]
+      , [name_]
+      , [ids]
+      , [avg_players]
+      , [gains]
+      , [percent_gains]
+      , [peak_players]
+      , [Last_Updated]
+FROM [dbo].[steam_all_games_all_data]
 
-WHERE ids = '/app/730'
-ORDER BY Year_ DESC
+-- WHERE ids = '/app/730'
+-- ORDER BY Year_ DESC
 -- ORDER BY Year_ DESC,
 --       CASE Month        WHEN 'January' THEN 1
 --                         WHEN 'February' THEN 2

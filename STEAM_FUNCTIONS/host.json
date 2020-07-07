@@ -5,6 +5,6 @@
     "version": "[1.*, 2.0.0)"
   },
   "functions": [
-    "STEAM_48_BANDWIDTH"
+    "STEAM_ALL_STATS"
   ]
 }
