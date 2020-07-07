@@ -51,18 +51,26 @@ class Integrate():
         # key: hash, value: (name, ids)
         steam_names, twitch_names = self.returnNameSet()
 
-        steam_set = set()
-        twitch_set = set()
+        steam_dict = {}
+        twitch_dict = {}
+        steam_&_twitch = {}
 
         for tupl_steam in steam_names:
             name_hashed_steam = self.customHash(tupl_steam[0])
-            steam_set.add((name_hashed_steam, tupl_steam[0], tupl_steam[1]))
+            steam_dict[name_hashed_steam] = tupl_steam
 
         for tupl_twitch in twitch_names:
             name_hashed_twitch = self.customHash(tupl_twitch[0])
-            twitch_set.add((name_hashed_twitch, tupl_twitch[0], tupl_twitch[1]))
+            #twitch_dict.add((name_hashed_twitch, tupl_twitch[0], tupl_twitch[1]))
+            twitch_dict[name_hashed_twitch] = tupl_twitch
+            if name_hashed_twitch in steam_dict:
+                set_tuple_steam = set(steam_dict[name_hashed_twitch])
+                set_tuple_twitch = set(tupl_twitch)
+                steam_&_twitch[name_hashed_twitch] = set_tuple_steam.union(set_tuple_twitch)
+            else:
+                steam_&_twitch[name_hashed_twitch] = tupl_twitch
 
-        final_set = steam_set.union(twitch_set)
+        final_set = steam_dict.union(twitch_dict)
 
         # with open('results1.json', 'w') as outfile:
         #     json.dump(dict1, outfile)
