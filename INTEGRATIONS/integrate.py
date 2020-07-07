@@ -4,6 +4,7 @@ import datetime
 import json
 import pyodbc
 import configparser as cfg
+import hashlib
 
 server = 'serverteest.database.windows.net'
 database = 'testdatabase'
@@ -41,8 +42,35 @@ class Integrate():
         myConnection.close()
         return steam_names, twitch_names
 
-    def customHash(self):
-        prime = 11
+    def customHash(self, string_to_be_hashed):
+        # FROM: https://www.pythoncentral.io/hashing-strings-with-python/
+        hash_object = hashlib.md5(string_to_be_hashed.encode())
+        return hash_object.hexdigest()
+
+    def converstion(self):
+        # key: hash, value: (name, ids)
+        steam_names, twitch_names = self.returnNameSet()
+
+        steam_set = set()
+        twitch_set = set()
+
+        for tupl_steam in steam_names:
+            name_hashed_steam = self.customHash(tupl_steam[0])
+            steam_set.add((name_hashed_steam, tupl_steam[0], tupl_steam[1]))
+
+        for tupl_twitch in twitch_names:
+            name_hashed_twitch = self.customHash(tupl_twitch[0])
+            twitch_set.add((name_hashed_twitch, tupl_twitch[0], tupl_twitch[1]))
+
+        final_set = steam_set.union(twitch_set)
+
+        # with open('results1.json', 'w') as outfile:
+        #     json.dump(dict1, outfile)
+        # with open('results2.json', 'w') as outfile:
+        #     json.dump(dict2, outfile)
+        f = open('results.txt', 'w')
+        for i in final_set:
+            f.write(str(i[0]) + ", " + str(i[1]) + ", " +  str(i[2]) + '\n')
 
     def pushToDB(self):
         name_set = self.returnNameSet()
@@ -110,4 +138,5 @@ class Integrate():
         return t1 - t0
 
 obj = Integrate()
-obj.returnNameSet()
+# obj.returnNameSet()
+obj.converstion()
