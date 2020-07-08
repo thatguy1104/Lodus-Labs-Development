@@ -13,9 +13,6 @@ password = 'HejsanHejsan!1'
 driver = '{ODBC Driver 17 for SQL Server}'
 
 class Integrate():
-    def __init__(self):
-        ok = 4
-    
     def progress(self, count, total, custom_text, suffix=''):
         bar_len = 60
         filled_len = int(round(bar_len * count / float(total)))
@@ -72,6 +69,7 @@ class Integrate():
         myConnection.close()
         return steam_names
 
+    # CHANGE PARAMETERS TO LIST OF DICTIONARIES FOR N-NUMBER OF PLATFORMS
     def returnUnion(self, steam_dict, twitch_dict):
         final_set = {}
 
@@ -87,18 +85,18 @@ class Integrate():
             else:
                 final_set[elem] = []
                 final_set[elem].append({
-                    'Hash': elem,
-                    'Game_Name': steam_dict[elem][0],
-                    'ID_steam': steam_dict[elem][1],
+                    'Hash'      : elem,
+                    'Game_Name' : steam_dict[elem][0],
+                    'ID_steam'  : steam_dict[elem][1],
                 })
 
         for elem in twitch_dict:
             if elem not in steam_dict:
                 final_set[elem] = []
                 final_set[elem].append({
-                    'Hash': elem,
-                    'Game_Name': twitch_dict[elem][0],
-                    'ID_twitch': twitch_dict[elem][1]
+                    'Hash'      : elem,
+                    'Game_Name' : twitch_dict[elem][0],
+                    'ID_twitch' : twitch_dict[elem][1]
                 })
 
         return final_set
