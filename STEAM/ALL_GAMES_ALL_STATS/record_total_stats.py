@@ -106,7 +106,7 @@ class GetAllRecordData():
             # SCRAPE DATA FOR A GIVEN GAME
             all_months, all_years, all_players, all_gains, all_percent_gains, all_peak_players = one_game.getOneGameData()
             name = names[i]
-            id_ = get_all_ids[i]
+            id_ = get_all_ids[i][5:]
 
             if len(all_gains) is not 0:
                 all_gains[len(all_gains) - 1] = 0

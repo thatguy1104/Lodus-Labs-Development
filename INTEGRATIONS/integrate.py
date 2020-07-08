@@ -72,7 +72,7 @@ class Integrate():
     # CHANGE PARAMETERS TO LIST OF DICTIONARIES FOR N-NUMBER OF PLATFORMS
     def returnUnion(self, steam_dict, twitch_dict):
         final_set = {}
-
+        
         for elem in steam_dict:
             if elem in twitch_dict:
                 final_set[elem] = []
