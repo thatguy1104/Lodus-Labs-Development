@@ -15,6 +15,31 @@ driver = '{ODBC Driver 17 for SQL Server}'
 class Integrate():
     def __init__(self):
         ok = 4
+    
+    def progress(self, count, total, custom_text, suffix=''):
+        bar_len = 60
+        filled_len = int(round(bar_len * count / float(total)))
+
+        percents = round(100.0 * count / float(total), 1)
+        bar = '*' * filled_len + '-' * (bar_len - filled_len)
+
+        sys.stdout.write('[%s] %s%s %s %s\r' %
+                         (bar, percents, '%', custom_text, suffix))
+        sys.stdout.flush()
+
+    def checkTableExists(self, dbcon, tablename):
+        dbcur = dbcon.cursor()
+        dbcur.execute("""
+            SELECT COUNT(*)
+            FROM information_schema.tables
+            WHERE table_name = '{0}'
+            """.format(tablename.replace('\'', '\'\'')))
+        if dbcur.fetchone()[0] == 1:
+            dbcur.close()
+            return True
+
+        dbcur.close()
+        return False
 
     def returnTwitch(self):
         # CONNECT TO A SERVER DATABASE
@@ -100,20 +125,34 @@ class Integrate():
         
         final_set = self.returnUnion(steam_dict, twitch_dict)
 
-        with open('final_set.json', 'w') as outfile:
-            json.dump(final_set, outfile)
+        # with open('final_set.json', 'w') as outfile:
+        #     json.dump(final_set, outfile)
+
+        return final_set
 
     def pushToDB(self):
-        name_set = self.returnNameSet()
+        final_set = self.converstion()
 
         # RECORD DATA
         data = []
         curr_date = datetime.datetime.now()
 
-        # len(names)
-        for i in range(len(name_set)):
-            self.progress(i, len(name_set),"integrating for <look_up_table>")
-
+        counter = 0
+        len_ = len(final_set)
+        for hash_name in final_set:
+            self.progress(counter, len_, "integrating for <look_up_table>")
+            game_name = final_set[hash_name][0]['Game_Name']
+            if 'ID_steam' in final_set[hash_name][0]:
+                id_steam = final_set[hash_name][0]['ID_steam']
+            else:
+                id_steam = None
+            if 'ID_twitch' in final_set[hash_name][0]:
+                id_twitch = final_set[hash_name][0]['ID_twitch']
+            else:
+                id_twitch = None
+            
+            data.append((hash_name, game_name, id_steam, id_twitch, curr_date))
+            counter += 1
         sys.stdout.write('\n')
 
         # CONNECT TO A SERVER DATABASE
@@ -124,23 +163,15 @@ class Integrate():
             # RESET THE TABLE
             cur.execute("DROP TABLE IF EXISTS look_up_table;")
             create = """CREATE TABLE look_up_table(
-                Month           VARCHAR(100),
-                Year_           INT,
-                name_           NVARCHAR(200),
-                ids             VARCHAR(100),
-                avg_players     float,
-                gains           float,
-                percent_gains   VARCHAR(100),
-                peak_players    BIGINT,
+                Hash            VARCHAR(250),
+                Game_Name       NVARCHAR(250),
+                ID_steam        NVARCHAR(200),
+                ID_twitch       INT,
                 Last_Updated    DATETIME
             );"""
             cur.execute(create)
             myConnection.commit()
             print("Successully created DB Table: look_up_table")
-
-        # DIVIDE DATA INTO n CHUNKS
-        n = 1000
-        final = [data[i * n:(i + 1) * n] for i in range((len(data) + n - 1) // n)]
 
         cur.fast_executemany = True
         # DO NOT WRITE IF LIST IS EMPTY DUE TO TOO MANY REQUESTS
@@ -150,13 +181,8 @@ class Integrate():
             # RECORD INITIAL TIME OF WRITING
             t0 = time.time()
 
-            # ITERATE THROUGH DICT AND INSERT VALUES ROW-BY-ROW
-            count = 1
-            for elem in final:
-                self.progress(count, len(final), "writing to <look_up_table>")
-                insertion = "INSERT into look_up_table(Month, Year_, name_, ids, avg_players, gains, percent_gains, peak_players, Last_Updated) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)"
-                cur.executemany(insertion, elem)
-                count += 1
+            insertion = "INSERT into look_up_table(Hash, Game_Name, ID_steam, ID_twitch, Last_Updated) VALUES (?, ?, ?, ?, ?)"
+            cur.executemany(insertion, data)
 
             # RECORD END TIME OF WRITING
             t1 = time.time()
@@ -169,5 +195,4 @@ class Integrate():
         return t1 - t0
 
 obj = Integrate()
-# obj.returnNameSet()
-obj.converstion()
+obj.pushToDB()
