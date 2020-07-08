@@ -1,5 +1,4 @@
-SELECT
-  [Month]
+SELECT [Month]
       , [Year_]
       , [name_]
       , [ids]
@@ -10,7 +9,7 @@ SELECT
       , [Last_Updated]
 FROM [dbo].[steam_all_games_all_data]
 
--- WHERE ids = '/app/730'
+WHERE ids = '730'
 -- ORDER BY Year_ DESC
 -- ORDER BY Year_ DESC,
 --       CASE Month        WHEN 'January' THEN 1

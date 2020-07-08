@@ -163,7 +163,7 @@ class Integrate():
             create = """CREATE TABLE look_up_table(
                 Hash            VARCHAR(250),
                 Game_Name       NVARCHAR(250),
-                ID_steam        NVARCHAR(200),
+                ID_steam        INT,
                 ID_twitch       INT,
                 Last_Updated    DATETIME
             );"""

@@ -4,4 +4,4 @@ SELECT [Hash]
       , [ID_twitch]
       , [Last_Updated]
 FROM [dbo].[look_up_table]
-WHERE Game_Name = 'Counter-Strike: Global Offensive'
+-- WHERE Game_Name = 'Counter-Strike: Global Offensive'
