@@ -19,6 +19,10 @@ class Bandwidth_48():
     def __init__(self):
         self.link = 'https://store.steampowered.com/stats/content/'
         self.response = requests.get(self.link)
+        try:
+            self.response.raise_for_status()
+        except Exception as exc:
+            print('There was a problem: %s with scraping for <steam_48_bandwidth>' % (exc))
         self.soup = BeautifulSoup(self.response.text, 'lxml')
 
     def get_data(self):

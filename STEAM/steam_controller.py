@@ -69,11 +69,11 @@ class SteamController():
         # START TIME
         t0 = time.time()
 
-        # concurrent = self.getConcurrentStats()
+        # concurrent = self.getConcurrentStats() done
         # bandwidth = self.getBandwidthPerCountry()
         all_games = self.getALLGamesDATA()
-        # provider = self.getProviderData()
-        # bandwidth_48 = self.get48Bandwidth()
+        # provider = self.getProviderData() done
+        # bandwidth_48 = self.get48Bandwidth() done
 
         # file1 = open("WRITING_TIMES.txt", "a")
         # file1.write("Concurrent finished in " + str(concurrent) + "\n")

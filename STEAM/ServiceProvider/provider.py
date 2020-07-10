@@ -6,6 +6,7 @@ import lxml
 from tqdm import tqdm
 import pyodbc
 import datetime
+from bs4 import BeautifulSoup
 
 server = 'serverteest.database.windows.net'
 database = 'testdatabase'
@@ -17,9 +18,18 @@ driver = '{ODBC Driver 17 for SQL Server}'
 class Provider():
     def __init__(self):
         self.ProviderLink = 'https://steamcdn-a.akamaihd.net/steam/publicstats/top_asns_per_country.jsonp?v=' + time.strftime("%m-%d-%Y") + str(10)
-        self.response = requests.get(self.ProviderLink).text
+        self.response = requests.get(self.ProviderLink)
+        try:
+            self.response.raise_for_status()
+        except Exception as exc:
+            print('There was a problem: %s with scraping for <steam_provider_data>' % (exc))
+        self.soup = BeautifulSoup(self.response.text, 'lxml')
         self.CountryCodeLink = 'https://steamstore-a.akamaihd.net/public/data/world-countries.jsonp'
-        self.response_countries = requests.get(self.CountryCodeLink).text
+        self.response_countries = requests.get(self.CountryCodeLink)
+        try:
+            self.response_countries.raise_for_status()
+        except Exception as exc:
+            print('There was a problem: %s with scraping for <steam_provider_data>' % (exc))
     
     def progress(self, count, total, custom_text, suffix=''):
         bar_len = 60
@@ -48,6 +58,10 @@ class Provider():
 
     def getData(self):
         # PERFORMANCE BY INTERNET SERVICE PROVIDER (ISP)
+        self.response_countries = self.response_countries.text
+        self.response = self.response.text
+
+        # PARSE OUT THE DATA FORMATS: JSONP --> JSON
         provider_data = json.loads(self.response[self.response.index("(") + 1: self.response.rindex(")")])
         country_code_data = json.loads(self.response_countries[self.response_countries.index("(") + 1: self.response_countries.rindex(")")])
 

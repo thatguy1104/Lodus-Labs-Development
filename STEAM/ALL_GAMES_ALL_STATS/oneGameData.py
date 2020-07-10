@@ -13,6 +13,10 @@ class GameStats():
 
     def recieveData(self):
         response = requests.get(self.link)
+        try:
+            response.raise_for_status()
+        except Exception as exc:
+            print('There was a problem: %s with scraping for <steam_all_games_all_data>' % (exc))
         soup = BeautifulSoup(response.text, 'lxml')
 
         month = soup.find_all('td', class_='month-cell left italic') + \

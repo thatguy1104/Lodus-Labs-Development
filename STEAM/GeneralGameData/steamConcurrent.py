@@ -58,6 +58,10 @@ class steamConcurrent():
     def getTopGamesByPlayerCount(self, page):
         link = self.linkAll + str(page)
         response = requests.get(link)
+        try:
+            response.raise_for_status()
+        except Exception as exc:
+            print('There was a problem: %s with scraping for <steam_concurrentGames>' % (exc))
         soup = BeautifulSoup(response.text, 'lxml')
 
         all_game_names = []

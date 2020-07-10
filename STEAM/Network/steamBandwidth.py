@@ -19,7 +19,12 @@ class SteamBandwidth():
     def __init__(self, weird_num):
         self.url = 'https://steamcdn-a.akamaihd.net/steam/publicstats/download_traffic_per_country.jsonp?v=' + \
                    time.strftime("%m-%d-%Y") + str(weird_num)
-        self.response = requests.get(self.url).text
+        self.response = requests.get(self.url)
+        try:
+            self.response.raise_for_status()
+        except Exception as exc:
+            print('There was a problem: %s with scraping for <steam_network_data>' % (exc))
+        self.response = self.response.text
         parser = cfg.ConfigParser()
         parser.read('config.cfg')
         self.server = parser.get('db_credentials', 'server')

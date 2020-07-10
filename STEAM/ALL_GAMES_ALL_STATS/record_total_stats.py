@@ -18,6 +18,10 @@ class GetAllRecordData():
         self.linkGeneral = 'https://store.steampowered.com/stats/'
         self.linkAll = 'https://steamcharts.com/top/p.'
         self.response = requests.get(self.linkGeneral)
+        try:
+            self.response.raise_for_status()
+        except Exception as exc:
+            print('There was a problem: %s with scraping for <steam_all_games_all_data>' % (exc))
         self.soup = BeautifulSoup(self.response.text, 'lxml')
         parser = cfg.ConfigParser()
         parser.read('config.cfg')

@@ -4,3 +4,4 @@ SELECT [Country_Code]
       , [avgmbps]
       , [Last_Updated]
 FROM [dbo].[steam_provider_data]
+ORDER BY avgmbps
