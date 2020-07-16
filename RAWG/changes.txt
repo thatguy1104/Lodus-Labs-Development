@@ -1,0 +1,28 @@
+- steam_network
+    * country name VARCHAR(50) --> VARCHAR(100)
+    * total_bytes int --> BIGINT
+    * add last_updated section --> DATETIME
+
+- steamBandWidthUsed
+    * current INT --> FLOAT
+    * peak INT --> FLOAT
+
+- steamNetworkProvidersInCountry
+    * add: total_bytes(BIGINT)
+
+- there is no <countryAbbreivations> table
+    * why --> abbreviations do not exist for all the countries
+
+- steamGamesData
+    * month INT --> VARCHAR(100)
+    * gameName VARCHAR(50) --> NVARCHAR(200)
+    * avg_players INT --> FLOAT
+    * gains INT --> FLOAT
+    * percent_gains FLOAT --> VARCHAR(100)
+    * peak_players INT --> BIGINT
+
+- steamCurrentPlayerCount (steam_concurrent)
+    * delete: there is no gameID scraped
+    * curentPlayers INT --> BIGINT
+    * peak_players INT --> BIGINT
+    * hours_played INT --> BIGINT
