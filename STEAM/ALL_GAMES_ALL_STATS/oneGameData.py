@@ -40,13 +40,42 @@ class GameStats():
         # Parse out the gain + percent gain column from the row data
         for i in range(1, len(whole_line)):
             one = whole_line[i].split('\n')
-            if len(one) == 7:
-                gain.append(one[2])
-                percent_gain.append(one[3])
-            else:
-                gain.append(one[1])
-                percent_gain.append(one[2])
+            for elem in one:
+                if elem == '':
+                    one.remove(elem)
+            
+            if len(one) == 5:
+                if one[2] is not '-':
+                    gain.append(float(one[2]))
+                else:
+                    gain.append(0.00)
 
+                if one[3] is not '-':
+                    percent_gain.append(float(one[3].replace('%', '')))
+                else:
+                    percent_gain.append(0.00)
+
+            elif len(one) == 4:
+                if one[1] is not '-':
+                    gain.append(float(one[1]))
+                else:
+                    gain.append(0.00)
+
+                if one[2] is not '-':
+                    percent_gain.append(float(one[2].replace('%', '')))
+                else:
+                    percent_gain.append(0.00)
+
+        # Parse out percent gain, delete %,+/- and convert to float
+        # clean_percent_gain = []
+        # for elem in percent_gain:
+        #     if elem is not '-':
+        #         not_rounded = float(elem.replace('%', ''))
+        #         new_elem = round(not_rounded, 2)
+        #         clean_percent_gain.append(new_elem)
+        #     else:
+        #         clean_percent_gain.append(0)
+            
         return month, avg_players, gain, percent_gain, peak_players
 
     def getOneGameData(self):
@@ -55,7 +84,6 @@ class GameStats():
         all_months = []
         all_players = []
         all_gains = []
-        all_percent_gains = []
         all_peak_players = []
 
         for i in range(len(month)):
@@ -78,10 +106,9 @@ class GameStats():
 
             all_gains.append(gain[i])
 
-            all_percent_gains.append(percent_gain[i])
-
             initial_5 = peak_players[i].text.replace('\t', '')
             mid_5 = initial_5.replace('\n', '')
-            all_peak_players.append(mid_5)
+            all_peak_players.append(int(mid_5))
 
-        return all_months, all_years, all_players, all_gains, all_percent_gains, all_peak_players
+
+        return all_months, all_years, all_players, all_gains, percent_gain, all_peak_players

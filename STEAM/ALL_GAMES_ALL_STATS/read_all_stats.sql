@@ -1,4 +1,4 @@
-SELECT [Month]
+SELECT [Month_]
       , [Year_]
       , [name_]
       , [ids]
@@ -10,6 +10,7 @@ SELECT [Month]
 FROM [dbo].[steam_all_games_all_data]
 
 WHERE ids = '730'
+ORDER BY percent_gains DESC
 -- ORDER BY Year_ DESC
 -- ORDER BY Year_ DESC,
 --       CASE Month        WHEN 'January' THEN 1

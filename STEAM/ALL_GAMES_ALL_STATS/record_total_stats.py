@@ -80,7 +80,8 @@ class GetAllRecordData():
         return all_game_names, all_game_id
 
     def readGameIds(self):
-        pages = 448
+        # pages = 448
+        pages = 2
         ids = []
         names = []
 
@@ -90,6 +91,7 @@ class GetAllRecordData():
             for i in range(len(name)):
                 ids.append(game_id[i])
                 names.append(name[i])
+        sys.stdout.write('\n')
         print("Finished gathering game IDs")
         return names, ids
 
@@ -112,17 +114,16 @@ class GetAllRecordData():
             name = names[i]
             id_ = int(get_all_ids[i][5:])
 
-            if len(all_gains) is not 0:
-                all_gains[len(all_gains) - 1] = 0
-
-            if len(all_percent_gains) is not 0:
-                all_percent_gains[len(all_percent_gains) - 1] = '0'
 
             for j in range(len(all_months)):
                 f = float(all_players[j])
-                f2 = float(all_gains[j])
-                inte = int(all_peak_players[j])
-                data.append((all_months[j], all_years[j], name, id_, f, f2, all_percent_gains[j], inte, curr_date))
+                # f2 = float(all_gains[j])
+                # inte = int(all_peak_players[j])
+                # if isinstance(all_percent_gains[j], int):
+                #     all_percent_gains[j] = float(all_percent_gains[j])
+                new = round(all_percent_gains[j], 2)
+                new_gain = round(all_gains[j], 2)
+                data.append((all_months[j], all_years[j], name, id_, f, new_gain, new, all_peak_players[j], curr_date))
         sys.stdout.write('\n')
 
         # CONNECT TO A SERVER DATABASE
@@ -134,13 +135,13 @@ class GetAllRecordData():
             # RESET THE TABLE
             cur.execute("DROP TABLE IF EXISTS steam_all_games_all_data;")
             create = """CREATE TABLE steam_all_games_all_data(
-                Month           VARCHAR(100),
+                Month_           VARCHAR(100),
                 Year_           INT,
                 name_           NVARCHAR(200),
                 ids             INT,
-                avg_players     float,
-                gains           float,
-                percent_gains   VARCHAR(100),
+                avg_players     FLOAT,
+                gains           FLOAT,
+                percent_gains   FLOAT,
                 peak_players    BIGINT,
                 Last_Updated    DATETIME
             );"""
@@ -164,7 +165,7 @@ class GetAllRecordData():
             count = 1
             for elem in final:
                 self.progress(count, len(final), "writing to <steam_all_games_all_data>")
-                insertion = "INSERT into steam_all_games_all_data(Month, Year_, name_, ids, avg_players, gains, percent_gains, peak_players, Last_Updated) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)"
+                insertion = "INSERT into steam_all_games_all_data(Month_, Year_, name_, ids, avg_players, gains, percent_gains, peak_players, Last_Updated) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)"
                 cur.executemany(insertion, elem)
                 count += 1
 
@@ -176,7 +177,8 @@ class GetAllRecordData():
         myConnection.commit()
         myConnection.close()
 
-        return t1 - t0
+        return 0
+        # return t1 - t0
 
     def record(self):
         return self.getOneGameStats()

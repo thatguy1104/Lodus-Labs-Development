@@ -65,6 +65,7 @@ class steamConcurrent():
         soup = BeautifulSoup(response.text, 'lxml')
 
         all_game_names = []
+        all_game_ids = []
         current_players = []
         peak_players = []
         hours_played = []
@@ -74,11 +75,14 @@ class steamConcurrent():
 
         for tittle in names:
             game_name = tittle.find('a')
+            game_id = int(tittle.find('a')['href'][5:])
 
             # Process the weirdly formatted string output for NAMES
             raw = game_name.text.replace('\t', '')
             final = raw.replace('\n', '')
+
             all_game_names.append(final)
+            all_game_ids.append(game_id)
 
         for player in current_p:
             peaks = soup.find_all('td', class_='num period-col peak-concurrent')
@@ -91,7 +95,7 @@ class steamConcurrent():
         for i in range(len(names)):
             hours_played.append(hours[i].text)
 
-        return all_game_names, current_players, peak_players, hours_played
+        return all_game_names, current_players, peak_players, hours_played, all_game_ids
 
     def updateDB(self, pages):
         # total_current, total_peak = self.getConcurrent()  <-- NOT USED ANYWHERE, BUT KEEP FOR NOW
@@ -102,9 +106,9 @@ class steamConcurrent():
 
         for p in range(1, pages):
             self.progress(p, pages, "scraping for <steam_concurrentGames>")
-            name, current, peak, hours_played = self.getTopGamesByPlayerCount(p)
+            name, current, peak, hours_played, all_game_ids = self.getTopGamesByPlayerCount(p)
             for i in range(len(name)):
-                data.append((name[i], current[i], peak[i], hours_played[i], curr_date))
+                data.append((name[i], all_game_ids[i], current[i], peak[i], hours_played[i], curr_date))
         sys.stdout.write('\n')
 
         # CONNECT TO DATABASE
@@ -117,6 +121,7 @@ class steamConcurrent():
             cur.execute("DROP TABLE IF EXISTS steam_concurrentGames;")
             create = """CREATE TABLE steam_concurrentGames(
                 Name_               NVARCHAR(255),
+                Game_ID             INT,
                 Current_Players     BIGINT,
                 Peak_Today          BIGINT,
                 Hours_Played        BIGINT,
@@ -135,7 +140,7 @@ class steamConcurrent():
 
             # EXECUTE INSERTION INTO DB TABLE
             cur.fast_executemany = True
-            insertion = "INSERT INTO steam_concurrentGames(Name_, Current_Players, Peak_Today, Hours_Played, Last_Updated) VALUES (?, ?, ?, ?, ?)"
+            insertion = "INSERT INTO steam_concurrentGames(Name_, Game_ID, Current_Players, Peak_Today, Hours_Played, Last_Updated) VALUES (?, ?, ?, ?, ?, ?)"
             cur.executemany(insertion, data)
 
             # RECORD END TIME OF WRITING

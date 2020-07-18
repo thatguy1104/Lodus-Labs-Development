@@ -6,9 +6,6 @@ from datetime import datetime
 import time
 import pandas as pd
 
-'rawgGamesList'
-'20,000 games'
-
 server = 'serverteest.database.windows.net'
 database = 'testdatabase'
 username = 'login12391239'
@@ -49,8 +46,10 @@ class RAWG_Scrape():
         data = []
         count = 0
         
-        while response['next']:
-            print('Page {0} for <rawgGamesList>'.format(count))
+        # while response['next']:
+        for i in range(5):
+            # 20922
+            self.progress(count, 5, '<rawgGamesList>')
             next_link = response['next']
 
             # UPDATE RESPONSE: SET TO NEXT PAGE
@@ -84,7 +83,6 @@ class RAWG_Scrape():
                     rating = None
 
                 tba = 1
-
                 data.append((name, slug, date_object, metaccritic, avg_game_playtime, tba, rating, curr_date))
             count += 1
 
@@ -118,7 +116,7 @@ class RAWG_Scrape():
         # DIVIDE DATA INTO n CHUNKS
         n = 1000
         final = [data[i * n:(i + 1) * n] for i in range((len(data) + n - 1) // n)]
-        cur.fast_executemany = True
+        # cur.fast_executemany = True
 
         # DO NOT WRITE IF LIST IS EMPTY DUE TO TOO MANY REQUESTS
         if not data:
@@ -130,9 +128,10 @@ class RAWG_Scrape():
             # ITERATE THROUGH DICT AND INSERT VALUES ROW-BY-ROW
             count = 1
             for elem in final:
+                print(elem)
                 self.progress(count, len(final), "writing to <rawgGamesList>")
                 insertion = "INSERT INTO rawgGamesList(gameName, gameSlug, releaseData, metacritic, avgGamePlaytime, tba, Rating, Last_Updated) VALUES (?, ?, ?, ?, ?, ?, ?, ?)"
-                cur.executemany(insertion, elem)
+                cur.execute(insertion, elem)
                 count += 1
 
             # RECORD END TIME OF WRITING
@@ -146,6 +145,5 @@ class RAWG_Scrape():
         return t1 - t0
 
 obj = RAWG_Scrape()
-obj.writeToDB()
-
-    
+time = obj.writeToDB()
+print(time)

@@ -1,4 +1,5 @@
 SELECT [Name_]
+      , [Game_ID]
       , [Current_Players]
       , [Peak_Today]
       , [Hours_Played]
