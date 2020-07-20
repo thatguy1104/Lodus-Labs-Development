@@ -81,8 +81,7 @@ class GetAllRecordData():
         return all_game_names, all_game_id
 
     def readGameIds(self):
-        # pages = 448
-        pages = 20
+        pages = 448
         ids = []
         names = []
 
@@ -108,7 +107,7 @@ class GetAllRecordData():
 
             # PREPARE THE IDs
             one_game = GameStats(get_all_ids[i])
-            
+
             # SCRAPE DATA FOR A GIVEN GAME
             all_months, all_years, all_players, all_gains, all_percent_gains, all_peak_players = one_game.getOneGameData()
             name = names[i]
