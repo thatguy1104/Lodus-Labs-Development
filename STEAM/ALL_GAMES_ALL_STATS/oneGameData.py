@@ -3,6 +3,7 @@ import requests
 import lxml
 import json
 import datetime
+import math
 
 
 class GameStats():
@@ -10,6 +11,16 @@ class GameStats():
         self.GameID = gameID
         self.link = 'https://steamcharts.com/' + gameID
         self.writeFILE = 'OneGameData/oneGameStats.json'
+
+    def get_indices(self, lst, element):
+        result = []
+        offset = -1
+        while True:
+            try:
+                offset = lst.index(element, offset + 1)
+            except ValueError:
+                return result
+            result.append(offset)
 
     def recieveData(self):
         response = requests.get(self.link)
@@ -43,43 +54,46 @@ class GameStats():
             for elem in one:
                 if elem == '':
                     one.remove(elem)
-            
+
             if len(one) == 5:
                 if one[2] is not '-':
                     gain.append(float(one[2]))
                 else:
-                    gain.append(0.00)
+                    gain.append(0)
 
                 if one[3] is not '-':
-                    percent_gain.append(float(one[3].replace('%', '')))
+                    percent_gain.append(float(one[3].replace('%', "")))
                 else:
-                    percent_gain.append(0.00)
+                    percent_gain.append(0.0)
 
             elif len(one) == 4:
                 if one[1] is not '-':
                     gain.append(float(one[1]))
                 else:
-                    gain.append(0.00)
+                    gain.append(0)
 
                 if one[2] is not '-':
-                    percent_gain.append(float(one[2].replace('%', '')))
+                    percent_gain.append(float(one[2].replace('%', "")))
                 else:
-                    percent_gain.append(0.00)
+                    percent_gain.append(0.0)
 
-        # Parse out percent gain, delete %,+/- and convert to float
-        # clean_percent_gain = []
-        # for elem in percent_gain:
-        #     if elem is not '-':
-        #         not_rounded = float(elem.replace('%', ''))
-        #         new_elem = round(not_rounded, 2)
-        #         clean_percent_gain.append(new_elem)
-        #     else:
-        #         clean_percent_gain.append(0)
-            
-        return month, avg_players, gain, percent_gain, peak_players
+        # PARSE OUT INF & NAN VALUES, REPLACE WITH 0.00
+        percent_gain_fixed = [0.00 if (math.isnan(x) or x == float('inf')) else x for x in percent_gain]
+
+        return month, avg_players, gain, percent_gain_fixed, peak_players
 
     def getOneGameData(self):
         month, avg_player, gain, percent_gain, peak_players = self.recieveData()
+        lst = [len(month), len(avg_player), len(gain), len(percent_gain), len(peak_players)]
+
+        indicies_of_min = self.get_indices(lst, min(lst))
+        if len(indicies_of_min) is not len(lst):
+            for index in indicies_of_min:
+                if index is 2:
+                    gain.append(0.00)
+                elif index is 3:
+                    percent_gain.append(0.00)
+
         all_years = []
         all_months = []
         all_players = []
@@ -100,15 +114,14 @@ class GameStats():
                 all_months.append(separate[0])
                 all_years.append(int(separate[1]))
 
-            initial_2 = avg_player[i].text.replace('\t', '')
+            initial_2 = avg_player[i].text.replace('\t', "")
             mid_2 = initial_2.replace('\n', '')
-            all_players.append(mid_2)
+            all_players.append(float(mid_2))
 
             all_gains.append(gain[i])
 
             initial_5 = peak_players[i].text.replace('\t', '')
             mid_5 = initial_5.replace('\n', '')
             all_peak_players.append(int(mid_5))
-
 
         return all_months, all_years, all_players, all_gains, percent_gain, all_peak_players

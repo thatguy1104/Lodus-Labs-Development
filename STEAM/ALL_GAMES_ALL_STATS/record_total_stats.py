@@ -3,6 +3,7 @@
 
 from STEAM.ALL_GAMES_ALL_STATS.oneGameData import GameStats
 from bs4 import BeautifulSoup
+import numpy as np
 import requests
 import lxml
 import json
@@ -81,7 +82,7 @@ class GetAllRecordData():
 
     def readGameIds(self):
         # pages = 448
-        pages = 2
+        pages = 20
         ids = []
         names = []
 
@@ -102,28 +103,20 @@ class GetAllRecordData():
         data = []
         curr_date = datetime.datetime.now()
 
-        # len(names)
         for i in range(len(names)):
             self.progress(i, len(names), "scraping for <steam_all_games_all_data>")
 
             # PREPARE THE IDs
             one_game = GameStats(get_all_ids[i])
-
+            
             # SCRAPE DATA FOR A GIVEN GAME
             all_months, all_years, all_players, all_gains, all_percent_gains, all_peak_players = one_game.getOneGameData()
             name = names[i]
             id_ = int(get_all_ids[i][5:])
 
-
             for j in range(len(all_months)):
-                f = float(all_players[j])
-                # f2 = float(all_gains[j])
-                # inte = int(all_peak_players[j])
-                # if isinstance(all_percent_gains[j], int):
-                #     all_percent_gains[j] = float(all_percent_gains[j])
-                new = round(all_percent_gains[j], 2)
                 new_gain = round(all_gains[j], 2)
-                data.append((all_months[j], all_years[j], name, id_, f, new_gain, new, all_peak_players[j], curr_date))
+                data.append((all_months[j], all_years[j], name, id_, all_players[j], new_gain, all_percent_gains[j], all_peak_players[j], curr_date))
         sys.stdout.write('\n')
 
         # CONNECT TO A SERVER DATABASE
@@ -135,15 +128,15 @@ class GetAllRecordData():
             # RESET THE TABLE
             cur.execute("DROP TABLE IF EXISTS steam_all_games_all_data;")
             create = """CREATE TABLE steam_all_games_all_data(
-                Month_           VARCHAR(100),
-                Year_           INT,
-                name_           NVARCHAR(200),
-                ids             INT,
-                avg_players     FLOAT,
-                gains           FLOAT,
-                percent_gains   FLOAT,
-                peak_players    BIGINT,
-                Last_Updated    DATETIME
+                Month_          VARCHAR(100) NOT NULL,
+                Year_           INT NOT NULL,
+                name_           NVARCHAR(250),
+                ids             INT NOT NULL,
+                avg_players     FLOAT NOT NULL,
+                gains           FLOAT NOT NULL,
+                percent_gains   FLOAT NOT NULL,
+                peak_players    BIGINT NOT NULL,
+                Last_Updated    DATETIME NOT NULL
             );"""
             cur.execute(create)
             myConnection.commit()
@@ -154,6 +147,7 @@ class GetAllRecordData():
         final = [data[i * n:(i + 1) * n] for i in range((len(data) + n - 1) // n)]
 
         cur.fast_executemany = True
+
         # DO NOT WRITE IF LIST IS EMPTY DUE TO TOO MANY REQUESTS
         if not data:
             print("Not written --> too many requests")
@@ -177,8 +171,7 @@ class GetAllRecordData():
         myConnection.commit()
         myConnection.close()
 
-        return 0
-        # return t1 - t0
+        return t1 - t0
 
     def record(self):
         return self.getOneGameStats()
