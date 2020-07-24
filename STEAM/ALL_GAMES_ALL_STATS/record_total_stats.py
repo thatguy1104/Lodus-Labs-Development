@@ -101,7 +101,7 @@ class GetAllRecordData():
         # RECORD DATA
         data = []
         curr_date = datetime.datetime.now()
-
+        
         for i in range(len(names)):
             self.progress(i, len(names), "scraping for <steam_all_games_all_data>")
 
